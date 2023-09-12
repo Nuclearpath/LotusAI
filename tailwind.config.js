@@ -9,7 +9,15 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        Montserrat: ["Montserrat", "sans-serif"],
+      },
+      colors: {
+        "custom-yellow": "#FFA921",
+        "custom-light-yellow": "#FFEAC9",
+      },
+    },
   },
   plugins: [],
 };
