@@ -66,18 +66,21 @@ function dashboard() {
         </div>
         <div className="flex space-x-16 py-5 overflow-x-scroll">
           {data.comparableHouses.map((e, i) => {
-            return(
-            <House data={...e} key={i}></House>);
+            return <div key={i}>{e && <House data={e}></House>}</div>;
           })}
         </div>
         <div className="w-full flex justify-end">
-          <Link href="" className="underline text-sm text-gray-500 font-semibold py-7">View comparable properties</Link>
+          <Link
+            href=""
+            className="underline text-sm text-gray-500 font-semibold py-7"
+          >
+            View comparable properties
+          </Link>
         </div>
         <div className="pt-24 flex justify-center text-3xl font-Montserrat w-full">
-        House Value Trend
+          House Value Trend
         </div>
         <ValueTrendsChart></ValueTrendsChart>
-        
       </div>
     </div>
   );
