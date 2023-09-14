@@ -36,21 +36,21 @@ function DashboardContent(props) {
       <div className="pt-24 grid gap-10 grid-cols-3 ">
         <div className="w-full shadow flex justify-center flex-col items-center py-10 space-y-5">
           <div className="text-custom-yellow">Our Estimate</div>
-          <div className="flex justify-center space-x-5 text-xl w-full font-semibold">
+          <div className="flex justify-center space-x-5 text-xl w-full font-semibold items-center">
             <BsGraphUpArrow className="scale-150 text-custom-yellow"></BsGraphUpArrow>
             <div>${estimate}</div>
           </div>
         </div>
         <div className="w-full shadow flex justify-center flex-col items-center py-10 space-y-5">
           <div className="text-custom-yellow">Sale Activity</div>
-          <div className="flex justify-center space-x-5 text-xl w-full font-semibold">
+          <div className="flex justify-center space-x-5 text-xl w-full font-semibold items-center">
             <AiFillHome className="scale-150 text-custom-yellow"></AiFillHome>
             <div>{sales} homes sold</div>
           </div>
         </div>
         <div className="w-full shadow flex justify-center flex-col items-center py-10 space-y-5">
           <div className="text-custom-yellow ">Average Sale Price</div>
-          <div className="flex justify-center space-x-5 text-xl w-full font-semibold">
+          <div className="flex justify-center space-x-5 text-xl w-full font-semibold items-center">
             <AiFillDollarCircle className="scale-150 text-custom-yellow"></AiFillDollarCircle>
             <div>${estimate}</div>
           </div>
