@@ -21,8 +21,9 @@ function LandingPage() {
   };
   return (
     <div className="w-full flex h-full  flex-col">
-      <div className="sm:flex  w-full sm:h-screen  relative">
-        <div className="absolute bottom-0 flex w-full justify-center py-4">
+      <Header></Header>
+      <div className="sm:flex  w-full sm:h-screen  relative sm:px-12 px-3">
+        <div className="absolute bottom-0 flex w-10/12 justify-center py-4 ">
           <Link
             className="bg-custom-light-yellow text-custom-yellow p-2 rounded-full  border-custom-yellow border-2"
             href="#hom"
@@ -30,21 +31,17 @@ function LandingPage() {
             <BsChevronCompactDown></BsChevronCompactDown>
           </Link>
         </div>
-        <div className="sm:hidden flex">
-          <Header></Header>
-        </div>
-        <div className="sm:w-auto w-full flex sm:h-full h-auto sm:px-3 px-0 sm:pt-24 justify-center sm:justify-start pt-2">
+
+        <div className="sm:w-1/2 w-full flex sm:h-full h-auto sm:px-3 px-0 sm:pt-4 justify-center sm:justify-start pt-2">
           <LazyLoadImage
             src="./house.png"
             className="w-auto h-auto"
           ></LazyLoadImage>
         </div>
-        <div className="sm:w-1/2 flex sm:h-full h-auto  flex-col  sm:px-12 px-3  sm:py-0 py-5w-full">
-          <div className="hidden sm:flex">
-            <Header></Header>
-          </div>
+        <div className="sm:w-1/2 flex sm:h-full h-auto  flex-col  sm:pl-12 px-3 sm:pt-4  sm:py-0 py-5 w-full sm:overflow-hidden">
+          <div className="hidden sm:flex">{/* <Header></Header> */}</div>
           <div className="w-full h-full flex flex-col sm:justify-between justify-start sm:space-y-0 space-y-7">
-            <div className="sm:text-5xl text-3xl font-Montserrat sm:py-3 py-0 sm:pt-0 pt-3  font-normal sm:leading-normal leading-snug tracking-wider">
+            <div className="sm:text-4xl text-3xl font-Montserrat sm:py-3 py-0 sm:pt-0 pt-3  font-normal sm:leading-normal leading-snug tracking-wider">
               Lorem ipsum <span className="text-custom-yellow">dolor</span>
               <br></br> sit amet
             </div>
@@ -69,12 +66,12 @@ function LandingPage() {
               </button>
             </form>
             <div className="border-2 border-custom-yellow relative h-64 ">
-              <div className="w-full sm:space-y-5 space-y-3 bg-custom-light-yellow pb-3  flex flex-col py-5 absolute h-64 top-5 right-5">
-                <div className="text-custom-yellow sm:text-3xl text-xl flex justify-end sm:pl-24 pl-0 font-Montserrat text-right sm:pr-3 pr-1">
+              <div className="w-full sm:space-y-3 space-y-3 bg-custom-light-yellow pb-3  flex flex-col py-5 sm:py-2 absolute h-64 top-5 right-5">
+                <div className="text-custom-yellow sm:text-3xl text-xl flex justify-end sm:pl-0 pl-0 font-Montserrat text-right sm:pr-3 pr-1">
                   Unlock the true value of hour home with just one click
                 </div>
 
-                <div className="sm:pl-5 pl-0 text-right sm:pr-3 pr-1 font-Montserrat font-semibold sm:text-sm text-xs">
+                <div className="sm:pl-5 pl-0 text-right sm:pr-1 pr-1 font-Montserrat font-semibold sm:text-sm text-xs">
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                   accusantium doloremque laudantium, totam rem aperiam, eaque
                   ipsa quae ab illo inventore veritatis et quasi architecto
@@ -96,7 +93,7 @@ function LandingPage() {
         </div>
       </div>
       <div
-        className="sm:pt-24 pt-8 sm:flex  flex-col w-full space-y-7 relative"
+        className="sm:pt-24 pt-8 sm:flex  flex-col w-full space-y-7 relative sm:px-12 sm:overflow-hidden"
         id="hom"
       >
         <div className="w-full absolute bottom-10 h-32 bg-custom-yellow -z-50 -mx-10 sm:block hidden"></div>
