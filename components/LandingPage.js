@@ -7,6 +7,7 @@ import { BsChevronCompactDown } from "react-icons/bs";
 import { BsInstagram } from "react-icons/bs";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { BiLogoFacebook } from "react-icons/bi";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import Link from "next/link";
 function LandingPage() {
   /*Form value */
@@ -20,7 +21,7 @@ function LandingPage() {
   };
   return (
     <div className="w-full flex h-full  flex-col">
-      <div className="flex w-full h-screen relative">
+      <div className="sm:flex  w-full sm:h-screen  relative">
         <div className="absolute bottom-0 flex w-full justify-center py-4">
           <Link
             className="bg-custom-light-yellow text-custom-yellow p-2 rounded-full  border-custom-yellow border-2"
@@ -29,19 +30,27 @@ function LandingPage() {
             <BsChevronCompactDown></BsChevronCompactDown>
           </Link>
         </div>
-        <div className="w-auto flex h-full px-3 pt-24">
-          <img src="./house.png" className="w-auto h-auto"></img>
-        </div>
-        <div className="w-1/2 flex h-full  flex-col  px-12 ">
+        <div className="sm:hidden flex">
           <Header></Header>
-          <div className="w-full h-full flex flex-col justify-between">
-            <div className="text-5xl font-Montserrat py-3  font-normal leading-normal tracking-wider">
+        </div>
+        <div className="sm:w-auto w-full flex sm:h-full h-auto sm:px-3 px-0 sm:pt-24 justify-center sm:justify-start pt-2">
+          <LazyLoadImage
+            src="./house.png"
+            className="w-auto h-auto"
+          ></LazyLoadImage>
+        </div>
+        <div className="sm:w-1/2 flex sm:h-full h-auto  flex-col  sm:px-12 px-3  sm:py-0 py-5w-full">
+          <div className="hidden sm:flex">
+            <Header></Header>
+          </div>
+          <div className="w-full h-full flex flex-col sm:justify-between justify-start sm:space-y-0 space-y-7">
+            <div className="sm:text-5xl text-3xl font-Montserrat sm:py-3 py-0 sm:pt-0 pt-3  font-normal sm:leading-normal leading-snug tracking-wider">
               Lorem ipsum <span className="text-custom-yellow">dolor</span>
               <br></br> sit amet
             </div>
-            <div className="font-Montserrat text-base tracking-wider">
-              consectetur adipiscing elit, sed do eiusmod tempor incididunt
-              <br></br> ut labore et dolore magna aliqua
+            <div className="font-Montserrat sm:text-base tracking-wider text-sm">
+              consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua
             </div>
             <form
               className="w-full flex relative"
@@ -60,13 +69,12 @@ function LandingPage() {
               </button>
             </form>
             <div className="border-2 border-custom-yellow relative h-64 ">
-              <div className="w-full space-y-5 bg-custom-light-yellow pb-3  flex flex-col py-5 absolute h-64 top-5 right-5">
-                <div className="text-custom-yellow text-3xl flex justify-end pl-24 font-Montserrat text-right pr-3">
-                  Unlock the true value of hour <br></br>home with just one
-                  click
+              <div className="w-full sm:space-y-5 space-y-3 bg-custom-light-yellow pb-3  flex flex-col py-5 absolute h-64 top-5 right-5">
+                <div className="text-custom-yellow sm:text-3xl text-xl flex justify-end sm:pl-24 pl-0 font-Montserrat text-right sm:pr-3 pr-1">
+                  Unlock the true value of hour home with just one click
                 </div>
 
-                <div className="pl-5 text-right pr-3 font-Montserrat font-semibold text-sm">
+                <div className="sm:pl-5 pl-0 text-right sm:pr-3 pr-1 font-Montserrat font-semibold sm:text-sm text-xs">
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                   accusantium doloremque laudantium, totam rem aperiam, eaque
                   ipsa quae ab illo inventore veritatis et quasi architecto
@@ -75,7 +83,7 @@ function LandingPage() {
                 <div className="w-full flex justify-end pr-3">
                   <Link
                     href=""
-                    className="flex justify-between items-center font-Montserrat font-semibold space-x-5 pr-3 border-2 rounded-full border-gray-900 py-2 px-5 "
+                    className="flex justify-between items-center font-Montserrat font-semibold space-x-5 sm:pr-3 pr-1 border-2 rounded-full border-gray-900 py-2 px-5 "
                   >
                     {" "}
                     <span> Discover More</span>{" "}
@@ -87,14 +95,17 @@ function LandingPage() {
           </div>
         </div>
       </div>
-      <div className="pt-24 flex flex-col w-full space-y-7 relative" id="hom">
-        <div className="w-full absolute bottom-10 h-32 bg-custom-yellow -z-50 -mx-10"></div>
-        <div className="w-full absolute top-52 h-24 bg-custom-light-yellow -z-50 mx-10"></div>
+      <div
+        className="sm:pt-24 pt-8 sm:flex  flex-col w-full space-y-7 relative"
+        id="hom"
+      >
+        <div className="w-full absolute bottom-10 h-32 bg-custom-yellow -z-50 -mx-10 sm:block hidden"></div>
+        <div className="w-full absolute top-52 h-24 bg-custom-light-yellow -z-50 mx-10 sm:block hidden"></div>
         <div className="w-full justify-start font-Montserrat text-4xl">
           Why Us?
         </div>{" "}
-        <div className="grid gap-10 grid-cols-3 ">
-          <div className="w-full h-96 border-2 border-custom-yellow flex flex-col px-5 py-16 justify-between bg-white">
+        <div className="grid sm:gap-10 gap-5 sm:grid-cols-3 grid-cols-1 sm:px-0 ">
+          <div className="w-full sm:h-96 h-auto border-2 border-custom-yellow flex flex-col sm:px-5 sm:py-16 px-2 py-10 sm:justify-between space-y-4  bg-white">
             <div className="w-full flex justify-center text-custom-yellow text-2xl font-Montserrat">
               Live Agent
             </div>
@@ -107,7 +118,7 @@ function LandingPage() {
               nostrud
             </div>
           </div>
-          <div className="w-full h-96 border-2 border-custom-yellow flex flex-col px-5 py-16 justify-between bg-white">
+          <div className="w-full sm:h-96 h-auto border-2 border-custom-yellow flex flex-col sm:px-5 sm:py-16 px-2 py-10 sm:justify-between space-y-4  bg-white">
             <div className="w-full flex justify-center text-custom-yellow text-2xl font-Montserrat">
               Accurate Estimate
             </div>
@@ -120,7 +131,7 @@ function LandingPage() {
               nostrud
             </div>
           </div>
-          <div className="w-full h-96 border-2 border-custom-yellow flex flex-col px-5 py-16 justify-between bg-white">
+          <div className="w-full sm:h-96 h-auto border-2 border-custom-yellow flex flex-col sm:px-5 sm:py-16 px-2 py-10 sm:justify-between space-y-4  bg-white">
             <div className="w-full flex justify-center text-custom-yellow text-2xl font-Montserrat">
               Seamless Process
             </div>

@@ -18,10 +18,10 @@ function DashboardContent(props) {
   };
   return (
     <>
-      <div className="w-full shadow flex flex-col items-start px-5 py-5 my-4 rounded-md font-Montserrat">
-        <div className="w-full flex justify-start font-semibold items-center">
+      <div className="w-full shadow flex flex-col items-start sm:px-5 sm:py-5 px-1 py-2 my-4 rounded-md font-Montserrat">
+        <div className="w-full sm:flex sm:flex-row  justify-start font-semibold items-center flex-col">
           Estimated Value for {house}{" "}
-          <span className="text-custom-yellow text-xl pl-5 font-Montserrat">
+          <span className="text-custom-yellow sm:text-xl text-base sm:pl-5 pl-0 font-Montserrat sm:block flex">
             $ {value}
           </span>
         </div>
@@ -33,7 +33,7 @@ function DashboardContent(props) {
           Edit facts
         </Link>
       </div>
-      <div className="pt-24 grid gap-10 grid-cols-3 ">
+      <div className="sm:pt-24 pt-3 grid gap-10 sm:grid-cols-3 grid-cols-1">
         <div className="w-full shadow flex justify-center flex-col items-center py-10 space-y-5">
           <div className="text-custom-yellow">Our Estimate</div>
           <div className="flex justify-center space-x-5 text-xl w-full font-semibold items-center">

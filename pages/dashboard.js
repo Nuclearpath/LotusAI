@@ -56,12 +56,12 @@ function dashboard() {
   return (
     <div className=" flex w-full flex-col">
       <MainHeader></MainHeader>
-      <div className="w-full flex flex-col px-12">
-        <div className="pt-24 flex justify-start text-3xl font-Montserrat w-full">
+      <div className="w-full flex flex-col sm:px-12 px-3">
+        <div className="sm:pt-24 pt-3 flex justify-start sm:text-3xl text-2xl font-Montserrat w-full">
           DashBoard
         </div>
         <DashboardContent {...data}></DashboardContent>
-        <div className="pt-24 flex justify-start text-3xl font-Montserrat w-full">
+        <div className="sm:pt-24  pt-10 flex justify-start sm:text-3xl text-2xl font-Montserrat w-full">
           Comparable Properties
         </div>
         <div className="flex space-x-16 py-5 overflow-x-scroll">
@@ -72,15 +72,23 @@ function dashboard() {
         <div className="w-full flex justify-end">
           <Link
             href=""
-            className="underline text-sm text-gray-500 font-semibold py-7"
+            className="underline text-sm text-gray-500 font-semibold sm:py-7 py-2"
           >
             View comparable properties
           </Link>
         </div>
-        <div className="pt-24 flex justify-center text-3xl font-Montserrat w-full">
+        <div className="sm:pt-24 pt-10 flex justify-center text-3xl font-Montserrat w-full">
           House Value Trend
         </div>
         <ValueTrendsChart></ValueTrendsChart>
+        <div className="sm:pt-24  pt-10 flex justify-start sm:text-3xl text-2xl font-Montserrat w-full">
+          Recently Sold
+        </div>
+        <div className="flex space-x-16 py-5 overflow-x-scroll">
+          {data.comparableHouses.map((e, i) => {
+            return <div key={i}>{e && <House data={e}></House>}</div>;
+          })}
+        </div>
       </div>
     </div>
   );
