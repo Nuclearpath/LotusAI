@@ -84,7 +84,7 @@ function dashboard() {
         <div className="sm:pt-24  pt-10 flex justify-start sm:text-3xl text-2xl font-Montserrat w-full">
           Recently Sold
         </div>
-        <div className="flex space-x-16 py-5 overflow-x-scroll">
+        <div className="flex space-x-16 py-5 overflow-x-auto   ">
           {data.comparableHouses.map((e, i) => {
             return <div key={i}>{e && <House data={e}></House>}</div>;
           })}

@@ -16,6 +16,8 @@ module.exports = {
       colors: {
         "custom-yellow": "#FFA921",
         "custom-light-yellow": "#FFEAC9",
+        "custom-verylight-yellow": "#FFFAF3",
+        "custom-grey": "#747373",
       },
     },
   },

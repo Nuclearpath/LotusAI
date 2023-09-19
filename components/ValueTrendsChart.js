@@ -31,7 +31,11 @@ function ValueTrendsChart(props) {
             display: false,
           },
 
-          plugins: {},
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
         }}
       />
     </div>

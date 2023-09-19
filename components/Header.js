@@ -31,7 +31,7 @@ function Header() {
           <Link href="">Sign In </Link> / <Link href="">Register</Link>
         </div>
         {showSidebar && (
-          <div className="sm:hidden flex flex-col absolute top-0 right-0 bg-white w-1/2 h-96">
+          <div className="sm:hidden flex flex-col absolute top-0 right-0 bg-white w-1/2 h-96 z-50">
             <div className="w-full flex justify-end py-3">
               <button
                 onClick={() => setShowSidebar(false)}

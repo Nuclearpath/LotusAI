@@ -15,10 +15,10 @@ function MainHeader() {
           ></img>
         </Link>
         <div className=" justify-between space-x-10 font-Montserrat font-semibold text-base sm:flex hidden">
-          <Link href="">What’s my pad worth?</Link>
-          <Link href="">ROI</Link>
+          <Link href="/dashboard">What’s my pad worth?</Link>
+          <Link href="/roi">ROI</Link>
 
-          <Link href="">Timing the market</Link>
+          <Link href="timingthemarket">Timing the market</Link>
           <Link href="">Rent Vs Sell</Link>
           <Link href="">Sale By Owner</Link>
         </div>
@@ -42,10 +42,10 @@ function MainHeader() {
               </button>
             </div>
             <div className="flex flex-col w-full justify-between items-center space-y-2 font-semibold font-Montserrat">
-              <Link href="">What’s my pad worth?</Link>
-              <Link href="">ROI</Link>
+              <Link href="/dashboard">What’s my pad worth?</Link>
+              <Link href="/roi">ROI</Link>
 
-              <Link href="">Timing the market</Link>
+              <Link href="/timingthemarket">Timing the market</Link>
               <Link href="">Rent Vs Sell</Link>
               <Link href="">Sale By Owner</Link>
               <Link href="" className="text-custom-yellow">
