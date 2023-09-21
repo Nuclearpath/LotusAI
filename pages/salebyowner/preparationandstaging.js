@@ -40,8 +40,8 @@ function preparationandstaging() {
               Box up everything you can live without during your marketing
               period. Clear all surfaces of every counter, dresser, and table.
               Place a neat basket of “personal items” (remotes, magazines, etc.)
-              in a corner if necessary. Once the house feels too bare, you're
-              ready.
+              in a corner if necessary. Once the house feels too bare, you{"'"}
+              re ready.
             </li>
             <li> Remove any collections.</li>
             <li>
