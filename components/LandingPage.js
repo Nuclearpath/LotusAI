@@ -9,6 +9,7 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 import { BiLogoFacebook } from "react-icons/bi";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Link from "next/link";
+import Testimonials from "./Testimonials";
 function LandingPage() {
   /*Form value */
   const [location, setLoaction] = useState("");
@@ -93,12 +94,12 @@ function LandingPage() {
         </div>
       </div>
       <div
-        className="sm:pt-24 pt-8 sm:flex  flex-col w-full space-y-7 relative sm:px-12 sm:overflow-hidden"
-        id="hom"
+        className="sm:pt-24 pt-8 sm:flex  flex-col w-full space-y-7 relative sm:px-12 px-3 sm:overflow-hidden"
+        id="about"
       >
         <div className="w-full absolute bottom-10 h-32 bg-custom-yellow -z-50 -mx-10 sm:block hidden"></div>
         <div className="w-full absolute top-52 h-24 bg-custom-light-yellow -z-50 mx-10 sm:block hidden"></div>
-        <div className="w-full justify-start font-Montserrat text-4xl">
+        <div className="w-full justify-start font-Montserrat sm:text-4xl text-2xl">
           Why Us?
         </div>{" "}
         <div className="grid sm:gap-10 gap-5 sm:grid-cols-3 grid-cols-1 sm:px-0 ">
@@ -143,6 +144,7 @@ function LandingPage() {
           </div>
         </div>
       </div>
+      <Testimonials></Testimonials>
       <div className="mt-24 w-full border-t-2 border-custom-yellow py-5">
         <div className="flex w-full justify-center space-x-5">
           {" "}

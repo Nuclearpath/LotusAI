@@ -16,3 +16,8 @@
     }
   }
 }
+
+.stroked {
+  color: #ffeac9;
+  -webkit-text-stroke: 2px #ffa921;
+}

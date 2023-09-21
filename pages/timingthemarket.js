@@ -88,7 +88,7 @@ function timingthemarket() {
             />
           </div>
         </div>
-        <div className="text-2xl font-Montserrat font-medium py-6">
+        {/* <div className="text-2xl font-Montserrat font-medium py-6">
           Testimonials
         </div>
         <div className="sm:flex-row flex flex-col w-full bg-custom-light-yellow py-10 px-5 h-full items-center relative">
@@ -122,7 +122,7 @@ function timingthemarket() {
               );
             })}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

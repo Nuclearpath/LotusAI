@@ -5,7 +5,7 @@ import LandingPage from "../components/LandingPage";
 
 export default function Home() {
   return (
-    <div className="w-full min-h-screen overflow-y-scroll no-scrollbar flex justify-center sm:px-0 px-3">
+    <div className="w-full min-h-screen overflow-y-scroll no-scrollbar flex justify-center sm:px-0 px-0">
       <LandingPage></LandingPage>
     </div>
   );

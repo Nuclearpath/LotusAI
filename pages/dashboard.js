@@ -4,6 +4,7 @@ import DashboardContent from "../components/DashboardContent";
 import House from "../components/House";
 import Link from "next/link";
 import ValueTrendsChart from "../components/ValueTrendsChart";
+import MarketTrend from "../components/MarketTrend";
 function dashboard() {
   /*recieved from the api */
   const data = {
@@ -77,13 +78,18 @@ function dashboard() {
             View comparable properties
           </Link>
         </div>
-        <div className="sm:pt-24 pt-10 flex justify-center text-3xl font-Montserrat w-full">
+        <div className="sm:pt-24 pt-10 flex justify-center sm:text-3xl text-2xl font-Montserrat w-full">
           House Value Trend
         </div>
         <ValueTrendsChart></ValueTrendsChart>
+        <div className="sm:pt-24 pt-10 flex justify-center sm:text-3xl text-2xl font-Montserrat w-full">
+          Market Trend for your location - 02667
+        </div>
+        <MarketTrend></MarketTrend>
         <div className="sm:pt-24  pt-10 flex justify-start sm:text-3xl text-2xl font-Montserrat w-full">
           Recently Sold
         </div>
+
         <div className="flex space-x-16 py-5 overflow-x-auto   ">
           {data.comparableHouses.map((e, i) => {
             return <div key={i}>{e && <House data={e}></House>}</div>;

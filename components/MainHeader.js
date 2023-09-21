@@ -3,24 +3,25 @@ import Link from "next/link";
 import { AiOutlineMenu } from "react-icons/ai";
 import { MdCancel } from "react-icons/md";
 import { useState } from "react";
+import { motion } from "framer-motion";
 function MainHeader() {
   const [showSidebar, setShowSidebar] = useState(false);
   return (
     <div>
       <div className="w-full flex justify-between  px-6 shadow items-center sm:py-0 py-5">
-        <Link href="/" className="flex sm:w-auto w-1/2">
+        <Link href="/" className="flex sm:w-auto w-1/2 sm:shrink-1 sm:-mx-24">
           <img
             src="/logo.png"
-            className="sm:scale-50 scale-100 h-auto sm:h-24"
+            className="sm:scale-50 scale-100 h-auto sm:h-24 "
           ></img>
         </Link>
-        <div className=" justify-between space-x-10 font-Montserrat font-semibold text-base sm:flex hidden">
+        <div className=" justify-between space-x-8 font-Montserrat font-semibold text-base sm:flex hidden">
           <Link href="/dashboard">What’s my pad worth?</Link>
           <Link href="/roi">ROI</Link>
 
-          <Link href="timingthemarket">Timing the market</Link>
-          <Link href="">Rent Vs Sell</Link>
-          <Link href="">Sale By Owner</Link>
+          <Link href="/timingthemarket">Timing the market</Link>
+          <Link href="/rentvssale">Rent Vs Sell</Link>
+          <Link href="/salebyowner">Sale By Owner</Link>
         </div>
         <button
           onClick={() => setShowSidebar(!showSidebar)}
@@ -32,8 +33,13 @@ function MainHeader() {
           <Link href="">Sign In </Link> / <Link href="">Register</Link>
         </div>
         {showSidebar && (
-          <div className="sm:hidden flex flex-col absolute top-0 right-0 bg-white w-1/2 h-96">
-            <div className="w-full flex justify-end py-3">
+          <motion.div
+            initial={{ scale: 0.5, opacity: 0, x: 0 }}
+            animate={{ scale: 1, opacity: 1, x: 1 }}
+            transition={{ duration: 0.1, delay: 0.01 }}
+            className="sm:hidden flex flex-col absolute top-0 right-0 bg-white w-full h-screen z-50 justify-center"
+          >
+            <div className="w-full flex justify-end py-3 absolute top-0 right-3">
               <button
                 onClick={() => setShowSidebar(false)}
                 className="text-2xl"
@@ -46,8 +52,8 @@ function MainHeader() {
               <Link href="/roi">ROI</Link>
 
               <Link href="/timingthemarket">Timing the market</Link>
-              <Link href="">Rent Vs Sell</Link>
-              <Link href="">Sale By Owner</Link>
+              <Link href="/rentvssale">Rent Vs Sell</Link>
+              <Link href="/salebyowner">Sale By Owner</Link>
               <Link href="" className="text-custom-yellow">
                 Sign In{" "}
               </Link>
@@ -55,7 +61,7 @@ function MainHeader() {
                 Register
               </Link>
             </div>
-          </div>
+          </motion.div>
         )}
       </div>
     </div>

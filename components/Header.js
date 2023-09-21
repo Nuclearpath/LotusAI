@@ -3,6 +3,7 @@ import Link from "next/link";
 import { AiOutlineMenu } from "react-icons/ai";
 import { useState } from "react";
 import { MdCancel } from "react-icons/md";
+import { motion } from "framer-motion";
 function Header() {
   const [showSidebar, setShowSidebar] = useState(false);
   return (
@@ -16,10 +17,10 @@ function Header() {
         </Link>
         <div className=" sm:justify-evenly grow  font-Montserrat font-semibold text-base sm:flex hidden">
           <Link href="">Home</Link>
-          <Link href="">About</Link>
+          <Link href="#about">About</Link>
 
           <Link href="">Estimate</Link>
-          <Link href="">Testimonials</Link>
+          <Link href="#testimonials">Testimonials</Link>
         </div>
         <button
           onClick={() => setShowSidebar(!showSidebar)}
@@ -31,8 +32,13 @@ function Header() {
           <Link href="">Sign In </Link> / <Link href="">Register</Link>
         </div>
         {showSidebar && (
-          <div className="sm:hidden flex flex-col absolute top-0 right-0 bg-white w-1/2 h-96 z-50">
-            <div className="w-full flex justify-end py-3">
+          <motion.div
+            initial={{ scale: 0.5, opacity: 0, x: 0 }}
+            animate={{ scale: 1, opacity: 1, x: 1 }}
+            transition={{ duration: 0.1, delay: 0.01 }}
+            className="sm:hidden flex flex-col absolute top-0 right-0 bg-white w-full h-screen z-50 justify-center"
+          >
+            <div className="absolute top-5 right-5">
               <button
                 onClick={() => setShowSidebar(false)}
                 className="text-2xl"
@@ -42,10 +48,10 @@ function Header() {
             </div>
             <div className="flex flex-col w-full justify-between items-center space-y-2 font-semibold font-Montserrat">
               <Link href="">Home</Link>
-              <Link href="">About</Link>
+              <Link href="#about">About</Link>
 
               <Link href="">Estimate</Link>
-              <Link href="">Testimonials</Link>
+              <Link href="#testimonials">Testimonials</Link>
               <Link href="" className="text-custom-yellow">
                 Sign In{" "}
               </Link>
@@ -53,7 +59,7 @@ function Header() {
                 Register
               </Link>
             </div>
-          </div>
+          </motion.div>
         )}
       </div>
     </div>
