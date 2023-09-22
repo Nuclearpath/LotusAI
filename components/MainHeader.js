@@ -4,12 +4,13 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { MdCancel } from "react-icons/md";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { BsPersonCircle } from "react-icons/bs";
 function MainHeader() {
   const [showSidebar, setShowSidebar] = useState(false);
   return (
     <div>
       <div className="w-full flex justify-between  px-6 shadow items-center sm:py-0 py-5">
-        <Link href="/" className="flex sm:w-auto w-1/2 sm:shrink-1 sm:-mx-24">
+        <Link href="/" className="flex sm:w-auto w-1/2 sm:shrink-1 sm:-mx-20">
           <img
             src="/logo.png"
             className="sm:scale-50 scale-100 h-auto sm:h-24 "
@@ -30,7 +31,10 @@ function MainHeader() {
           <AiOutlineMenu></AiOutlineMenu>
         </button>
         <div className="text-custom-yellow font-Montserrat font-normal text-base sm:flex hidden">
-          <Link href="">Sign In </Link> / <Link href="">Register</Link>
+          {/* <Link href="">Sign In </Link> / <Link href="">Register</Link> */}
+          <Link href="" className="text-4xl text-gray-950">
+            <BsPersonCircle className=""></BsPersonCircle>
+          </Link>
         </div>
         {showSidebar && (
           <motion.div
@@ -54,12 +58,12 @@ function MainHeader() {
               <Link href="/timingthemarket">Timing the market</Link>
               <Link href="/rentvssale">Rent Vs Sell</Link>
               <Link href="/salebyowner">Sale By Owner</Link>
-              <Link href="" className="text-custom-yellow">
+              {/* <Link href="" className="text-custom-yellow">
                 Sign In{" "}
               </Link>
               <Link href="" className="text-custom-yellow">
                 Register
-              </Link>
+              </Link> */}
             </div>
           </motion.div>
         )}

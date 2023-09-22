@@ -12,6 +12,7 @@ module.exports = {
     extend: {
       fontFamily: {
         Montserrat: ["Montserrat", "sans-serif"],
+        threeline: ["Bungee Outline", "cursive"],
       },
       colors: {
         "custom-yellow": "#FFA921",

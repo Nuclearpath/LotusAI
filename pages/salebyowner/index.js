@@ -10,8 +10,8 @@ function salebyowner() {
           Sale By Owner
         </div>
         <div className=" flex flex-col space-y-10 sm:pt-0 pt-5">
-          <div className="flex flex-col space-y-2 sm:px-12 px-3 sm:py-3 py-3 border-2 border-custom-yellow rounded relative">
-            <div className="stroked absolute sm:h-24 sm:w-24 h-12 w-12 bg-custom-light-yellow sm:top-4 sm:-left-12 -top-6 -left-6 rounded-full flex justify-center items-center sm:text-4xl text-2xl font-Montserrat font-semibold text-custom-yellow ">
+          <div className="flex flex-col space-y-2 sm:px-12 px-3 sm:py-3 py-3 border-2 border-l-0 border-custom-yellow rounded relative">
+            <div className=" absolute sm:h-24 sm:w-24 h-12 w-12 bg-custom-light-yellow sm:top-4 sm:-left-12 -top-4 -left-4 rounded-full flex justify-center items-center sm:text-4xl text-2xl font-threeline  text-custom-yellow stroked">
               1
             </div>
             <div className="text-2xl font-Montserrat font-semibold pl-3">
@@ -29,8 +29,8 @@ function salebyowner() {
               </Link>
             </div>
           </div>
-          <div className="flex flex-col space-y-2 sm:px-12 px-3 sm:py-3 py-3 border-2 border-custom-yellow rounded relative">
-            <div className="stroked absolute sm:h-24 sm:w-24 h-12 w-12 bg-custom-light-yellow sm:top-4 sm:-right-12 -top-6 -right-6 rounded-full flex justify-center items-center sm:text-4xl text-2xl font-Montserrat font-semibold text-custom-yellow ">
+          <div className="flex flex-col space-y-2 sm:px-12 px-3 sm:py-3 py-3 border-2 border-r-0 border-custom-yellow rounded relative">
+            <div className=" absolute sm:h-24 sm:w-24 h-12 w-12 bg-custom-light-yellow sm:top-4 sm:-right-12 -top-4 -right-4 rounded-full flex justify-center items-center sm:text-4xl text-2xl font-threeline  text-custom-yellow stroked">
               2
             </div>
             <div className="text-2xl font-Montserrat font-semibold pl-3">
@@ -47,8 +47,8 @@ function salebyowner() {
               </Link>
             </div>
           </div>
-          <div className="flex flex-col space-y-2 sm:px-12 px-3 sm:py-3 py-3 border-2 border-custom-yellow rounded relative">
-            <div className="stroked absolute sm:h-24 sm:w-24 h-12 w-12 bg-custom-light-yellow sm:top-4 sm:-left-12 -top-6 -left-6 rounded-full flex justify-center items-center sm:text-4xl text-2xl font-Montserrat font-semibold text-custom-yellow ">
+          <div className="flex flex-col space-y-2 sm:px-12 px-3 sm:py-3 py-3 border-2 border-l-0 border-custom-yellow rounded relative">
+            <div className=" absolute sm:h-24 sm:w-24 h-12 w-12 bg-custom-light-yellow sm:top-4 sm:-left-12 -top-4 -left-4 rounded-full flex justify-center items-center sm:text-4xl text-2xl font-threeline  text-custom-yellow stroked">
               3
             </div>
             <div className="text-2xl font-Montserrat font-semibold pl-3">
@@ -66,8 +66,8 @@ function salebyowner() {
               </Link>
             </div>
           </div>
-          <div className="flex flex-col space-y-2 sm:px-12 px-3 sm:py-3 py-3 border-2 border-custom-yellow rounded relative">
-            <div className="stroked absolute sm:h-24 sm:w-24 h-12 w-12 bg-custom-light-yellow sm:top-4 sm:-right-12 -top-6 -right-6 rounded-full flex justify-center items-center sm:text-4xl text-2xl font-Montserrat font-semibold text-custom-yellow ">
+          <div className="flex flex-col space-y-2 sm:px-12 px-3 sm:py-3 py-3 border-2 border-r-0 border-custom-yellow rounded relative">
+            <div className=" absolute sm:h-24 sm:w-24 h-12 w-12 bg-custom-light-yellow sm:top-4 sm:-right-12 -top-4 -right-4 rounded-full flex justify-center items-center sm:text-4xl text-2xl font-threeline  text-custom-yellow stroked">
               4
             </div>
             <div className="text-2xl font-Montserrat font-semibold pl-3">
@@ -85,8 +85,8 @@ function salebyowner() {
               </Link>
             </div>
           </div>
-          <div className="flex flex-col space-y-2 sm:px-12 px-3 sm:py-3 py-3 border-2 border-custom-yellow rounded relative">
-            <div className="stroked absolute sm:h-24 sm:w-24 h-12 w-12 bg-custom-light-yellow sm:top-4 sm:-left-12 -top-6 -left-6 rounded-full flex justify-center items-center sm:text-4xl text-2xl font-Montserrat font-semibold text-custom-yellow ">
+          <div className="flex flex-col space-y-2 sm:px-12 px-3 sm:py-3 py-3 border-2 border-l-0 border-custom-yellow rounded relative">
+            <div className=" absolute sm:h-24 sm:w-24 h-12 w-12 bg-custom-light-yellow sm:top-4 sm:-left-12 -top-4 -left-4 rounded-full flex justify-center items-center sm:text-4xl text-2xl font-threeline  text-custom-yellow stroked">
               5
             </div>
             <div className="text-2xl font-Montserrat font-semibold pl-3">
@@ -104,8 +104,8 @@ function salebyowner() {
               </Link>
             </div>
           </div>
-          <div className="flex flex-col space-y-2 sm:px-12 px-3 sm:py-3 py-3 border-2 border-custom-yellow rounded relative">
-            <div className="stroked absolute sm:h-24 sm:w-24 h-12 w-12 bg-custom-light-yellow sm:top-4 sm:-right-12 -top-6 -right-6 rounded-full flex justify-center items-center sm:text-4xl text-2xl font-Montserrat font-semibold text-custom-yellow ">
+          <div className="flex flex-col space-y-2 sm:px-12 px-3 sm:py-3 py-3 border-2 border-r-0 border-custom-yellow rounded relative">
+            <div className=" absolute sm:h-24 sm:w-24 h-12 w-12 bg-custom-light-yellow sm:top-4 sm:-right-12 -top-4 -right-4 rounded-full flex justify-center items-center sm:text-4xl text-2xl font-threeline  text-custom-yellow stroked">
               6
             </div>
             <div className="text-2xl font-Montserrat font-semibold pl-3">
