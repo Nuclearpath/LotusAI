@@ -5,7 +5,7 @@ import Chart from "chart.js/auto";
 import randomColor from "randomcolor";
 import { ImQuotesLeft } from "react-icons/im";
 import { BsChevronDown } from "react-icons/bs";
-import {VscGraph} from "react-icons/Vsc" 
+import {VscGraph} from "react-icons/vsc" 
 import {BsGraphUp} from "react-icons/bs";
 import {AiOutlineMenu} from "react-icons/ai"
 function timingthemarket() {
