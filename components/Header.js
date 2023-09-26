@@ -15,7 +15,7 @@ function Header() {
             className="sm:scale-50 scale-100 h-auto sm:h-24"
           ></img>
         </Link>
-        <div className=" sm:justify-evenly grow  font-Montserrat font-semibold text-base sm:flex hidden">
+        <div className=" sm:space-x-16 sm:w-1/2 grow  font-Montserrat font-semibold text-base sm:flex hidden sm:justify-center">
           <Link href="">Home</Link>
           <Link href="#about">About</Link>
 

@@ -8,6 +8,7 @@ import { BsChevronDown } from "react-icons/bs";
 import {VscGraph} from "react-icons/vsc" 
 import {BsGraphUp} from "react-icons/bs";
 import {AiOutlineMenu} from "react-icons/ai"
+import Chatbot from "../components/Chatbot";
 function timingthemarket() {
   const reviews = [
     {
@@ -39,13 +40,14 @@ function timingthemarket() {
   return (
     <div className=" w-full h-screen overflow-y-scroll no-scrollbar">
       <MainHeader></MainHeader>
+      <Chatbot></Chatbot>
       <div className="w-full sm:px-12 sm:py-12 px-3 py-6">
         <div className="text-2xl font-Montserrat font-medium">
           Timing the Market
         </div>
-        <div className="flex w-10/12 py-6 justify-between ">
+        <div className="flex sm:w-10/12 w-full py-6 justify-between sm:flex-row flex-col">
          
-          <select className="  z-10  flex-col  bg-custom-yellow  text-white flex  rounded w-64 px-4 py-2">
+          <select className="  z-10  flex-col  bg-custom-yellow  text-white flex  rounded sm:w-64 w-auto px-4 py-2">
           <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
             Main Activity
           </option>
@@ -66,22 +68,22 @@ function timingthemarket() {
           </option>
       
           </select>
-          <div className="flex items-center">
-            <div className="flex bg-custom-yellow px-3 py-2 border-2 text-white rounded-md">
+          <div className="flex sm:items-center items-start sm:flex-row flex-col">
+            <div className="flex bg-custom-yellow px-3 py-2 border-2 text-white rounded-md sm:w-auto w-full">
            <input type="radio" name="act"></input>
 
            <div>Actual Values</div>
            </div >
-           <div className= "flex bg-custom-yellow px-3 py-2 border-2 text-white rounded-md">
+           <div className= "flex bg-custom-yellow px-3 py-2 border-2 text-white rounded-md sm:w-auto w-full">
            <input type="radio" name="act"></input>
 
            <div>Change Form</div>
            </div>
            <select className="  z-10  flex-col  bg-gray-100  text-black flex  rounded  px-4 py-2">
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded sm:w-64 w-full">
             Prev Year
           </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded sm:w-64 w-full">
             Prev Month
           </option>
           
@@ -90,10 +92,10 @@ function timingthemarket() {
           </div>
           
         </div>
-        <div className="flex w-10/12  justify-start bg-custom-light-yellow py-3 px-2 rounded-lg rounded-b-none">
-          <button className="px-2 py-2 bg-custom-yellow text-white rounded-md mr-4">Add Metrices</button>
+        <div className="flex sm:w-10/12 w-full  justify-start bg-custom-light-yellow py-3 px-2 rounded-lg rounded-b-none sm:flex-row flex-col sm:space-y-0 space-y-4">
+          <button className="sm:px-2 px-0 py-2 bg-custom-yellow text-white rounded-md mr-4">Add Metrices</button>
           <select className="  z-10  flex-col  bg-gray-100  text-black flex  rounded  px-4 py-2">
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded sm:w-64 w-auto">
 Med Sold $/SqFt (Solds)
           </option>
           <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
@@ -123,7 +125,7 @@ Avg List $/SqFt (Active Listings)
 </div>
         <div className="w-full flex ">
           {/*  */}
-          <div className="shadow w-10/12">
+          <div className="shadow sm:w-10/12 w-full">
             <Bar
               datasetIdKey="id"
               data={{
@@ -177,7 +179,7 @@ Avg List $/SqFt (Active Listings)
               }}
             />
           </div>
-          <div className="w-2/12 flex flex-col space-y-1">
+          <div className="hidden sm:w-2/12 sm:flex flex-col space-y-1">
             <div className="w-full flex flex-col px-3 font-Montserrat">
               <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2">
                 Home Type/Ownership
@@ -812,14 +814,14 @@ Avg List $/SqFt (Active Listings)
             </div>
           </div>
         </div>
-        <div className="w-10/12 flex py-3 justify-between   bg-custom-light-yellow py-3 px-2 rounded-lg rounded-t-none">
-          <div className="flex space-x-4">
+        <div className="sm:w-10/12 flex sm:flex-row flex-col sm:space-y-0 space-y-3  w-full justify-between   bg-custom-light-yellow py-3 px-2 rounded-lg rounded-t-none">
+          <div className="flex space-x-4 sm:w-auto w-full  sm:justify-start justify-center">
             <button className="text-2xl p-2 bg-custom-yellow text-white rounded-md"><VscGraph></VscGraph></button>
             <button className="text-2xl p-2 bg-custom-yellow text-white rounded-md"><BsGraphUp></BsGraphUp></button>
             <button className="text-2xl p-2 bg-custom-yellow text-white rounded-md"><AiOutlineMenu></AiOutlineMenu></button>
             </div>
-            <div className="flex space-x-10">
-              <div className="flex">
+            <div className="sm:flex sm:flex-row flex-col sm:space-x-10 space-x-0 sm:space-y-0 space-y-2 sm:justify-start items-center sm:w-auto w-full">
+              <div className="flex sm:auto w-full sm:justify-start justify-center">
                 <div className="px-3 py-1 rounded-md  rounded-r-none bg-custom-yellow text-white flex items-center">
                   Show
                   </div>
@@ -868,7 +870,9 @@ Avg List $/SqFt (Active Listings)
           
           </select>
                 </div>
-                <div className="flex">
+                <div className=
+                "flex sm:w-auto w-full justify-center sm:justify-none"
+                >
                 <div className="px-3 py-1 rounded-md  rounded-r-none bg-custom-yellow text-white flex items-center">
                   View By
                   </div>
@@ -887,6 +891,640 @@ Avg List $/SqFt (Active Listings)
           </select>
                 </div>
               </div>
+              <div className="sm:hidden sm:w-2/12 flex flex-col space-y-1">
+            <div className="w-full flex flex-col px-3 font-Montserrat">
+              <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2">
+                Home Type/Ownership
+              </button>
+              <div className="hidden peer-hover:flex flex-col hover:flex">
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>All</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>Detached: All</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>Attached: All</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>Attached: TH</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>Attached: Condo/Coop</div>
+                </div>
+              </div>
+            </div>
+            <div className="w-full flex flex-col px-3 font-Montserrat">
+              <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2">
+                List Price
+              </button>
+              <div className="hidden peer-hover:flex flex-col hover:flex">
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>All</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"< $50000"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$50K to $99,999"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$100K to $149,999"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$150K to $199,999"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$200K to $299,999"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$300K to $399,999"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$400K to $499,999"}</div>
+                </div>
+
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$500K to $599,999"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$600K to $799,999"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$800K to $999,999"}</div>
+                </div>
+
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$1M to $2,499,999"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$2.5M to $4,999,999"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$5,000,000+"}</div>
+                </div>
+              </div>
+            </div>
+            <div className="w-full flex flex-col px-3 font-Montserrat">
+              <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2">
+                Sold Price
+              </button>
+              <div className="hidden peer-hover:flex flex-col hover:flex">
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>All</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"< $50000"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$50K to $99,999"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$100K to $149,999"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$150K to $199,999"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$200K to $299,999"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$300K to $399,999"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$400K to $499,999"}</div>
+                </div>
+
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$500K to $599,999"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$600K to $799,999"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$800K to $999,999"}</div>
+                </div>
+
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$1M to $2,499,999"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$2.5M to $4,999,999"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"$5,000,000+"}</div>
+                </div>
+              </div>
+            </div>
+            <div className="w-full flex flex-col px-3 font-Montserrat">
+              <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2">
+                Days in market
+              </button>
+              <div className="hidden peer-hover:flex flex-col hover:flex">
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>All</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"< $50000"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"0 Days"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"1 to 10 Days"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"11 to 20 Days"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"21 to 30 Days"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"31 to 60 Days"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"61 to 90 Days"}</div>
+                </div>
+
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"91 to 120 Days"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"121 to 180 Days"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"181 to 360 Days"}</div>
+                </div>
+
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"361 to 720 Days"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"721+ Days"}</div>
+                </div>
+              </div>
+            </div>
+            <div className="w-full flex flex-col px-3 font-Montserrat">
+              <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2">
+                Living Area SqFt
+              </button>
+              <div className="hidden peer-hover:flex flex-col hover:flex">
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>All</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"< 800 SqFt"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"800 to 999 SqFt"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"1,000 to 1,199 SqFt"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"1,200 to 1,399 SqFt"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"1,400 to 1,599 SqFt"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"1,600 to 1,799 SqFt"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"1,800 to 1,999 SqFt"}</div>
+                </div>
+
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"2,000 to 2,499 SqFt"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"2,500 to 2,999 SqFt"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"3,000 to 4,000 SqFt"}</div>
+                </div>
+
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"4,000 to 4,999 SqFt"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"5,000+ SqFt"}</div>
+                </div>
+              </div>
+            </div>
+            <div className="w-full flex flex-col px-3 font-Montserrat">
+              <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2">
+                Bedrooms
+              </button>
+              <div className="hidden peer-hover:flex flex-col hover:flex">
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>All</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"0 Bedrooms"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"1 Bedroom"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"1,000 to 1,199 SqFt"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"2 Bedrooms"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"1,400 to 1,599 SqFt"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"3 Bedrooms"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"4 Bedrooms"}</div>
+                </div>
+
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"5 Bedrooms"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"6+ Bedrooms"}</div>
+                </div>
+              </div>
+            </div>
+            <div className="w-full flex flex-col px-3 font-Montserrat">
+              <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2">
+                Bathrooms
+              </button>
+              <div className="hidden peer-hover:flex flex-col hover:flex">
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>All</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"0 Bathrooms"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"1 Bathroom"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"2 Bathrooms"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"3 Bathrooms"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"4 Bathrooms"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"5+ Bathrooms"}</div>
+                </div>
+              </div>
+            </div>
+            <div className="w-full flex flex-col px-3 font-Montserrat">
+              <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2">
+                Bank-Mediated
+              </button>
+              <div className="hidden peer-hover:flex flex-col hover:flex">
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>All</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"All Bank-Mediated"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"Foreclosures (REO)"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"Short Sales"}</div>
+                </div>
+                <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
+                  <input
+                    type="checkbox"
+                    className=" indeterminate:bg-gray-300 border-2 mr-2"
+                  />
+                  <div>{"Non-Bank-Mediated"}</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         {/* <div className="text-2xl font-Montserrat font-medium py-6">
           Testimonials

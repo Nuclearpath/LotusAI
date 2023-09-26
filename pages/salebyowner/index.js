@@ -1,9 +1,11 @@
 import React from "react";
 import MainHeader from "../../components/MainHeader";
 import Link from "next/link";
+import Chatbot from "../../components/Chatbot";
 function salebyowner() {
   return (
     <div>
+      <Chatbot></Chatbot>
       <MainHeader></MainHeader>
       <div className="sm:px-24 px-6 pb-12">
         <div className="sm:text-3xl text-2xl sm:py-12 py-3 font-Montserrat">

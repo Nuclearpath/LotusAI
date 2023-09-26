@@ -1,6 +1,7 @@
 import React from "react";
 import MainHeader from "../components/MainHeader";
 import Link from "next/link";
+import Chatbot from "../components/Chatbot";
 function roi() {
   const houseData = {
     house: "20 S Huntington Ave",
@@ -30,6 +31,7 @@ function roi() {
   ];
   return (
     <div>
+      <Chatbot></Chatbot>
       <MainHeader></MainHeader>
       <div className="w-full sm:px-12 px-3">
         <div className="sm:pt-6 pt-3 flex justify-start sm:text-2xl text-2xl font-Montserrat w-full">

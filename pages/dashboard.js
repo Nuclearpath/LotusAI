@@ -5,6 +5,7 @@ import House from "../components/House";
 import Link from "next/link";
 import ValueTrendsChart from "../components/ValueTrendsChart";
 import MarketTrend from "../components/MarketTrend";
+import Chatbot from "../components/Chatbot";
 function dashboard() {
   /*recieved from the api */
   const data = {
@@ -56,6 +57,7 @@ function dashboard() {
   };
   return (
     <div className=" flex w-full flex-col">
+      <Chatbot></Chatbot>
       <MainHeader></MainHeader>
       <div className="w-full flex flex-col sm:px-12 px-3">
         <div className="sm:pt-24 pt-3 flex justify-start sm:text-3xl text-2xl font-Montserrat w-full">
