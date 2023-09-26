@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-function chat() {
+function Chat() {
     const [text,setText]=useState("");
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -17,4 +17,4 @@ function chat() {
   )
 }
 
-export default chat
+export default Chat
