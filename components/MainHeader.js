@@ -16,6 +16,7 @@ function MainHeader() {
             className="sm:scale-50 scale-100 h-auto sm:h-24 "
           ></img>
         </Link>
+
         <div className=" justify-between space-x-8 font-Montserrat font-semibold text-base sm:flex hidden">
           <Link href="/dashboard">What’s my pad worth?</Link>
           <Link href="/roi">ROI</Link>
@@ -26,15 +27,29 @@ function MainHeader() {
         </div>
         <button
           onClick={() => setShowSidebar(!showSidebar)}
-          className="sm:hidden flex text-xl text-custom-yellow border-2 p-2 rounded-md border-custom-light-yellow shadow-lg"
+          className="sm:hidden flex text-xl text-custom-yellow border-2 p-2 rounded-md border-custom-light-yellow shadow-lg "
         >
           <AiOutlineMenu></AiOutlineMenu>
         </button>
         <div className="text-custom-yellow font-Montserrat font-normal text-base sm:flex hidden">
           {/* <Link href="">Sign In </Link> / <Link href="">Register</Link> */}
-          <Link href="" className="text-4xl text-gray-950">
-            <BsPersonCircle className=""></BsPersonCircle>
-          </Link>
+          <div className="text-4xl text-gray-950 relative">
+            <button className="peer">
+              <BsPersonCircle className=""></BsPersonCircle>
+            </button>
+
+            <div className="absolute peer-hover:flex hidden hover:flex flex-col top-9 right-0 bg-white font-Montserrat items-end text-lg w-48">
+              <div className="border-b-2 border-black w-full flex justify-end">
+                <Link href="">Your Listings</Link>
+              </div>
+              <div className="border-b-2 border-black w-full flex justify-end">
+                <Link href="">Chat with our agents</Link>
+              </div>
+              <div className="border-b-2 border-black w-full flex justify-end">
+                <Link href="">Sign Out</Link>
+              </div>
+            </div>
+          </div>
         </div>
         {showSidebar && (
           <motion.div
