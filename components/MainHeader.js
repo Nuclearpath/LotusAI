@@ -5,6 +5,7 @@ import { MdCancel } from "react-icons/md";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { BsPersonCircle } from "react-icons/bs";
+import {Popover, PopoverTrigger, PopoverContent} from "@nextui-org/react";
 function MainHeader() {
   const [showSidebar, setShowSidebar] = useState(false);
   return (
@@ -25,6 +26,7 @@ function MainHeader() {
           <Link href="/rentvssale">Rent Vs Sell</Link>
           <Link href="/salebyowner">Sale By Owner</Link>
         </div>
+        
         <button
           onClick={() => setShowSidebar(!showSidebar)}
           className="sm:hidden flex text-xl text-custom-yellow border-2 p-2 rounded-md border-custom-light-yellow shadow-lg "
@@ -34,23 +36,29 @@ function MainHeader() {
         <div className="text-custom-yellow font-Montserrat font-normal text-base sm:flex hidden">
           {/* <Link href="">Sign In </Link> / <Link href="">Register</Link> */}
           <div className="text-4xl text-gray-950 relative">
+          <Popover>
+            <PopoverTrigger>
             <button className="peer">
               <BsPersonCircle className=""></BsPersonCircle>
             </button>
-
-            <div className="absolute peer-hover:flex hidden hover:flex flex-col top-9 right-0 bg-white font-Montserrat items-end text-lg w-48">
-              <div className="border-b-2 border-black w-full flex justify-end">
+            </PopoverTrigger>
+            
+            <PopoverContent className="flex  flex-col  bg-white font-Montserrat items-end text-lg px-0 space-y=2">
+              <div className=" border-black w-full flex justify-end hover:bg-custom-verylight-yellow px-2 py-1">
                 <Link href="">Your Listings</Link>
               </div>
-              <div className="border-b-2 border-black w-full flex justify-end">
+              <div className=" border-black w-full flex justify-end hover:bg-custom-verylight-yellow px-2 py-1">
                 <Link href="">Chat with our agents</Link>
               </div>
-              <div className="border-b-2 border-black w-full flex justify-end">
+              <div className=" border-black w-full flex justify-end hover:bg-custom-verylight-yellow px-2 py-1">
                 <Link href="">Sign Out</Link>
               </div>
-            </div>
+            
+            </PopoverContent>
+            </Popover>
           </div>
         </div>
+       
         {showSidebar && (
           <motion.div
             initial={{ scale: 0.5, opacity: 0, x: 0 }}

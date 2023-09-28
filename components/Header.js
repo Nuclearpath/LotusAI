@@ -9,13 +9,16 @@ function Header() {
   return (
     <div>
       <div className="w-full flex justify-between  px-6 shadow items-center sm:py-0 py-5">
-        <Link href="/" className="flex sm:w-auto w-1/2">
+        <div className="">
+        <Link href="/" className="flex sm:w-auto ">
           <img
             src="/logo.png"
             className="sm:scale-50 scale-100 h-auto sm:h-24"
           ></img>
         </Link>
-        <div className=" sm:space-x-16 sm:w-1/2 grow  font-Montserrat font-semibold text-base sm:flex hidden sm:justify-center">
+        </div>
+        <div className="w-1/2 flex sm:justify-between justify-end">
+        <div className=" sm:space-x-8 sm:w-1/2   font-Montserrat font-semibold text-base sm:flex hidden sm:justify-between">
           <Link href="">Home</Link>
           <Link href="#about">About</Link>
 
@@ -61,6 +64,7 @@ function Header() {
             </div>
           </motion.div>
         )}
+      </div>
       </div>
     </div>
   );
