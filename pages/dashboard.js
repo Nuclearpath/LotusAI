@@ -19,14 +19,14 @@ function dashboard() {
     sales: 7,
     comparableHouses: [
       {
-        image: "./house1.png",
+        image: "/house1.png",
         name: "360 Huntington Ave",
         place: "Boston",
         price: 266290,
         description: "3BHK, 2 Bath",
       },
       {
-        image: "./house1.png",
+        image: "/house1.png",
         name: "360 Huntington Ave",
         place: "Boston",
         price: 266290,

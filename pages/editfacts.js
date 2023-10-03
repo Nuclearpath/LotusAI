@@ -3,12 +3,27 @@ import MainHeader from "../components/MainHeader";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import Link from "next/link";
 import Chatbot from "../components/Chatbot";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  useDisclosure,
+} from "@nextui-org/react";
+
 function Editfacts() {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [formValue, setFormValue] = useState({
     sqFt: 0,
     noofBeds: 0,
     fullBaths: 0,
     halfBaths: 0,
+  });
+  const [newForm, setNewForm] = useState({
+    date: 0,
+    cost: 0,
   });
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -82,13 +97,68 @@ function Editfacts() {
         </div>
       </div>
       <div className="w-full flex flex-col sm:py-6 py-3 sm:px-12 px-3">
-        <Link
+        <button
           className="w-full flex  text-2xl font-Montserrat sm:py-6 py-3 items-center"
           href=""
+          onClick={onOpen}
         >
           <AiOutlinePlusCircle className="text-custom-yellow mr-5"></AiOutlinePlusCircle>{" "}
           Add New Renovation
-        </Link>
+        </button>
+        <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+          <ModalContent>
+            {(onClose) => (
+              <>
+                {/* <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader> */}
+                <ModalBody className="sm:px-12 px-3 py-5 flex flex-col space-y-3">
+                  <div className="w-full flex font-Montserrat font-semibold text-xl">
+                    Add Renovation
+                  </div>
+                  <form className="w-full flex flex-col space-y-6 text-xl">
+                    <div className="w-full flex flex-col space-y-3">
+                      <div>Project Type</div>
+                      <select className="  z-10  flex-col  text-black border-2 w-full flex  rounded  px-4 py-2">
+                        <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                          Main Activity
+                        </option>
+                      </select>
+                    </div>
+                    <div className="w-full flex flex-col space-y-3">
+                      <div>Date Completed</div>
+                      <input
+                        type="Number"
+                        className="  z-10  flex-col  text-black border-2 w-full flex  rounded  px-4 py-2"
+                        value={newForm.date}
+                        onChange={(e) =>
+                          setFormValue({ ...newForm, date: e.target.value })
+                        }
+                      ></input>
+                    </div>
+                    <div className="w-full flex flex-col space-y-3">
+                      <div>Cost Estimate</div>
+                      <input
+                        type="Number"
+                        className="  z-10  flex-col  text-black border-2 w-full flex  rounded  px-4 py-2"
+                        value={newForm.cost}
+                        onChange={(e) =>
+                          setFormValue({ ...newForm, cost: e.target.value })
+                        }
+                      ></input>
+                    </div>
+                    <div className="w-full flex space-x-2">
+                      <button className="w-full border-2 border-black py-2">
+                        Clear
+                      </button>
+                      <button className="w-full border-2 border-custom-yellow text-custom-yellow py-2">
+                        Add Renovation
+                      </button>
+                    </div>
+                  </form>
+                </ModalBody>
+              </>
+            )}
+          </ModalContent>
+        </Modal>
       </div>
     </div>
   );

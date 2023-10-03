@@ -9,6 +9,8 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 import { BiLogoFacebook } from "react-icons/bi";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Link from "next/link";
+import Image from "next/image";
+
 import Testimonials from "./Testimonials";
 function LandingPage() {
   /*Form value */
@@ -34,10 +36,15 @@ function LandingPage() {
         </div>
 
         <div className="sm:w-1/2 w-full flex sm:h-full h-auto sm:px-3 px-0 sm:pt-4 justify-center sm:justify-start pt-2">
-          <LazyLoadImage
-            src="./house.png"
-            className="w-auto h-auto"
-          ></LazyLoadImage>
+          <Image
+            src="/house.png"
+          // width={500}
+          // height={500}
+          fill
+          className="object-cover !relative "
+      alt="house "
+           
+          />
         </div>
         <div className="sm:w-1/2 flex sm:h-full h-auto  flex-col  sm:pl-12 px-3 sm:pt-4  sm:py-0 py-5 w-full sm:overflow-hidden">
           <div className="hidden sm:flex">{/* <Header></Header> */}</div>

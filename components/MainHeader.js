@@ -5,17 +5,20 @@ import { MdCancel } from "react-icons/md";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { BsPersonCircle } from "react-icons/bs";
+import Image from "next/image";
 import {Popover, PopoverTrigger, PopoverContent} from "@nextui-org/react";
 function MainHeader() {
   const [showSidebar, setShowSidebar] = useState(false);
   return (
     <div>
       <div className="w-full flex justify-between  px-6 shadow items-center sm:py-0 py-5">
-        <Link href="/" className="flex sm:w-auto w-1/2 sm:shrink-1 sm:-mx-20">
-          <img
+      <Link href="/" className="flex sm:w-56 w-32 sm:px-6 px-1 py-1 sm:py-4 ">
+          <Image
             src="/logo.png"
-            className="sm:scale-50 scale-100 h-auto sm:h-24 "
-          ></img>
+          fill
+            className="!relative object-contain"
+            // className=" sm:object-cover object-contain !relative sm:scale-50 scale-100 !h-auto sm:h-24"
+          />
         </Link>
 
         <div className=" justify-between space-x-8 font-Montserrat font-semibold text-base sm:flex hidden">
@@ -43,7 +46,7 @@ function MainHeader() {
             </button>
             </PopoverTrigger>
             
-            <PopoverContent className="flex  flex-col  bg-white font-Montserrat items-end text-lg px-0 space-y=2">
+            <PopoverContent className="flex  flex-col  bg-white font-Montserrat items-end text-lg px-0 space-y-2 shadow-2xl">
               <div className=" border-black w-full flex justify-end hover:bg-custom-verylight-yellow px-2 py-1">
                 <Link href="">Your Listings</Link>
               </div>

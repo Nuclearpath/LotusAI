@@ -1,6 +1,6 @@
 import React from "react";
 import { ImQuotesLeft } from "react-icons/im";
-
+import Image from "next/image";
 function Testimonials() {
   const reviews = [
     {
@@ -57,7 +57,7 @@ function Testimonials() {
                 className="sm:w-64 w-full flex shrink-0 flex-col bg-white p-5 rounded-md space-y-5 "
               >
                 <div className="w-full justify-center flex">
-                  <img src={e.url}></img>
+                  <Image src={e.url} fill className="!relative object-contain" />
                 </div>
                 <div className="flex w-full justify-center text-center font-Montserrat font-semibold text-xs">
                   {e.comment}
