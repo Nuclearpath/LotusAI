@@ -8,7 +8,7 @@ import MarketTrend from "../components/MarketTrend";
 import Chatbot from "../components/Chatbot";
 
 import { useSession } from "next-auth/react";
-function dashboard() {
+function Dashboard() {
   const { data: session } = useSession();
   /*recieved from the api */
 
@@ -125,4 +125,4 @@ function dashboard() {
   );
 }
 
-export default dashboard;
+export default Dashboard;
