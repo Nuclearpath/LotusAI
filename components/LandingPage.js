@@ -12,6 +12,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import Testimonials from "./Testimonials";
+import MainHeader from "./MainHeader";
 function LandingPage() {
   /*Form value */
   const [location, setLoaction] = useState("");
@@ -24,7 +25,7 @@ function LandingPage() {
   };
   return (
     <div className="w-full flex h-full  flex-col">
-      <Header></Header>
+      <MainHeader></MainHeader>
       <div className="sm:flex  w-full sm:h-screen  relative sm:px-12 px-3">
         <div className="absolute bottom-0 flex w-10/12 justify-center py-4 ">
           <Link
@@ -38,12 +39,11 @@ function LandingPage() {
         <div className="sm:w-1/2 w-full flex sm:h-full h-auto sm:px-3 px-0 sm:pt-4 justify-center sm:justify-start pt-2">
           <Image
             src="/house.png"
-          // width={500}
-          // height={500}
-          fill
-          className="object-cover !relative "
-      alt="house "
-           
+            // width={500}
+            // height={500}
+            fill
+            className="object-cover !relative "
+            alt="house "
           />
         </div>
         <div className="sm:w-1/2 flex sm:h-full h-auto  flex-col  sm:pl-12 px-3 sm:pt-4  sm:py-0 py-5 w-full sm:overflow-hidden">

@@ -11,7 +11,23 @@ import {
 import { BiPencil } from "react-icons/bi";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import Link from "next/link";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  useDisclosure,
+} from "@nextui-org/react";
 function Moderatorlist() {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const {
+    isOpen: isOpenf,
+    onOpen: onOpenf,
+    onOpenChange: onOpenChangef,
+  } = useDisclosure();
+
   return (
     <div>
       <div>
@@ -26,9 +42,57 @@ function Moderatorlist() {
                 Manage moderators here
               </div>
             </div>
-            <button className="bg-custom-yellow rounded-md text-white px-4">
+            <button
+              className="bg-custom-yellow rounded-md text-white px-4"
+              onClick={onOpen}
+            >
               Add New Moderator
             </button>
+            <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+              <ModalContent>
+                {(onClose) => (
+                  <>
+                    {/* <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader> */}
+                    <ModalBody className="sm:px-12 px-3 py-5 flex flex-col space-y-3">
+                      <div className="w-full flex justify-center font-Montserrat font-semibold">
+                        Add New Moderator
+                      </div>
+                      <form className="w-full flex flex-col space-y-5">
+                        <input
+                          type="text"
+                          className="px-2 py-3 border-2 rounded-md  border-black"
+                          placeholder="First Name"
+                        ></input>
+                        <input
+                          type="text"
+                          className="px-2 py-3 border-2 rounded-md border-black"
+                          placeholder="Last Name"
+                        ></input>
+                        <input
+                          type="text"
+                          className="px-2 py-3 border-2 rounded-md border-black"
+                          placeholder="User Name"
+                        ></input>
+                        <input
+                          type="password"
+                          className="px-2 py-3 border-2 rounded-md border-black"
+                          placeholder="Password"
+                        ></input>
+                        <div className="w-full flex justify-end">
+                          <button
+                            type="submit"
+                            className="px-5 py-3 border-custom-yellow border-2 text-custom-yellow w-1/2"
+                          >
+                            {" "}
+                            Submit
+                          </button>
+                        </div>
+                      </form>
+                    </ModalBody>
+                  </>
+                )}
+              </ModalContent>
+            </Modal>
           </div>
           <div className="py-12">
             <Table
@@ -74,9 +138,54 @@ function Moderatorlist() {
                       <Link href="">
                         <RiDeleteBin5Line></RiDeleteBin5Line>
                       </Link>
-                      <Link href="">
+                      <button onClick={onOpenf}>
                         <BiPencil></BiPencil>
-                      </Link>
+                      </button>
+                      <Modal isOpen={isOpenf} onOpenChange={onOpenChangef}>
+                        <ModalContent>
+                          {(onClose) => (
+                            <>
+                              {/* <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader> */}
+                              <ModalBody className="sm:px-12 px-3 py-5 flex flex-col space-y-3">
+                                <div className="w-full flex justify-center font-Montserrat font-semibold">
+                                  Edit New Moderator
+                                </div>
+                                <form className="w-full flex flex-col space-y-5">
+                                  <input
+                                    type="text"
+                                    className="px-2 py-3 border-2 rounded-md  border-black"
+                                    placeholder="First Name"
+                                  ></input>
+                                  <input
+                                    type="text"
+                                    className="px-2 py-3 border-2 rounded-md border-black"
+                                    placeholder="Last Name"
+                                  ></input>
+                                  <input
+                                    type="text"
+                                    className="px-2 py-3 border-2 rounded-md border-black"
+                                    placeholder="User Name"
+                                  ></input>
+                                  <input
+                                    type="password"
+                                    className="px-2 py-3 border-2 rounded-md border-black"
+                                    placeholder="Password"
+                                  ></input>
+                                  <div className="w-full flex justify-end">
+                                    <button
+                                      type="submit"
+                                      className="px-5 py-3 border-custom-yellow border-2 text-custom-yellow w-1/2"
+                                    >
+                                      {" "}
+                                      Submit
+                                    </button>
+                                  </div>
+                                </form>
+                              </ModalBody>
+                            </>
+                          )}
+                        </ModalContent>
+                      </Modal>
                     </div>
                   </TableCell>
                   <TableCell>

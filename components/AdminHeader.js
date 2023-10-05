@@ -28,7 +28,7 @@ function AdminHeader() {
             <Link href="/admin/userlist">Users</Link>
             <Link href="/admin/moderatorlist">Moderators</Link>
 
-            <Link href="">Dashboard</Link>
+            <Link href="/admin/dashboard">Dashboard</Link>
           </div>
           <button
             onClick={() => setShowSidebar(!showSidebar)}
@@ -56,7 +56,7 @@ function AdminHeader() {
                 <Link href="/admin/userlist">Users</Link>
                 <Link href="/admin/moderatorlist">Moderators</Link>
 
-                <Link href="">Dashboard</Link>
+                <Link href="/admin/dashboard">Dashboard</Link>
               </div>
             </motion.div>
           )}

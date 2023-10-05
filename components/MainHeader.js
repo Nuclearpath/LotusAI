@@ -7,15 +7,18 @@ import { motion } from "framer-motion";
 import { BsPersonCircle } from "react-icons/bs";
 import Image from "next/image";
 import {Popover, PopoverTrigger, PopoverContent} from "@nextui-org/react";
+
+import { signIn, signOut, useSession } from "next-auth/react";
 function MainHeader() {
   const [showSidebar, setShowSidebar] = useState(false);
+  const { data: session } = useSession();
   return (
     <div>
       <div className="w-full flex justify-between  px-6 shadow items-center sm:py-0 py-5">
-      <Link href="/" className="flex sm:w-56 w-32 sm:px-6 px-1 py-1 sm:py-4 ">
+        <Link href="/" className="flex sm:w-56 w-32 sm:px-6 px-1 py-1 sm:py-4 ">
           <Image
             src="/logo.png"
-          fill
+            fill
             className="!relative object-contain"
             // className=" sm:object-cover object-contain !relative sm:scale-50 scale-100 !h-auto sm:h-24"
           />
@@ -29,7 +32,7 @@ function MainHeader() {
           <Link href="/rentvssale">Rent Vs Sell</Link>
           <Link href="/salebyowner">Sale By Owner</Link>
         </div>
-        
+
         <button
           onClick={() => setShowSidebar(!showSidebar)}
           className="sm:hidden flex text-xl text-custom-yellow border-2 p-2 rounded-md border-custom-light-yellow shadow-lg "
@@ -39,29 +42,47 @@ function MainHeader() {
         <div className="text-custom-yellow font-Montserrat font-normal text-base sm:flex hidden">
           {/* <Link href="">Sign In </Link> / <Link href="">Register</Link> */}
           <div className="text-4xl text-gray-950 relative">
-          <Popover>
-            <PopoverTrigger>
-            <button className="peer">
-              <BsPersonCircle className=""></BsPersonCircle>
-            </button>
-            </PopoverTrigger>
-            
-            <PopoverContent className="flex  flex-col  bg-white font-Montserrat items-end text-lg px-0 space-y-2 shadow-2xl">
-              <div className=" border-black w-full flex justify-end hover:bg-custom-verylight-yellow px-2 py-1">
-                <Link href="">Your Listings</Link>
-              </div>
-              <div className=" border-black w-full flex justify-end hover:bg-custom-verylight-yellow px-2 py-1">
-                <Link href="">Chat with our agents</Link>
-              </div>
-              <div className=" border-black w-full flex justify-end hover:bg-custom-verylight-yellow px-2 py-1">
-                <Link href="">Sign Out</Link>
-              </div>
-            
-            </PopoverContent>
+            <Popover>
+              <PopoverTrigger>
+                {session ? (
+                  <button className="peer">
+                    {session.user && <BsPersonCircle></BsPersonCircle>}
+                  </button>
+                ) : (
+                  <button
+                    className="text-lg font-semibold text-custom-yellow"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      signIn();
+                    }}
+                  >
+                    Login
+                  </button>
+                )}
+              </PopoverTrigger>
+
+              <PopoverContent className="flex  flex-col  bg-white font-Montserrat items-end text-lg px-0 space-y-2 shadow-2xl">
+                <div className=" border-black w-full flex justify-end hover:bg-custom-verylight-yellow px-2 py-1">
+                  <Link href="">Your Listings</Link>
+                </div>
+                <div className=" border-black w-full flex justify-end hover:bg-custom-verylight-yellow px-2 py-1">
+                  <Link href="">Chat with our agents</Link>
+                </div>
+                <div className=" border-black w-full flex justify-end hover:bg-custom-verylight-yellow px-2 py-1">
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      signOut();
+                    }}
+                  >
+                    Sign Out
+                  </button>
+                </div>
+              </PopoverContent>
             </Popover>
           </div>
         </div>
-       
+
         {showSidebar && (
           <motion.div
             initial={{ scale: 0.5, opacity: 0, x: 0 }}
