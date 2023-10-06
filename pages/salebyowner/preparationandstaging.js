@@ -17,18 +17,37 @@ function preparationandstaging() {
         </div>
         <div className="py-6 w-full font-Montserrat">
           <div className="font-semibold">The front of your home:</div>
-          <ol className="list-decimal list-inside">
+          <ol className=" list-outside">
             <li>
+              <input
+                type="checkbox"
+                className="mr-2 w-4 h-4 text-custom-yellow bg-gray-100 border-gray-300 rounded focus:text-custom-yellow dark:text-custom-yellow dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              ></input>
               Clear any debris, remove cobwebs, clean your front door, door bell
               or door knocker, polish the storm door, replace rusted or worn
               hardware.
             </li>
-            <li> Add a fresh doormat.</li>
             <li>
+              {" "}
+              <input
+                type="checkbox"
+                className="mr-2 w-4 h-4 text-custom-yellow bg-gray-100 border-gray-300 rounded focus:text-custom-yellow dark:text-custom-yellow dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              ></input>{" "}
+              Add a fresh doormat.
+            </li>
+            <li>
+              <input
+                type="checkbox"
+                className="mr-2 w-4 h-4 text-custom-yellow bg-gray-100 border-gray-300 rounded focus:text-custom-yellow dark:text-custom-yellow dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              ></input>
               Add a pot or two of flowers at the front of the house and remove
               any dead plants or empty planters{" "}
             </li>
             <li>
+              <input
+                type="checkbox"
+                className="mr-2 w-4 h-4 text-custom-yellow bg-gray-100 border-gray-300 rounded focus:text-custom-yellow dark:text-custom-yellow dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              ></input>
               Pro tip: Remove any other items from the front yard— storage
               items, lawn care products should be removed.toys,
             </li>
@@ -36,33 +55,71 @@ function preparationandstaging() {
         </div>
         <div className="py-6 w-full font-Montserrat">
           <div className="font-semibold">Interior rooms:</div>
-          <ol className="list-decimal list-inside">
+          <ol
+            className="
+         list-outside"
+          >
             <li>
+              <input
+                type="checkbox"
+                className="mr-2 w-4 h-4 text-custom-yellow bg-gray-100 border-gray-300 rounded focus:text-custom-yellow dark:text-custom-yellow dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              ></input>
               Box up everything you can live without during your marketing
               period. Clear all surfaces of every counter, dresser, and table.
               Place a neat basket of “personal items” (remotes, magazines, etc.)
               in a corner if necessary. Once the house feels too bare, you{"'"}
               re ready.
             </li>
-            <li> Remove any collections.</li>
             <li>
               {" "}
+              <input
+                type="checkbox"
+                className="mr-2 w-4 h-4 text-custom-yellow bg-gray-100 border-gray-300 rounded focus:text-custom-yellow dark:text-custom-yellow dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              ></input>{" "}
+              Remove any collections.
+            </li>
+            <li>
+              {" "}
+              <input
+                type="checkbox"
+                className="mr-2 w-4 h-4 text-custom-yellow bg-gray-100 border-gray-300 rounded focus:text-custom-yellow dark:text-custom-yellow dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              ></input>{" "}
               Replace cleared items with one or two decorative items - be sure
               to add an item of greenery.
             </li>
-            <li> Pictures should be hung at eye level.</li>
             <li>
               {" "}
+              <input
+                type="checkbox"
+                className="mr-2 w-4 h-4 text-custom-yellow bg-gray-100 border-gray-300 rounded focus:text-custom-yellow dark:text-custom-yellow dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              ></input>{" "}
+              Pictures should be hung at eye level.
+            </li>
+            <li>
+              {" "}
+              <input
+                type="checkbox"
+                className="mr-2 w-4 h-4 text-custom-yellow bg-gray-100 border-gray-300 rounded focus:text-custom-yellow dark:text-custom-yellow dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              ></input>{" "}
               Limit personal photos to a small display on an end table, on the
               stairway walls or in a hallway— never display personal photos in a
               bathroom or in the master bedroom.{" "}
             </li>
             <li>
+              {" "}
+              <input
+                type="checkbox"
+                className="mr-2 w-4 h-4 text-custom-yellow bg-gray-100 border-gray-300 rounded focus:text-custom-yellow dark:text-custom-yellow dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              ></input>
               Boxes are OK in garages, unfinished basements, or designated
               storage areas only.
             </li>
             <li>
               {" "}
+              <input
+                type="checkbox"
+                className="mr-2 w-4 h-4 text-custom-yellow bg-gray-100 border-gray-300 rounded focus:text-custom-yellow dark:text-custom-yellow dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              ></input>{" "}
               Pro tip: Weather permitting, open the windows and air out your
               rooms prior to the first day of showings.
             </li>
@@ -70,22 +127,51 @@ function preparationandstaging() {
         </div>
         <div className="py-6 w-full font-Montserrat">
           <div className="font-semibold">Kitchen:</div>
-          <ol className="list-decimal list-inside">
+          <ol className=" list-outside">
             <li>
+              <input
+                type="checkbox"
+                className="mr-2 w-4 h-4 text-custom-yellow bg-gray-100 border-gray-300 rounded focus:text-custom-yellow dark:text-custom-yellow dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              ></input>
               Clear all counters and tables of all small items and appliances.
             </li>
             <li>
+              <input
+                type="checkbox"
+                className="mr-2 w-4 h-4 text-custom-yellow bg-gray-100 border-gray-300 rounded focus:text-custom-yellow dark:text-custom-yellow dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              ></input>
               Clear refrigerator of magnets and other items, clear tops of the
               fridge and cabinets.
             </li>
             <li>
+              <input
+                type="checkbox"
+                className="mr-2 w-4 h-4 text-custom-yellow bg-gray-100 border-gray-300 rounded focus:text-custom-yellow dark:text-custom-yellow dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              ></input>
               Polish your sink and floors, re-caulk around sink if needed. Add
               new hardware to cabinets if needed.
             </li>
-            <li>Remove 1/3 of items in your pantry.</li>
-            <li>Pro tip: Empty all trashcans and scrub clean.</li>
             <li>
               {" "}
+              <input
+                type="checkbox"
+                className="mr-2 w-4 h-4 text-custom-yellow bg-gray-100 border-gray-300 rounded focus:text-custom-yellow dark:text-custom-yellow dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              ></input>
+              Remove 1/3 of items in your pantry.
+            </li>
+            <li>
+              {" "}
+              <input
+                type="checkbox"
+                className="mr-2 w-4 h-4 text-custom-yellow bg-gray-100 border-gray-300 rounded focus:text-custom-yellow dark:text-custom-yellow dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              ></input>
+              Pro tip: Empty all trashcans and scrub clean.
+            </li>
+            <li>
+              <input
+                type="checkbox"
+                className="mr-2 w-4 h-4 text-custom-yellow bg-gray-100 border-gray-300 rounded focus:text-custom-yellow dark:text-custom-yellow dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              ></input>{" "}
               Replace binsin inconspicuous places and place one
               fabric-softenersheet in the bottom of each bin for a subtly fresh
               scent.

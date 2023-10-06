@@ -10,6 +10,7 @@ import { BiLogoFacebook } from "react-icons/bi";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Link from "next/link";
 import Image from "next/image";
+import Slider from "react-slick";
 
 import Testimonials from "./Testimonials";
 import MainHeader from "./MainHeader";
@@ -17,12 +18,20 @@ function LandingPage() {
   /*Form value */
   const [location, setLoaction] = useState("");
   const router = useRouter();
+  const settings = {
+    dots: true,
+    // infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
 
   /*Form Submit */
   const handleSubmit = (e) => {
     e.preventDefault();
     router.push("/dashboard");
   };
+
   return (
     <div className="w-full flex h-full  flex-col">
       <MainHeader></MainHeader>
@@ -37,25 +46,63 @@ function LandingPage() {
         </div>
 
         <div className="sm:w-1/2 w-full flex sm:h-full h-auto sm:px-3 px-0 sm:pt-4 justify-center sm:justify-start pt-2">
-          <Image
-            src="/house.png"
-            // width={500}
-            // height={500}
-            fill
-            className="object-cover !relative "
-            alt="house "
-          />
+          <Slider
+            className="w-full"
+            infinite={true}
+            slidesToShow={1}
+            fade={true}
+            autoplay
+            autoplaySpeed={4000}
+            arrows={false}
+            slidesToScroll={1}
+          >
+            <div className="w-full sm:h-[97vh] h-[50vh]">
+              <Image
+                alt="..."
+                fill
+                quality={100}
+                src={"/house.png"}
+                placeholder="blur"
+                blurDataURL="/house.jpg"
+                className="object-cover object-center"
+              />
+            </div>
+            <div className="w-full sm:h-[97vh] h-[50vh]">
+              <Image
+                alt="..."
+                fill
+                quality={100}
+                src={"/house2.jpg"}
+                placeholder="blur"
+                blurDataURL="/house2blur.jpg"
+                className="object-cover object-center"
+              />
+            </div>
+            <div className="w-full sm:h-[97vh] h-[50vh]">
+              <Image
+                alt="..."
+                fill
+                quality={100}
+                src={"/house3.jpg"}
+                placeholder="blur"
+                blurDataURL="/house3blur.jpg"
+                className="object-cover object-center"
+              />
+            </div>
+          </Slider>
         </div>
+
         <div className="sm:w-1/2 flex sm:h-full h-auto  flex-col  sm:pl-12 px-3 sm:pt-4  sm:py-0 py-5 w-full sm:overflow-hidden">
           <div className="hidden sm:flex">{/* <Header></Header> */}</div>
           <div className="w-full h-full flex flex-col sm:justify-between justify-start sm:space-y-0 space-y-7">
             <div className="sm:text-4xl text-3xl font-Montserrat sm:py-3 py-0 sm:pt-0 pt-3  font-normal sm:leading-normal leading-snug tracking-wider">
-              Lorem ipsum <span className="text-custom-yellow">dolor</span>
-              <br></br> sit amet
+              Find Out What Your Is<br></br> Really{" "}
+              <Link href="" className="text-custom-yellow">
+                Worth
+              </Link>
             </div>
-            <div className="font-Montserrat sm:text-base tracking-wider text-sm">
-              consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua
+            <div className="font-Montserrat sm:text-lg tracking-wider text-sm font-semibold">
+              The Most Accurate Home Valuation Tool Available To The Public
             </div>
             <form
               className="w-full flex relative"
@@ -76,7 +123,7 @@ function LandingPage() {
             <div className="border-2 border-custom-yellow relative h-64 ">
               <div className="w-full sm:space-y-3 space-y-3 bg-custom-light-yellow pb-3  flex flex-col py-5 sm:py-2 absolute h-64 top-5 right-5">
                 <div className="text-custom-yellow sm:text-3xl text-xl flex justify-end sm:pl-0 pl-0 font-Montserrat text-right sm:pr-3 pr-1">
-                  Unlock the true value of hour home with just one click
+                  Unlock the true value of your home with just one click
                 </div>
 
                 <div className="sm:pl-5 pl-0 text-right sm:pr-1 pr-1 font-Montserrat font-semibold sm:text-sm text-xs">
@@ -107,12 +154,15 @@ function LandingPage() {
         <div className="w-full absolute bottom-10 h-32 bg-custom-yellow -z-50 -mx-10 sm:block hidden"></div>
         <div className="w-full absolute top-52 h-24 bg-custom-light-yellow -z-50 mx-10 sm:block hidden"></div>
         <div className="w-full justify-start font-Montserrat sm:text-4xl text-2xl">
-          Why Us?
+          More Resources
         </div>{" "}
         <div className="grid sm:gap-10 gap-5 sm:grid-cols-3 grid-cols-1 sm:px-0 ">
-          <div className="w-full sm:h-96 h-auto border-2 border-custom-yellow flex flex-col sm:px-5 sm:py-16 px-2 py-10 sm:justify-between space-y-4  bg-white">
+          <Link
+            href="/roi"
+            className="w-full sm:h-96 h-auto border-2 border-custom-yellow flex flex-col sm:px-5 sm:py-16 px-2 py-10 sm:justify-between space-y-4  bg-white"
+          >
             <div className="w-full flex justify-center text-custom-yellow text-2xl font-Montserrat">
-              Live Agent
+              ROI Calculator
             </div>
             <div className="font-Montserrat text-center">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -122,10 +172,13 @@ function LandingPage() {
               labore et dolore magna aliqua. Ut enim ad minim veniam, quis
               nostrud
             </div>
-          </div>
-          <div className="w-full sm:h-96 h-auto border-2 border-custom-yellow flex flex-col sm:px-5 sm:py-16 px-2 py-10 sm:justify-between space-y-4  bg-white">
+          </Link>
+          <Link
+            href="/timingthemarket"
+            className="w-full sm:h-96 h-auto border-2 border-custom-yellow flex flex-col sm:px-5 sm:py-16 px-2 py-10 sm:justify-between space-y-4  bg-white"
+          >
             <div className="w-full flex justify-center text-custom-yellow text-2xl font-Montserrat">
-              Accurate Estimate
+              Timing the Market
             </div>
             <div className="font-Montserrat text-center">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -135,10 +188,13 @@ function LandingPage() {
               labore et dolore magna aliqua. Ut enim ad minim veniam, quis
               nostrud
             </div>
-          </div>
-          <div className="w-full sm:h-96 h-auto border-2 border-custom-yellow flex flex-col sm:px-5 sm:py-16 px-2 py-10 sm:justify-between space-y-4  bg-white">
+          </Link>
+          <Link
+            href="/rentvssale"
+            className="w-full sm:h-96 h-auto border-2 border-custom-yellow flex flex-col sm:px-5 sm:py-16 px-2 py-10 sm:justify-between space-y-4  bg-white"
+          >
             <div className="w-full flex justify-center text-custom-yellow text-2xl font-Montserrat">
-              Seamless Process
+              Rent v. Sell
             </div>
             <div className="font-Montserrat text-center">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -148,7 +204,7 @@ function LandingPage() {
               labore et dolore magna aliqua. Ut enim ad minim veniam, quis
               nostrud
             </div>
-          </div>
+          </Link>
         </div>
       </div>
       <Testimonials></Testimonials>

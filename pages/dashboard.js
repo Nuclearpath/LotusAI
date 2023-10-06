@@ -95,7 +95,7 @@ function Dashboard() {
           <>
             <div className="w-full flex justify-end">
               <Link
-                href=""
+                href="/comparableproperties"
                 className="underline text-sm text-gray-500 font-semibold sm:py-7 py-2"
               >
                 View comparable properties

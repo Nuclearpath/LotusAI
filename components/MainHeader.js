@@ -12,6 +12,9 @@ import { signIn, signOut, useSession } from "next-auth/react";
 function MainHeader() {
   const [showSidebar, setShowSidebar] = useState(false);
   const { data: session } = useSession();
+  //  if (session) {
+  //    console.log(session.user);
+  //  }
   return (
     <div>
       <div className="w-full flex justify-between  px-6 shadow items-center sm:py-0 py-5">
@@ -32,54 +35,69 @@ function MainHeader() {
           <Link href="/rentvssale">Rent Vs Sell</Link>
           <Link href="/salebyowner">Sale By Owner</Link>
         </div>
-
-        <button
-          onClick={() => setShowSidebar(!showSidebar)}
-          className="sm:hidden flex text-xl text-custom-yellow border-2 p-2 rounded-md border-custom-light-yellow shadow-lg "
-        >
-          <AiOutlineMenu></AiOutlineMenu>
-        </button>
+        <div className="flex  sm:hidden space-x-3">
+          {session && session.user.image && (
+            <img
+              src={session.user.image}
+              className="w-9 h-9 rounded-full"
+            ></img>
+          )}
+          <button
+            onClick={() => setShowSidebar(!showSidebar)}
+            className="sm:hidden flex text-xl text-custom-yellow border-2 p-2 rounded-md border-custom-light-yellow shadow-lg "
+          >
+            <AiOutlineMenu></AiOutlineMenu>
+          </button>
+        </div>
         <div className="text-custom-yellow font-Montserrat font-normal text-base sm:flex hidden">
           {/* <Link href="">Sign In </Link> / <Link href="">Register</Link> */}
           <div className="text-4xl text-gray-950 relative">
-            <Popover>
-              <PopoverTrigger>
-                {session ? (
+            {session && (
+              <Popover>
+                <PopoverTrigger>
                   <button className="peer">
-                    {session.user && <BsPersonCircle></BsPersonCircle>}
+                    {session.user.image ? (
+                      <img
+                        src={session.user.image}
+                        className="w-10 h-10 rounded-full"
+                      ></img>
+                    ) : (
+                      <BsPersonCircle></BsPersonCircle>
+                    )}
                   </button>
-                ) : (
-                  <button
-                    className="text-lg font-semibold text-custom-yellow"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      signIn();
-                    }}
-                  >
-                    Login
-                  </button>
-                )}
-              </PopoverTrigger>
+                </PopoverTrigger>
 
-              <PopoverContent className="flex  flex-col  bg-white font-Montserrat items-end text-lg px-0 space-y-2 shadow-2xl">
-                <div className=" border-black w-full flex justify-end hover:bg-custom-verylight-yellow px-2 py-1">
-                  <Link href="">Your Listings</Link>
-                </div>
-                <div className=" border-black w-full flex justify-end hover:bg-custom-verylight-yellow px-2 py-1">
-                  <Link href="">Chat with our agents</Link>
-                </div>
-                <div className=" border-black w-full flex justify-end hover:bg-custom-verylight-yellow px-2 py-1">
-                  <button
-                    onClick={(e) => {
-                      e.preventDefault();
-                      signOut();
-                    }}
-                  >
-                    Sign Out
-                  </button>
-                </div>
-              </PopoverContent>
-            </Popover>
+                <PopoverContent className="flex  flex-col  bg-white font-Montserrat items-end text-lg px-0 space-y-2 shadow-2xl">
+                  <div className=" border-black w-full flex justify-end hover:bg-custom-verylight-yellow px-2 py-1">
+                    <Link href="">Your Listings</Link>
+                  </div>
+                  <div className=" border-black w-full flex justify-end hover:bg-custom-verylight-yellow px-2 py-1">
+                    <Link href="">Chat with our agents</Link>
+                  </div>
+                  <div className=" border-black w-full flex justify-end hover:bg-custom-verylight-yellow px-2 py-1">
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        signOut();
+                      }}
+                    >
+                      Sign Out
+                    </button>
+                  </div>
+                </PopoverContent>
+              </Popover>
+            )}
+            {!session && (
+              <button
+                className="text-lg font-semibold text-custom-yellow"
+                onClick={(e) => {
+                  e.preventDefault();
+                  signIn("google");
+                }}
+              >
+                Login
+              </button>
+            )}
           </div>
         </div>
 
@@ -105,6 +123,29 @@ function MainHeader() {
               <Link href="/timingthemarket">Timing the market</Link>
               <Link href="/rentvssale">Rent Vs Sell</Link>
               <Link href="/salebyowner">Sale By Owner</Link>
+              {!session && (
+                <button
+                  className="text-lg font-semibold text-custom-yellow"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    signIn("google");
+                  }}
+                >
+                  Login
+                </button>
+              )}
+              {session && (
+                <button
+                  className="text-lg font-semibold text-custom-yellow"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    signOut();
+                  }}
+                >
+                  Logout
+                </button>
+              )}
+
               {/* <Link href="" className="text-custom-yellow">
                 Sign In{" "}
               </Link>

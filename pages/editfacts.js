@@ -43,7 +43,7 @@ function Editfacts() {
           >
             <div className="w-full flex-col flex space-y-2 sm:px-6 px-3">
               <div className="w-full sm:text-2xl text-xl font-Montserrat">
-                Sq. Ft.
+                Finished Square Feet
               </div>
               <input
                 type="text"
@@ -56,7 +56,7 @@ function Editfacts() {
             </div>
             <div className="w-full flex-col flex space-y-2 sm:px-6 px-3">
               <div className="w-full sm:text-2xl text-xl font-Montserrat">
-                No of Bedrooms
+                Number of Bedrooms
               </div>
               <input
                 type="text"
