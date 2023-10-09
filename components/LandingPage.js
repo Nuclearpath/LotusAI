@@ -51,6 +51,7 @@ function LandingPage() {
             infinite={true}
             slidesToShow={1}
             fade={true}
+            dots={true}
             autoplay
             autoplaySpeed={4000}
             arrows={false}
@@ -61,9 +62,7 @@ function LandingPage() {
                 alt="..."
                 fill
                 quality={100}
-                src={"/house.png"}
-                placeholder="blur"
-                blurDataURL="/house.jpg"
+                src={"/house1.webp"}
                 className="object-cover object-center"
               />
             </div>
@@ -72,9 +71,7 @@ function LandingPage() {
                 alt="..."
                 fill
                 quality={100}
-                src={"/house2.jpg"}
-                placeholder="blur"
-                blurDataURL="/house2blur.jpg"
+                src={"/house2.webp"}
                 className="object-cover object-center"
               />
             </div>
@@ -83,9 +80,7 @@ function LandingPage() {
                 alt="..."
                 fill
                 quality={100}
-                src={"/house3.jpg"}
-                placeholder="blur"
-                blurDataURL="/house3blur.jpg"
+                src={"/house3.webp"}
                 className="object-cover object-center"
               />
             </div>

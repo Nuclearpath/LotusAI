@@ -37,10 +37,11 @@ function MainHeader() {
         </div>
         <div className="flex  sm:hidden space-x-3">
           {session && session.user.image && (
-            <img
+            <Image
               src={session.user.image}
-              className="w-9 h-9 rounded-full"
-            ></img>
+              className="!relative rounded-full"
+              fill
+            ></Image>
           )}
           <button
             onClick={() => setShowSidebar(!showSidebar)}
@@ -55,12 +56,13 @@ function MainHeader() {
             {session && (
               <Popover>
                 <PopoverTrigger>
-                  <button className="peer">
+                  <button className="peer w-10 h-10">
                     {session.user.image ? (
-                      <img
+                      <Image
                         src={session.user.image}
-                        className="w-10 h-10 rounded-full"
-                      ></img>
+                        fill
+                        className="w-10 h-10 rounded-full !relative"
+                      ></Image>
                     ) : (
                       <BsPersonCircle></BsPersonCircle>
                     )}
