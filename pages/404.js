@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Unauth from "../components/Unauth";
 export default function Custom404() {
   return (
     <div>
@@ -18,6 +19,7 @@ export default function Custom404() {
             className="text-custom-yellow underline font-extrabold text-2xl"
           >
             Home
+            {/* <Unauth></Unauth> */}
           </Link>
         </div>
       </div>

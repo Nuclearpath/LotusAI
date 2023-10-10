@@ -36,13 +36,15 @@ function MainHeader() {
           <Link href="/salebyowner">Sale By Owner</Link>
         </div>
         <div className="flex  sm:hidden space-x-3">
-          {session && session.user.image && (
-            <Image
-              src={session.user.image}
-              className="!relative rounded-full"
-              fill
-            ></Image>
-          )}
+          <div className="w-10 h-10">
+            {session && session.user.image && (
+              <Image
+                src={session.user.image}
+                className="!relative rounded-full"
+                fill
+              ></Image>
+            )}
+          </div>
           <button
             onClick={() => setShowSidebar(!showSidebar)}
             className="sm:hidden flex text-xl text-custom-yellow border-2 p-2 rounded-md border-custom-light-yellow shadow-lg "

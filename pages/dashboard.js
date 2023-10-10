@@ -8,6 +8,7 @@ import MarketTrend from "../components/MarketTrend";
 import Chatbot from "../components/Chatbot";
 
 import { useSession } from "next-auth/react";
+import NotLoggedIn from "../components/NotLoggedIn";
 function Dashboard() {
   const { data: session } = useSession();
   /*recieved from the api */
@@ -59,7 +60,9 @@ function Dashboard() {
       },
     ],
   };
-  return (
+  return !session ? (
+    <NotLoggedIn></NotLoggedIn>
+  ) : (
     <div className=" flex w-full flex-col">
       <Chatbot></Chatbot>
       <MainHeader></MainHeader>

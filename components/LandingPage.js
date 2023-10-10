@@ -36,15 +36,6 @@ function LandingPage() {
     <div className="w-full flex h-full  flex-col">
       <MainHeader></MainHeader>
       <div className="sm:flex  w-full sm:h-screen  relative sm:px-12 px-3">
-        <div className="absolute bottom-0 flex w-10/12 justify-center py-4 ">
-          <Link
-            className="bg-custom-light-yellow text-custom-yellow p-2 rounded-full  border-custom-yellow border-2"
-            href="#hom"
-          >
-            <BsChevronCompactDown></BsChevronCompactDown>
-          </Link>
-        </div>
-
         <div className="sm:w-1/2 w-full flex sm:h-full h-auto sm:px-3 px-0 sm:pt-4 justify-center sm:justify-start pt-2">
           <Slider
             className="w-full"

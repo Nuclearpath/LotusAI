@@ -28,7 +28,8 @@
     "react-lazy-load-image-component": "^1.6.0",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^5.3.11"
+    "styled-components": "^5.3.11",
+    "zustand": "^4.4.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.15",
