@@ -4,14 +4,14 @@ import {
   BiSolidChevronLeftCircle,
   BiSolidChevronRightCircle,
 } from "react-icons/bi";
-import Chatbot from "../../components/Chatbot";
+// import Chatbot from "../../components/Chatbot";
 import Link from "next/link";
 import Image from "next/image";
 import {BsChevronRight} from "react-icons/bs"
 function testquiz() {
   return (
     <div>
-      {/* <Chatbot></Chatbot> */}
+      {/*  {/* <Chatbot></Chatbot> */} */}
       <MainHeader></MainHeader>
       <div className="relative sm:h-84 h-72">
       <Image src="/Rect.png" className="top-0 absolute !w-full !sm:h-auto !h-48 z-10" fill/>

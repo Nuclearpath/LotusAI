@@ -64,7 +64,7 @@ function Dashboard() {
     <NotLoggedIn></NotLoggedIn>
   ) : (
     <div className=" flex w-full flex-col">
-      <Chatbot></Chatbot>
+       {/* <Chatbot></Chatbot> */}
       <MainHeader></MainHeader>
       <div className="w-full flex flex-col sm:px-12 px-3">
         <div className="sm:pt-24 pt-3 flex justify-start sm:text-3xl text-2xl font-Montserrat w-full">

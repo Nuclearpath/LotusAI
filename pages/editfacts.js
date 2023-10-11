@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import MainHeader from "../components/MainHeader";
 import { AiOutlinePlusCircle } from "react-icons/ai";
-import Link from "next/link";
-import Chatbot from "../components/Chatbot";
+// import Link from "next/link";
+// import Chatbot from "../components/Chatbot";
 import {
   Modal,
   ModalContent,
@@ -37,7 +37,7 @@ function Editfacts() {
         <NotLoggedIn></NotLoggedIn>
       ) : (
         <div>
-          <Chatbot></Chatbot>
+            {/* <Chatbot></Chatbot> */} 
           <MainHeader></MainHeader>
           <div className="w-full flex flex-col sm:py-12 py-6 sm:px-12 px-3">
             <div className="w-full flex sm:text-4xl text-2xl font-Montserrat sm:py-6 py-3">
