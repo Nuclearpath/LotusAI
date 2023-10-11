@@ -11,10 +11,10 @@ import {BsChevronRight} from "react-icons/bs"
 function testquiz() {
   return (
     <div>
-      {/*  {/* <Chatbot></Chatbot> */} */}
+      {/* <Chatbot></Chatbot> */}
       <MainHeader></MainHeader>
       <div className="relative sm:h-84 h-72">
-      <Image src="/Rect.png" className="top-0 absolute !w-full !sm:h-auto !h-48 z-10" fill/>
+      <Image src="/Rect.png" alt="rect" className="top-0 absolute !w-full !sm:h-auto !h-48 z-10" fill/>
       <div className="z-20 absolute sm:text-xl text-lg text-white sm:px-10 px-2 sm:py-5 py-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua?</div>
      
       </div>
