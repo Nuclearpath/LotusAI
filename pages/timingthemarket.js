@@ -8,7 +8,7 @@ import { BsChevronDown } from "react-icons/bs";
 import {VscGraph} from "react-icons/vsc" 
 import {BsGraphUp} from "react-icons/bs";
 import {AiOutlineMenu} from "react-icons/ai"
-import Chatbot from "../components/Chatbot";
+// import Chatbot from "../components/Chatbot";
 function timingthemarket() {
   const reviews = [
     {
@@ -40,7 +40,7 @@ function timingthemarket() {
   return (
     <div className=" w-full h-screen overflow-y-scroll no-scrollbar">
       <MainHeader></MainHeader>
-      <Chatbot></Chatbot>
+      {/* <Chatbot></Chatbot> */} 
       <div className="w-full sm:px-12 sm:py-12 px-3 py-6">
         <div className="text-2xl font-Montserrat font-medium">
           Timing the Market
