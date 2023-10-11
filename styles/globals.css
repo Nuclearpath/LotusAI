@@ -23,3 +23,15 @@
   color: #ffeac9;
   -webkit-text-stroke: 2px #ffa921;
 }
+.zsiq_theme1 .zsiq_flt_rel {
+  background-color: #ffa921 !important;
+}
+.zsiq_theme1 .emtpg_btn em{
+  background-color: #ffa921 !important;
+  background-image:none !important
+
+}
+#window-ribbon .zsiq_theme1  .zsiqcallchat .siqdc-hdr{
+  background-color: #ffa921 !important;
+  background-image:none !important
+}
