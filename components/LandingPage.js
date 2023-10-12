@@ -53,15 +53,6 @@ function LandingPage() {
                 alt="..."
                 fill
                 quality={100}
-                src={"/house1.webp"}
-                className="object-cover object-center"
-              />
-            </div>
-            <div className="w-full sm:h-[97vh] h-[50vh]">
-              <Image
-                alt="..."
-                fill
-                quality={100}
                 src={"/house2.webp"}
                 className="object-cover object-center"
               />

@@ -9,7 +9,10 @@ import Image from "next/image";
 import {Popover, PopoverTrigger, PopoverContent} from "@nextui-org/react";
 
 import { signIn, signOut, useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 function MainHeader() {
+  const router = useRouter();
   const [showSidebar, setShowSidebar] = useState(false);
   const { data: session } = useSession();
   //  if (session) {
@@ -96,7 +99,7 @@ function MainHeader() {
                 className="text-lg font-semibold text-custom-yellow"
                 onClick={(e) => {
                   e.preventDefault();
-                  signIn("google");
+                  router.push("/login");
                 }}
               >
                 Login
@@ -132,7 +135,7 @@ function MainHeader() {
                   className="text-lg font-semibold text-custom-yellow"
                   onClick={(e) => {
                     e.preventDefault();
-                    signIn("google");
+                    router.push("/login");
                   }}
                 >
                   Login

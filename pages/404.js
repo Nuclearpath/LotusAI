@@ -1,9 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import Unauth from "../components/Unauth";
+import Loader from "../components/Loader";
+
 export default function Custom404() {
   return (
     <div>
+      {/* <Loader></Loader> */}
       <div className="w-full flex flex-col items-center justify-center h-[100vh] space-y-3">
         <div className="w-64 h-64 ">
           <Image src="/lotus.png" fill className="!relative"></Image>
@@ -19,7 +22,6 @@ export default function Custom404() {
             className="text-custom-yellow underline font-extrabold text-2xl"
           >
             Home
-            {/* <Unauth></Unauth> */}
           </Link>
         </div>
       </div>
