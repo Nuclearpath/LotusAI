@@ -22,8 +22,6 @@ function Login() {
     signIn("credentials", {
       email: form.email,
       password: form.password,
-      callbackUrl: `http://localhost:3000/me`,
-      // redirect: false,
     });
 
     // console.log(form);
