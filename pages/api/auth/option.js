@@ -1,6 +1,11 @@
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
+import dbConnect from "../../../utils/connectdb";
+import User from "../../../models/user";
+import clientPromise from "../clientPromise";
 export const options = {
+  // adapter: MongoDBAdapter(clientPromise),
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
@@ -11,19 +16,19 @@ export const options = {
       credentials: {
         email: { label: "Email", type: "text", placeholder: "user@gmail.com" },
         password: { label: "Password", type: "password" },
+        method: { label: "method", type: "text" },
       },
       async authorize(credentials, req) {
-        const user = {
-          name: "user",
-          email: "example@gmail.com",
-          password: "12345678",
-        };
-        // console.log(credentials);
+        await dbConnect();
 
-        if (
-          user.email === credentials?.email &&
-          user.password == credentials?.password
-        ) {
+        const user = await User.findOne({
+          email: credentials?.email,
+          password: credentials?.password,
+          method: credentials?.method,
+        });
+        //console.log(user);
+
+        if (user) {
           return user;
         } else {
           return null;
@@ -32,7 +37,7 @@ export const options = {
     }),
   ],
   session: {
-    maxAge: 15 * 60,
+    maxAge: 30,
   },
 
   callbacks: {
