@@ -9,9 +9,9 @@ import Chatbot from "../components/Chatbot";
 
 import { useSession } from "next-auth/react";
 import NotLoggedIn from "../components/NotLoggedIn";
+import loginRedirect from "../lib/loginRedirect";
 function Dashboard() {
   const { data: session } = useSession();
-  /*recieved from the api */
 
   const data = {
     house: "20 S Huntington Ave",
@@ -60,11 +60,9 @@ function Dashboard() {
       },
     ],
   };
-  return !session ? (
-    <NotLoggedIn></NotLoggedIn>
-  ) : (
+  return (
     <div className=" flex w-full flex-col">
-       {/* <Chatbot></Chatbot> */}
+      {/* <Chatbot></Chatbot> */}
       <MainHeader></MainHeader>
       <div className="w-full flex flex-col sm:px-12 px-3">
         <div className="sm:pt-24 pt-3 flex justify-start sm:text-3xl text-2xl font-Montserrat w-full">
@@ -107,11 +105,19 @@ function Dashboard() {
             <div className="sm:pt-24 pt-10 flex justify-center sm:text-3xl text-2xl font-Montserrat w-full">
               House Value Trend
             </div>
-            <ValueTrendsChart></ValueTrendsChart>
+            <div className="w-full justify-center flex">
+              <div className="sm:w-8/12  w-full">
+                <ValueTrendsChart></ValueTrendsChart>
+              </div>
+            </div>
             <div className="sm:pt-24 pt-10 flex justify-center sm:text-3xl text-2xl font-Montserrat w-full">
               Market Trend for your location - 02667
             </div>
-            <MarketTrend></MarketTrend>
+            <div className="w-full justify-center flex">
+              <div className="sm:w-8/12  w-full">
+                <MarketTrend></MarketTrend>
+              </div>
+            </div>
             <div className="sm:pt-24  pt-10 flex justify-start sm:text-3xl text-2xl font-Montserrat w-full">
               Recently Sold
             </div>

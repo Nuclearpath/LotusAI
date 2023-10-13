@@ -8,8 +8,12 @@ import { BsChevronDown } from "react-icons/bs";
 import {VscGraph} from "react-icons/vsc" 
 import {BsGraphUp} from "react-icons/bs";
 import {AiOutlineMenu} from "react-icons/ai"
+import { useSession } from "next-auth/react";
+import loginRedirect from "../lib/loginRedirect";
 // import Chatbot from "../components/Chatbot";
 function timingthemarket() {
+  const { data: session } = useSession();
+  loginRedirect(session);
   const reviews = [
     {
       url: "/human.png",
@@ -40,89 +44,85 @@ function timingthemarket() {
   return (
     <div className=" w-full h-screen overflow-y-scroll no-scrollbar">
       <MainHeader></MainHeader>
-      {/* <Chatbot></Chatbot> */} 
+      {/* <Chatbot></Chatbot> */}
       <div className="w-full sm:px-12 sm:py-12 px-3 py-6">
         <div className="text-2xl font-Montserrat font-medium">
           Timing the Market
         </div>
         <div className="flex sm:w-10/12 w-full py-6 justify-between sm:flex-row flex-col">
-         
           <select className="  z-10  flex-col  bg-custom-yellow  text-white flex  rounded sm:w-64 w-auto px-4 py-2">
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-            Main Activity
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-            Pricing Trends
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-            Pricing Ratios
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-            Days on Market
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-          $ Per Sqft
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-            Supply And Demand
-          </option>
-      
+            <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+              Main Activity
+            </option>
+            <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+              Pricing Trends
+            </option>
+            <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+              Pricing Ratios
+            </option>
+            <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+              Days on Market
+            </option>
+            <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+              $ Per Sqft
+            </option>
+            <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+              Supply And Demand
+            </option>
           </select>
           <div className="flex sm:items-center items-start sm:flex-row flex-col">
             <div className="flex bg-custom-yellow px-3 py-2 border-2 text-white rounded-md sm:w-auto w-full">
-           <input type="radio" name="act"></input>
+              <input type="radio" name="act"></input>
 
-           <div>Actual Values</div>
-           </div >
-           <div className= "flex bg-custom-yellow px-3 py-2 border-2 text-white rounded-md sm:w-auto w-full">
-           <input type="radio" name="act"></input>
+              <div>Actual Values</div>
+            </div>
+            <div className="flex bg-custom-yellow px-3 py-2 border-2 text-white rounded-md sm:w-auto w-full">
+              <input type="radio" name="act"></input>
 
-           <div>Change Form</div>
-           </div>
-           <select className="  z-10  flex-col  bg-gray-100  text-black flex  rounded  px-4 py-2">
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded sm:w-64 w-full">
-            Prev Year
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded sm:w-64 w-full">
-            Prev Month
-          </option>
-          
-          </select>
-
+              <div>Change Form</div>
+            </div>
+            <select className="  z-10  flex-col  bg-gray-100  text-black flex  rounded  px-4 py-2">
+              <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded sm:w-64 w-full">
+                Prev Year
+              </option>
+              <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded sm:w-64 w-full">
+                Prev Month
+              </option>
+            </select>
           </div>
-          
         </div>
         <div className="flex sm:w-10/12 w-full  justify-start bg-custom-light-yellow py-3 px-2 rounded-lg rounded-b-none sm:flex-row flex-col sm:space-y-0 space-y-4">
-          <button className="sm:px-2 px-0 py-2 bg-custom-yellow text-white rounded-md mr-4">Add Metrices</button>
+          <button className="sm:px-2 px-0 py-2 bg-custom-yellow text-white rounded-md mr-4">
+            Add Metrices
+          </button>
           <select className="  z-10  flex-col  bg-gray-100  text-black flex  rounded  px-4 py-2">
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded sm:w-64 w-auto">
-Med Sold $/SqFt (Solds)
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-Avg Sold $/SqFt (Solds)
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-Avg List $/SqFt (Solds)
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-Med List $/SqFt (Solds)
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-Med List $/SqFt (New Listings)
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-Avg List $/SqFt (New Listings)
-          </option>
-         
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-Med List $/SqFt (Active Listings)
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-Avg List $/SqFt (Active Listings)
-          </option>
-          
+            <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded sm:w-64 w-auto">
+              Med Sold $/SqFt (Solds)
+            </option>
+            <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+              Avg Sold $/SqFt (Solds)
+            </option>
+            <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+              Avg List $/SqFt (Solds)
+            </option>
+            <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+              Med List $/SqFt (Solds)
+            </option>
+            <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+              Med List $/SqFt (New Listings)
+            </option>
+            <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+              Avg List $/SqFt (New Listings)
+            </option>
+
+            <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+              Med List $/SqFt (Active Listings)
+            </option>
+            <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+              Avg List $/SqFt (Active Listings)
+            </option>
           </select>
-</div>
+        </div>
         <div className="w-full flex ">
           {/*  */}
           <div className="shadow sm:w-10/12 w-full">
@@ -816,82 +816,78 @@ Avg List $/SqFt (Active Listings)
         </div>
         <div className="sm:w-10/12 flex sm:flex-row flex-col sm:space-y-0 space-y-3  w-full justify-between   bg-custom-light-yellow py-3 px-2 rounded-lg rounded-t-none">
           <div className="flex space-x-4 sm:w-auto w-full  sm:justify-start justify-center">
-            <button className="text-2xl p-2 bg-custom-yellow text-white rounded-md"><VscGraph></VscGraph></button>
-            <button className="text-2xl p-2 bg-custom-yellow text-white rounded-md"><BsGraphUp></BsGraphUp></button>
-            <button className="text-2xl p-2 bg-custom-yellow text-white rounded-md"><AiOutlineMenu></AiOutlineMenu></button>
-            </div>
-            <div className="sm:flex sm:flex-row flex-col sm:space-x-10 space-x-0 sm:space-y-0 space-y-2 sm:justify-start items-center sm:w-auto w-full">
-              <div className="flex sm:auto w-full sm:justify-start justify-center">
-                <div className="px-3 py-1 rounded-md  rounded-r-none bg-custom-yellow text-white flex items-center">
-                  Show
-                  </div>
-                  <select className="  z-10  flex-col  bg-gray-100  text-black flex  rounded  px-4 py-2">
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-            One Month
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-            Three Months
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-            Six Months
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-            1 year
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-            2 years
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-            3 years
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-            4 years
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-            5 years
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-            6 years
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-            7 years
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-            8 years
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-            9 years
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-            1 years
-          </option>
-
-          
-          
-          </select>
-                </div>
-                <div className=
-                "flex sm:w-auto w-full justify-center sm:justify-none"
-                >
-                <div className="px-3 py-1 rounded-md  rounded-r-none bg-custom-yellow text-white flex items-center">
-                  View By
-                  </div>
-          <select className="  z-10  flex-col  bg-gray-100  text-black flex  rounded  px-4 py-2">
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-            Months
-          </option>
-          <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-            Quaters
-          </option>
-          
-         
-
-          
-          
-          </select>
-                </div>
+            <button className="text-2xl p-2 bg-custom-yellow text-white rounded-md">
+              <VscGraph></VscGraph>
+            </button>
+            <button className="text-2xl p-2 bg-custom-yellow text-white rounded-md">
+              <BsGraphUp></BsGraphUp>
+            </button>
+            <button className="text-2xl p-2 bg-custom-yellow text-white rounded-md">
+              <AiOutlineMenu></AiOutlineMenu>
+            </button>
+          </div>
+          <div className="sm:flex sm:flex-row flex-col sm:space-x-10 space-x-0 sm:space-y-0 space-y-2 sm:justify-start items-center sm:w-auto w-full">
+            <div className="flex sm:auto w-full sm:justify-start justify-center">
+              <div className="px-3 py-1 rounded-md  rounded-r-none bg-custom-yellow text-white flex items-center">
+                Show
               </div>
-              <div className="sm:hidden sm:w-2/12 flex flex-col space-y-1">
+              <select className="  z-10  flex-col  bg-gray-100  text-black flex  rounded  px-4 py-2">
+                <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                  One Month
+                </option>
+                <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                  Three Months
+                </option>
+                <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                  Six Months
+                </option>
+                <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                  1 year
+                </option>
+                <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                  2 years
+                </option>
+                <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                  3 years
+                </option>
+                <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                  4 years
+                </option>
+                <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                  5 years
+                </option>
+                <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                  6 years
+                </option>
+                <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                  7 years
+                </option>
+                <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                  8 years
+                </option>
+                <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                  9 years
+                </option>
+                <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                  1 years
+                </option>
+              </select>
+            </div>
+            <div className="flex sm:w-auto w-full justify-center sm:justify-none">
+              <div className="px-3 py-1 rounded-md  rounded-r-none bg-custom-yellow text-white flex items-center">
+                View By
+              </div>
+              <select className="  z-10  flex-col  bg-gray-100  text-black flex  rounded  px-4 py-2">
+                <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                  Months
+                </option>
+                <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                  Quaters
+                </option>
+              </select>
+            </div>
+          </div>
+          <div className="sm:hidden sm:w-2/12 flex flex-col space-y-1">
             <div className="w-full flex flex-col px-3 font-Montserrat">
               <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2">
                 Home Type/Ownership

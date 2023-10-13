@@ -1,11 +1,15 @@
 import React from "react";
 import MainHeader from "../components/MainHeader";
 import RentVsSellCalculator from "../components/RentVsSellCalculator";
+import { useSession } from "next-auth/react";
+import loginRedirect from "../lib/loginRedirect";
 // import Chatbot from "../components/Chatbot";
 function rentvssale() {
+  const { data: session } = useSession();
+  loginRedirect(session);
   return (
     <div>
-      {/* <Chatbot></Chatbot> */} 
+      {/* <Chatbot></Chatbot> */}
       <MainHeader></MainHeader>
       <div className="px-3 sm:px-12 py-6 sm:py-12">
         <div className="w-full sm:text-3xl text-2xl font-Montserrat ">

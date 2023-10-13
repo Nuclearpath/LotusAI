@@ -32,11 +32,11 @@ function MainHeader() {
 
         <div className=" justify-between space-x-8 font-Montserrat font-semibold text-base sm:flex hidden">
           <Link href="/dashboard">What’s my pad worth?</Link>
-          <Link href="/roi">ROI</Link>
+          {session && <Link href="/roi">ROI</Link>}
 
-          <Link href="/timingthemarket">Timing the market</Link>
-          <Link href="/rentvssale">Rent Vs Sell</Link>
-          <Link href="/salebyowner">Sale By Owner</Link>
+          {session && <Link href="/timingthemarket">Timing the market</Link>}
+          {session && <Link href="/rentvssale">Rent Vs Sell</Link>}
+          {session && <Link href="/salebyowner">Sale By Owner</Link>}
         </div>
         <div className="flex  sm:hidden space-x-3">
           <div className="w-10 h-10">
@@ -125,11 +125,13 @@ function MainHeader() {
             </div>
             <div className="flex flex-col w-full justify-between items-center space-y-2 font-semibold font-Montserrat">
               <Link href="/dashboard">What’s my pad worth?</Link>
-              <Link href="/roi">ROI</Link>
+              {session && <Link href="/roi">ROI</Link>}
 
-              <Link href="/timingthemarket">Timing the market</Link>
-              <Link href="/rentvssale">Rent Vs Sell</Link>
-              <Link href="/salebyowner">Sale By Owner</Link>
+              {session && (
+                <Link href="/timingthemarket">Timing the market</Link>
+              )}
+              {session && <Link href="/rentvssale">Rent Vs Sell</Link>}
+              {session && <Link href="/salebyowner">Sale By Owner</Link>}
               {!session && (
                 <button
                   className="text-lg font-semibold text-custom-yellow"

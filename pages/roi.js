@@ -1,6 +1,8 @@
 import React from "react";
 import MainHeader from "../components/MainHeader";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+import loginRedirect from "../lib/loginRedirect";
 // import Chatbot from "../components/Chatbot";
 function roi() {
   const houseData = {
@@ -29,9 +31,12 @@ function roi() {
       propties: ["Office", "Fireplace", "Deck", "Family Room", "View"],
     },
   ];
+  const { data: session } = useSession();
+  loginRedirect(session);
+
   return (
     <div>
-    {/* <Chatbot></Chatbot> */} 
+      {/* <Chatbot></Chatbot> */}
       <MainHeader></MainHeader>
       <div className="w-full sm:px-12 px-3">
         <div className="sm:pt-6 pt-3 flex justify-start sm:text-2xl text-2xl font-Montserrat w-full">

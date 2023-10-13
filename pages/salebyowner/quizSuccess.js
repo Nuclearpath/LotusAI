@@ -3,8 +3,12 @@ import MainHeader from '../../components/MainHeader'
 import { CircularProgress } from "@nextui-org/react";
 import { useState } from "react";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+import loginRedirect from "../../lib/loginRedirect";
 function QuizSuccess() {
   const [value, setValue] = useState(0);
+  const { data: session } = useSession();
+  loginRedirect(session);
   return (
     <div>
       <MainHeader></MainHeader>
