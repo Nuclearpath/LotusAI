@@ -3,6 +3,7 @@ import MainHeader from "../components/MainHeader";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 // import Link from "next/link";
 // import Chatbot from "../components/Chatbot";
+import { useRouter } from "next/router";
 import {
   Modal,
   ModalContent,
@@ -12,13 +13,20 @@ import {
   Button,
   useDisclosure,
 } from "@nextui-org/react";
-import loginRedirect from "../lib/loginRedirect";
+
 import { useSession } from "next-auth/react";
 import NotLoggedIn from "../components/NotLoggedIn";
 function Editfacts() {
   const { data: session } = useSession();
 
-  loginRedirect(session);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (session) {
+    } else {
+      router.push("/");
+    }
+  }, [session]);
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [formValue, setFormValue] = useState({
     sqFt: 0,

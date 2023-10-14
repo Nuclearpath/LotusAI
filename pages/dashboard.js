@@ -9,7 +9,7 @@ import Chatbot from "../components/Chatbot";
 
 import { useSession } from "next-auth/react";
 import NotLoggedIn from "../components/NotLoggedIn";
-import loginRedirect from "../lib/loginRedirect";
+
 function Dashboard() {
   const { data: session } = useSession();
 

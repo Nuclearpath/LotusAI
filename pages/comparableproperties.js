@@ -2,11 +2,18 @@ import React from "react";
 import MainHeader from "../components/MainHeader";
 import CompCard from "../components/CompCard";
 import { useSession } from "next-auth/react";
-import NotLoggedIn from "../components/NotLoggedIn";
-import loginRedirect from "../lib/loginRedirect";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 function Comparableproperties() {
   const { data: session } = useSession();
-  loginRedirect(session);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (session) {
+    } else {
+      router.push("/");
+    }
+  }, [session]);
   return (
     <div>
       <MainHeader></MainHeader>

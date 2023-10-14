@@ -2,11 +2,18 @@ import React from "react";
 import MainHeader from "../components/MainHeader";
 import RentVsSellCalculator from "../components/RentVsSellCalculator";
 import { useSession } from "next-auth/react";
-import loginRedirect from "../lib/loginRedirect";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 // import Chatbot from "../components/Chatbot";
-function rentvssale() {
+function Rentvssale() {
   const { data: session } = useSession();
-  loginRedirect(session);
+  const router = useRouter();
+  useEffect(() => {
+    if (session) {
+    } else {
+      router.push("/");
+    }
+  }, [session]);
   return (
     <div>
       {/* <Chatbot></Chatbot> */}
@@ -24,4 +31,4 @@ function rentvssale() {
   );
 }
 
-export default rentvssale;
+export default Rentvssale;
