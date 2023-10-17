@@ -19,12 +19,12 @@ import { useSession } from "next-auth/react";
        {/* <Chatbot></Chatbot> */}
        <MainHeader></MainHeader>
        <div className="sm:px-12 px-3">
-         <div className=" mt-6 py-2 bg-custom-light-yellow rounded-lg sm:text-3xl text-2xl justify-center items-center w-full flex font-Montserrat ">
+         <div className=" mt-6 py-2 bg-custom-light-yellow rounded-lg sm:text-3xl text-2xl justify-center items-center w-full flex font-header ">
            Safe Showing Tips
          </div>
 
          <div className="py-6 w-full font-Montserrat">
-           <div className="font-Montserrat w-full justify-center   sm:text-xl text-lg ">
+           <div className="font-header w-full justify-center   sm:text-xl text-lg ">
              To securely show your house for sale, it{"'"}s essential to protect
              your property, personal belongings, and ensure the safety of
              potential buyers. Here are some tips for safe secure showings:

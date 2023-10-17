@@ -21,16 +21,16 @@ import { useSession } from "next-auth/react";
        {/* <Chatbot></Chatbot> */}
        <MainHeader></MainHeader>
        <div className="sm:px-12 px-3">
-         <div className=" mt-6 py-2 bg-custom-light-yellow rounded-lg sm:text-3xl text-2xl justify-center items-center w-full flex font-Montserrat ">
+         <div className=" mt-6 py-2 bg-custom-light-yellow rounded-lg sm:text-3xl text-2xl justify-center items-center w-full flex font-header">
            FSBO Marketing Checklist
          </div>
-         <div className="font-Montserrat w-full justify-center py-6 text-center text-xl tracking-wider">
+         <div className="font-header w-full justify-center py-6 text-center text-xl tracking-wider">
            Successfully marketing your home means much more than putting a for
            sale sign in your front yard. here are some pro tips for marketing to
            attract the most buyers
          </div>
          <div className="py-6 w-full font-Montserrat">
-           <div className="font-semibold">Signage: </div>
+           <div className="font-semibold font-header">Signage: </div>
            <ul className="list-none list-inside space-y-4">
              <li className="w-full flex items-center space-x-4">
                <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
@@ -60,7 +60,7 @@ import { useSession } from "next-auth/react";
            </ul>
          </div>
          <div className="py-6 w-full font-Montserrat space-y-4">
-           <div className="font-semibold">At the house :</div>
+           <div className="font-semibold font-header">At the house :</div>
            <ol className="list-decimal list-inside space-y-4">
              <li className="w-full flex items-center space-x-4">
                <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
@@ -100,7 +100,7 @@ import { useSession } from "next-auth/react";
            </ol>
          </div>
          <div className="py-6 w-full font-Montserrat">
-           <div className="font-semibold">Print Ads :</div>
+           <div className="font-semibold font-header">Print Ads :</div>
            <ol className="list-decimal list-inside space-y-4">
              <li className="w-full flex items-center space-x-4">
                <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
@@ -126,7 +126,7 @@ import { useSession } from "next-auth/react";
            </ol>
          </div>
          <div className="py-6 w-full font-Montserrat">
-           <div className="font-semibold">Online :</div>
+           <div className="font-semibold font-header">Online :</div>
            <ol className="list-decimal list-inside space-y-4">
              <li className="w-full flex items-center space-x-4">
                <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>

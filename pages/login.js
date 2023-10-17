@@ -60,7 +60,7 @@ function Login() {
           <div class="mb-6">
             <label
               for="password"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white "
             >
               Your password
             </label>
@@ -91,7 +91,7 @@ function Login() {
             e.preventDefault();
             signIn("google");
           }}
-          className="w-full bg-white border-1 rounded-md py-3 flex justify-center items-center font-semibold font-Montserrat"
+          className="w-full bg-white border-1 rounded-md py-3 flex justify-center items-center font-semibold font-header"
         >
           <div className="w-8 h-8 mr-3">
             <Image src="/google.jpg" fill className="!relative"></Image>

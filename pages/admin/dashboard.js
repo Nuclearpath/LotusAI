@@ -8,7 +8,7 @@ function Dashboard() {
       <AdminHeader></AdminHeader>
       <div className="w-full sm:px-12 px-3 sm:py-9 py-3">
         <div className="py-5 flex flex-col px-5 shadow-xl rounded-lg">
-          <div className="font-Montserrat font-semibold text-custom-yellow text-xl ">
+          <div className="font-header font-semibold text-custom-yellow text-xl ">
             Dashboard
           </div>
           <div className="font-Montserrat text-gray-500 ">

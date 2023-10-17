@@ -19,16 +19,18 @@ import { useSession } from "next-auth/react";
        {/* <Chatbot></Chatbot> */}
        <MainHeader></MainHeader>
        <div className="sm:px-12 px-3">
-         <div className=" mt-6 py-2 bg-custom-light-yellow rounded-lg sm:text-3xl text-2xl justify-center items-center w-full flex font-Montserrat ">
+         <div className=" mt-6 py-2 bg-custom-light-yellow rounded-lg sm:text-3xl text-2xl justify-center items-center w-full flex font-header ">
            Staging to Sell
          </div>
-         <div className="font-Montserrat w-full justify-center py-6 text-center sm:text-xl text-lg tracking-wider">
+         <div className="font-header w-full justify-center py-6 text-center sm:text-xl text-lg tracking-wider">
            Staging is the icing on the cake that gives your home a professional
            touch. With a few props and the following tips, your home will show
            like a model.
          </div>
          <div className="py-6 w-full font-Montserrat">
-           <div className="font-semibold">The front of your home:</div>
+           <div className="font-semibold font-header">
+             The front of your home:
+           </div>
            <ol className=" list-outside">
              <li>
                <input
@@ -66,7 +68,7 @@ import { useSession } from "next-auth/react";
            </ol>
          </div>
          <div className="py-6 w-full font-Montserrat">
-           <div className="font-semibold">Interior rooms:</div>
+           <div className="font-semibold font-header">Interior rooms:</div>
            <ol
              className="
          list-outside"
@@ -139,7 +141,7 @@ import { useSession } from "next-auth/react";
            </ol>
          </div>
          <div className="py-6 w-full font-Montserrat">
-           <div className="font-semibold">Kitchen:</div>
+           <div className="font-semibold font-header">Kitchen:</div>
            <ol className=" list-outside">
              <li>
                <input

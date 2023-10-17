@@ -19,11 +19,11 @@ import { useSession } from "next-auth/react";
        {/* <Chatbot></Chatbot> */}
        <MainHeader></MainHeader>
        <div className="sm:px-12 px-3">
-         <div className=" mt-6 py-2 bg-custom-light-yellow rounded-lg sm:text-3xl text-2xl justify-center items-center w-full flex font-Montserrat ">
+         <div className=" mt-6 py-2 bg-custom-light-yellow rounded-lg sm:text-3xl text-2xl justify-center items-center w-full flex font-header ">
            Pricing
          </div>
 
-         <div className="py-6 w-full font-Montserrat">
+         <div className="py-6 w-full font-header">
            <div className="font-semibold">BUYERS IN YOUR MARKET</div>
            <ul className="list-disc list-inside">
              <li>
@@ -45,7 +45,9 @@ import { useSession } from "next-auth/react";
            </ul>
          </div>
          <div className="py-6 w-full font-Montserrat">
-           <div className="font-semibold">IF YOU OVERPRICE YOUR HOME:</div>
+           <div className="font-semibold font-header">
+             IF YOU OVERPRICE YOUR HOME:
+           </div>
            <ol className="list-disc list-inside">
              <li>
                It makes other homes more attractive and can actually help sell
@@ -79,7 +81,7 @@ import { useSession } from "next-auth/react";
            <div className=" flex flex-col justify-between"> </div>
          </div>
          <div className="py-6 w-full font-Montserrat">
-           <div className="font-semibold">PRICING TO SELL</div>
+           <div className="font-semibold font-header">PRICING TO SELL</div>
            <div className="">
              The following are a few things to keep in mind about pricing:
            </div>
@@ -107,7 +109,7 @@ import { useSession } from "next-auth/react";
            </ol>
          </div>
          <div className="py-6 w-full font-Montserrat">
-           <div className="font-semibold">FOR SALE BY OWNER?</div>
+           <div className="font-semibold font-header">FOR SALE BY OWNER?</div>
            <div className="">
              Consider the following statistics and information:
            </div>

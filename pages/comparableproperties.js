@@ -31,7 +31,7 @@ function Comparableproperties() {
           ></iframe>
         </div>
         <div className="w-full">
-          <div className="w-full flex font-Montserrat sm:text-2xl text-xl sm:p-5 p-3 font-semibold">
+          <div className="w-full flex font-font-header sm:text-2xl text-xl sm:p-5 p-3 font-semibold">
             Take a look at some comparable properties
           </div>
           <div className="grid sm:grid-cols-2 grid-cols-1 sm:gap-8 gap-4 p-4 h-[75vh] overflow-y-scroll">

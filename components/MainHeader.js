@@ -30,7 +30,7 @@ function MainHeader() {
           />
         </Link>
 
-        <div className=" justify-between space-x-8 font-Montserrat font-semibold text-base sm:flex hidden">
+        <div className=" justify-between space-x-8 font-header font-semibold text-base sm:flex hidden">
           <Link href="/dashboard">What’s my pad worth?</Link>
           {session && <Link href="/roi">ROI</Link>}
 
@@ -55,7 +55,7 @@ function MainHeader() {
             <AiOutlineMenu></AiOutlineMenu>
           </button>
         </div>
-        <div className="text-custom-yellow font-Montserrat font-normal text-base sm:flex hidden">
+        <div className="text-custom-yellow font-header font-normal text-base sm:flex hidden">
           {/* <Link href="">Sign In </Link> / <Link href="">Register</Link> */}
           <div className="text-4xl text-gray-950 relative">
             {session && (
@@ -74,7 +74,7 @@ function MainHeader() {
                   </button>
                 </PopoverTrigger>
 
-                <PopoverContent className="flex  flex-col  bg-white font-Montserrat items-end text-lg px-0 space-y-2 shadow-2xl">
+                <PopoverContent className="flex  flex-col  bg-white font-header items-end text-lg px-0 space-y-2 shadow-2xl">
                   <div className=" border-black w-full flex justify-end hover:bg-custom-verylight-yellow px-2 py-1">
                     <Link href="">Your Listings</Link>
                   </div>
