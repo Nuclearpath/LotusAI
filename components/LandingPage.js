@@ -306,7 +306,7 @@ function LandingPage() {
               <Link href="">
                 <AiFillTwitterCircle className="text-3xl text-custom-yellow"></AiFillTwitterCircle>
               </Link>
-              <Link href="">
+              <Link href="/chatlist">
                 <BiLogoFacebook className="text-3xl text-custom-yellow"></BiLogoFacebook>
               </Link>
             </div>

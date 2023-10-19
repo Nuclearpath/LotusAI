@@ -1,5 +1,7 @@
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleUser from "../../../lib/models/GoogleUser";
+import connectDatabase from "../../../lib/connectDatabase";
 export const options = {
   providers: [
     GoogleProvider({
@@ -36,9 +38,49 @@ export const options = {
   },
 
   callbacks: {
+    async session({ session, token, user }) {
+      session.user.role = token.role;
+
+      return session;
+    },
+    async jwt({ token, account, profile }) {
+      // Persist the OAuth access_token and or the user id to the token right after signin
+      if (account) {
+        token.role = profile.role;
+      }
+      return token;
+    },
     async signIn({ account, profile }) {
       if (account.provider === "google") {
-        return profile.email_verified && profile.email.endsWith("@gmail.com");
+        if (profile.email_verified && profile.email.endsWith("@gmail.com")) {
+          try {
+            //console.log(profile);
+            await connectDatabase();
+            await GoogleUser.sync();
+            const user = await GoogleUser.findOne({
+              where: {
+                email: profile.email,
+              },
+            });
+            //console.log(user);
+            if (user) {
+              profile.role = user.role;
+              //console.log(profile);
+              return user;
+            } else {
+              const newUser = await GoogleUser.create({
+                email: profile.email,
+                name: profile.name,
+                role: "mod",
+              });
+              profile.role = newUser.role;
+
+              return newUser;
+            }
+          } catch (err) {
+            return null;
+          }
+        }
       }
       return true;
     },

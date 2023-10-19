@@ -4,12 +4,13 @@ import { useSession } from "next-auth/react";
 import MainHeader from "../components/MainHeader";
 import { useRouter } from "next/router";
 function Me() {
-  const { email, name, getAuth } = store();
+  const { email, name, getAuth, role } = store();
 
   const { data: session } = useSession();
   const router = useRouter();
   useEffect(() => {
     if (session) {
+      // console.log(session);
       getAuth(session);
     } else {
       router.push("/");
@@ -20,6 +21,7 @@ function Me() {
       <MainHeader></MainHeader>
       <div>{name}</div>
       <div>{email}</div>
+      <div>{role}</div>
     </div>
   );
 }
