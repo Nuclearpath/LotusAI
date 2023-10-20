@@ -6,14 +6,14 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 // import Chatbot from "../components/Chatbot";
 function Rentvssale() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const router = useRouter();
+
   useEffect(() => {
-    if (session) {
-    } else {
+    if (status === "unauthenticated") {
       router.push("/");
     }
-  }, [session]);
+  }, [status]);
   return (
     <div>
       {/* <Chatbot></Chatbot> */}

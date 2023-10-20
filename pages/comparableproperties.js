@@ -4,16 +4,17 @@ import CompCard from "../components/CompCard";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import Link from "next/link";
+import { BiLogoTelegram } from "react-icons/bi";
 function Comparableproperties() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const router = useRouter();
 
   useEffect(() => {
-    if (session) {
-    } else {
+    if (status === "unauthenticated") {
       router.push("/");
     }
-  }, [session]);
+  }, [status]);
   return (
     <div>
       <MainHeader></MainHeader>
@@ -55,6 +56,35 @@ function Comparableproperties() {
               price={"2,662,90"}
               area="360 Huntington Ave, Boston"
             ></CompCard>
+          </div>
+          <div className="w-full sm:px-12 px-3 py-6 bg-custom-light-yellow flex flex-col justify-center items-center">
+            <div className="w-full text-header flex justify-center font-semibold text-xl">
+              {" "}
+              Don{"'"}t see a comparable of your interest?
+              <Link href="/" className="text-custom-yellow underline">
+                Add your own
+              </Link>
+            </div>
+            <form className="w-full bg-white flex py-1 px-3 mt-4">
+              <input
+                type="text"
+                className="w-full py-1"
+                placeholder="Add more comparable properties"
+              ></input>
+              <button
+                type="submit"
+                className="bg-custom-yellow px-2 text-white text-xl"
+              >
+                <BiLogoTelegram></BiLogoTelegram>
+              </button>
+            </form>
+            <div className="mt-4 w-full justify-between flex text-xl">
+              <div>40 p parker </div>
+              <div className="flex space-x-4">
+                <button>Edit</button>
+                <button>Delete</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

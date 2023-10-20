@@ -17,16 +17,15 @@ import {
 import { useSession } from "next-auth/react";
 import NotLoggedIn from "../components/NotLoggedIn";
 function Editfacts() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
   const router = useRouter();
 
   useEffect(() => {
-    if (session) {
-    } else {
+    if (status === "unauthenticated") {
       router.push("/");
     }
-  }, [session]);
+  }, [status]);
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [formValue, setFormValue] = useState({
     sqFt: 0,

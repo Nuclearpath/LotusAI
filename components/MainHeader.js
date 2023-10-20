@@ -31,7 +31,7 @@ function MainHeader() {
         </Link>
 
         <div className=" justify-between space-x-8 font-header font-semibold text-base sm:flex hidden">
-          <Link href="/dashboard">What’s my pad worth?</Link>
+          {session && <Link href="/dashboard">What’s my pad worth?</Link>}
           {session && <Link href="/roi">ROI</Link>}
 
           {session && <Link href="/timingthemarket">Timing the market</Link>}
@@ -124,7 +124,7 @@ function MainHeader() {
               </button>
             </div>
             <div className="flex flex-col w-full justify-between items-center space-y-2 font-semibold font-Montserrat">
-              <Link href="/dashboard">What’s my pad worth?</Link>
+              {session && <Link href="/dashboard">What’s my pad worth?</Link>}
               {session && <Link href="/roi">ROI</Link>}
 
               {session && (

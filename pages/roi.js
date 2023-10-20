@@ -45,15 +45,14 @@ import { useSession } from "next-auth/react";
        propties: ["Office", "Fireplace", "Deck", "Family Room", "View"],
      },
    ];
-   const { data: session } = useSession();
+   const { data: session, status } = useSession();
    const router = useRouter();
 
    useEffect(() => {
-     if (session) {
-     } else {
+     if (status === "unauthenticated") {
        router.push("/");
      }
-   }, [session]);
+   }, [status]);
 
    return (
      <div>

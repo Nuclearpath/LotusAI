@@ -209,7 +209,7 @@ function LandingPage() {
                 </span>{" "}
                 Homeowners who are considering refinancing their mortgage may
                 want to know the current value of their home to assess their
-                options and determine if it's a good time to refinance.
+                options and determine if it{"'"}s a good time to refinance.
               </li>
               <li className="w-full justify-start font-Montserrat    text-xl">
                 <span className="font-header underline font-semibold">
@@ -251,7 +251,7 @@ function LandingPage() {
                 </span>{" "}
                 Property tax is often calculated based on the assessed value of
                 a home. Homeowners may want to verify the accuracy of their tax
-                assessments to ensure they're not overpaying.
+                assessments to ensure they{"'"}re not overpaying.
               </li>
               <li className="w-full justify-start font-Montserrat    text-xl">
                 <span className="font-header underline font-semibold">
@@ -259,7 +259,7 @@ function LandingPage() {
                 </span>{" "}
                 Homeowners may want to know the value of their homes to
                 calculate their home equity. This information can be important
-                for borrowing against the home's equity or for financial
+                for borrowing against the home{"'"}s equity or for financial
                 planning.
               </li>
               <li className="w-full justify-start font-Montserrat    text-xl">
@@ -290,9 +290,9 @@ function LandingPage() {
                 <span className="font-header underline font-semibold">
                   Planning for Retirement:
                 </span>{" "}
-                Homeowners approaching retirement may assess their home's value
-                as part of their retirement planning to determine if downsizing
-                or using home equity is a viable option.
+                Homeowners approaching retirement may assess their home{"'"}s
+                value as part of their retirement planning to determine if
+                downsizing or using home equity is a viable option.
               </li>
             </ul>
           </div>

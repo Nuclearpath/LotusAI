@@ -4,15 +4,14 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 function SaleHome() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const router = useRouter();
 
   useEffect(() => {
-    if (session) {
-    } else {
+    if (status === "unauthenticated") {
       router.push("/");
     }
-  }, [session]);
+  }, [status]);
   return (
     <div>
       <MainHeader></MainHeader>
@@ -60,8 +59,8 @@ function SaleHome() {
             <span className="font-header underline font-semibold">
               Repairs and Maintenance:
             </span>{" "}
-            Some homeowners decide it's time to sell when they no longer want
-            the responsibility of costly repairs or ongoing maintenance
+            Some homeowners decide it{"'"}s time to sell when they no longer
+            want the responsibility of costly repairs or ongoing maintenance
             associated with their current property.
           </li>
           <li className="w-full justify-start font-Montserrat    text-xl">

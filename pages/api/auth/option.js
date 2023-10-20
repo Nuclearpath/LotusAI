@@ -1,6 +1,7 @@
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleUser from "../../../lib/models/GoogleUser";
+import CredUser from "../../../lib/models/CredUser";
 import connectDatabase from "../../../lib/connectDatabase";
 export const options = {
   providers: [
@@ -15,18 +16,20 @@ export const options = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        const user = {
-          name: "user",
-          email: "example@gmail.com",
-          password: "12345678",
-        };
+        await connectDatabase();
+        await CredUser.sync();
+
+        const user = await CredUser.findOne({ email: credentials?.email });
+
         // console.log(credentials);
 
-        if (
-          user.email === credentials?.email &&
-          user.password == credentials?.password
-        ) {
-          return user;
+        if (user) {
+          const isMatched = await user.validPassword(credentials?.password);
+          if (isMatched) {
+            return user;
+          } else {
+            null;
+          }
         } else {
           return null;
         }
@@ -43,10 +46,16 @@ export const options = {
 
       return session;
     },
-    async jwt({ token, account, profile }) {
+    async jwt({ token, account, profile, user }) {
       // Persist the OAuth access_token and or the user id to the token right after signin
+      //console.log(user);
       if (account) {
-        token.role = profile.role;
+        if (account.provider === "google") {
+          token.role = profile.role;
+        }
+        if (account.provider === "credentials") {
+          token.role = user.role;
+        }
       }
       return token;
     },

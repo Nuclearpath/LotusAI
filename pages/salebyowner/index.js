@@ -12,15 +12,14 @@ import { useSession } from "next-auth/react";
  import { MdQuiz } from "react-icons/md";
  // import Chatbot from "../../components/Chatbot";
  function Salebyowner() {
-   const { data: session } = useSession();
+   const { data: session, status } = useSession();
    const router = useRouter();
 
    useEffect(() => {
-     if (session) {
-     } else {
+     if (status === "unauthenticated") {
        router.push("/");
      }
-   }, [session]);
+   }, [status]);
    return (
      <div>
        {/* <Chatbot></Chatbot> */}

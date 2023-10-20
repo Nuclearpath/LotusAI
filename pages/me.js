@@ -6,16 +6,17 @@ import { useRouter } from "next/router";
 function Me() {
   const { email, name, getAuth, role } = store();
 
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const router = useRouter();
   useEffect(() => {
     if (session) {
-      // console.log(session);
+      //console.log(session);
       getAuth(session);
-    } else {
+    }
+    if (status === "unauthenticated") {
       router.push("/");
     }
-  }, [session]);
+  }, [status, session]);
   return (
     <div>
       <MainHeader></MainHeader>
