@@ -1,6 +1,7 @@
 import React from "react";
 import { ImQuotesLeft } from "react-icons/im";
 import Image from "next/image";
+
 function Testimonials() {
   const reviews = [
     {
@@ -32,7 +33,7 @@ function Testimonials() {
   return (
     <div className="" id="testimonials">
       {" "}
-      <div className=" font-Montserrat font-medium py-12 sm:text-4xl text-2xl sm:px-12 px-3">
+      <div className=" font-header font-medium py-12 sm:text-4xl text-2xl sm:px-12 px-3">
         Testimonials
       </div>
       <div className="sm:flex-row flex flex-col w-full bg-custom-light-yellow py-10 px-5 h-full items-center relative">
@@ -57,7 +58,11 @@ function Testimonials() {
                 className="sm:w-64 w-full flex shrink-0 flex-col bg-white p-5 rounded-md space-y-5 "
               >
                 <div className="w-full justify-center flex">
-                  <Image src={e.url} fill className="!relative object-contain" />
+                  <Image
+                    src={e.url}
+                    fill
+                    className="!relative object-contain"
+                  />
                 </div>
                 <div className="flex w-full justify-center text-center font-Montserrat font-semibold text-xs">
                   {e.comment}
@@ -65,6 +70,14 @@ function Testimonials() {
               </div>
             );
           })}
+        </div>
+      </div>
+      <div>
+        <div className="w-full flex sm:px-12 px-3 sm:py-12 py-3 h">
+          <video controls autoPlay className="w-full h-full">
+            <source src="/video.mp4" />
+          </video>
+          {/* <ReactPlayer width={"100%"} height={"100vh"} url="/video.mp4" /> */}
         </div>
       </div>
     </div>

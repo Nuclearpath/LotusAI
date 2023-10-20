@@ -13,15 +13,14 @@ import { useSession } from "next-auth/react";
  import { useEffect } from "react";
  // import Chatbot from "../components/Chatbot";
  function Timingthemarket() {
-   const { data: session } = useSession();
+   const { data: session, status } = useSession();
    const router = useRouter();
 
    useEffect(() => {
-     if (session) {
-     } else {
+     if (status === "unauthenticated") {
        router.push("/");
      }
-   }, [session]);
+   }, [status]);
    const reviews = [
      {
        url: "/human.png",
@@ -54,13 +53,13 @@ import { useSession } from "next-auth/react";
        <MainHeader></MainHeader>
        {/* <Chatbot></Chatbot> */}
        <div className="w-full sm:px-12 sm:py-12 px-3 py-6">
-         <div className="text-2xl font-Montserrat font-medium">
+         <div className="text-2xl font-header font-medium">
            Timing the Market
          </div>
          <div className="flex sm:w-10/12 w-full py-6 justify-between sm:flex-row flex-col">
            <select className="  z-10  flex-col  bg-custom-yellow  text-white flex  rounded sm:w-64 w-auto px-4 py-2">
              <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
-               Main Activity
+               Market Activity
              </option>
              <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
                Pricing Trends

@@ -65,13 +65,13 @@ function Dashboard() {
       {/* <Chatbot></Chatbot> */}
       <MainHeader></MainHeader>
       <div className="w-full flex flex-col sm:px-12 px-3">
-        <div className="sm:pt-24 pt-3 flex justify-start sm:text-3xl text-2xl font-Montserrat w-full">
+        <div className="sm:pt-24 pt-3 flex justify-start sm:text-3xl text-2xl font-header w-full">
           DashBoard
         </div>
         <DashboardContent {...data}></DashboardContent>
         {session && (
           <>
-            <div className="sm:pt-24  pt-10 flex justify-start sm:text-3xl text-2xl font-Montserrat w-full">
+            <div className="sm:pt-24  pt-10 flex justify-start sm:text-3xl text-2xl font-header w-full">
               Comparable Properties
             </div>
             <iframe
@@ -102,7 +102,7 @@ function Dashboard() {
                 View comparable properties
               </Link>
             </div>
-            <div className="sm:pt-24 pt-10 flex justify-center sm:text-3xl text-2xl font-Montserrat w-full">
+            <div className="sm:pt-24 pt-10 flex justify-center sm:text-3xl text-2xl font-header w-full">
               House Value Trend
             </div>
             <div className="w-full justify-center flex">
@@ -110,7 +110,7 @@ function Dashboard() {
                 <ValueTrendsChart></ValueTrendsChart>
               </div>
             </div>
-            <div className="sm:pt-24 pt-10 flex justify-center sm:text-3xl text-2xl font-Montserrat w-full">
+            <div className="sm:pt-24 pt-10 flex justify-center sm:text-3xl text-2xl font-header w-full">
               Market Trend for your location - 02667
             </div>
             <div className="w-full justify-center flex">
@@ -118,7 +118,7 @@ function Dashboard() {
                 <MarketTrend></MarketTrend>
               </div>
             </div>
-            <div className="sm:pt-24  pt-10 flex justify-start sm:text-3xl text-2xl font-Montserrat w-full">
+            <div className="sm:pt-24  pt-10 flex justify-start sm:text-3xl text-2xl font-header w-full">
               Recently Sold
             </div>
 

@@ -13,16 +13,16 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Montserrat: ["Montserrat", "sans-serif"],
+        Montserrat: ["Lora", "serif"],
         threeline: ["Bungee Outline", "cursive"],
-      
+        header: ["Raleway", "sans-serif"],
+        head: ["Montserrat", "sans-serif"],
       },
       backgroundImage: {
-        'hero-pattern': "url('/Rect.png')",
-       
+        "hero-pattern": "url('/Rect.png')",
       },
       spacing: {
-        '84': '20rem',
+        84: "20rem",
       },
       colors: {
         "custom-yellow": "#FFA921",

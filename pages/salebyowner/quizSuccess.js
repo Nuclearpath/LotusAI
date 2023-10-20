@@ -8,15 +8,14 @@ import { useSession } from "next-auth/react";
  import { useEffect } from "react";
  function QuizSuccess() {
    const [value, setValue] = useState(0);
-   const { data: session } = useSession();
+   const { data: session, status } = useSession();
    const router = useRouter();
 
    useEffect(() => {
-     if (session) {
-     } else {
+     if (status === "unauthenticated") {
        router.push("/");
      }
-   }, [session]);
+   }, [status]);
    return (
      <div>
        <MainHeader></MainHeader>
