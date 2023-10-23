@@ -22,6 +22,12 @@ function Login() {
     signIn("credentials", {
       email: form.email,
       password: form.password,
+<<<<<<< HEAD
+=======
+      method: "cred",
+      callbackUrl: `http://localhost:3000/me`,
+      // redirect: false,
+>>>>>>> a109bdbb902fee9a1c3d88099a4c4066c9d8e377
     });
 
     // console.log(form);
