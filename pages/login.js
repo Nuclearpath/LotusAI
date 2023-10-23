@@ -16,18 +16,12 @@ function Login() {
       router.push("/me");
     } else {
     }
-  }, [session]);
+  }, [session,router]);
   const handleSubmit = (e) => {
     e.preventDefault();
     signIn("credentials", {
       email: form.email,
       password: form.password,
-<<<<<<< HEAD
-=======
-      method: "cred",
-      callbackUrl: `http://localhost:3000/me`,
-      // redirect: false,
->>>>>>> a109bdbb902fee9a1c3d88099a4c4066c9d8e377
     });
 
     // console.log(form);
@@ -41,6 +35,7 @@ function Login() {
               <Image
                 src="/logo.png"
                 fill
+                alt="logo"
                 className="!relative object-contain"
               />
             </Link>
@@ -100,7 +95,7 @@ function Login() {
           className="w-full bg-white border-1 rounded-md py-3 flex justify-center items-center font-semibold font-header"
         >
           <div className="w-8 h-8 mr-3">
-            <Image src="/google.jpg" fill className="!relative"></Image>
+            <Image src="/google.jpg" fill className="!relative" alt="google"></Image>
           </div>
           Sign in with Google
         </button>
