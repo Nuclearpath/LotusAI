@@ -62,6 +62,8 @@ function Testimonials() {
                     src={e.url}
                     fill
                     className="!relative object-contain"
+            alt={"img"}
+
                   />
                 </div>
                 <div className="flex w-full justify-center text-center font-Montserrat font-semibold text-xs">
@@ -73,12 +75,11 @@ function Testimonials() {
         </div>
       </div>
       <div>
-        <div className="w-full flex sm:px-12 px-3 sm:py-12 py-3 h">
+        {/* <div className="w-full flex sm:px-12 px-3 sm:py-12 py-3 h">
           <video controls autoPlay className="w-full h-full">
             <source src="/video.mp4" />
           </video>
-          {/* <ReactPlayer width={"100%"} height={"100vh"} url="/video.mp4" /> */}
-        </div>
+        </div> */}
       </div>
     </div>
   );

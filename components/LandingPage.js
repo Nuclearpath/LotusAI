@@ -44,8 +44,8 @@ function LandingPage() {
       {domLoaded && (
         <div className="w-full flex h-full  flex-col">
           <MainHeader></MainHeader>
-          <div className="sm:flex  w-full sm:h-screen  relative sm:px-12 px-3">
-            <div className="sm:w-1/2 w-full flex sm:h-full h-auto sm:px-3 px-0 sm:pt-4 justify-center sm:justify-start pt-2">
+          <div className="sm:flex  w-full h-screen md:h-[85vh] relative sm:px-12 px-3">
+            <div className="sm:w-1/2 w-full flex  sm:px-3 px-0 sm:pt-4 h-[80vh] justify-center sm:justify-start pt-2">
               <Slider
                 className="w-full"
                 infinite={true}
@@ -57,16 +57,17 @@ function LandingPage() {
                 arrows={false}
                 slidesToScroll={1}
               >
-                <div className="w-full sm:h-[97vh] h-[50vh]">
+                <div className="w-full h-[75vh]">
                   <Image
                     alt="..."
                     fill
+                    priority
                     quality={100}
                     src={"/house2.webp"}
                     className="object-cover object-center"
                   />
                 </div>
-                <div className="w-full sm:h-[97vh] h-[50vh]">
+                <div className="w-full h-[75vh]">
                   <Image
                     alt="..."
                     fill
@@ -80,29 +81,29 @@ function LandingPage() {
 
             <div className="sm:w-1/2 flex sm:h-full h-auto  flex-col  sm:pl-12 px-3 sm:pt-4  sm:py-0 py-5 w-full sm:overflow-hidden">
               <div className="hidden sm:flex">{/* <Header></Header> */}</div>
-              <div className="w-full h-full flex flex-col sm:justify-between justify-start sm:space-y-0 space-y-7">
+              <div className="w-full h-full flex flex-col justify-start sm:space-y-0 space-y-7">
                 <div className="sm:text-4xl text-3xl font-header sm:py-3 py-0 sm:pt-0 pt-3  font-normal sm:leading-normal leading-snug tracking-wider">
                   Find Out What Your Is<br></br> Really{" "}
                   <Link href="" className="text-custom-yellow">
                     Worth
                   </Link>
                 </div>
-                <div className="font-header sm:text-lg tracking-wider text-sm font-semibold">
+                <div className="font-header text-sm md:text-lg tracking-wider  font-semibold">
                   The Most Accurate Home Valuation Tool Available To The Public
                 </div>
                 <form
-                  className="w-full flex relative"
+                  className="w-full flex relative pt-4"
                   onSubmit={(e) => handleSubmit(e)}
                 >
                   <input
                     type="text"
-                    className="  border-2 border-gray-900 rounded-sm w-full py-2 px-3 text-gray-900 placeholder:text-gray-900 font-Montserrat placeholder:font-Montserrat font-medium leading-tight focus:outline-none "
+                    className="mb-8  border-2 border-gray-900 rounded-sm w-full py-2 px-3 text-gray-900 placeholder:text-gray-900 font-Montserrat placeholder:font-Montserrat font-medium leading-tight focus:outline-none "
                     placeholder="Search Zipcode, Address, Location "
                     value={location}
                     onChange={(e) => setLoaction(e.target.value)}
                   ></input>
                   <button type="submit" className="absolute right-2 top-3">
-                    <FiSearch className="text-xl text-custom-yellow font-semibold"></FiSearch>
+                    <FiSearch className="text-xl text-custom-yellow font-semibold mb-4"></FiSearch>
                     {/* submit */}
                   </button>
                 </form>
@@ -127,6 +128,12 @@ function LandingPage() {
               </div>
             </div>
           </div>
+              <div className="w-full flex sm:px-12 px-3 sm:py-12 py-3 h">
+          <video controls autoPlay className="w-full h-full">
+            <source src="/video.mp4" />
+          </video>
+        </div>
+
           <div
             className="sm:pt-24 pt-8 sm:flex  flex-col w-full space-y-7 relative sm:px-12 px-3 sm:overflow-hidden"
             id="about"
