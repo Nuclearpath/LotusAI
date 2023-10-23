@@ -26,6 +26,7 @@ function MainHeader() {
             src="/logo.png"
             fill
             className="!relative object-contain"
+            alt={"img"}
             // className=" sm:object-cover object-contain !relative sm:scale-50 scale-100 !h-auto sm:h-24"
           />
         </Link>
@@ -45,6 +46,8 @@ function MainHeader() {
                 src={session.user.image}
                 className="!relative rounded-full"
                 fill
+            alt={"img"}
+
               ></Image>
             )}
           </div>
@@ -67,6 +70,8 @@ function MainHeader() {
                         src={session.user.image}
                         fill
                         className="w-10 h-10 rounded-full !relative"
+            alt={"img"}
+
                       ></Image>
                     ) : (
                       <BsPersonCircle></BsPersonCircle>
@@ -76,11 +81,11 @@ function MainHeader() {
 
                 <PopoverContent className="flex  flex-col  bg-white font-header items-end text-lg px-0 space-y-2 shadow-2xl">
                   <div className=" border-black w-full flex justify-end hover:bg-custom-verylight-yellow px-2 py-1">
-                    <Link href="">Your Listings</Link>
+                    <Link href="">My Properties</Link>
                   </div>
-                  <div className=" border-black w-full flex justify-end hover:bg-custom-verylight-yellow px-2 py-1">
+                  {/* <div className=" border-black w-full flex justify-end hover:bg-custom-verylight-yellow px-2 py-1">
                     <Link href="">Chat with our agents</Link>
-                  </div>
+                  </div> */}
                   <div className=" border-black w-full flex justify-end hover:bg-custom-verylight-yellow px-2 py-1">
                     <button
                       onClick={(e) => {
