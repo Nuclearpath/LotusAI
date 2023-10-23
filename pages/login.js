@@ -10,13 +10,20 @@ function Login() {
     password: "",
   });
   const { data: session } = useSession();
+
+  // console.log("sesion deets", session);
   const router = useRouter();
   useEffect(() => {
     if (session) {
-      router.push("/me");
-    } else {
+      if (session.user.role === "mod") {
+        router.push("/chatlist");
+      } else if (session.user.role === "admin") {
+        router.push("/admin/userlist");
+      } else {
+        router.push("/dashboard");
+      }
     }
-  }, [session,router]);
+  }, [session, router]);
   const handleSubmit = (e) => {
     e.preventDefault();
     signIn("credentials", {
@@ -95,7 +102,12 @@ function Login() {
           className="w-full bg-white border-1 rounded-md py-3 flex justify-center items-center font-semibold font-header"
         >
           <div className="w-8 h-8 mr-3">
-            <Image src="/google.jpg" fill className="!relative" alt="google"></Image>
+            <Image
+              src="/google.jpg"
+              fill
+              className="!relative"
+              alt="google"
+            ></Image>
           </div>
           Sign in with Google
         </button>
