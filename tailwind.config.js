@@ -47,11 +47,11 @@ module.exports = {
       keyframes: {
         marquee: {
           from: { transform: "translateY(0%)" },
-          to: { transform: "translateY(-40%)" },
-        },
+          to: { transform: "translateY(-100%)" },
+        }
       },
       animation: {
-        carousel: "marquee 20s linear infinite",
+        carousel: "marquee 5s linear infinite",
       },
     },
   },

@@ -50,7 +50,7 @@ import { useSession } from "next-auth/react";
    ];
    return (
      <div className=" w-full h-screen overflow-y-scroll no-scrollbar">
-       <MainHeader></MainHeader>
+       <MainHeader page={""}></MainHeader>
        {/* <Chatbot></Chatbot> */}
        <div className="w-full sm:px-12 sm:py-12 px-3 py-6">
          <div className="text-2xl font-header font-medium">

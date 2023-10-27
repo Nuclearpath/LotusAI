@@ -14,7 +14,7 @@ function ValueHome() {
   }, [status]);
   return (
     <div>
-      <MainHeader></MainHeader>
+      <MainHeader page={""}></MainHeader>
       <div className="sm:py-12 py-8 sm:flex  flex-col w-full space-y-7 relative sm:px-12 px-3 sm:overflow-hidden">
         <div className="w-full justify-start font-header sm:text-4xl text-2xl">
         Why people search for the value of their homes

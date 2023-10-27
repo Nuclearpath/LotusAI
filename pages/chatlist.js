@@ -10,7 +10,7 @@ import ChatCard from "../components/ChatCard";
 function Chatlist() {
   return (
     <div>
-      <MainHeader></MainHeader>
+      <MainHeader page={""}></MainHeader>
       <div className="w-full flex sm:px-12 px-3 py-6 flex-col">
         <div className="w-full flex justify-between items-center">
           <div className="font-header sm:text-2xl text-xl font-semibold">

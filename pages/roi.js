@@ -80,7 +80,7 @@ function Roi() {
         </ModalContent>
       </Modal>
       {/* <Chatbot></Chatbot> */}
-      <MainHeader></MainHeader>
+      <MainHeader page={""}></MainHeader>
       <div className="w-full sm:px-12 px-3">
         <div className="sm:pt-6 pt-3 flex justify-start sm:text-2xl text-2xl font-header w-full">
           Top 10 home features in the U.S. that add value

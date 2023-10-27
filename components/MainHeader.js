@@ -7,12 +7,11 @@ import { motion } from "framer-motion";
 import { BsPersonCircle } from "react-icons/bs";
 import Image from "next/image";
 import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/react";
-
 import { signIn, signOut, useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
 import DropdownBtn from "./Dropdown";
-function MainHeader() {
+function MainHeader({page}) {
   const router = useRouter();
   const [showSidebar, setShowSidebar] = useState(false);
   const { data: session } = useSession();
@@ -33,12 +32,11 @@ function MainHeader() {
         </Link>
 
         <div className=" justify-between items-center space-x-8 font-header font-semibold text-base sm:flex hidden">
-          {session && <Link href="/dashboard">What’s my pad worth?</Link>}
-          {session && <Link href="/roi">ROI</Link>}
-
-          {session && <Link href="/timingthemarket">Timing the market</Link>}
-          {session && <Link href="/rentvssale">Rent Vs Sell</Link>}
-          {session && <DropdownBtn />}
+          {session && page !== "landing" && <Link href="/dashboard">What’s my pad worth?</Link>}
+          {session && page !== "landing" && <Link href="/roi">ROI</Link>}
+          {session && page !== "landing" && <Link href="/timingthemarket">Timing the market</Link>}
+          {session && page !== "landing" && <Link href="/rentvssale">Rent Vs Sell</Link>}
+          {session && page !== "landing" && <DropdownBtn />}
         </div>
         <div className="flex  sm:hidden space-x-3">
           <div className="w-10 h-10">

@@ -63,7 +63,7 @@ function Dashboard() {
   return (
     <div className=" flex w-full flex-col">
       {/* <Chatbot></Chatbot> */}
-      <MainHeader></MainHeader>
+      <MainHeader page={""}></MainHeader>
       <div className="w-full flex flex-col sm:px-12 px-3">
         <div className="sm:pt-24 pt-3 flex justify-start sm:text-3xl text-2xl font-header w-full">
           DashBoard
