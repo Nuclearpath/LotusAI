@@ -6,11 +6,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { BsPersonCircle } from "react-icons/bs";
 import Image from "next/image";
-import {Popover, PopoverTrigger, PopoverContent} from "@nextui-org/react";
+import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/react";
 
 import { signIn, signOut, useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
+import DropdownBtn from "./Dropdown";
 function MainHeader() {
   const router = useRouter();
   const [showSidebar, setShowSidebar] = useState(false);
@@ -19,8 +20,8 @@ function MainHeader() {
   //    console.log(session.user);
   //  }
   return (
-    <div>
-      <div className="w-full flex justify-between  px-6 shadow items-center sm:py-0 py-5">
+    <div className="z-10">
+      <div className="w-full flex justify-between  px-6 shadow items-center sm:py-0 py-5 ">
         <Link href="/" className="flex sm:w-56 w-32 sm:px-6 px-1 py-1 sm:py-4 ">
           <Image
             src="/logo.png"
@@ -31,13 +32,13 @@ function MainHeader() {
           />
         </Link>
 
-        <div className=" justify-between space-x-8 font-header font-semibold text-base sm:flex hidden">
+        <div className=" justify-between items-center space-x-8 font-header font-semibold text-base sm:flex hidden">
           {session && <Link href="/dashboard">What’s my pad worth?</Link>}
           {session && <Link href="/roi">ROI</Link>}
 
           {session && <Link href="/timingthemarket">Timing the market</Link>}
           {session && <Link href="/rentvssale">Rent Vs Sell</Link>}
-          {session && <Link href="/salebyowner">Sale By Owner</Link>}
+          {session && <DropdownBtn />}
         </div>
         <div className="flex  sm:hidden space-x-3">
           <div className="w-10 h-10">
@@ -46,8 +47,7 @@ function MainHeader() {
                 src={session.user.image}
                 className="!relative rounded-full"
                 fill
-            alt={"img"}
-
+                alt={"img"}
               ></Image>
             )}
           </div>
@@ -70,8 +70,7 @@ function MainHeader() {
                         src={session.user.image}
                         fill
                         className="w-10 h-10 rounded-full !relative"
-            alt={"img"}
-
+                        alt={"img"}
                       ></Image>
                     ) : (
                       <BsPersonCircle></BsPersonCircle>
