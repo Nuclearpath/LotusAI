@@ -51,7 +51,7 @@ module.exports = {
         }
       },
       animation: {
-        carousel: "marquee 5s linear infinite",
+        carousel: "marquee 20s linear infinite",
       },
     },
   },
