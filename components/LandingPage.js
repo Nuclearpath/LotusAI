@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import Header from "./Header";
 import { FiSearch } from "react-icons/fi";
 import { useRouter } from "next/router";
 import { AiOutlineArrowRight } from "react-icons/ai";
-import { BsChevronCompactDown } from "react-icons/bs";
 import { BsInstagram } from "react-icons/bs";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { BiLogoFacebook } from "react-icons/bi";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import Link from "next/link";
 import Image from "next/image";
 import Slider from "react-slick";
