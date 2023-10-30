@@ -20,10 +20,12 @@ export const options = {
       async authorize(credentials, req) {
         await connectDatabase();
         await CredUser.sync();
+        //  console.log(credentials.email);
+        const user = await CredUser.findOne({
+          where: { email: credentials.email },
+        });
 
-        const user = await CredUser.findOne({ email: credentials?.email });
-
-        // console.log(credentials);
+        // console.log(user);
 
         if (user) {
           const isMatched = await user.validPassword(credentials?.password);
@@ -43,14 +45,13 @@ export const options = {
   },
 
   callbacks: {
-    async session({ session, token, user }) {
+    async session({ session, token }) {
+      //  console.log(token);
       session.user.role = token.role;
-
+      //console.log(token);
       return session;
     },
     async jwt({ token, account, profile, user }) {
-      // Persist the OAuth access_token and or the user id to the token right after signin
-      //console.log(user);
       if (account) {
         if (account.provider === "google") {
           token.role = profile.role;
