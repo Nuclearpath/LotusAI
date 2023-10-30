@@ -23,10 +23,10 @@ import { useSession } from "next-auth/react";
    return (
      <div>
        {/* <Chatbot></Chatbot> */}
-       <MainHeader></MainHeader>
+       <MainHeader page={""}></MainHeader>
        <div className="sm:px-24 px-6 pb-12">
          <div className="sm:text-3xl text-2xl sm:py-12 py-3 font-header">
-           Sale By Owner
+           For Sale By Owner
          </div>
          <div className=" flex flex-col space-y-10 sm:pt-0 pt-5">
            <div className="flex flex-col space-y-2 sm:px-12 px-3 sm:py-3 py-3 border-2 border-l-0 border-custom-yellow rounded relative">

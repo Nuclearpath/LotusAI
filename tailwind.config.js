@@ -13,10 +13,13 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Montserrat: ["Lora", "serif"],
+        // Montserrat: ["Lora", "serif"],
+        // header: ["Raleway", "sans-serif"],
+        // head: ["Montserrat", "sans-serif"],
+        Montserrat: ["Lato", "sans-serif"],
         threeline: ["Bungee Outline", "cursive"],
-        header: ["Raleway", "sans-serif"],
-        head: ["Montserrat", "sans-serif"],
+        header: ["Lato", "sans-serif"],
+        head: ["Lato", "sans-serif"],
       },
       backgroundImage: {
         "hero-pattern": "url('/Rect.png')",

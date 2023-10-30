@@ -16,7 +16,7 @@ function Login() {
   useEffect(() => {
     if (session) {
       if (session.user.role === "mod") {
-        router.push("/chatlist");
+        router.push("/dashboard");
       } else if (session.user.role === "admin") {
         router.push("/admin/userlist");
       } else {

@@ -1,4 +1,3 @@
-import React from "react";
 import AdminHeader from "./../../components/AdminHeader";
 import {
   Table,
@@ -34,12 +33,14 @@ function Moderatorlist() {
         <AdminHeader></AdminHeader>
         <div className="w-full sm:px-12 px-3 sm:py-9 py-3">
           <div className="w-full flex shadow-xl rounded-lg px-5 py-5">
-            <div className=" flex flex-col  grow">
-              <div className="font-Montserrat font-semibold text-custom-yellow text-xl ">
-                Moderators
-              </div>
-              <div className="font-Montserrat text-gray-500 ">
-                Manage moderators here
+            <div className="w-full  flex flex-col justify-center gap-3 md:flex-row md:justify-between items-center">
+              <div>
+                <div className="font-Montserrat font-semibold text-custom-yellow text-xl ">
+                  Moderators
+                </div>
+                <div className="font-Montserrat text-gray-500 ">
+                  Manage moderators here
+                </div>
               </div>
             </div>
             <button

@@ -44,7 +44,7 @@ function Editfacts() {
   return (
     <div>
       {/* <Chatbot></Chatbot> */}
-      <MainHeader></MainHeader>
+      <MainHeader page={""}></MainHeader>
       <div className="w-full flex flex-col sm:py-12 py-6 sm:px-12 px-3">
         <div className="w-full flex sm:text-4xl text-2xl font-Montserrat sm:py-6 py-3">
           Edit House Facts

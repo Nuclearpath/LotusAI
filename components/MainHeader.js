@@ -3,15 +3,15 @@ import Link from "next/link";
 import { AiOutlineMenu } from "react-icons/ai";
 import { MdCancel } from "react-icons/md";
 import { useState } from "react";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import { BsPersonCircle } from "react-icons/bs";
 import Image from "next/image";
-import {Popover, PopoverTrigger, PopoverContent} from "@nextui-org/react";
-
+import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
-function MainHeader() {
+import DropdownBtn from "./Dropdown";
+function MainHeader({page}) {
   const router = useRouter();
   const [showSidebar, setShowSidebar] = useState(false);
   const { data: session } = useSession();
@@ -19,8 +19,8 @@ function MainHeader() {
   //    console.log(session.user);
   //  }
   return (
-    <div>
-      <div className="w-full flex justify-between  px-6 shadow items-center sm:py-0 py-5">
+    <div className="z-10">
+      <div className="w-full flex justify-between  px-6 shadow items-center sm:py-0 py-5 ">
         <Link href="/" className="flex sm:w-56 w-32 sm:px-6 px-1 py-1 sm:py-4 ">
           <Image
             src="/logo.png"
@@ -31,13 +31,12 @@ function MainHeader() {
           />
         </Link>
 
-        <div className=" justify-between space-x-8 font-header font-semibold text-base sm:flex hidden">
-          {session && <Link href="/dashboard">What’s my pad worth?</Link>}
-          {session && <Link href="/roi">ROI</Link>}
-
-          {session && <Link href="/timingthemarket">Timing the market</Link>}
-          {session && <Link href="/rentvssale">Rent Vs Sell</Link>}
-          {session && <Link href="/salebyowner">Sale By Owner</Link>}
+        <div className=" justify-between items-center space-x-8 font-header font-semibold text-base sm:flex hidden">
+          {session && page !== "landing" && <Link href="/dashboard">What’s My Pad Worth?</Link>}
+          {session && page !== "landing" && <Link href="/roi">ROI</Link>}
+          {session && page !== "landing" && <Link href="/timingthemarket">Timing the Market</Link>}
+          {session && page !== "landing" && <Link href="/rentvssale">Rent Vs Sell</Link>}
+          {session && page !== "landing" && <DropdownBtn />}
         </div>
         <div className="flex  sm:hidden space-x-3">
           <div className="w-10 h-10">
@@ -46,8 +45,7 @@ function MainHeader() {
                 src={session.user.image}
                 className="!relative rounded-full"
                 fill
-            alt={"img"}
-
+                alt={"img"}
               ></Image>
             )}
           </div>
@@ -70,8 +68,7 @@ function MainHeader() {
                         src={session.user.image}
                         fill
                         className="w-10 h-10 rounded-full !relative"
-            alt={"img"}
-
+                        alt={"img"}
                       ></Image>
                     ) : (
                       <BsPersonCircle></BsPersonCircle>
@@ -114,10 +111,10 @@ function MainHeader() {
         </div>
 
         {showSidebar && (
-          <motion.div
-            initial={{ scale: 0.5, opacity: 0, x: 0 }}
-            animate={{ scale: 1, opacity: 1, x: 1 }}
-            transition={{ duration: 0.1, delay: 0.01 }}
+          <div
+            // initial={{ scale: 0.5, opacity: 0, x: 0 }}
+            // animate={{ scale: 1, opacity: 1, x: 1 }}
+            // transition={{ duration: 0.1, delay: 0.01 }}
             className="sm:hidden flex flex-col absolute top-0 right-0 bg-white w-full h-screen z-50 justify-center"
           >
             <div className="w-full flex justify-end py-3 absolute top-0 right-3">
@@ -136,7 +133,7 @@ function MainHeader() {
                 <Link href="/timingthemarket">Timing the market</Link>
               )}
               {session && <Link href="/rentvssale">Rent Vs Sell</Link>}
-              {session && <Link href="/salebyowner">Sale By Owner</Link>}
+              {session && <Link href="/salebyowner">For Sale By Owner</Link>}
               {!session && (
                 <button
                   className="text-lg font-semibold text-custom-yellow"
@@ -167,7 +164,7 @@ function MainHeader() {
                 Register
               </Link> */}
             </div>
-          </motion.div>
+          </div>
         )}
       </div>
     </div>
