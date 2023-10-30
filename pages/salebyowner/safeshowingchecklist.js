@@ -3,6 +3,7 @@ import MainHeader from "../../components/MainHeader";
 import { useSession } from "next-auth/react";
  import { useRouter } from "next/router";
  import { useEffect } from "react";
+import Image from "next/image";
  // import Chatbot from "../../components/Chatbot";
  function Safeshowingchecklist() {
    const { data: session, status } = useSession();
@@ -16,21 +17,27 @@ import { useSession } from "next-auth/react";
    return (
      <div>
        {/* <Chatbot></Chatbot> */}
-       <MainHeader></MainHeader>
-       <div className="sm:px-12 px-3">
+       <MainHeader page={""}></MainHeader>
+       <div 
+      //  className="sm:px-12 px-3"
+      className="w-full h-[85-vh] grid sm:grid-cols-2 grid-cols-1"
+       >
+        <div className="sm:h-[85vh] h-[50vh] mt-4">
+           <Image src="/safe showing.png" fill className="!relative" alt="..."></Image>
+         </div>
+         <div className="sm:px-12 px-3 h-[85vh] sm:overflow-y-scroll overflow-y-visible no-scrollbar">
          <div className=" mt-6 py-2 bg-custom-light-yellow rounded-lg sm:text-3xl text-2xl justify-center items-center w-full flex font-header ">
            Safe Showing Tips
          </div>
-
          <div className="py-6 w-full font-Montserrat">
-           <div className="font-header w-full justify-center   sm:text-xl text-lg ">
+           <div className="font-header w-full justify-center sm:text-xl text-lg ">
              To securely show your house for sale, it{"'"}s essential to protect
              your property, personal belongings, and ensure the safety of
              potential buyers. Here are some tips for safe secure showings:
            </div>
            <ol className="list-decimal list-inside">
              <li>
-               1.Pre-screen potential buyers to ensure they are genuinely
+               Pre-screen potential buyers to ensure they are genuinely
                interested and financially qualified to purchase your home.
              </li>
              <li>
@@ -91,11 +98,11 @@ import { useSession } from "next-auth/react";
                Implementing these security tips will help protect your interests
                while showcasing your home to potential buyers.
              </li>
-             <li> Add a fresh doormat.</li>
+             {/* <li> Add a fresh doormat.</li>
              <li>
                Add a pot or two of flowers at the front of the house and remove
                any dead plants or empty planters{" "}
-             </li>
+             </li> */}
              <li>
                Pro tip: Remove any other items from the front yard— storage
                items, lawn care products should be removed.toys,
@@ -103,6 +110,7 @@ import { useSession } from "next-auth/react";
            </ol>
          </div>
        </div>
+     </div>
      </div>
    );
  }

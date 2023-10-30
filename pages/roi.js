@@ -80,7 +80,7 @@ function Roi() {
         </ModalContent>
       </Modal>
       {/* <Chatbot></Chatbot> */}
-      <MainHeader></MainHeader>
+      <MainHeader page={""}></MainHeader>
       <div className="w-full sm:px-12 px-3">
         <div className="sm:pt-6 pt-3 flex justify-start sm:text-2xl text-2xl font-header w-full">
           Top 10 home features in the U.S. that add value
@@ -114,7 +114,7 @@ function Roi() {
             })}
         </div>
 
-        <div className="flex  px-1 py-2 my-4 rounded-md font-Montserrat">
+        <div className="flex flex-col justify-start  px-1 py-2 my-4 rounded-md font-Montserrat">
           <div>
             <div className=" font-semibold">
               Estimated Value for {houseData.house}{" "}
@@ -122,14 +122,16 @@ function Roi() {
                 $ {houseData.value}
               </span>
             </div>
-            <div className=" ">{houseData.decription}</div>
+            <div>{houseData.decription}</div>
           </div>
-          <div className="ml-[20vw] ">
+          <div>
             <button
-              className="font-header font-semibold border-2 rounded-full border-gray-900 py-2 px-5 "
+              className="font-header underline"
               // onClick={onOpen}
             >
-              Upgrade
+              <Link href={""}>
+              Get revised estimate
+              </Link>
             </button>
           </div>
         </div>

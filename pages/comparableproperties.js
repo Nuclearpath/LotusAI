@@ -19,7 +19,7 @@ const [isOpen,setIsOpen]=useState(false)
   }, [status,router]);
   return (
     <div>
-      <MainHeader></MainHeader>
+      <MainHeader page={""}></MainHeader>
       <div className="grid md:grid-cols-2 grid-cols-1 w-full  gap-4">
         <div className="px-2">
           {" "}

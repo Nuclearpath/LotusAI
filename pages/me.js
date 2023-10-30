@@ -19,7 +19,7 @@ function Me() {
   }, [status, session]);
   return (
     <div>
-      <MainHeader></MainHeader>
+      <MainHeader page={""}></MainHeader>
       <div>{name}</div>
       <div>{email}</div>
       <div>{role}</div>
