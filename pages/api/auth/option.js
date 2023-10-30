@@ -41,7 +41,7 @@ export const options = {
     }),
   ],
   session: {
-    maxAge: 30,
+    maxAge: 30*60,
   },
 
   callbacks: {

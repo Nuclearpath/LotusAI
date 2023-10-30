@@ -16,7 +16,7 @@ import { useSession } from "next-auth/react";
    return (
      <div>
        {/* <Chatbot></Chatbot> */}
-       <MainHeader></MainHeader>
+       <MainHeader page={""}></MainHeader>
        <div className="sm:px-12 px-3">
          <div className=" mt-6 py-2 bg-custom-light-yellow rounded-lg sm:text-3xl text-2xl justify-center items-center w-full flex font-header ">
            Safe Showing Tips

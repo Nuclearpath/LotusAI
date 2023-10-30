@@ -18,7 +18,7 @@ import { useSession } from "next-auth/react";
    return (
      <div>
        {/* <Chatbot></Chatbot> */}
-       <MainHeader></MainHeader>
+       <MainHeader page={""}></MainHeader>
        <div className="w-full h-[85-vh] grid sm:grid-cols-2 grid-cols-1 overflow-x-hidden">
          <div className="sm:h-[85vh] h-[50vh] mt-4">
            <Image src="/market.jpg" fill className="!relative"></Image>

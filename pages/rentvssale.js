@@ -17,7 +17,7 @@ function Rentvssale() {
   return (
     <div>
       {/* <Chatbot></Chatbot> */}
-      <MainHeader></MainHeader>
+      <MainHeader page={""}></MainHeader>
       <div className="px-3 sm:px-12 py-6 sm:py-12">
         <div className="w-full sm:text-3xl text-2xl font-header ">
           Rent Vs Sell Calculator
