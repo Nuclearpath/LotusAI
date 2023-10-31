@@ -82,6 +82,25 @@ function Roi() {
       {/* <Chatbot></Chatbot> */}
       <MainHeader page={""}></MainHeader>
       <div className="w-full sm:px-12 px-3">
+      <div className="flex flex-col justify-start  px-1 py-2 my-4 rounded-md font-Montserrat">
+          <div>
+            <div className=" font-semibold">
+              Estimated Value for {houseData.house}{" "}
+              <span className="text-custom-yellow sm:text-xl text-base sm:pl-5 pl-0 font-Montserrat sm:block flex">
+                $ {houseData.value}
+              </span>
+            </div>
+            <div>{houseData.decription}</div>
+          </div>
+          <div className="ml-[20vw] ">
+            <button
+              className="font-header font-semibold border-2 rounded-full border-gray-900 py-2 px-5 "
+              // onClick={onOpen}
+            >
+              Upgrade
+            </button>
+          </div>
+        </div>
         <div className="sm:pt-6 pt-3 flex justify-start sm:text-2xl text-2xl font-header w-full">
           Top 10 home features in the U.S. that add value
         </div>
@@ -114,27 +133,7 @@ function Roi() {
             })}
         </div>
 
-        <div className="flex flex-col justify-start  px-1 py-2 my-4 rounded-md font-Montserrat">
-          <div>
-            <div className=" font-semibold">
-              Estimated Value for {houseData.house}{" "}
-              <span className="text-custom-yellow sm:text-xl text-base sm:pl-5 pl-0 font-Montserrat sm:block flex">
-                $ {houseData.value}
-              </span>
-            </div>
-            <div>{houseData.decription}</div>
-          </div>
-          <div>
-            <button
-              className="font-header underline"
-              // onClick={onOpen}
-            >
-              <Link href={""}>
-              Get revised estimate
-              </Link>
-            </button>
-          </div>
-        </div>
+        
       </div>
     </div>
   );

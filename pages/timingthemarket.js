@@ -11,6 +11,8 @@ import {AiOutlineMenu} from "react-icons/ai"
 import { useSession } from "next-auth/react";
  import { useRouter } from "next/router";
  import { useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
  // import Chatbot from "../components/Chatbot";
  function Timingthemarket() {
    const { data: session, status } = useSession();
@@ -1565,6 +1567,61 @@ import { useSession } from "next-auth/react";
           </div>
         </div> */}
        </div>
+       <div className="w-full relative px-3 h-full ">
+            <div className="w-full text-center font-header md:text-4xl text-2xl my-8">
+            Blogs
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <Link
+                href={"/valueHome"}
+                className="shadow-md shadow-custom-light-yellow rounded-lg bg-white"
+              >
+                <div className="h-[500px] w-full relative">
+                  <Image
+                    alt="..."
+                    fill
+                    quality={100}
+                    src={"/VH.jpg"}
+                    className="object-cover object-bottom rounded-t-md"
+                  />
+                </div>
+                <div className="text-center md:text-left p-8 space-y-3">
+                  <h3 className="w-full text-custom-yellow text-2xl font-header hover:underline hover:decoration-4 hover:decoration-custom-light-yellow">
+                  Why people search for the value of their homes
+                  </h3>
+                  {/* <p className="font-Montserrat break-words w-full md:w-[75%] mx-auto md:mx-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
+                  </p> */}
+                </div>
+              </Link>
+              <Link
+                href={"/saleHome"}
+                className="shadow-md shadow-custom-light-yellow rounded-lg bg-white"
+              > 
+                <div className="h-[500px] w-full relative">
+                  <Image
+                    alt="..."
+                    fill
+                    quality={100}
+                    src={"/SH.png"}
+                    className="object-cover object-center rounded-t-md"
+                  />
+                </div>
+                <div className="text-center md:text-left p-8 space-y-3">
+                  <h3 className="w-full text-custom-yellow text-2xl font-header hover:underline hover:decoration-4 hover:decoration-custom-light-yellow">
+                  Why people decide to sell their homes
+                  </h3>
+                  {/* <p className="font-Montserrat break-words w-full md:w-[75%] mx-auto md:mx-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
+                  </p> */}
+                </div>
+              </Link>
+            </div>
+          </div>
      </div>
    );
  }

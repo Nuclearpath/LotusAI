@@ -20,8 +20,13 @@ import { useSession } from "next-auth/react";
        {/* <Chatbot></Chatbot> */}
        <MainHeader page={""}></MainHeader>
        <div className="w-full h-[85-vh] grid sm:grid-cols-2 grid-cols-1 overflow-x-hidden">
-         <div className="sm:h-[85vh] h-[50vh] mt-4">
-           <Image src="/FSBO pricing.png" fill className="!relative" alt="..."/>
+       <div className="flex flex-col items-center px-3">
+        <div className="my-5 py-2 bg-custom-light-yellow rounded-lg sm:text-3xl text-2xl justify-center items-center w-full flex font-header">
+        Pricing
+        </div>
+         <div className="sm:h-[75vh] h-[50vh]">
+           <Image src="/market.jpg" fill className="!relative" alt="..."/>
+         </div>
          </div>
          <div
           //  initial={{
@@ -35,10 +40,6 @@ import { useSession } from "next-auth/react";
           //  transition={{ duration: 0.5 }}
          >
            <div className="m:px-12 px-3 h-[85vh] sm:overflow-y-scroll overflow-y-visible no-scrollbar">
-             <div className=" mt-6 py-2 bg-custom-light-yellow rounded-lg sm:text-3xl text-2xl justify-center items-center w-full flex font-header ">
-               Pricing
-             </div>
-
              <div className="py-6 w-full font-header">
                <div className="font-semibold">BUYERS IN YOUR MARKET</div>
                <ul className="list-disc list-inside font-Montserrat">
