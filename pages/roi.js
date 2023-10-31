@@ -82,7 +82,7 @@ function Roi() {
       {/* <Chatbot></Chatbot> */}
       <MainHeader page={""}></MainHeader>
       <div className="w-full sm:px-12 px-3">
-      <div className="flex flex-col justify-start  px-1 py-2 my-4 rounded-md font-Montserrat">
+      <div className="flex flex-col justify-cen 000' px-1 py-2 my-4 rounded-md font-Montserrat">
           <div>
             <div className=" font-semibold">
               Estimated Value for {houseData.house}{" "}
