@@ -17,7 +17,7 @@ export default function DropdownBtn() {
           variant="light"
           className="sm:flex justify-between items-center font-header font-semibold text-base hidden"
         >
-          <Link href="/salebyowner">Sale By Owner</Link>
+          <Link href="/salebyowner">For Sale By Owner</Link>
           <SlArrowDown />
         </Button>
       </DropdownTrigger>

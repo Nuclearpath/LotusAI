@@ -92,7 +92,9 @@ function Roi() {
             </div>
             <div>{houseData.decription}</div>
           </div>
-          <div className="ml-[20vw] ">
+          <div 
+          className="py-3"
+          >
             <button
               className="font-header font-semibold border-2 rounded-full border-gray-900 py-2 px-5 "
               // onClick={onOpen}

@@ -59,12 +59,12 @@ const [isOpen,setIsOpen]=useState(false)
                 <BiLogoTelegram></BiLogoTelegram>
               </button>
             </form>
-            <div className="mt-4 w-full justify-between flex text-xl">
+            {/* <div className="mt-4 w-full justify-between flex text-xl">
               <div className="flex space-x-4">
                 <button>Edit</button>
                 <button>Delete</button>
               </div>
-            </div>
+            </div> */}
             </div>:<div></div>}
           </div>
           <div className="grid md:grid-cols-2 grid-cols-1 sm:gap-8 gap-4 p-4">

@@ -229,7 +229,7 @@ function LandingPage() {
           </div> */}
 
           {/* Property Image section */}
-          <div className="w-full h-[50vh] md:h-[75vh] flex justify-center items-center mb-12 pt-3 px-3 sm:px-16">
+          <div className="w-full h-[50vh] md:h-[75vh] flex justify-center items-center mb-12 pt-16 px-3 sm:px-16">
             <div className="w-full md:w-[70%] relative h-[50vh] md:h-[75vh]">
               <Image
                 alt="..."
@@ -290,11 +290,6 @@ function LandingPage() {
             </div>
           </div>
           {/* Video section */}
-          {/* <div className="w-full flex md:px-12 px-3 md:py-12 py-3 h">
-            <video controls autoPlay className="w-full h-full">
-              <source src="/video.mp4" />
-            </video>
-          </div> */}
           {/* <Videosection/> */}
 
           {/* Content section */}
@@ -318,8 +313,8 @@ function LandingPage() {
 
           {/* More resources section */}
           <div className="w-full relative px-3 h-full py-12">
-            <div className="w-full absolute bottom-10 h-32 bg-custom-yellow -z-50 -mx-10 md:block hidden"></div>
-            <div className="w-full absolute top-52 h-24 bg-custom-light-yellow -z-50 mx-10 md:block hidden"></div>
+            {/* <div className="w-full absolute bottom-10 h-32 bg-custom-yellow -z-50 -mx-10 md:block hidden"></div>
+            <div className="w-full absolute top-52 h-24 bg-custom-light-yellow -z-50 mx-10 md:block hidden"></div> */}
             <div className="w-full text-center font-header md:text-4xl text-2xl my-8">
               More Resources
             </div>
@@ -443,7 +438,7 @@ function LandingPage() {
               >
                 <div className="text-center md:text-left p-8 space-y-3">
                   <h3 className="w-full text-custom-yellow text-2xl font-header hover:underline hover:decoration-4 hover:decoration-custom-light-yellow">
-                    ROI Calculator
+                    Additional Resources
                   </h3>
                   <p className="font-Montserrat break-words w-full md:w-[75%] mx-auto md:mx-0">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -584,8 +579,6 @@ function LandingPage() {
               </Link>
             </div>
           </div> */}
-          
-
 
           {/* Testimonial section */}
           {/* <Testimonials></Testimonials> */}
