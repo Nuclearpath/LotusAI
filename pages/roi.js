@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import MainHeader from "../components/MainHeader";
-import Link from "next/link";
+// import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Button,
-  useDisclosure,
-} from "@nextui-org/react";
-import Loader from "./../components/Loader";
-import { TiTick } from "react-icons/ti";
+// import {
+//   Modal,
+//   ModalContent,
+//   ModalHeader,
+//   ModalBody,
+//   ModalFooter,
+//   Button,
+//   useDisclosure,
+// } from "@nextui-org/react";
+// import Loader from "./../components/Loader";
+// import { TiTick } from "react-icons/ti";
 import { BiLogoTelegram } from "react-icons/bi";
 
 // import Chatbot from "../components/Chatbot";
@@ -45,7 +45,7 @@ function Roi() {
       propties: ["Office", "Fireplace", "Deck", "Family Room", "View"],
     },
   ];
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  // const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { data: session, status } = useSession();
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -76,7 +76,7 @@ function Roi() {
 
   return (
     <div>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} isDismissable={false}>
+      {/* <Modal isOpen={isOpen} onOpenChange={onOpenChange} isDismissable={false}>
         <ModalContent>
           {(onClose) => (
             <>
@@ -98,7 +98,7 @@ function Roi() {
             </>
           )}
         </ModalContent>
-      </Modal>
+      </Modal> */}
       {/* <Chatbot></Chatbot> */}
       <MainHeader page={""}></MainHeader>
       <div className="w-full sm:px-12 px-3">
@@ -111,16 +111,22 @@ function Roi() {
               </span>
             </div>
             <div className="mt-3">{houseData.decription}</div>
-            <button
+            {/* <button
               className=" underline sm:text-xl text-base py-3"
               onClick={() => setOpen(!open)}
             >
               Get Revised Estimate
+            </button> */}
+            <button
+              className="font-header bg-custom-yellow hover:bg-opacity-80 font-semibold  rounded-full  py-2 px-5 sm:text-xl text-base mt-3"
+              onClick={() => setOpen(!open)}
+            >
+              Upgrade
             </button>
           </div>
           
           {open ? (
-            <div className="w-full md:w-4/5 bg-custom-light-yellow p-6 text-base rounded-md">
+            <div className="w-full md:w-4/5 bg-custom-light-yellow p-6 text-base rounded-md ">
               <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row justify-center items-center gap-5">
               <div className="flex flex-col gap-2">
                 <label htmlFor="property">Property</label>
@@ -174,14 +180,14 @@ function Roi() {
           ) : (
             <div></div>
           )}
-          <div className="py-3">
+          {/* <div className="py-3">
             <button
               className="font-header bg-custom-yellow hover:bg-opacity-80 font-semibold  rounded-full  py-2 px-5 "
               onClick={onOpen}
             >
               Upgrade
             </button>
-          </div>
+          </div> */}
         </div>
         <div className="sm:pt-6 pt-3 flex justify-start sm:text-2xl text-2xl font-header w-full">
           Top 10 home features in the U.S. that add value

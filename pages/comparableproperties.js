@@ -126,7 +126,7 @@ function Comparableproperties() {
                     )}
                   </form>
                   {values.length ? (
-                    <ul className="px-2 py-5 md:p-5 list-disc overflow-auto max-h-[200px]">
+                    <ul className="px-2 py-5 md:p-5 overflow-auto max-h-[200px]">
                       {values.map((value) => (
                         <li
                           className="flex justify-between items-center w-full lg:w-4/5 p-2"
