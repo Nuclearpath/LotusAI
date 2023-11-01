@@ -102,15 +102,15 @@ function Roi() {
       {/* <Chatbot></Chatbot> */}
       <MainHeader page={""}></MainHeader>
       <div className="w-full sm:px-12 px-3">
-        <div className="flex flex-col justify-center items-center px-1 py-2 my-4 rounded-md font-Montserrat">
+        <div className="flex flex-col justify-center items-center px-1 py-2 my-4 rounded-md font-Montserrat gap-4">
           <div>
-            <div className=" font-semibold flex items-center">
+            <div className=" font-semibold flex flex-col md:flex-row  md:items-center gap-3">
               Estimated Value for {houseData.house}
-              <span className="text-custom-yellow sm:text-xl pl-2 text-base font-Montserrat sm:block flex">
+              <span className="text-custom-yellow sm:text-xl pl-2 text-base font-Montserrat ">
                 $ {houseData.value}
               </span>
             </div>
-            <div>{houseData.decription}</div>
+            <div className="mt-3">{houseData.decription}</div>
             <button
               className=" underline sm:text-xl text-base py-3"
               onClick={() => setOpen(!open)}
@@ -120,27 +120,35 @@ function Roi() {
           </div>
           
           {open ? (
-            <div className="w-full md:w-3/5 bg-custom-light-yellow p-6 text-base rounded-md">
+            <div className="w-full md:w-4/5 bg-custom-light-yellow p-6 text-base rounded-md">
               <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row justify-center items-center gap-5">
+              <div className="flex flex-col gap-2">
+                <label htmlFor="property">Property</label>
                 <input
                   type="text"
+                  id="property"
                   placeholder="Add property"
-                  className="p-2 w-4/5 md:w-1/3 outline-none border-none rounded-md focus:outline focus:outline-custom-yellow"
+                  className="p-2 outline-none border-none rounded-md focus:outline focus:outline-custom-yellow"
                   value={property}
                   required
                   onChange={(e) => setProperty(e.target.value)}
                 />
+                </div>
+                <div className="flex flex-col gap-2">
+                <label htmlFor="value">Value</label>
                 <input
                   type="text"
+                  id="value"
                   placeholder="Add value"
-                  className="p-2 w-4/5 md:w-1/3 outline-none border-none rounded-md focus:outline focus:outline-custom-yellow"
+                  className="p-2 outline-none border-none rounded-md focus:outline focus:outline-custom-yellow"
                   value={value}
                   required
                   onChange={(e) => setValue(e.target.value)}
                 />
+                </div>
                 <button
                   type="submit"
-                  className="bg-custom-yellow hover:bg-opacity-80 px-10 py-3 sm:p-2.5 rounded-md text-white text-xl"
+                  className="bg-custom-yellow hover:bg-opacity-80 px-10 py-3 sm:p-2.5 rounded-md text-white text-xl  sm:mt-8"
                 >
                   <BiLogoTelegram></BiLogoTelegram>
                 </button>
