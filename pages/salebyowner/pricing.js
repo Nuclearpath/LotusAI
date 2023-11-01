@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
  import { useRouter } from "next/router";
  import { useEffect } from "react";
  import Image from "next/image";
- import { motion } from "framer-motion";
+//  import { motion } from "framer-motion";
  // import Chatbot from "../../components/Chatbot";
  function Pricing() {
    const { data: session, status } = useSession();
@@ -18,27 +18,28 @@ import { useSession } from "next-auth/react";
    return (
      <div>
        {/* <Chatbot></Chatbot> */}
-       <MainHeader></MainHeader>
+       <MainHeader page={""}></MainHeader>
        <div className="w-full h-[85-vh] grid sm:grid-cols-2 grid-cols-1 overflow-x-hidden">
-         <div className="sm:h-[85vh] h-[50vh] mt-4">
-           <Image src="/market.jpg" fill className="!relative"></Image>
+       <div className="flex flex-col items-center px-3">
+        <div className="my-5 py-2 bg-custom-light-yellow rounded-lg sm:text-3xl text-2xl justify-center items-center w-full flex font-header">
+        Pricing
+        </div>
+         <div className="sm:h-[75vh] h-[50vh]">
+           <Image src="/market.jpg" fill className="!relative" alt="..."/>
          </div>
-         <motion.div
-           initial={{
-             x: "100%",
-             opacity: 0,
-           }}
-           animate={{
-             x: "0%",
-             opacity: 1,
-           }}
-           transition={{ duration: 0.5 }}
+         </div>
+         <div
+          //  initial={{
+          //    x: "100%",
+          //    opacity: 0,
+          //  }}
+          //  animate={{
+          //    x: "0%",
+          //    opacity: 1,
+          //  }}
+          //  transition={{ duration: 0.5 }}
          >
            <div className="m:px-12 px-3 h-[85vh] sm:overflow-y-scroll overflow-y-visible no-scrollbar">
-             <div className=" mt-6 py-2 bg-custom-light-yellow rounded-lg sm:text-3xl text-2xl justify-center items-center w-full flex font-header ">
-               Pricing
-             </div>
-
              <div className="py-6 w-full font-header">
                <div className="font-semibold">BUYERS IN YOUR MARKET</div>
                <ul className="list-disc list-inside font-Montserrat">
@@ -182,7 +183,7 @@ import { useSession } from "next-auth/react";
                </ol>
              </div>
            </div>
-         </motion.div>
+         </div>
        </div>
      </div>
    );

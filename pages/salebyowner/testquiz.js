@@ -23,7 +23,7 @@ import { useSession } from "next-auth/react";
    return (
      <div>
        {/* <Chatbot></Chatbot> */}
-       <MainHeader></MainHeader>
+       <MainHeader page={""}></MainHeader>
        <div className="relative sm:h-84 h-72">
          <Image
            src="/Rect.png"
