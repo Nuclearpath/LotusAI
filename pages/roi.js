@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import MainHeader from "../components/MainHeader";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
@@ -15,6 +15,7 @@ import {
 } from "@nextui-org/react";
 import Loader from "./../components/Loader";
 import { TiTick } from "react-icons/ti";
+import { BiLogoTelegram } from "react-icons/bi";
 
 // import Chatbot from "../components/Chatbot";
 function Roi() {
@@ -28,7 +29,6 @@ function Roi() {
     avergae: 2342900,
     sales: 7,
   };
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const data = [
     {
       title: "MOST VALUABLE",
@@ -45,14 +45,34 @@ function Roi() {
       propties: ["Office", "Fireplace", "Deck", "Family Room", "View"],
     },
   ];
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { data: session, status } = useSession();
   const router = useRouter();
+  const [open, setOpen] = useState(false);
+  const [estimate, setEstimate] = useState([]);
+  const [property, setProperty] = useState("");
+  const [value, setValue] = useState("");
+
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+
+    const PropertyValue = {
+      property,
+      value
+    };
+    estimate !== ""
+      ? setEstimate([...estimate, PropertyValue])
+      : alert("You Need To Valid Property Name");
+
+    setProperty("");
+    setValue("")
+  }
 
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/");
     }
-  }, [status,router]);
+  }, [status, router]);
 
   return (
     <div>
@@ -82,22 +102,74 @@ function Roi() {
       {/* <Chatbot></Chatbot> */}
       <MainHeader page={""}></MainHeader>
       <div className="w-full sm:px-12 px-3">
-      <div className="flex flex-col justify-cen 000' px-1 py-2 my-4 rounded-md font-Montserrat">
+        <div className="flex flex-col justify-center items-center px-1 py-2 my-4 rounded-md font-Montserrat">
           <div>
-            <div className=" font-semibold">
-              Estimated Value for {houseData.house}{" "}
-              <span className="text-custom-yellow sm:text-xl text-base sm:pl-5 pl-0 font-Montserrat sm:block flex">
+            <div className=" font-semibold flex items-center">
+              Estimated Value for {houseData.house}
+              <span className="text-custom-yellow sm:text-xl pl-2 text-base font-Montserrat sm:block flex">
                 $ {houseData.value}
               </span>
             </div>
             <div>{houseData.decription}</div>
-          </div>
-          <div 
-          className="py-3"
-          >
             <button
-              className="font-header font-semibold border-2 rounded-full border-gray-900 py-2 px-5 "
-              // onClick={onOpen}
+              className=" underline sm:text-xl text-base py-3"
+              onClick={() => setOpen(!open)}
+            >
+              Get Revised Estimate
+            </button>
+          </div>
+          
+          {open ? (
+            <div className="w-full md:w-3/5 bg-custom-light-yellow p-6 text-base rounded-md">
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row justify-center items-center gap-5">
+                <input
+                  type="text"
+                  placeholder="Add property"
+                  className="p-2 w-4/5 md:w-1/3 outline-none border-none rounded-md focus:outline focus:outline-custom-yellow"
+                  value={property}
+                  required
+                  onChange={(e) => setProperty(e.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="Add value"
+                  className="p-2 w-4/5 md:w-1/3 outline-none border-none rounded-md focus:outline focus:outline-custom-yellow"
+                  value={value}
+                  required
+                  onChange={(e) => setValue(e.target.value)}
+                />
+                <button
+                  type="submit"
+                  className="bg-custom-yellow hover:bg-opacity-80 px-10 py-3 sm:p-2.5 rounded-md text-white text-xl"
+                >
+                  <BiLogoTelegram></BiLogoTelegram>
+                </button>
+              </form>
+              {estimate.length ? (
+                <ul className="p-5 overflow-auto max-h-[200px]">
+                  {estimate.map((val,idx) => (
+                    <li
+                      // className="flex justify-between items-center w-1/2 p-2"
+                      key={idx}
+                    >
+                      <div className="flex justify-evenly items-center">
+                      <p>{val.property}</p>
+                      <p>{val.value}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <div></div>
+              )}
+            </div>
+          ) : (
+            <div></div>
+          )}
+          <div className="py-3">
+            <button
+              className="font-header bg-custom-yellow hover:bg-opacity-80 font-semibold  rounded-full  py-2 px-5 "
+              onClick={onOpen}
             >
               Upgrade
             </button>
@@ -134,8 +206,6 @@ function Roi() {
               );
             })}
         </div>
-
-        
       </div>
     </div>
   );
