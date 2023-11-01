@@ -15,6 +15,7 @@
     "@mui/material": "^5.14.8",
     "@nextui-org/react": "^2.1.13",
     "@react-google-maps/api": "^2.19.2",
+    "axios": "^1.6.0",
     "bcrypt": "^5.1.1",
     "chart.js": "^4.4.0",
     "chrome-aws-lambda": "^10.1.0",
