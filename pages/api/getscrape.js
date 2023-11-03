@@ -17,7 +17,6 @@ export default async function handler(req, res) {
     data.PerSqft = await PerSqft.findAll();
     // data.SupplyAndDemand = await supplyAndDemand.findAll();
     data.DaysOnMarket = await DaysOnMarket.findAll();
-
     return res.status(200).json({ success: true, data });
   } catch (err) {
     console.log(err);
