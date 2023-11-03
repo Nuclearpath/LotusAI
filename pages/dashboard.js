@@ -94,8 +94,8 @@ function Dashboard() {
         )}
         {session && (
           <>
-            <div className="w-full flex justify-end py-5">
-              <button className="bg-custom-yellow hover:underline hover:bg-opacity-80 text-white p-2 rounded-md my-2 mb-5">
+            <div className="w-full flex justify-center items-center py-5">
+              <button className="bg-custom-yellow hover:underline hover:bg-opacity-80 text-white p-4 rounded-md my-5">
                 <Link
                   href="/comparableproperties"
                   className="text-white font-medium hover:underline text-base md:text-lg "
