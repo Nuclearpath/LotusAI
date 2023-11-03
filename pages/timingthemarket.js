@@ -15,10 +15,18 @@ import { useEffect } from "react";
 import Loader from "./../components/Loader";
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image"
+import Image from "next/image";
+import {useSearchParams} from "next/navigation";
+
 function Timingthemarket() {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const db=searchParams.get("db");
+  const val=searchParams.get("val");
+  
+  //console.log(router.query);
+  //  console.log(db);
   const [label, setLabel] = useState(12);
   const [homeType, setHomeType] = useState({
     all:true,
@@ -140,77 +148,86 @@ function Timingthemarket() {
     getGraph,
   } = store();
   const [source, setSource] = useState([]);
-  const [sourceName, setSourceName] = useState("MainActivity");
-  const fetchData = () => {};
+  const [sourceName, setSourceName] = useState();
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/");
     }
     async function fetchMyAPI() {
-      await getGraph();
+      if(db && val)
+      {
+      await getGraph(db,Number(val));
+       }
     }
-
     fetchMyAPI();
-  }, []);
+    
+  }, [db,val]);
   useEffect(() => {
     if (!loading) {
-      setSource([...MainActivity]);
-    }
+      // if(db==="main")
+     setSource([...MainActivity]);
+      }
+      if(db==="pt")
+      {
+        setSource([...PricingTrends]);
+      }
+      if(db==="pr")
+      {
+        setSource([...PricingRatio]);
+      }
+      if(db==="ps")
+      {
+        setSource([...PerSqft]);
+      }
+      if(db==="days")
+      {
+        setSource([...DaysOnMarket]);
+      }
+    
   }, [loading]);
-  const handleYearChange = (e) => {
+  const handleYearChange = async (e) => {
     e.preventDefault();
     setLabel(e.target.value);
+    router.push(`/timingthemarket?db=${db}&val=${e.target.value}`);
+  //  await getGraph(sourceName,label);
+
   };
-  const reviews = [
-    {
-      url: "/human.png",
-      comment:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
-    },
-    {
-      url: "/human.png",
-      comment:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
-    },
-    {
-      url: "/human.png",
-      comment:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
-    },
-    {
-      url: "/human.png",
-      comment:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
-    },
-    {
-      url: "/human.png",
-      comment:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
-    },
-  ];
+  
   const fil = (a) => {
     return a.replace(/\D/g, "");
   };
-  MainActivity && console.log(source);
-  const handleSourceChange = (e) => {
+  // console.log(source);
+  // MainActivity && console.log(source);
+  const handleSourceChange = async (e) => {
     e.preventDefault();
+    console.log(e.target.value);
     switch (e.target.value) {
+      
       case "MainActivity":
-        setSource([...MainActivity]);
-        setSourceName("MainActivity");
+        // setSourceName("main");
+        // await getGraph(sourceName,label);
+        router.push(`/timingthemarket?db=main&val=${val}`);
+
         break;
       case "PricingTrends":
-        setSource([...PricingTrends]);
-        setSourceName("PricingTrends");
+        router.push(`/timingthemarket?db=pt&val=${val}`);
+        
+
         break;
       case "PricingRatio":
-        setSource([...PricingRatio]);
+        router.push(`/timingthemarket?db=pr&val=${val}`);
+
+
         break;
       case "DaysOnMarket":
-        setSource([...DaysOnMarket]);
+        
+      router.push(`/timingthemarket?db=days&val=${val}`);
+
         break;
       case "PerSqft":
-        setSource([...Persqft]);
+       // console.log("tp");
+      router.push(`/timingthemarket?db=ps&val=${val}`);
+
         break;
     }
   };
@@ -326,7 +343,7 @@ function Timingthemarket() {
           data: source.slice(0, label).map((a) => Number(fil(a.listprice_200Kto299999))),
           // data:[{data:[1,2]},3,4],
           tension: 0.4,
-          backgroundColor: "#1e3a8a",
+          backgroundColor: "#475569",
         
         });
         list.m300kto400k && v.push({
@@ -336,7 +353,7 @@ function Timingthemarket() {
           data: source.slice(0, label).map((a) => Number(fil(a.listprice_300Kto399999))),
           // data:[{data:[1,2]},3,4],
           tension: 0.4,
-          backgroundColor: "#1e3a8a",
+          backgroundColor: "#d97706",
         
         });
         list.m400kto500k && v.push({
@@ -346,7 +363,7 @@ function Timingthemarket() {
           data: source.slice(0, label).map((a) => Number(fil(a.listprice_400Kto499999))),
           // data:[{data:[1,2]},3,4],
           tension: 0.4,
-          backgroundColor: "#1e3a8a",
+          backgroundColor: "#059669",
         
         });
         list.m500kto600k && v.push({
@@ -356,7 +373,7 @@ function Timingthemarket() {
           data: source.slice(0, label).map((a) => Number(fil(a.listprice_500Kto599999))),
           // data:[{data:[1,2]},3,4],
           tension: 0.4,
-          backgroundColor: "#1e3a8a",
+          backgroundColor: "#0d9488",
         
         });
         list.m600kto800k && v.push({
@@ -366,7 +383,7 @@ function Timingthemarket() {
           data: source.slice(0, label).map((a) => Number(fil(a.listprice_600Kto799999))),
           // data:[{data:[1,2]},3,4],
           tension: 0.4,
-          backgroundColor: "#1e3a8a",
+          backgroundColor: "#0284c7",
         
         });
         list.m800kto1000k && v.push({
@@ -1009,17 +1026,18 @@ function Timingthemarket() {
             </div>
             <div className="flex sm:w-10/12 w-full py-6 justify-between sm:flex-row flex-col">
               <select
-                onChange={(e) => handleSourceChange(e)}
+                onChange={async (e) =>await  handleSourceChange(e)}
                 className="  z-10  flex-col  bg-custom-yellow  text-white flex  rounded sm:w-64 w-auto px-4 py-2"
               >
                 <option
-                  selected={true}
+                  selected={db==="main"}
                   value={"MainActivity"}
                   className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64"
                 >
                   Market Activity
                 </option>
                 <option
+                selected={db==="pt"}
                   value={"PricingTrends"}
                   className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64"
                 >
@@ -1027,18 +1045,21 @@ function Timingthemarket() {
                 </option>
                 <option
                   value={"PricingRatio"}
+                  selected={db==="pr"}
                   className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64"
                 >
                   Pricing Ratios
                 </option>
                 <option
                   value={"DaysOnMarket"}
+                  selected={db==="days"}
                   className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64"
                 >
                   Days on Market
                 </option>
                 <option
                   vlaue={"PerSqft"}
+                  selected={db==="ps"}
                   className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64"
                 >
                   $ Per Sqft
@@ -1261,7 +1282,7 @@ function Timingthemarket() {
                         type="checkbox"
                         checked={list.all}
                         onClick={(e)=>setList({...list,all:!list.all})}
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        className=" indeterminate:bg-gray-300 border-2 mr-2 accent-[#FFA921]"
                       />
                       <div>All</div>
                     </div>
@@ -1270,7 +1291,7 @@ function Timingthemarket() {
                         type="checkbox"
                         checked={list.u50k}
                         onClick={(e)=>setList({...list,u50k:!list.u50k})}
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        className=" indeterminate:bg-gray-300 border-2 mr-2 accent-[#dc2626]"
                       />
                       <div>{"< $50000"}</div>
                     </div>
@@ -1279,7 +1300,7 @@ function Timingthemarket() {
                       checked={list.m50kto100k}
                       onClick={(e)=>setList({...list,m50kto100k:!list.m50kto100k})}
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        className=" indeterminate:bg-gray-300 border-2 mr-2 accent-[#ea580c]"
                       />
                       <div>{"$50K to $99,999"}</div>
                     </div>
@@ -1288,7 +1309,7 @@ function Timingthemarket() {
                       checked={list.m100kto150k}
                       onClick={(e)=>setList({...list,m100kto150k:!list.m100kto150k})}
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        className=" indeterminate:bg-gray-300 border-2 mr-2 accent-[#4ade80]"
                       />
                       <div>{"$100K to $149,999"}</div>
                     </div>
@@ -1306,7 +1327,7 @@ function Timingthemarket() {
                       checked={list.m200kto300k}
                       onClick={(e)=>setList({...list,m200kto300k:!list.m200kto300k})}
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        className=" indeterminate:bg-gray-300 border-2 mr-2 accent-[#1e3a8a]"
                       />
                       <div>{"$200K to $299,999"}</div>
                     </div>
@@ -1315,7 +1336,7 @@ function Timingthemarket() {
                       checked={list.m300kto400k}
                       onClick={(e)=>setList({...list,m300kto400k:!list.m300kto400k})}
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        className=" indeterminate:bg-gray-300 border-2 mr-2 accent-slate-600"
                       />
                       <div>{"$300K to $399,999"}</div>
                     </div>
@@ -1324,7 +1345,7 @@ function Timingthemarket() {
                       checked={list.m400kto500k}
                       onClick={(e)=>setList({...list,m400kto500k:!list.m400kto500k})}
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        className=" indeterminate:bg-gray-300 border-2 mr-2 accent-[#d97706]"
                       />
                       <div>{"$400K to $499,999"}</div>
                     </div>
@@ -1334,7 +1355,7 @@ function Timingthemarket() {
                       checked={list.m500kto600k}
                       onClick={(e)=>setList({...list,m500kto600k:!list.m500kto600k})}
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        className=" indeterminate:bg-gray-300 border-2 mr-2 accent-[#059669]"
                       />
                       <div>{"$500K to $599,999"}</div>
                     </div>
@@ -1343,7 +1364,7 @@ function Timingthemarket() {
                       checked={list.m600kto800k}
                       onClick={(e)=>setList({...list,m600kto800k:!list.m600kto800k})}
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        className=" indeterminate:bg-gray-300 border-2 mr-2 accent-[#0d9488]"
                       />
                       <div>{"$600K to $799,999"}</div>
                     </div>
@@ -1352,7 +1373,7 @@ function Timingthemarket() {
                       checked={list.m800kto1000k}
                       onClick={(e)=>setList({...list,m800kto1000k:!list.m800kto1000k})}
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        className=" indeterminate:bg-gray-300 border-2 mr-2 accent-[#0284c7]"
                       />
                       <div>{"$800K to $999,999"}</div>
                     </div>
@@ -2032,83 +2053,95 @@ function Timingthemarket() {
                   </div>
                   <select
                     className="  z-10  flex-col  bg-gray-100  text-black flex  rounded  px-4 py-2"
-                    onChange={(e) => handleYearChange(e)}
+                    onChange={async(e) =>await handleYearChange(e)}
                   >
                     <option
                       value={1}
+                      selected={val==="1"}
                       className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64"
                     >
                       One Month
                     </option>
                     <option
                       value={3}
+                      selected={val==="3"}
                       className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64"
                     >
                       Three Months
                     </option>
                     <option
                       value={6}
+                      selected={val==="6"}
                       className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64"
                     >
                       Six Months
                     </option>
                     <option
                       value={12}
-                      selected={true}
+                      selected={val==="12"}
                       className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64"
                     >
                       1 year
                     </option>
                     <option
-                      value={24}
+                    value={24}
+                      selected={val==="24"}
                       className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64"
                     >
                       2 years
                     </option>
                     <option
-                      value={36}
+                    value={36}
+                      selected={val==="36"}
                       className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64"
                     >
                       3 years
                     </option>
                     <option
-                      value={48}
+                       value={48}
+                       selected={val==="48"}
                       className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64"
                     >
                       4 years
                     </option>
                     <option
-                      value={60}
+                        value={60}
+                        selected={val==="60"}
                       className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64"
                     >
                       5 years
                     </option>
                     <option
-                      value={72}
+                       value={72}
+                       selected={val==="72"}
                       className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64"
                     >
                       6 years
                     </option>
                     <option
-                      value={84}
+                       value={84}
+                       selected={val==="84"}
                       className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64"
                     >
                       7 years
                     </option>
                     <option
-                      value={96}
+                      v value={96}
+                      selected={val==="96"}
                       className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64"
                     >
                       8 years
                     </option>
                     <option
-                      value={108}
+                       value={108}
+                       selected={val==="108"}
                       className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64"
                     >
                       9 years
                     </option>
                     <option
-                      value={120}
+                       value={120}
+                       selected={val==="120"}
                       className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64"
                     >
                       10 years

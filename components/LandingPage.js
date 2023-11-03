@@ -14,7 +14,7 @@ import { data } from "autoprefixer";
 
 const moreResourceData = [
   {ref:"/roi" , title : "ROI Calculator", src : "/ROI.jpg"},
-  {ref:"/timingthemarket" , title : "Timing the Market",src : "/TTM.jpg"},
+  {ref:"/timingthemarket?db=main&val=12" , title : "Timing the Market",src : "/TTM.jpg"},
   {ref:"/rentvssale" , title : "Rent vs Sell",src : "/RVS.jpg"},
   {ref:"/" , title : "Additional Resources",src : "/ROI.jpg"}
 ]
