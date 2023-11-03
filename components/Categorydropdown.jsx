@@ -1,17 +1,18 @@
 import {Select, SelectItem} from "@nextui-org/react";
-import {commonColors} from "@nextui-org/theme";
+// import {commonColors} from "@nextui-org/theme";
 
 export default function CategoryDropdown({categories,title}) {
   return (
-    <div className="flex justify-center items-center w-full flex-wrap md:flex-nowrap gap-10 focus:!outline-none">
+    <div className="flex justify-center items-center w-full flex-wrap md:flex-nowrap gap-10 ">
       <Select 
+        isRequired
         label={title} 
-        className="max-w-xs " 
-        // color={"background"}
+        className="max-w-xs md:max-w-lg focus:!outline-none" 
+        color={"default"} size="md"
       >
         {categories.map((category) => (
-          <SelectItem key={category.value} value={category.value} aria-required>
-            {category.label}
+          <SelectItem key={category.value} value={category.value} className="text-lg hover:!bg-custom-yellow active:!bg-none">
+            {category.label}    
           </SelectItem>
         ))}
       </Select>

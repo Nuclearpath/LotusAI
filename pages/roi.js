@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import CategoryDropdown from "../components/Categorydropdown";
 import FeatureTable from "../components/Featuretable";
+import { FeatureChart } from "../components/FeatureChart";
 
 // import Chatbot from "../components/Chatbot";
 function Roi() {
@@ -36,42 +37,43 @@ function Roi() {
   ];
 
   const categoryData = [
-    {value: "Miscellaneous" , label: "Miscellaneous"},
-    {value: "Interior Features" , label: "Interior Features"},
-    {value: "Home Styles" , label: "Home Styles"},
-    {value: "Flooring" , label: "Flooring"},
-    {value: "Exterior Features" , label: "Exterior Features"},
-  ]
+    { value: "Miscellaneous", label: "Miscellaneous" },
+    { value: "Interior Features", label: "Interior Features" },
+    { value: "Home Styles", label: "Home Styles" },
+    { value: "Flooring", label: "Flooring" },
+    { value: "Exterior Features", label: "Exterior Features" },
+  ];
 
   const featureData = [
-    {value: "Beach Access" , label: "Beach Access"},
-    {value: "Club House" , label: "Club House"},
-    {value: "Community Pool" , label: "Community Pool"},
-    {value: "Storage Area" , label: "Storage Area"},
-    {value: "Hot Hub" , label: "Hot Hub"},
-  ]
+    { value: "Beach Access", label: "Beach Access" },
+    { value: "Club House", label: "Club House" },
+    { value: "Community Pool", label: "Community Pool" },
+    { value: "Storage Area", label: "Storage Area" },
+    { value: "Hot Hub", label: "Hot Hub" },
+  ];
   // const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { data: session, status } = useSession();
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [estimate, setEstimate] = useState([]);
   const [property, setProperty] = useState("");
   const [value, setValue] = useState("");
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const PropertyValue = {
       property,
-      value
+      value,
     };
     estimate !== ""
       ? setEstimate([...estimate, PropertyValue])
       : alert("You Need To Valid Property Name");
 
     setProperty("");
-    setValue("")
-  }
+    setValue("");
+  };
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -106,12 +108,12 @@ function Roi() {
       </Modal> */}
       {/* <Chatbot></Chatbot> */}
       <MainHeader page={""}></MainHeader>
-      <div className="w-full sm:px-12 px-3">
-        <div className="flex flex-col justify-center items-center px-1 py-2 my-10 rounded-md font-Montserrat gap-4 shadow-md shadow-custom-yellow">
+      <div className="w-full md:px-12 px-2">
+        <div className="flex flex-col justify-start items-start p-3 md:p-8 my-10 rounded-md font-Montserrat gap-4 shadow-md shadow-custom-yellow">
           <div>
-            <div className=" font-semibold flex flex-col md:flex-row  md:items-center gap-3">
+            <div className=" font-semibold flex flex-col md:flex-row md:justify-start  md:items-center gap-3">
               Estimated Value for {houseData.house}
-              <span className="text-custom-yellow sm:text-xl pl-2 text-base font-Montserrat ">
+              <span className="text-custom-yellow sm:text-xl md:pl-2 text-base font-Montserrat ">
                 $ {houseData.value}
               </span>
             </div>
@@ -129,11 +131,14 @@ function Roi() {
               Upgrade
             </button>
           </div>
-          
+
           {open ? (
-            <div className="w-full md:w-4/5 bg-custom-light-yellow p-6 text-base rounded-md mb-3">
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row justify-center items-center gap-5">
-              {/* <div className="flex flex-col gap-2">
+            <div className="w-full p-0 md:p-6 text-base rounded-md mb-3">
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col sm:flex-row justify-center items-center gap-8 mb-5"
+              >
+                {/* <div className="flex flex-col gap-2">
                 <label htmlFor="property">Property</label>
                 <input
                   type="text"
@@ -157,11 +162,15 @@ function Roi() {
                   onChange={(e) => setValue(e.target.value)}
                 />
                 </div> */}
-                <CategoryDropdown categories={categoryData} title={"Category"}/>
-                <CategoryDropdown categories={featureData} title={"Feature"}/>
+                <CategoryDropdown
+                  categories={categoryData}
+                  title={"Category"}
+                />
+                <CategoryDropdown categories={featureData} title={"Feature"} />
                 <button
                   type="submit"
-                  className="bg-custom-yellow hover:bg-opacity-80 px-10 py-3 sm:py-3 sm:px-7 rounded-md text-white text-lg "
+                  className="bg-custom-yellow hover:bg-opacity-80 px-10 py-3 sm:py-3 sm:px-12 rounded-md text-white text-lg "
+                  onClick={() => setIsOpen(!isOpen)}
                 >
                   ADD
                 </button>
@@ -183,9 +192,14 @@ function Roi() {
               ) : (
                 <div></div>
               )} */}
-              <div className="py-5">
-              <FeatureTable/>
-              </div>
+              {isOpen ? (
+                <div className="py-5">
+                  <FeatureTable />
+                  <FeatureChart />
+                </div>
+              ) : (
+                <div></div>
+              )}
             </div>
           ) : (
             <div></div>

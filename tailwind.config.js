@@ -58,5 +58,18 @@ module.exports = {
     },
   },
   darkMode: "class",
-  plugins: [ nextui()],
+  plugins: [
+    nextui({
+      themes: {
+        light: {
+          colors: {
+            default:"#FFA921",
+            focus: "#FFA921",
+            active : "#FFA921",
+            hover : "#FFA921"
+          },
+        },
+      },
+    }),
+  ],
 };
