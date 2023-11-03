@@ -18,7 +18,7 @@ export default function DropdownBtn() {
           className="sm:flex justify-between items-center font-header font-semibold text-base hidden"
         >
           <Link href="/salebyowner">For Sale By Owner</Link>
-          <SlArrowDown />
+          <SlArrowDown size={10} />
         </Button>
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">

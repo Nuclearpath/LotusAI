@@ -1,21 +1,10 @@
 import React, { useState } from "react";
 import MainHeader from "../components/MainHeader";
-// import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-// import {
-//   Modal,
-//   ModalContent,
-//   ModalHeader,
-//   ModalBody,
-//   ModalFooter,
-//   Button,
-//   useDisclosure,
-// } from "@nextui-org/react";
-// import Loader from "./../components/Loader";
-// import { TiTick } from "react-icons/ti";
-import { BiLogoTelegram } from "react-icons/bi";
+import CategoryDropdown from "../components/Categorydropdown";
+import FeatureTable from "../components/Featuretable";
 
 // import Chatbot from "../components/Chatbot";
 function Roi() {
@@ -45,6 +34,22 @@ function Roi() {
       propties: ["Office", "Fireplace", "Deck", "Family Room", "View"],
     },
   ];
+
+  const categoryData = [
+    {value: "Miscellaneous" , label: "Miscellaneous"},
+    {value: "Interior Features" , label: "Interior Features"},
+    {value: "Home Styles" , label: "Home Styles"},
+    {value: "Flooring" , label: "Flooring"},
+    {value: "Exterior Features" , label: "Exterior Features"},
+  ]
+
+  const featureData = [
+    {value: "Beach Access" , label: "Beach Access"},
+    {value: "Club House" , label: "Club House"},
+    {value: "Community Pool" , label: "Community Pool"},
+    {value: "Storage Area" , label: "Storage Area"},
+    {value: "Hot Hub" , label: "Hot Hub"},
+  ]
   // const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -102,7 +107,7 @@ function Roi() {
       {/* <Chatbot></Chatbot> */}
       <MainHeader page={""}></MainHeader>
       <div className="w-full sm:px-12 px-3">
-        <div className="flex flex-col justify-center items-center px-1 py-2 my-4 rounded-md font-Montserrat gap-4">
+        <div className="flex flex-col justify-center items-center px-1 py-2 my-10 rounded-md font-Montserrat gap-4 shadow-md shadow-custom-yellow">
           <div>
             <div className=" font-semibold flex flex-col md:flex-row  md:items-center gap-3">
               Estimated Value for {houseData.house}
@@ -118,7 +123,7 @@ function Roi() {
               Get Revised Estimate
             </button> */}
             <button
-              className="font-header bg-custom-yellow hover:bg-opacity-80 font-semibold  rounded-full  py-2 px-5 sm:text-xl text-base mt-3"
+              className="font-header bg-custom-yellow hover:bg-opacity-80 font-semibold  rounded-full  py-2 px-5 sm:text-xl text-base mt-3 text-white hover:underline"
               onClick={() => setOpen(!open)}
             >
               Upgrade
@@ -126,9 +131,9 @@ function Roi() {
           </div>
           
           {open ? (
-            <div className="w-full md:w-4/5 bg-custom-light-yellow p-6 text-base rounded-md ">
+            <div className="w-full md:w-4/5 bg-custom-light-yellow p-6 text-base rounded-md mb-3">
               <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row justify-center items-center gap-5">
-              <div className="flex flex-col gap-2">
+              {/* <div className="flex flex-col gap-2">
                 <label htmlFor="property">Property</label>
                 <input
                   type="text"
@@ -139,8 +144,8 @@ function Roi() {
                   required
                   onChange={(e) => setProperty(e.target.value)}
                 />
-                </div>
-                <div className="flex flex-col gap-2">
+                </div> */}
+                {/* <div className="flex flex-col gap-2">
                 <label htmlFor="value">Value</label>
                 <input
                   type="text"
@@ -151,15 +156,17 @@ function Roi() {
                   required
                   onChange={(e) => setValue(e.target.value)}
                 />
-                </div>
+                </div> */}
+                <CategoryDropdown categories={categoryData} title={"Category"}/>
+                <CategoryDropdown categories={featureData} title={"Feature"}/>
                 <button
                   type="submit"
-                  className="bg-custom-yellow hover:bg-opacity-80 px-10 py-3 sm:p-2.5 rounded-md text-white text-xl  sm:mt-8"
+                  className="bg-custom-yellow hover:bg-opacity-80 px-10 py-3 sm:py-3 sm:px-7 rounded-md text-white text-lg "
                 >
-                  <BiLogoTelegram></BiLogoTelegram>
+                  ADD
                 </button>
               </form>
-              {estimate.length ? (
+              {/* {estimate.length ? (
                 <ul className="p-5 overflow-auto max-h-[200px]">
                   {estimate.map((val,idx) => (
                     <li
@@ -175,7 +182,10 @@ function Roi() {
                 </ul>
               ) : (
                 <div></div>
-              )}
+              )} */}
+              <div className="py-5">
+              <FeatureTable/>
+              </div>
             </div>
           ) : (
             <div></div>
@@ -200,7 +210,8 @@ function Roi() {
                   key={i}
                   className="flex flex-col 2xl font-Montserrat w-full items-start px-3 sm:py-10 py-4"
                 >
-                  <div className=" border-2 border-gray-700 py-10 sm:px-4 px-2 rounded-lg md:w-10/12 w-full flex justify-center flex-col items-center space-y-5">
+                  {/* <div className=" border-2 border-gray-700 py-10 sm:px-4 px-2 rounded-lg md:w-10/12 w-full flex justify-center flex-col items-center space-y-5 shadow-lg shadow-custom-yellow"> */}
+                  <div className="py-10 sm:px-4 px-2 rounded-lg md:w-10/12 w-full flex justify-center flex-col items-center space-y-5 shadow-md shadow-custom-yellow">
                     <div className="font-semibold font-header">{e.title}</div>
                     <div className="flex w-full border-b-2 border-gray-600"></div>
                     <ol className="list-decimal space-y-5  w-full list-inside ">

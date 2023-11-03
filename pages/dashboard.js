@@ -94,13 +94,15 @@ function Dashboard() {
         )}
         {session && (
           <>
-            <div className="w-full flex justify-end">
-              <Link
-                href="/comparableproperties"
-                className="underline text-sm text-gray-500 font-semibold sm:py-7 py-2"
-              >
-                View comparable properties
-              </Link>
+            <div className="w-full flex justify-end py-5">
+              <button className="bg-custom-yellow hover:underline hover:bg-opacity-80 text-white p-2 rounded-md my-2 mb-5">
+                <Link
+                  href="/comparableproperties"
+                  className="text-white font-medium hover:underline text-base md:text-lg "
+                >
+                  View comparable properties
+                </Link>
+              </button>
             </div>
             <div className="sm:pt-24 pt-10 flex justify-center sm:text-3xl text-2xl font-header w-full">
               House Value Trend

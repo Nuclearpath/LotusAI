@@ -29,9 +29,13 @@ function DashboardContent(props) {
         <div className="w-full flex justify-start ">{house}</div>
         <div className="w-full flex justify-start ">{location}</div>
         <div className="w-full flex justify-start ">{houseNo}</div>
-        <Link className="text-gray-500 underline" href="/editfacts">
-          Edit facts
-        </Link>
+        <button
+          className="bg-custom-yellow hover:underline hover:bg-opacity-80 text-white p-2 rounded-md my-2 mb-5"
+        >
+          <Link className="text-white font-medium hover:underline" href="/editfacts">
+            Edit facts
+          </Link>
+        </button>
       </div>
       <div className="sm:pt-24 pt-3 grid gap-10 sm:grid-cols-3 grid-cols-1">
         <div className="w-full shadow flex justify-center flex-col items-center py-10 space-y-5">
