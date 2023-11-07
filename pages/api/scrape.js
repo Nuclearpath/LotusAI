@@ -30,8 +30,8 @@ export default async function handler(req, res) {
     await SetDbs(DaysOnMarket, data);
     data = data1.sqft;
     await SetDbs(PerSqft, data);
-    // data = data1.supplyAndDemand;
-    // await SetDbs(supplyAndDemand, data);
+    data = data1.supplyAndDemand;
+    await SetDbs(supplyAndDemand, data);
 
     return res.status(200).json(data1);
   } catch (err) {

@@ -145,6 +145,7 @@ function Timingthemarket() {
     PricingRatio,
     DaysOnMarket,
     PerSqft,
+    supplyDemand,
     getGraph,
   } = store();
   const [source, setSource] = useState([]);
@@ -183,6 +184,10 @@ function Timingthemarket() {
       {
         setSource([...DaysOnMarket]);
       }
+      if(db==="sd")
+      {
+        setSource([...supplyDemand]);
+      }
     
   }, [loading]);
   const handleYearChange = async (e) => {
@@ -200,7 +205,7 @@ function Timingthemarket() {
   // MainActivity && console.log(source);
   const handleSourceChange = async (e) => {
     e.preventDefault();
-    console.log(e.target.value);
+     console.log(e.target.value);
     switch (e.target.value) {
       
       case "MainActivity":
@@ -224,11 +229,14 @@ function Timingthemarket() {
       router.push(`/timingthemarket?db=days&val=${val}`);
 
         break;
-      case "PerSqft":
+      case "$ Per Sqft":
        // console.log("tp");
       router.push(`/timingthemarket?db=ps&val=${val}`);
 
         break;
+        case "Supply And Demand":
+          router.push(`/timingthemarket?db=sd&val=${val}`); 
+          break;
     }
   };
   const giveDataSets=()=>{
@@ -1058,36 +1066,19 @@ function Timingthemarket() {
                   Days on Market
                 </option>
                 <option
-                  vlaue={"PerSqft"}
+                  vlaue={"$ Per Sqft"}
                   selected={db==="ps"}
                   className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64"
                 >
                   $ Per Sqft
                 </option>
-                <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64" 
+                vlaue={"Supply And Demand"}
+                selected={db==="sd"}>
                   Supply And Demand
                 </option>
               </select>
-              <div className="flex sm:items-center items-start sm:flex-row flex-col">
-                <div className="flex bg-custom-yellow px-3 py-2 border-2 text-white rounded-md sm:w-auto w-full">
-                  <input type="radio" name="act"></input>
-
-                  <div>Actual Values</div>
-                </div>
-                <div className="flex bg-custom-yellow px-3 py-2 border-2 text-white rounded-md sm:w-auto w-full">
-                  <input type="radio" name="act"></input>
-
-                  <div>Change Form</div>
-                </div>
-                <select className="  z-10  flex-col  bg-gray-100  text-black flex  rounded  px-4 py-2">
-                  <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded sm:w-64 w-full">
-                    Prev Year
-                  </option>
-                  <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded sm:w-64 w-full">
-                    Prev Month
-                  </option>
-                </select>
-              </div>
+              
             </div>
             <div className="flex sm:w-10/12 w-full  justify-start bg-custom-light-yellow py-3 px-2 rounded-lg rounded-b-none sm:flex-row flex-col sm:space-y-0 space-y-4">
               <button className="sm:px-2 px-0 py-2 bg-custom-yellow text-white rounded-md mr-4">
@@ -2035,17 +2026,7 @@ function Timingthemarket() {
               </div>
             </div>
             <div className="sm:w-10/12 flex sm:flex-row flex-col sm:space-y-0 space-y-3  w-full justify-between   bg-custom-light-yellow py-3 px-2 rounded-lg rounded-t-none">
-              <div className="flex space-x-4 sm:w-auto w-full  sm:justify-start justify-center">
-                <button className="text-2xl p-2 bg-custom-yellow text-white rounded-md">
-                  <VscGraph></VscGraph>
-                </button>
-                <button className="text-2xl p-2 bg-custom-yellow text-white rounded-md">
-                  <BsGraphUp></BsGraphUp>
-                </button>
-                <button className="text-2xl p-2 bg-custom-yellow text-white rounded-md">
-                  <AiOutlineMenu></AiOutlineMenu>
-                </button>
-              </div>
+         
               <div className="sm:flex sm:flex-row flex-col sm:space-x-10 space-x-0 sm:space-y-0 space-y-2 sm:justify-start items-center sm:w-auto w-full">
                 <div className="flex sm:auto w-full sm:justify-start justify-center">
                   <div className="px-3 py-1 rounded-md  rounded-r-none bg-custom-yellow text-white flex items-center">
@@ -2163,14 +2144,26 @@ function Timingthemarket() {
                 </div>
               </div>
               <div className="sm:hidden sm:w-2/12 flex flex-col space-y-1">
-                <div className="w-full flex flex-col px-3 font-Montserrat">
-                  <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2">
+              <div className="w-full flex flex-col px-3 font-Montserrat">
+                  <button
+                    className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2"
+                    onClick={()=>{ setLvl({home:!lvl.home,
+                      list:false,
+                      sold:false,
+                      market:false,
+                      living:false,
+                      bedroom:false,
+                      bath:false,
+                      bank:false})}}
+                  >
                     Home Type/Ownership
                   </button>
-                  <div className="hidden peer-hover:flex flex-col hover:flex">
+                 {lvl.home && <div className=" flex-col hover:flex">
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={homeType.all}
+                        onClick={(e)=>setHomeType({...homeType,all:!homeType.all})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>All</div>
@@ -2178,68 +2171,96 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        onClick={(e)=>setHomeType({...homeType,detached:!homeType.detached})}
+                        checked={homeType.detached}
+                        
+                        className="accent-red-600 indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>Detached: All</div>
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        
+                        onClick={(e)=>setHomeType({...homeType,attached:!homeType.attached})}
+                        checked={homeType.attached}
+
+                        className="accent-orange-600 indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>Attached: All</div>
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        onClick={(e)=>setHomeType({...homeType,th:!homeType.th})}
+                        checked={homeType.th}
+                        className="accent-green-600 indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>Attached: TH</div>
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        onClick={(e)=>setHomeType({...homeType,condo:!homeType.condo})}
+                        checked={homeType.condo}
+                        className="accent-blue-600 indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>Attached: Condo/Coop</div>
                     </div>
-                  </div>
+                  </div>}
                 </div>
                 <div className="w-full flex flex-col px-3 font-Montserrat">
-                  <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2">
+                  <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2" onClick={()=>{ setLvl({home:false,
+    list:!lvl.list,
+    sold:false,
+    market:false,
+    living:false,
+    bedroom:false,
+    bath:false,
+    bank:false})}}>
                     List Price
                   </button>
-                  <div className="hidden peer-hover:flex flex-col hover:flex">
+                  {lvl.list && <div className=" flex-col hover:flex">
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        checked={list.all}
+                        onClick={(e)=>setList({...list,all:!list.all})}
+                        className=" indeterminate:bg-gray-300 border-2 mr-2 accent-[#FFA921]"
                       />
                       <div>All</div>
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        checked={list.u50k}
+                        onClick={(e)=>setList({...list,u50k:!list.u50k})}
+                        className=" indeterminate:bg-gray-300 border-2 mr-2 accent-[#dc2626]"
                       />
                       <div>{"< $50000"}</div>
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={list.m50kto100k}
+                      onClick={(e)=>setList({...list,m50kto100k:!list.m50kto100k})}
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        className=" indeterminate:bg-gray-300 border-2 mr-2 accent-[#ea580c]"
                       />
                       <div>{"$50K to $99,999"}</div>
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={list.m100kto150k}
+                      onClick={(e)=>setList({...list,m100kto150k:!list.m100kto150k})}
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        className=" indeterminate:bg-gray-300 border-2 mr-2 accent-[#4ade80]"
                       />
                       <div>{"$100K to $149,999"}</div>
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={list.m150kto200k}
+                      onClick={(e)=>setList({...list,m150kto200k:!list.m150kto200k})}
                         type="checkbox"
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
@@ -2247,50 +2268,64 @@ function Timingthemarket() {
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={list.m200kto300k}
+                      onClick={(e)=>setList({...list,m200kto300k:!list.m200kto300k})}
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        className=" indeterminate:bg-gray-300 border-2 mr-2 accent-[#1e3a8a]"
                       />
                       <div>{"$200K to $299,999"}</div>
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={list.m300kto400k}
+                      onClick={(e)=>setList({...list,m300kto400k:!list.m300kto400k})}
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        className=" indeterminate:bg-gray-300 border-2 mr-2 accent-slate-600"
                       />
                       <div>{"$300K to $399,999"}</div>
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={list.m400kto500k}
+                      onClick={(e)=>setList({...list,m400kto500k:!list.m400kto500k})}
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        className=" indeterminate:bg-gray-300 border-2 mr-2 accent-[#d97706]"
                       />
                       <div>{"$400K to $499,999"}</div>
                     </div>
 
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={list.m500kto600k}
+                      onClick={(e)=>setList({...list,m500kto600k:!list.m500kto600k})}
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        className=" indeterminate:bg-gray-300 border-2 mr-2 accent-[#059669]"
                       />
                       <div>{"$500K to $599,999"}</div>
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={list.m600kto800k}
+                      onClick={(e)=>setList({...list,m600kto800k:!list.m600kto800k})}
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        className=" indeterminate:bg-gray-300 border-2 mr-2 accent-[#0d9488]"
                       />
                       <div>{"$600K to $799,999"}</div>
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={list.m800kto1000k}
+                      onClick={(e)=>setList({...list,m800kto1000k:!list.m800kto1000k})}
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
+                        className=" indeterminate:bg-gray-300 border-2 mr-2 accent-[#0284c7]"
                       />
                       <div>{"$800K to $999,999"}</div>
                     </div>
 
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={list.m1000kto2500k}
+                      onClick={(e)=>setList({...list,m1000kto2500k:!list.m1000kto2500k})}
                         type="checkbox"
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
@@ -2298,6 +2333,8 @@ function Timingthemarket() {
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={list.m2500kto5000k}
+                      onClick={(e)=>setList({...list,m2500kto5000k:!list.m2500kto5000k})}
                         type="checkbox"
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
@@ -2305,21 +2342,32 @@ function Timingthemarket() {
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={list.a5000k}
+                      onClick={(e)=>setList({...list,a5000k:!list.a5000k})}
                         type="checkbox"
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"$5,000,000+"}</div>
                     </div>
-                  </div>
+                  </div>}
                 </div>
                 <div className="w-full flex flex-col px-3 font-Montserrat">
-                  <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2">
+                  <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2" onClick={()=>{ setLvl({home:false,
+    list:false,
+    sold:!lvl.sold,
+    market:false,
+    living:false,
+    bedroom:false,
+    bath:false,
+    bank:false})}}>
                     Sold Price
                   </button>
-                  <div className="hidden peer-hover:flex flex-col hover:flex">
+                  {lvl.sold && <div className=" flex-col hover:flex">
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={sold.all}
+                        onClick={(e)=>setSold({...sold,all:!sold.all})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>All</div>
@@ -2327,12 +2375,16 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={sold.u50k}
+                        onClick={(e)=>setSold({...sold,u50k:!sold.u50k})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"< $50000"}</div>
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={sold.m50kto100k}
+                      onClick={(e)=>setSold({...sold,m50kto100k:!sold.m50kto100k})}
                         type="checkbox"
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
@@ -2340,6 +2392,8 @@ function Timingthemarket() {
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={sold.m100kto150k}
+                      onClick={(e)=>setSold({...sold,m100kto150k:!sold.m100kto150k})}
                         type="checkbox"
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
@@ -2347,6 +2401,8 @@ function Timingthemarket() {
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={sold.m150kto200k}
+                      onClick={(e)=>setSold({...sold,m150kto200k:!sold.m150kto200k})}
                         type="checkbox"
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
@@ -2354,6 +2410,8 @@ function Timingthemarket() {
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={sold.m200kto300k}
+                      onClick={(e)=>setSold({...sold,m200kto300k:!sold.m200kto300k})}
                         type="checkbox"
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
@@ -2361,6 +2419,8 @@ function Timingthemarket() {
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={sold.m300kto400k}
+                      onClick={(e)=>setSold({...sold,m300kto400k:!sold.m300kto400k})}
                         type="checkbox"
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
@@ -2368,6 +2428,8 @@ function Timingthemarket() {
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={sold.m400kto500k}
+                      onClick={(e)=>setSold({...sold,m400kto500k:!sold.m400kto500k})}
                         type="checkbox"
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
@@ -2376,6 +2438,8 @@ function Timingthemarket() {
 
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={sold.m500kto600k}
+                      onClick={(e)=>setSold({...sold,m500kto600k:!sold.m500kto600k})}
                         type="checkbox"
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
@@ -2383,6 +2447,8 @@ function Timingthemarket() {
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={sold.m600kto800k}
+                      onClick={(e)=>setSold({...sold,m600kto800k:!sold.m600kto800k})}
                         type="checkbox"
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
@@ -2390,6 +2456,8 @@ function Timingthemarket() {
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={sold.m800kto1000k}
+                      onClick={(e)=>setSold({...sold,m800kto1000k:!sold.m800kto1000k})}
                         type="checkbox"
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
@@ -2398,6 +2466,8 @@ function Timingthemarket() {
 
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={sold.m1000kto2500k}
+                      onClick={(e)=>setSold({...sold,m1000kto2500k:!sold.m1000kto2500k})}
                         type="checkbox"
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
@@ -2405,6 +2475,8 @@ function Timingthemarket() {
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={sold.m2500kto5000k}
+                      onClick={(e)=>setSold({...sold,m2500kto5000k:!sold.m2500kto5000k})}
                         type="checkbox"
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
@@ -2412,34 +2484,41 @@ function Timingthemarket() {
                     </div>
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
+                      checked={sold.a5000k}
+                      onClick={(e)=>setSold({...sold,a5000k:!sold.a5000k})}
                         type="checkbox"
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"$5,000,000+"}</div>
                     </div>
-                  </div>
+                  </div>}
                 </div>
                 <div className="w-full flex flex-col px-3 font-Montserrat">
-                  <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2">
+                  <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2" onClick={()=>{ setLvl({home:false,
+    list:false,
+    sold:false,
+    market:!lvl.market,
+    living:false,
+    bedroom:false,
+    bath:false,
+    bank:false})}}>
                     Days in market
                   </button>
-                  <div className="hidden peer-hover:flex flex-col hover:flex">
+                  {lvl.market &&<div className=" flex-col hover:flex">
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={days.all}
+                        onClick={(e)=>setDays({...days,all:!days.all})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>All</div>
                     </div>
+                    
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
-                        type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
-                      />
-                      <div>{"< $50000"}</div>
-                    </div>
-                    <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
-                      <input
+                       checked={days.day0}
+                       onClick={(e)=>setDays({...days,day0:!days.day0})}
                         type="checkbox"
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
@@ -2448,6 +2527,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={days.day10}
+                       onClick={(e)=>setDays({...days,day10:!days.day10})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"1 to 10 Days"}</div>
@@ -2455,6 +2536,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={days.day20}
+                       onClick={(e)=>setDays({...days,day20:!days.day20})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"11 to 20 Days"}</div>
@@ -2462,6 +2545,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={days.day30}
+                       onClick={(e)=>setDays({...days,day30:!days.day30})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"21 to 30 Days"}</div>
@@ -2469,6 +2554,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={days.day60}
+                       onClick={(e)=>setDays({...days,day60:!days.day60})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"31 to 60 Days"}</div>
@@ -2476,6 +2563,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={days.day90}
+                       onClick={(e)=>setDays({...days,day90:!days.day90})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"61 to 90 Days"}</div>
@@ -2484,6 +2573,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={days.day120}
+                       onClick={(e)=>setDays({...days,day120:!days.day120})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"91 to 120 Days"}</div>
@@ -2491,6 +2582,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={days.day180}
+                       onClick={(e)=>setDays({...days,day180:!days.day180})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"121 to 180 Days"}</div>
@@ -2498,6 +2591,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={days.day360}
+                       onClick={(e)=>setDays({...days,day360:!days.day360})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"181 to 360 Days"}</div>
@@ -2506,6 +2601,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={days.day720}
+                       onClick={(e)=>setDays({...days,day720:!days.day720})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"361 to 720 Days"}</div>
@@ -2513,20 +2610,31 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={days.day721}
+                       onClick={(e)=>setDays({...days,day721:!days.day721})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"721+ Days"}</div>
                     </div>
-                  </div>
+                  </div>}
                 </div>
                 <div className="w-full flex flex-col px-3 font-Montserrat">
-                  <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2">
+                  <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2" onClick={()=>{ setLvl({home:false,
+    list:false,
+    sold:false,
+    market:false,
+    living:!lvl.living,
+    bedroom:false,
+    bath:false,
+    bank:false})}}>
                     Living Area SqFt
                   </button>
-                  <div className="hidden peer-hover:flex flex-col hover:flex">
+                  {lvl.living &&<div className=" flex-col hover:flex">
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={living.all}
+                        onClick={(e)=>setLiving({...living,all:!living.all})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>All</div>
@@ -2534,6 +2642,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={living.sqft800}
+                        onClick={(e)=>setLiving({...living,sqft800:!living.sqft800})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"< 800 SqFt"}</div>
@@ -2541,6 +2651,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={living.sqft999}
+                        onClick={(e)=>setLiving({...living,sqft999:!living.sqft999})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"800 to 999 SqFt"}</div>
@@ -2548,6 +2660,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={living.sqft1199}
+                        onClick={(e)=>setLiving({...living,sqft1199:!living.sqft1199})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"1,000 to 1,199 SqFt"}</div>
@@ -2555,6 +2669,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={living.sqft1399}
+                        onClick={(e)=>setLiving({...living,sqft1399:!living.sqft1399})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"1,200 to 1,399 SqFt"}</div>
@@ -2562,6 +2678,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={living.sqft1599}
+                        onClick={(e)=>setLiving({...living,sqft1599:!living.sqft1599})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"1,400 to 1,599 SqFt"}</div>
@@ -2569,6 +2687,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={living.sqft1799}
+                        onClick={(e)=>setLiving({...living,sqft1799:!living.sqft1799})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"1,600 to 1,799 SqFt"}</div>
@@ -2576,6 +2696,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={living.sqft1999}
+                        onClick={(e)=>setLiving({...living,sqft1999:!living.sqft1999})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"1,800 to 1,999 SqFt"}</div>
@@ -2584,6 +2706,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={living.sqft2499}
+                        onClick={(e)=>setLiving({...living,sqft2499:!living.sqft2499})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"2,000 to 2,499 SqFt"}</div>
@@ -2591,6 +2715,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={living.sqft2999}
+                        onClick={(e)=>setLiving({...living,sqft2999:!living.sqft2999})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"2,500 to 2,999 SqFt"}</div>
@@ -2598,6 +2724,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={living.sqft4000}
+                        onClick={(e)=>setLiving({...living,sqft4000:!living.sqft4000})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"3,000 to 4,000 SqFt"}</div>
@@ -2606,6 +2734,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={living.sqft4999}
+                        onClick={(e)=>setLiving({...living,sqft4999:!living.sqft4999})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"4,000 to 4,999 SqFt"}</div>
@@ -2613,11 +2743,13 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={living.sqft5000}
+                        onClick={(e)=>setLiving({...living,sqft5000:!living.sqft5000})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"5,000+ SqFt"}</div>
                     </div>
-                  </div>
+                  </div>}
                 </div>
                 <div className="w-full flex flex-col px-3 font-Montserrat">
                   <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2" onClick={()=>{ setLvl({home:false,
@@ -2625,15 +2757,17 @@ function Timingthemarket() {
     sold:false,
     market:false,
     living:false,
-    bedroom:true,
+    bedroom:!lvl.bedroom,
     bath:false,
     bank:false})}}>
                     Bedrooms
                   </button>
-                  {lvl.bedroom &&<div className="hidden peer-hover:flex flex-col hover:flex">
+                  {lvl.bedroom &&<div className="flex  flex-col hover:flex">
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={bed.all}
+                        onClick={(e)=>setBed({...bed,all:!bed.all})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>All</div>
@@ -2641,6 +2775,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={bed.bed0}
+                        onClick={(e)=>setBed({...bed,bed0:!bed.bed0})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"0 Bedrooms"}</div>
@@ -2648,34 +2784,28 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={bed.bed1}
+                        onClick={(e)=>setBed({...bed,bed1:!bed.bed1})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"1 Bedroom"}</div>
                     </div>
+                   
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
-                      />
-                      <div>{"1,000 to 1,199 SqFt"}</div>
-                    </div>
-                    <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
-                      <input
-                        type="checkbox"
+                        checked={bed.bed2}
+                        onClick={(e)=>setBed({...bed,bed2:!bed.bed2})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"2 Bedrooms"}</div>
                     </div>
+                   
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
-                        className=" indeterminate:bg-gray-300 border-2 mr-2"
-                      />
-                      <div>{"1,400 to 1,599 SqFt"}</div>
-                    </div>
-                    <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
-                      <input
-                        type="checkbox"
+                        checked={bed.bed3}
+                        onClick={(e)=>setBed({...bed,bed3:!bed.bed3})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"3 Bedrooms"}</div>
@@ -2683,6 +2813,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={bed.bed4}
+                        onClick={(e)=>setBed({...bed,bed4:!bed.bed4})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"4 Bedrooms"}</div>
@@ -2691,6 +2823,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={bed.bed5}
+                        onClick={(e)=>setBed({...bed,bed5:!bed.bed5})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"5 Bedrooms"}</div>
@@ -2698,6 +2832,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={bed.bed6}
+                        onClick={(e)=>setBed({...bed,bed6:!bed.bed6})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"6+ Bedrooms"}</div>
@@ -2711,14 +2847,16 @@ function Timingthemarket() {
     market:false,
     living:false,
     bedroom:false,
-    bath:false,
+    bath:!lvl.bath,
     bank:false})}}>
                     Bathrooms
                   </button>
-                  {lvl.bath &&<div className="hidden peer-hover:flex flex-col hover:flex">
+                 {lvl.bath    &&<div className="flex flex-col hover:flex">
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={bath.all}
+                        onClick={(e)=>setBath({...bath,all:!bath.all})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>All</div>
@@ -2726,6 +2864,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={bath.bath0}
+                        onClick={(e)=>setBath({...bath,bath0:!bath.bath0})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"0 Bathrooms"}</div>
@@ -2733,6 +2873,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={bath.bath1}
+                        onClick={(e)=>setBath({...bath,bath1:!bath.bath1})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"1 Bathroom"}</div>
@@ -2740,6 +2882,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={bath.bath2}
+                        onClick={(e)=>setBath({...bath,bath2:!bath.bath2})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"2 Bathrooms"}</div>
@@ -2747,6 +2891,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={bath.bath3}
+                        onClick={(e)=>setBath({...bath,bath3:!bath.bath3})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"3 Bathrooms"}</div>
@@ -2754,6 +2900,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={bath.bath4}
+                        onClick={(e)=>setBath({...bath,bath4:!bath.bath4})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"4 Bathrooms"}</div>
@@ -2761,6 +2909,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={bath.bath5}
+                        onClick={(e)=>setBath({...bath,bath5:!bath.bath5})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"5+ Bathrooms"}</div>
@@ -2768,20 +2918,22 @@ function Timingthemarket() {
                   </div>}
                 </div>
                 <div className="w-full flex flex-col px-3 font-Montserrat">
-                  <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2" onClick={()=>{ setLvl({home:false,
+                  <button className="w-full bg-custom-yellow rounded text-white pt-1 peer flex justify-start px-2"  onClick={()=>{ setLvl({home:false,
     list:false,
     sold:false,
     market:false,
     living:false,
     bedroom:false,
     bath:false,
-    bank:true})}}>
+    bank:!lvl.bank})}}>
                     Bank-Mediated
                   </button>
-                  {lvl.bank &&<div className="hidden peer-hover:flex flex-col hover:flex">
+                  {lvl.bank &&<div className="flex flex-col hover:flex">
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={bank.all}
+                        onClick={(e)=>setBank({...bank,all:!bank.all})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>All</div>
@@ -2789,6 +2941,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={bank.BankMediated}
+                        onClick={(e)=>setBank({...bank,BankMediated:!bank.BankMediated})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"All Bank-Mediated"}</div>
@@ -2796,6 +2950,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={bank.Foreclosures}
+                        onClick={(e)=>setBank({...bank,Foreclosures:!bank.Foreclosures})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"Foreclosures (REO)"}</div>
@@ -2803,6 +2959,8 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={bank.ShortSales}
+                        onClick={(e)=>setBank({...bank,ShortSales:!bank.ShortSales})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"Short Sales"}</div>
@@ -2810,12 +2968,13 @@ function Timingthemarket() {
                     <div className="w-full bg-gray-100 rounded text-black py-1 flex items-center justify-start px-2">
                       <input
                         type="checkbox"
+                        checked={bank.NonBankMediated}
+                        onClick={(e)=>setBank({...bank,NonBankMediated:!bank.NonBankMediated})}
                         className=" indeterminate:bg-gray-300 border-2 mr-2"
                       />
                       <div>{"Non-Bank-Mediated"}</div>
                     </div>
-                  </div>
-}
+                  </div>}
                 </div>
               </div>
             </div>

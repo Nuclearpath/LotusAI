@@ -11,7 +11,6 @@ export default async function handler(req, res) {
   const {db}=req.query;
   const {page}=req.query;
   const limit=Number(page) ;
-  console.log(db); 
     let data = [];
 
 switch(db)
@@ -36,7 +35,7 @@ switch(db)
   
 
 }
-
+// console.log(data);
     
     return res.status(200).json({ success: true,
        data
