@@ -100,7 +100,7 @@ function RentVsSellCalculator() {
             </button>
           <div className="sm:text-2xl text-lg px-2 font-normal  sm:font-semibold">
           
-            if you {calc > 0 ? "RENT OUT" : "SELL OUT"} your property you'll
+            if you {calc > 0 ? "RENT OUT" : "SELL OUT"} your property you{"'"}ll
             have <span className="text-custom-yellow">$ {calc > 0 ? calc : -1 * calc}</span> more wealth in{" "}
             {sFormValue.yearstohold} years verses{" "}
             {calc > 0 ? "selling" : "renting"} your property today.
