@@ -20,25 +20,25 @@ function MainHeader({page}) {
   //  }
   return (
     <div className="z-10">
-      <div className="w-full flex justify-between  px-6 shadow items-center sm:py-0 py-5 ">
-        <Link href="/" className="flex sm:w-56 w-32 sm:px-6 px-1 py-1 sm:py-4 ">
+      <div className="w-full flex justify-between  px-6 shadow items-center lg:py-0 py-5 ">
+        <Link href="/" className="flex lg:w-56 w-32 lg:px-6 px-1 py-1 lg:py-4 ">
           <Image
             src="/logo.png"
             fill
             className="!relative object-contain"
             alt={"img"}
-            // className=" sm:object-cover object-contain !relative sm:scale-50 scale-100 !h-auto sm:h-24"
+            // className=" lg:object-cover object-contain !relative lg:scale-50 scale-100 !h-auto lg:h-24"
           />
         </Link>
 
-        <div className=" justify-between items-center space-x-8 font-header font-semibold text-base sm:flex hidden">
-          {session && page !== "landing" && <Link href="/dashboard">What’s My Pad Worth?</Link>}
+        <div className=" justify-between items-center space-x-8 font-header font-semibold text-base lg:flex hidden">
+          {session && page !== "landing" && <Link href="/dashboard">My Pad</Link>}
           {session && page !== "landing" && <Link href="/roi">ROI</Link>}
-          {session && page !== "landing" && <Link href="/timingthemarket">Timing the Market</Link>}
+          {session && page !== "landing" && <Link href="timingthemarket?db=main&val=12">Timing the Market</Link>}
           {session && page !== "landing" && <Link href="/rentvssale">Rent Vs Sell</Link>}
           {session && page !== "landing" && <DropdownBtn />}
         </div>
-        <div className="flex  sm:hidden space-x-3">
+        <div className="flex  lg:hidden space-x-3">
           <div className="w-10 h-10">
             {session && session.user.image && (
               <Image
@@ -51,12 +51,12 @@ function MainHeader({page}) {
           </div>
           <button
             onClick={() => setShowSidebar(!showSidebar)}
-            className="sm:hidden flex text-xl text-custom-yellow border-2 p-2 rounded-md border-custom-light-yellow shadow-lg "
+            className="lg:hidden flex text-xl text-custom-yellow border-2 p-2 rounded-md border-custom-light-yellow shadow-lg "
           >
             <AiOutlineMenu></AiOutlineMenu>
           </button>
         </div>
-        <div className="text-custom-yellow font-header font-normal text-base sm:flex hidden">
+        <div className="text-custom-yellow font-header font-normal text-base lg:flex hidden">
           {/* <Link href="">Sign In </Link> / <Link href="">Register</Link> */}
           <div className="text-4xl text-gray-950 relative">
             {session && (
@@ -115,7 +115,7 @@ function MainHeader({page}) {
             // initial={{ scale: 0.5, opacity: 0, x: 0 }}
             // animate={{ scale: 1, opacity: 1, x: 1 }}
             // transition={{ duration: 0.1, delay: 0.01 }}
-            className="sm:hidden flex flex-col absolute top-0 right-0 bg-white w-full h-screen z-50 justify-center"
+            className="lg:hidden flex flex-col absolute top-0 right-0 bg-white w-full h-screen z-50 justify-center"
           >
             <div className="w-full flex justify-end py-3 absolute top-0 right-3">
               <button
@@ -126,7 +126,7 @@ function MainHeader({page}) {
               </button>
             </div>
             <div className="flex flex-col w-full justify-between items-center space-y-2 font-semibold font-Montserrat">
-              {session && <Link href="/dashboard">What’s my pad worth?</Link>}
+              {session && <Link href="/dashboard">My Pad</Link>}
               {session && <Link href="/roi">ROI</Link>}
 
               {session && (

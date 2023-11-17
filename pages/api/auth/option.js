@@ -18,7 +18,7 @@ export const options = {
         method: { label: "method", type: "text" },
       },
       async authorize(credentials, req) {
-        await connectDatabase();
+        // await connectDatabase();
         await CredUser.sync();
         //  console.log(credentials.email);
         const user = await CredUser.findOne({
@@ -67,7 +67,7 @@ export const options = {
         if (profile.email_verified && profile.email.endsWith("@gmail.com")) {
           try {
             //console.log(profile);
-            await connectDatabase();
+            // await connectDatabase();
             await GoogleUser.sync();
             const user = await GoogleUser.findOne({
               where: {

@@ -18,16 +18,16 @@ export default function DropdownBtn() {
           className="sm:flex justify-between items-center font-header font-semibold text-base hidden"
         >
           <Link href="/salebyowner">For Sale By Owner</Link>
-          <SlArrowDown />
+          <SlArrowDown size={10} />
         </Button>
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
-        <DropdownItem>
+        <DropdownItem className="hover:!bg-custom-yellow">
           <Link href="/salebyowner/preparationandstaging" className="text-base">
             Preparation and Staging
           </Link>
         </DropdownItem>
-        <DropdownItem>
+        <DropdownItem className="hover:!bg-custom-yellow">
           <Link
             href="/salebyowner/fsbomarketingchecklist"
             className="text-base"
@@ -35,22 +35,22 @@ export default function DropdownBtn() {
             FSBO Marketing Checklist
           </Link>
         </DropdownItem>
-        <DropdownItem>
+        <DropdownItem className="hover:!bg-custom-yellow">
           <Link href="/salebyowner/pricing" className="text-base">
             Pricing
           </Link>
         </DropdownItem>
-        <DropdownItem>
+        <DropdownItem className="hover:!bg-custom-yellow">
           <Link href="/salebyowner/safeshowingchecklist" className="text-base">
             Safe Showing Checklist
           </Link>
         </DropdownItem>
-        <DropdownItem>
+        <DropdownItem className="hover:!bg-custom-yellow">
           <Link href="/salebyowner/qualifyingthebuyer" className="text-base">
             Qualifying the buyer
           </Link>
         </DropdownItem>
-        <DropdownItem>
+        <DropdownItem className="hover:!bg-custom-yellow">
           <Link href="/salebyowner/testquiz" className="text-base">
             Test Your Real Estate IQ Quiz
           </Link>

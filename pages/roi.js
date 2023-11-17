@@ -1,20 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import MainHeader from "../components/MainHeader";
-import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Button,
-  useDisclosure,
-} from "@nextui-org/react";
-import Loader from "./../components/Loader";
-import { TiTick } from "react-icons/ti";
+import CategoryDropdown from "../components/Categorydropdown";
+import FeatureTable from "../components/Featuretable";
+import { FeatureChart } from "../components/FeatureChart";
 
 // import Chatbot from "../components/Chatbot";
 function Roi() {
@@ -28,7 +19,6 @@ function Roi() {
     avergae: 2342900,
     sales: 7,
   };
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const data = [
     {
       title: "MOST VALUABLE",
@@ -45,18 +35,55 @@ function Roi() {
       propties: ["Office", "Fireplace", "Deck", "Family Room", "View"],
     },
   ];
+
+  const categoryData = [
+    { value: "Miscellaneous", label: "Miscellaneous" },
+    { value: "Interior Features", label: "Interior Features" },
+    { value: "Home Styles", label: "Home Styles" },
+    { value: "Flooring", label: "Flooring" },
+    { value: "Exterior Features", label: "Exterior Features" },
+  ];
+
+  const featureData = [
+    { value: "Beach Access", label: "Beach Access" },
+    { value: "Club House", label: "Club House" },
+    { value: "Community Pool", label: "Community Pool" },
+    { value: "Storage Area", label: "Storage Area" },
+    { value: "Hot Hub", label: "Hot Hub" },
+  ];
+  // const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { data: session, status } = useSession();
   const router = useRouter();
+  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [estimate, setEstimate] = useState([]);
+  const [property, setProperty] = useState("");
+  const [value, setValue] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const PropertyValue = {
+      property,
+      value,
+    };
+    estimate !== ""
+      ? setEstimate([...estimate, PropertyValue])
+      : alert("You Need To Valid Property Name");
+
+    setProperty("");
+    setValue("");
+  };
 
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/");
     }
-  }, [status,router]);
+  }, [status, router]);
 
   return (
     <div>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} isDismissable={false}>
+      {/* <Modal isOpen={isOpen} onOpenChange={onOpenChange} isDismissable={false}>
         <ModalContent>
           {(onClose) => (
             <>
@@ -78,10 +105,114 @@ function Roi() {
             </>
           )}
         </ModalContent>
-      </Modal>
+      </Modal> */}
       {/* <Chatbot></Chatbot> */}
       <MainHeader page={""}></MainHeader>
-      <div className="w-full sm:px-12 px-3">
+      <div className="w-full md:px-12 px-2">
+        <div className="flex flex-col justify-start items-start p-3 md:p-8 my-10 rounded-md font-Montserrat gap-4 shadow-md shadow-custom-yellow">
+          <div>
+            <div className=" font-semibold flex flex-col md:flex-row md:justify-start  md:items-center gap-3">
+              Estimated Value for {houseData.house}
+              <span className="text-custom-yellow sm:text-xl md:pl-2 text-base font-Montserrat ">
+                $ {houseData.value}
+              </span>
+            </div>
+            <div className="mt-3">{houseData.decription}</div>
+            {/* <button
+              className=" underline sm:text-xl text-base py-3"
+              onClick={() => setOpen(!open)}
+            >
+              Get Revised Estimate
+            </button> */}
+            <button
+              className="font-header bg-custom-yellow hover:bg-opacity-80 font-semibold  rounded-full  py-2 px-5 sm:text-xl text-base mt-3 text-white hover:underline"
+              onClick={() => setOpen(!open)}
+            >
+              Upgrade
+            </button>
+          </div>
+
+          {open ? (
+            <div className="w-full p-0 md:p-6 text-base rounded-md mb-3">
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col sm:flex-row justify-center items-center gap-8 mb-5"
+              >
+                {/* <div className="flex flex-col gap-2">
+                <label htmlFor="property">Property</label>
+                <input
+                  type="text"
+                  id="property"
+                  placeholder="Add property"
+                  className="p-2 outline-none border-none rounded-md focus:outline focus:outline-custom-yellow"
+                  value={property}
+                  required
+                  onChange={(e) => setProperty(e.target.value)}
+                />
+                </div> */}
+                {/* <div className="flex flex-col gap-2">
+                <label htmlFor="value">Value</label>
+                <input
+                  type="text"
+                  id="value"
+                  placeholder="Add value"
+                  className="p-2 outline-none border-none rounded-md focus:outline focus:outline-custom-yellow"
+                  value={value}
+                  required
+                  onChange={(e) => setValue(e.target.value)}
+                />
+                </div> */}
+                <CategoryDropdown
+                  categories={categoryData}
+                  title={"Category"}
+                />
+                <CategoryDropdown categories={featureData} title={"Feature"} />
+                <button
+                  type="submit"
+                  className="bg-custom-yellow hover:bg-opacity-80 px-10 py-3 sm:py-3 sm:px-12 rounded-md text-white text-lg "
+                  onClick={() => setIsOpen(!isOpen)}
+                >
+                  ADD
+                </button>
+              </form>
+              {/* {estimate.length ? (
+                <ul className="p-5 overflow-auto max-h-[200px]">
+                  {estimate.map((val,idx) => (
+                    <li
+                      // className="flex justify-between items-center w-1/2 p-2"
+                      key={idx}
+                    >
+                      <div className="flex justify-evenly items-center">
+                      <p>{val.property}</p>
+                      <p>{val.value}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <div></div>
+              )} */}
+              {isOpen ? (
+                <div className="py-5">
+                  <FeatureTable />
+                  <FeatureChart />
+                </div>
+              ) : (
+                <div></div>
+              )}
+            </div>
+          ) : (
+            <div></div>
+          )}
+          {/* <div className="py-3">
+            <button
+              className="font-header bg-custom-yellow hover:bg-opacity-80 font-semibold  rounded-full  py-2 px-5 "
+              onClick={onOpen}
+            >
+              Upgrade
+            </button>
+          </div> */}
+        </div>
         <div className="sm:pt-6 pt-3 flex justify-start sm:text-2xl text-2xl font-header w-full">
           Top 10 home features in the U.S. that add value
         </div>
@@ -93,7 +224,8 @@ function Roi() {
                   key={i}
                   className="flex flex-col 2xl font-Montserrat w-full items-start px-3 sm:py-10 py-4"
                 >
-                  <div className=" border-2 border-gray-700 py-10 sm:px-4 px-2 rounded-lg md:w-10/12 w-full flex justify-center flex-col items-center space-y-5">
+                  {/* <div className=" border-2 border-gray-700 py-10 sm:px-4 px-2 rounded-lg md:w-10/12 w-full flex justify-center flex-col items-center space-y-5 shadow-lg shadow-custom-yellow"> */}
+                  <div className="py-10 sm:px-4 px-2 rounded-lg md:w-10/12 w-full flex justify-center flex-col items-center space-y-5 shadow-md shadow-custom-yellow">
                     <div className="font-semibold font-header">{e.title}</div>
                     <div className="flex w-full border-b-2 border-gray-600"></div>
                     <ol className="list-decimal space-y-5  w-full list-inside ">
@@ -112,28 +244,6 @@ function Roi() {
                 </div>
               );
             })}
-        </div>
-
-        <div className="flex flex-col justify-start  px-1 py-2 my-4 rounded-md font-Montserrat">
-          <div>
-            <div className=" font-semibold">
-              Estimated Value for {houseData.house}{" "}
-              <span className="text-custom-yellow sm:text-xl text-base sm:pl-5 pl-0 font-Montserrat sm:block flex">
-                $ {houseData.value}
-              </span>
-            </div>
-            <div>{houseData.decription}</div>
-          </div>
-          <div>
-            <button
-              className="font-header underline"
-              // onClick={onOpen}
-            >
-              <Link href={""}>
-              Get revised estimate
-              </Link>
-            </button>
-          </div>
         </div>
       </div>
     </div>

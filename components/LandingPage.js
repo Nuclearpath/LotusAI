@@ -7,19 +7,19 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 import { BiLogoFacebook } from "react-icons/bi";
 import Link from "next/link";
 import Image from "next/image";
-import Slider from "react-slick";
-import { useEffect } from "react";
-
 import Testimonials from "./Testimonials";
 import MainHeader from "./MainHeader";
 import Videosection from "./Videosection";
+import { data } from "autoprefixer";
+
+const moreResourceData = [
+  {ref:"/roi" , title : "ROI Calculator", src : "/ROI.jpg"},
+  {ref:"/timingthemarket?db=main&val=12" , title : "Timing the Market",src : "/TTM.jpg"},
+  {ref:"/rentvssale" , title : "Rent vs Sell",src : "/RVS.jpg"},
+  {ref:"/" , title : "Additional Resources",src : "/ROI.jpg"}
+]
+
 function LandingPage() {
-  const [domLoaded, setDomLoaded] = useState(false);
-
-  useEffect(() => {
-    setDomLoaded(true);
-  }, []);
-
   /*Form value */
   const [location, setLoaction] = useState("");
   const router = useRouter();
@@ -39,336 +39,192 @@ function LandingPage() {
 
   return (
     <>
-      {domLoaded && (
         <div className="w-full flex h-full  flex-col">
           <MainHeader page={"landing"}></MainHeader>
-          {/* Main section with search bar */}
-          <div className="md:flex w-full relative md:px-12 px-3 h-full md:h-[80vh] mb-10">
-            <div className="md:w-1/2 w-full flex md:px-3 px-0 md:pt-4 justify-center md:justify-start pt-2">
-              <Slider
-                className="w-full"
-                infinite={true}
-                slidesToShow={1}
-                fade={true}
-                dots={true}
-                autoplay
-                autoplaySpeed={4000}
-                arrows={false}
-                slidesToScroll={1}
-              >
-                <div className="w-full h-[50vh] md:h-[75vh]">
-                  <Image
-                    alt="..."
-                    fill
-                    priority
-                    quality={100}
-                    src={"/House 1.png"}
-                    className="object-cover object-center"
-                  />
-                </div>
-                <div className="w-full h-[50vh] md:h-[75vh]">
-                  <Image
-                    alt="..."
-                    fill
-                    priority
-                    quality={100}
-                    src={"/house2.webp"}
-                    className="object-cover object-center"
-                  />
-                </div>
-                <div className="w-full h-[50vh] md:h-[75vh]">
-                  <Image
-                    alt="..."
-                    fill
-                    quality={100}
-                    src={"/house3.webp"}
-                    className="object-cover object-center"
-                  />
-                </div>
-              </Slider>
+
+          {/* Property Image section */}
+          <div className="w-full h-[50vh] md:h-[75vh] flex justify-center items-center mb-12 pt-16 px-3 sm:px-16">
+            <div className="w-full md:w-[70%] relative h-[50vh] md:h-[75vh]">
+              <Image
+                alt="..."
+                fill
+                quality={100}
+                placeholder="blur"
+                blurDataURL={"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ4ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wAARCAH9AqYDASIAAhEBAxEB/8QAGQABAQEBAQEAAAAAAAAAAAAAAAIBAwQG/8QAHBABAQEBAQEBAQEAAAAAAAAAAAERAhIDEzFR/8QAGQEBAQEBAQEAAAAAAAAAAAAAAAECAwQF/8QAGxEBAQEBAQEBAQAAAAAAAAAAAAERAhIxIVH/2gAMAwEAAhEDEQA/APrAG3nAAGsAa1gDWsBWgA1rGigCDRjRQAGjGisAQGNYAxrBRgwGVlaygypqqmisqa2soJqaqpoJqaqpqCKmqqaImoqqmgioq6igmoq6iqIqaqpoiKmqqaCaiqqaImpqqmgmsbWKjGNYDAAAAa1jQa1gKqNjI2AqNiYqCtiolUBsaxorWsbAa1jQaADQBQAH04CuI1gDRjQaMAa1gK1rAFDGijWCDWsBWjAGgCgMQAYDWDBRgwCsoygysramisqaqpoJqaqpoJqaqpoJqa2pqImoq6igmoqqigmpqqiqJqKuooiaiqqaCairqKImsramgypbWKjGNYAMAaMAa1jQa1jRWxUTGwFNjGwVUbExUBqktFU1LYCmsAa1gK1rAGjAH04wVxaMaDRgDWpaK1qWg1qWg1rAVrUtQaMBWtYA0YCtYMQaMBQYAMGAVNbU0Uqa2poFTW1NBlTW1NQZU1tTQZUVVRVGVFVU1ETUVVRQTU1tTVE1FVUURlRVVFBlRVVNETU1tZQZU1tYqMY1gAwBowBrUtBTYlsFVFRMbAVGxMVBVRsTGgprGiqjUxoKaloNalorRjQaMAfTDBXFowBQzQGtS0VrU60GtS0VrU61BrUtBozTRWtS0GjNNRWsZpoNGaaKDNZoNYzWaBWUrLRSprbU0CppWVBlTW1NBlTW2poMqK21NBlTW2otVGVFVUUE1NbU0E1NbUURlRVVFBlTW1NETWUrKDKylZVQYwAGGg0YA1qWgpsS0VcamNgqlRCoCo1MbBVtiFQFRqWgpqWitaloNaloNGAPptE6arirTU6aCtanTRVaazTQVonW6CjU63RVaanW6grTU63RW63U6aCjWaaK3TWaag3TU6aKrWazWaDdNZrNBus1ms0VtqbTWaBay0tTaBay0tTagWppam0C1FrbU2gy1NrbUWgy1NrbUWqMtTW2otEZai1tqbQZaittTaDKi1tqLRC1Fbam0RlTW2ptAtTpay1Q1mms0Rus1mmg01mmgrW6nW6KrWo1soLipUa3RVxsRKqUF63UaqUVUVERugvW6jW6KvROtBTUt0GtTpoK0ToD6XTWaarkrTU6aCtbqNboK01OmgvTU6aKvTU6agvTU6aCtbqdNFVrdRrdBWmp00VWmp01BWmp1miq1ms00G6zWazRVanTWaBrNNTaDbWWstZaBam0tTaDbU2lqbUC1FrbUWgWptLU2gy1Npam0GWptLU2qMtRa21Fohai1tqLQLUWttRaIy1NrbUWgWptLWWiMtZaWp1Rus1ms0Rums1mgrTU6aC9bqNboq9bKjWygvWyo1Uoq5WyolVKKuVsqJVSguVuo1uir1uolboL1uo1ugvTU6aCtbqdNBWidAfS6anTVclaanTQVrdRrdBWt1Gt0VWmp01Bemp00F6anTRVa3Ua3QVrdRpoq9NRpqC9NTrNFXrNTpoK01Os0FazWazRW6anWaDdZazWWg21Npam0G2ptLU2oFqbS1Nopam0tTaIWptLU2gy1Npam0GWptLU2qMtRa21Fohai1tqLQLUWttRaIWotbai0C1lrLU2iNtTaWptUbrNZrNEbpqdNBWt1GmgvW6jW6KuVuolboq5VSucqpQXKqVzlVKKuVUrnqtBetlRK2UVcqtc9bqC9bqNboq9NTpoL01OmgrROgPpNNTprTivTU6aCtbqNNFXpqNbqCtbqNNBet1Gmir01OmgvTU6aKvTUaaC9NTpqKrTUaaC9NRpoK01Os0VWs1ms0FazU6zQVrLU2s0VtrLWWptQbay1lqbQbam1lqbQbam1lqbQLU2lqbQLU2stTaqFqLS1NoFqLS1NoFqLS1Foham0tRaIWptLUWg21NrLU2qjbU2lqbQbrNTpoitZqdNBWt1Gmiummo1soOmt1z1sorpKrXOVsorpKqVzlbKDprZXOVUqK6St1zlVoL1uo1uir1uo1ugrW6jW6C9NRpoL0ToD6TTUaarkvTUa3QVrdRpoL01Gt0F6ajTRV63UaaC9bqNNFXpqNboL01Gmoq9NRpoL01Gmir1mp1mgvWanTQVrNTrNFXrNTrNBustTrLQVam1lrLUG2ptZam0FWptZam0G2ptZam0C1Npai0G2otLU2qFqLS1FojbUWlqLQLU2lqLRC1Fpam0C1NrLU2iFqbWWptVFWptTam0FazU6zRF6ajWaDpprnrdFdNbrnrdB01UrlK3RXWVsrnKqUV0lbK5ytlRXWVsrnK2UHXWyucrZRXSVuuet0HTW6563RXTTUa3QXpqNNBeiNAfS6ajTVcV6ajTQXpqNboq9NRpoL01Gt0F6ajTRXTTUaaC9brnrdRV6ajTQXpqNNFXpqNNBemo00FaajWaKvWanWaC9ZqNZqCtZanWWgq1lqbWWittTay1NoKtTay1NoNtTay1NojbUWlqLQbam1lqLVG2ptZai0G2otLUWiNtRay1NoFqLS1FojbUWlqLVRtqbU2pvQirU2pvSb0CrWekXpnoR09Hpy9HpR101y9N9IrrK3XKdNnQrtK2VynTZRXaVsrlOmyortK2VylVKK6ytlc5Wyg6yt1zlbKK6arXLW6g66a563QdNbrnporppqNNBeiNAfS6ajTWnFemo00F63XPTQdNNRpoOmmo00Vemo01B001Gmir01Gmg6aajTRV6ajTQXpqNZorprNRpoL1mo01Bes1Gs0Ves1Os0Fay1Op0F2ptTay0FWptTay0G2ptZam0G2ptZam0G2ptZam0G2otZam1RtqLWWptELU2stRaDbUWstRaI21FrL0i9CKvSL0m9IvSir0i9JvSL0MrvSb053pN7VHS9M9ON7ZexNdvR6cPbPYmvR6b6ef22djUr0Tps6cJ2qdI1HedKnThOlToV3nSp04TpU6Rp2lVOnGdKnQrtK2VynTZ0g7StlcpVSiuut1ynTfQOut1y1uiuumuet0HTTXPTUHTRz0UfTaajTWnBemo00F63XPTRXTTUaagvTUaaDppqNNFXrdc9NB001Gmir01GmgvTUaaKvTUaagvWajTRV6zUaaC9ZqNNBWs1Os0VWstRrLQXam1NrLQVam1NqbQVay1NqbQVai1lqbQbam1lqLQVai1l6RelRtqb0y9ItBt6Ray9IvQjb0i9MvTnegVekXpN6c+ulRV6Rek9dOXXYlXekddufXbl12uMV1vaL05XtF+inm12vTL24Xus9VNanDv7Z7cNNTV8O/tvt59Npp4emdrn0eT1W+6aeXsna528U+li+fqjUj2ztU6eXn6LnaLj1TpU6eadrnYuPROlTp550udIuO86bOnGdNnQuO86b6cZ02dBjt6b6cvTfQY6+m+nH030GOvo1z9HoXHX0OXoDH1GmuemtPO6aajTQXpqNNBemo00V001GmgvTUaaDpprnrdFXpqNNB01mo00Vemo01Bemo1miums1GmgvWajWaK6azUazQXrNR6Z6BestRemWgq1l6Ray0VV6ZekWstBV6Tek2ptBV6Tek2ptBV6RemXpFoKvSLWXpF6VG3pF6ZekXoG3pF6TekXoFddOfXSeunPrtUV1059do67ce/pio6dduPX0cuvpa526vxnNdOvoi9WpGb01IaAzqgAAAAAAAAANnVi53XMlFlejn6unP0eWVUrLpMr2T6LnbxTqxc+lhrXl7J2qdPJPqufRNPL1TpU6eafRU7NTHonTfThO2zs0x39N9OHtvo0x39Hpx9Ho0x29Dj6DTH1mmo010eVemo00Vet1z00HTTUaaC9NRporpprnpoOmmo01FXpqNNBemo00Vemo00F6a56aKvTUazQXp6RrNFX6ZqNNBWs1PpN6BesvSLWWgu9JvSbU2iqvTL0i9MvQKvSb0m9JvQKvSb0i9JvQKvSb0m9IvSir0i9JvSL0Cr053pPXSOuhMV1059do67cu/opi+u3Hv6Off0/xx671TF9/X/HG9WstEvX8ZAGQAAAAAAAAAAAAAAAAbKwFlxcqpXOVsrONzp01uolbqOkq51VTuuet1Mb11n0rZ9HHWpi/jvPo39HnNDI9P6N/R5tNDzHp/QebaH6eY+301z012eB001z1ugvTUaaC9NRpoq9brnpqDpprnrdFXpqNNBemo00Vemo00F6ajWaK6azUaaC9ZqNNFXrPSNZoq/RqNZ6QXrL0jWaoq9MvSLWXoVV6Zai9MvQKtTek3pN6BV6Tek3pF6Bd6Rek3pF6DF3pF6RekXpVxd6c+ukddufXYYvrty67c+/o49d2ri+XTv6OPXdqbUWmpbIddJBlzt0AEAAAAAAAAAAAAAAAAAAAAAAbKqVBqY1OnTW6iVupjpOlmp1uo3KrTWaC6oSIuqEga+z01Gmujwr1uo00F6ajTRV6ajTQXpqNNFXpqNNBet1z00Vemo00F6ajTUVemo1mir01Gs0HTWajWaKvT0jWaKvWajWaC70nU6m9CrtZekWpvQLvSb0m9JvSir0m9JvSb0Lir0m9IvSL0GLvSL0i9OfXari+u3Prtz6+jl13auNTl07+jj13am1FqWyGSNtRaWotZ21jrotYCuVugAgAAAAAAAAAAAAAAAAAAAAAAAAAA3WAKlbqG6mNTpemo1upjc6XpqdNMX0rROhi+n2Omo01p5V6ajTQXpqNNFXpqNNBemo00Vemo00Vemo01Bemo00Vemo1mir01GmgrTUaaKrTUazRV6zUaaKrWekay0F6m9JtTaKu9JvSb0m9CqvSb0m9IvSmLvSL0m9IvQuKvSOu0dduXXatTlfXbl13qLdTabjWY21Npams3pLS1Npam1HLrotSDTlboAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa3WAut0YBr67TU6aOatbqNNBes1Omir01GmgvTUaaKvWanTRV6zU6agrTU6aKrTUaaKrTU6zRVaajTRVazU6zRVazU2s0VVrLU2ptFVam1lqbRVWpvSbUXoXFXpF6TenPrpWpF9dOXXaeu0Wq1I29WptZay1m9KWprU1n6zaVlpU2kcrWWpbaxtxt0AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfVaazTRzbprNBW6aw0G6aw0Vums0FbprNZoK01OmoqtNTpo03TU6aDdNZrNFbrNZrNGlazU6y0VustZay0VtqbWWstFLU2lqLRqRtqL0y1z66VqRvXTletLdSfG8wtZaVjFqDBiM2jKMqsWsqLVVFajl1QBXMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9OArmAINGANGArRgKACgwRWsAUGAowBoYMFGDBS1NramjTLWWlTRWWptbUdDUT1XLqr6rmrcE1rGbVYxrGEoyjFYpU1tZVc6mpbWNRx6AFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9OMFcQaCgAMaArGgisAFABRjWI0MaCsY0FYxrBWMbWUaTWVrKLE1NVU0aTXOulRYNRy6Q6dRzqukYlVYxRjGsZZrGNYrNZWVtZWnOorFVLUcaACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPpwGnAGiKwaAwaCsGgrBoKwaIqRoNMYpgrGKxiKkUzBUsVjMGkVlXibBUWJsdLE2DTnYmx0sTYNSuPUcuo9Fjn1yrcriyqsxiWNJY2jmlYxrFYrE1TKrFRUrqa1HLqMAVgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9Q1uGNPOwbgDBuArBuGCswxuGIrBuGCswbhgrGYrDBU4YrGYjScMVjMFThisZgqcZYvGYjSMTY6WJwVFibHSxlgrlYmx1sTYNOViOo7WIsGpXn65c7Mem8ufXKtyuFYuzE1mxpI1jLNYytYrFiamxdTVjn1EDbGNONAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfV4YrBt5k4KMFThisEE43G4YKwxuGCswxuNwVOGKxmIrMMbhgqcMVhg0nGYvGYipxmLxmCowxeMwVGMsXjMRpzsZY6WMsFcrGWOljLBdcrE2OtibBdcbEXl2sTYNSvP1y5dc49Vjn1yrcrzWMdOucRYzY0liqxlmxLKplVixFiK6VNjUceokBWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH12GKwxt5U4YrDBWYY0wGYY3G4KnDFYYipwxWGCpwxWGCpwxWGI0nDFYYKnGYvGYKnGYvGYipxmLxmCoxmLxmCoxljpicRpFibHSxlgrnYmx0sZYK5WIsdrE2C642IvLtYiwXXDrlx65eq8ufXI3K8tjK7d8OViWNfUpVWMpYmssUyq52OdjF2Isajj1MAFZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfZGNwx0eVmGNbiCcMbhgMwxWGCpxuNwwVmGNxuIqcMVhg0nDFYYKnDFYzEVOGKwwVOMxeMwVOMxeMxFRhi8Zg0jGYvGYKixNjpjLEHOxNjpYywVysZY6WJsFcrE2OtibBXGxFjtYmwa15+uXLvh6eo59cjUryWYmvR3y49TEsb3UVlUyss2IqbHSprUcuo5jbGNOVmAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD7XDG4Y6PIzBuGAzDGtxFThisMFZhjcMFZhjW4KnDFYYipxuNwwVOGKwxFThisMGk4zFYYKnGYvGYipxmKwwVGMxeMwVFjMXjLEVzsZY6WJsBzsZYuxlgrnYmx0sTYK5WJsdbEWCuVjn1HexFguvP1y5d8vT1HPrkaleTqYmu/fLjZiWN/UVlVWVGbEWJsXU2NRx6iQFcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaYLjBuAY+2a3B0eNmGNMBg3AVmGKEGYY0FZg3GipwxRiNJbjTBWYY0wVOGKwRU4Y3AVJisYKnGYvGYiowxWMwVOMsVYzBUWMsXYyxFRYmxdjLAc7E2OlibBXOxNjpYmwVysRY62JsFcbHPqO9jn1EVw65cO+Xq6jl1BqV5bGV075c6laTWVVZRixzsYuxFajj1ABWQAAAAAAAAAAAAAAAAAAAAAAAAAAGi4GNajUjBoLjBoi4+3Gjs+ewbgDMGgA0FYNEUGgrBoKzBoisMaDTBoisYoFSNBU4zFCKlmKYKllimUEpsWyoqLE1djLBUWJsXU2AixNi7E0VzsTY6WIsFc7EWOtiLEVx6jn1HbqOfUFjz98uHUyvX1HDvkblcamqrKhU1FdKirHLqJAacgAAAAAAAAAAAAAAAAAAAAAAAAGwCNGo3IDRGsABrAaBj7caOz5jBoKwaAA0Vg0RWNAUGgrBoisGgrBoKwaxFYNBUjRFSxTBUsqqwVNYplRUVlVWUEVlVU0VNRXSooqKmxdTQc6iulRUVzsc+o62Iorj1HHuPR1HLqDUeXqZU11+kcqjaamrqasc+kViqlpxoAIAAAAAAAAAAAAAAAAAAAAAARUZGo1I1rGo3AGjQAigAPuBo7vlsGgMaAoDRWNAUBqKwaCgCKACgArBoisY0FYxoKkaxFYxtYKypqqyiprKqpqCamrqaKmoq6mgipq6iioqK6VFFc6jp0qOkHLpz6jr059DUefuON/r0duHX9StxFTVMozUVK6itRx6AFZAAAAAAAAAAAAAAAAAAAACDYEbGsajpGgI3GgIoNBQAH3ADu+UAANY0UAFAaisaAoAKAIoDRWDWCgCKMawUY1grGKSijGsorKlVTQZU1TKipqaqpoqamqrKCKmqqaKipqqmoOdRXSo6Fc65dOvTn0LHHt5+/69HTh3/UbjnWVtZQqairqa1HHpgCsAAAAAAAAAAAAAAAAAAAADYxsFjWsay6RrWNGoAIrQBQAH/9k="}
+                src={"/House 1.png"}
+                className="object-cover object-center mb-3"
+              />
             </div>
+          </div>
 
-            <div className="md:w-1/2 flex h-full relative  flex-col  md:pl-12 px-3 md:pt-4  md:py-0 py-5 w-full md:overflow-hidden">
-              <div className="w-full h-full flex flex-col justify-start gap-10 md:gap-5 ">
-                <div className="md:text-5xl text-[40px] font-header font-normal  leading-tight">
-                  Find Out What Your Is 
-                  <span className="text-custom-yellow mx-3">Really</span>
-                  Worth
-                </div>
-                <div className="font-header text-sm md:text-xl tracking-wider font-semibold w-full lg:w-4/5">
-                  The Most Accurate Home Valuation Tool Available To The Public
-                </div>
-                {/* <form
-                  className="w-full flex relative pt-4"
-                  onSubmit={(e) => handleSubmit(e)}
+          {/* Location section */}
+          <div className="h-full  flex justify-center items-center sm:px-16 px-3 py-12 w-full text-center">
+            <div className="w-full md:w-[70%] h-full space-y-10 md:space-y-7">
+              <div className="md:text-5xl text-[40px] font-header font-normal   leading-tight md:leading-normal">
+                Find Out What Your Is
+                <span className="text-custom-yellow mx-3">Really</span>
+                Worth
+              </div>
+              <div className="font-header text-sm md:text-xl tracking-wider font-semibold w-full  ">
+                The Most Accurate Home Valuation Tool Available To The Public
+              </div>
+              <form
+                className=" md:pt-5 relative"
+                onSubmit={(e) => handleSubmit(e)}
+              >
+                <input
+                  type="text"
+                  className="w-full sm:w-[80%] mb-2 rounded-lg border-2 text-lg border-custom-yellow p-2 md:py-4 md:px-6 text-gray-900 placeholder:text-custom-grey placeholder:leading-tight placeholder:text-sm md:placeholder:text-base focus:outline-none focus:border-2 focus:border-primaryblue shadow-md"
+                  placeholder="Search Zipcode, Address, Location "
+                  value={location}
+                  onChange={(e) => setLoaction(e.target.value)}
+                />
+                <button
+                  type="submit"
+                  className="absolute right-2 sm:right-[72px] lg:right-28 top-1 md:top-7 bg-custom-yellow rounded-3xl p-2.5 hover:bg-opacity-90"
                 >
-                  <input
-                    type="text"
-                    className="mb-8  border-2 border-gray-900 rounded-sm w-full py-2 px-3 text-gray-900 placeholder:text-gray-900 font-Montserrat placeholder:font-Montserrat font-medium leading-tight focus:outline-none "
-                    placeholder="Search Zipcode, Address, Location "
-                    value={location}
-                    onChange={(e) => setLoaction(e.target.value)}
-                  ></input>
-                  <button type="submit" className="absolute right-2 top-3">
-                    <FiSearch className="text-xl text-custom-yellow font-semibold mb-4"></FiSearch>
-                  </button>
-                </form> */}
-                <form
-                  className="md:pt-12 lg:pt-10 relative"
-                  onSubmit={(e) => handleSubmit(e)}
-                >
-                  <input
-                    type="text"
-                    // className="mb-8  border-2 border-gray-900 rounded-md w-full py-2 px-3 text-gray-900 placeholder:text-gray-900  placeholder: font-medium leading-tight focus:outline-none "
-                    className="w-full mb-2 rounded-md border-2 text-lg border-custom-yellow p-2 md:py-4 md:px-6 text-gray-900 placeholder:text-custom-grey placeholder:leading-tight placeholder:text-sm md:placeholder:text-base focus:outline-none focus:border-2 focus:border-primaryblue shadow-md"
-                    placeholder="Search Zipcode, Address, Location "
-                    value={location}
-                    onChange={(e) => setLoaction(e.target.value)}
-                  />
-                  <button
-                    type="submit"
-                    className="absolute right-2 top-1 md:top-14  lg:top-[50px] bg-custom-yellow rounded-3xl p-2.5 hover:bg-opacity-90"
-                  >
-                    <FiSearch className="text-lg md:text-2xl text-white font-bold" />
-                  </button>
-                </form>
-                <div className="border-2 rounded-md border-custom-yellow h-32 md:h-40 lg:h-48 shadow-md md:w-[90%] ml-10 lg:ml-[60px]">
-                  <div className="w-[90%] md:w-[85%] space-y-3 bg-custom-light-yellow absolute h-auto md:h-40 lg:h-48 bottom-5 md:bottom-3 lg:-bottom-10 xl:bottom-9 right-7 md:right-5 lg:right-5 rounded-md py-5 px-4 shadow-sm shadow-custom-light-yellow">
-                    <p className="text-custom-yellow md:text-[22px] text-base flex justify-end  font-header text-right px-3">
-                      Unlock the true value of your home with just one click
-                    </p>
+                  <FiSearch className="text-lg md:text-2xl text-white font-bold" />
+                </button>
+              </form>
+              <div className="border-2 relative rounded-lg border-custom-yellow h-32 md:h-40 lg:h-48 shadow-md w-[95%] sm:w-[80%] ml-3 sm:ml-11 lg:ml-24">
+                <div className=" w-full space-y-3 bg-custom-light-yellow absolute h-auto md:h-40 lg:h-48 right-4 top-4 rounded-lg py-5 px-4 shadow-sm shadow-custom-light-yellow">
+                  <p className="text-custom-yellow md:text-[22px] text-base flex justify-end  font-header text-right px-3">
+                    Unlock the true value of your home with just one click
+                  </p>
 
-                    <div className="w-full flex justify-end pr-3">
-                      <Link
-                        href=""
-                        className="flex justify-between items-center font-header font-semibold space-x-5 md:pr-3 pr-1 border-2 rounded-full border-gray-900 py-2 px-5 text-sm"
-                      >
-                        <Link href="/dashboard"> Discover More</Link>{" "}
-                        <AiOutlineArrowRight></AiOutlineArrowRight>
-                      </Link>
-                    </div>
+                  <div className="w-full flex justify-end pr-3">
+                    <Link
+                      href=""
+                      className="flex justify-between items-center font-header font-semibold space-x-5 md:pr-3 pr-1 border-2 rounded-full border-gray-900 py-2 px-5 text-sm"
+                    >
+                      <Link href="/dashboard"> Discover More</Link>{" "}
+                      <AiOutlineArrowRight></AiOutlineArrowRight>
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           {/* Video section */}
-          {/* <div className="w-full flex md:px-12 px-3 md:py-12 py-3 h">
-            <video controls autoPlay className="w-full h-full">
-              <source src="/video.mp4" />
-            </video>
-          </div> */}
           {/* <Videosection/> */}
 
           {/* Content section */}
-          <section className="my-5 h-full md:h-[55vh] w-full md:px-12 px-3">
-            <div className="flex flex-col justify-center items-center gap-6 rounded-md shadow-lg shadow-custom-light-yellow py-11 px-[8.333%] md:px-6  h-full w-full">
-              <h3  className="w-full text-center font-header md:text-4xl text-2xl">What makes a Lotuss estimate different ? </h3>
-              <p className="font-Montserrat text-center w-full md:w-[80%]">Unlike other online home valuation sites, Lotuss uses the information only real estate agents and appraisers use: real time market data, accurate comps, off-market sales, and even lets you select and remove comparable listings, resulting in the most accurate home value available to the public. Whether you are ready to sell or just curious about the true value of your home in today’s market, Lotuss provides the most accurate idea of what your pad is worth.</p>
-              </div>
+          <section className="h-full md:h-[45vh] w-full md:px-12 px-3 py-12">
+            <div className="flex flex-col justify-center items-center gap-6 rounded-lg shadow-lg shadow-custom-light-yellow py-11 px-[8.333%] md:px-6  h-full w-full">
+              <h3 className="w-full text-center font-header md:text-4xl text-2xl">
+                What makes a Lotuss estimate different ?{" "}
+              </h3>
+              <p className="font-Montserrat text-center w-full md:w-[80%]">
+                Unlike other online home valuation sites, Lotuss uses the
+                information only real estate agents and appraisers use: real
+                time market data, accurate comps, off-market sales, and even
+                lets you select and remove comparable listings, resulting in the
+                most accurate home value available to the public. Whether you
+                are ready to sell or just curious about the true value of your
+                home in today’s market, Lotuss provides the most accurate idea
+                of what your pad is worth.
+              </p>
+            </div>
           </section>
 
-
           {/* More resources section */}
-          <div
-            className="md:flex  flex-col w-full space-y-7 relative md:px-12 px-3 h-full"
-            id="about"
-          >
-            <div className="w-full absolute bottom-10 h-32 bg-custom-yellow -z-50 -mx-10 md:block hidden"></div>
-            <div className="w-full absolute top-52 h-24 bg-custom-light-yellow -z-50 mx-10 md:block hidden"></div>
-            <div className="w-full justify-start font-header md:text-4xl text-2xl">
+          <div className="w-full relative px-3 h-full py-12">
+            {/* <div className="w-full absolute bottom-10 h-32 bg-custom-yellow -z-50 -mx-10 md:block hidden"></div>
+            <div className="w-full absolute top-52 h-24 bg-custom-light-yellow -z-50 mx-10 md:block hidden"></div> */}
+            <div className="w-full text-center font-header md:text-4xl text-2xl my-8">
               More Resources
             </div>
-            <div 
-            // className="grid place-content-center md:place-content-start md:gap-10 gap-5 md:grid-cols-3 grid-cols-1 md:px-0 "
-            className="flex flex-col justify-center items-center md:flex-row md:justify-start md:gap-10 gap-5"
-            >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {moreResourceData.map((data,idx) => (
               <Link
-                href="/roi"
-                className="w-full sm:w-[450px] md:w-full h-[300px] md:h-[400px] shadow-md shadow-custom-light-yellow flex flex-col gap-5 py-11 px-[8.333%] md:px-6 bg-white rounded-md hover:scale-[1.025] transition-all duration-1000 ease-linear"
+                href={data.ref}
+                className="shadow-md shadow-custom-light-yellow rounded-lg bg-white "
+                key={idx}
               >
-                <div className="w-full flex text-custom-yellow text-2xl font-header">
-                  ROI Calculator
+                <div className="text-center md:text-left p-8 space-y-3">
+                  <h3 className="w-full text-custom-yellow text-2xl font-header hover:underline hover:decoration-4 hover:decoration-custom-light-yellow">
+
+                    {data.title}
+                  </h3>
+                  <p className="font-Montserrat break-words md w-full md:w-[75%] mx-auto md:mx-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
+                  </p>
                 </div>
-                <div className="font-Montserrat break-words">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                <div className="h-[500px] w-full relative">
+                  <Image
+                    alt="..."
+                    fill
+                    quality={100}
+                    src={data.src}
+                    className="object-cover object-bottom rounded-b-md"
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCABxAHEDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAwQAAQUCBv/EACMQAQACAgMAAwACAwAAAAAAAAABAgMRBCExBRJBIlETYXH/xAAaAQADAQEBAQAAAAAAAAAAAAABAgMABAUG/8QAHREBAQEBAAMBAQEAAAAAAAAAAAECEQMSIRMxQf/aAAwDAQACEQMRAD8A9Wp0p8/Yq5kOwkhXlx7nKfLiznarWcfYZDUeotQKWHoEn0K7WpbpkIpzd24uFgwvkAsNkAtKXOU6kVtBZrItHdcouJ8L5Z0Yv4Tz2c28dUyDe7iLhZMgcZOyzHwaepY3jlm4r7k7isOcf6xqHTisu1plOqDuJIVx9TQvkLWkxkkreS3x9N1No52hfyrdbqLR33KIOTxn8m3p/NPUsnlW9TmOqT+Es2TUgxm79B5WXW+ydeRu3o/hQ63MGTbRw3YfGy701ePfwfy43WnSehYkvisNEl9Rq5CyT0JMgZJH1aF8slbyPlkpex5hur+yB/ZB9A69OqVpKtiZXkT1LF5lvWxyZ6lh86epHGT2vP8AyWeab17LKpmvW297M/JW3n1/RN6ePHJlK6eg4Gb71iW7xrePLfFX/P6l6Tiz1Dk8vj5TytfFPRis9FMM9Gaz05Lk/XVpAySLaQMktMt0rlkneezOaSeSe1s5DqbRxtDeodevVPi1T4SwpLk+Sw+d5Lc5P6xeZG4lTxwbXkvkI1yN/wCijS+SxT9vtDO09TH3MR6f+Lj+U/8AXpeL5DA+Nx/WHoONHUOTz/abFaeHwzWSuIzVx2KddWkvkka0gZAkHpTMTyem8pS/q2YW0NEQ/A69iqfHTmfEKxPkfrI5Vd7bGePWZya+ny1ee5mH7bZ0cf8An43c+Peyv+Lt153yOfU+r4mL6xDW48eE8FNNDDCO71XPw5iHqDjGhCqJYDIPYDI0AplK3g3kK3hSFtD0jrSGDr1yp8WqfEacpmZ2ePWlmZ+YY1ZuaoH07N5YB12pKnXWKpzFBbHBvEW0YZoLAdBIIZVgbjWBuMYtkLXgzkL2PCVxpFoIPVqnxESqpXMQzIjRqRyg/qIonRcZvGiFowzQSEQplSDdEGNS2QvZEPCVyiIIP//Z"
+                  />
                 </div>
               </Link>
-              <Link
-                href="/timingthemarket"
-                className="w-full sm:w-[450px] md:w-full h-[300px] md:h-[400px] shadow-md shadow-custom-light-yellow flex flex-col gap-5 py-11 px-[8.333%] md:px-6 bg-white rounded-md hover:scale-[1.025] transition-all duration-1000 ease-linear"
-              >
-                <div className="w-full flex text-custom-yellow text-2xl font-header">
-                  Timing the Market
-                </div>
-                <div className="font-Montserrat break-words">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </div>
-              </Link>
-              <Link
-                href="/rentvssale"
-                className="w-full sm:w-[450px] md:w-full h-[300px] md:h-[400px] shadow-md shadow-custom-light-yellow flex flex-col gap-5 py-11 px-[8.333%] md:px-6 bg-white rounded-md hover:scale-[1.025] transition-all duration-1000 ease-linear"
-              >
-                <div className="w-full flex text-custom-yellow text-2xl font-header">
-                  Rent v. Sell
-                </div>
-                <div className="font-Montserrat break-words">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </div>
-              </Link>
+              ))}
             </div>
           </div>
+
           {/* Blogs*/}
-          {/* <div
-            className="md:pt-24 pt-8 md:flex  flex-col w-full space-y-7 relative md:px-12 px-3 md:overflow-hidden"
-            id="about"
-          >
-            <div className="w-full justify-start font-header md:text-4xl text-2xl">
-              Why people search for the value of their homes
+          <div className="w-full relative px-3 h-full ">
+            <div className="w-full text-center font-header md:text-4xl text-2xl my-8">
+            Blogs
             </div>
-            <ul className="list-decimal">
-              <li className="w-full justify-start font-Montserrat    text-xl">
-                <span className="font-header underline font-semibold">
-                  Curiosity:
-                </span>{" "}
-                Many homeowners are naturally curious about the value of their
-                biggest asset. They want to stay informed and have a general
-                idea of how much their home is worth in the current market.
-              </li>
-              <li className="w-full justify-start font-Montserrat    text-xl">
-                <span className="font-header underline font-semibold">
-                  Refinancing:
-                </span>{" "}
-                Homeowners who are considering refinancing their mortgage may
-                want to know the current value of their home to assess their
-                options and determine if it{"'"}s a good time to refinance.
-              </li>
-              <li className="w-full justify-start font-Montserrat    text-xl">
-                <span className="font-header underline font-semibold">
-                  Selling or Listing:
-                </span>{" "}
-                Homeowners who are thinking about selling their property or
-                listing it for sale often check online home value estimates to
-                get an initial idea of what price range they could potentially
-                list their home for.
-              </li>
-              <li className="w-full justify-start font-Montserrat    text-xl">
-                <span className="font-header underline font-semibold">
-                  Estate Planning:
-                </span>{" "}
-                When engaging in estate planning, homeowners may need to
-                determine the value of their property as part of assessing
-                assets and potential inheritance.
-              </li>
-              <li className="w-full justify-start font-Montserrat    text-xl">
-                <span className="font-header underline font-semibold">
-                  Property Tax Assessment:
-                </span>{" "}
-                Some homeowners may want to challenge or verify the accuracy of
-                their property tax assessments by comparing it with online
-                estimated values.
-              </li>
-              <li className="w-full justify-start font-Montserrat    text-xl">
-                <span className="font-header underline font-semibold">
-                  Home Improvement Decisions:
-                </span>{" "}
-                People considering major renovations or upgrades may want to
-                understand how these improvements could potentially impact the
-                value of their home before making decisions. idea of how much
-                their home is worth in the current market.
-              </li>
-              <li className="w-full justify-start font-Montserrat    text-xl">
-                <span className="font-header underline font-semibold">
-                  Property Tax Assessment:
-                </span>{" "}
-                Property tax is often calculated based on the assessed value of
-                a home. Homeowners may want to verify the accuracy of their tax
-                assessments to ensure they{"'"}re not overpaying.
-              </li>
-              <li className="w-full justify-start font-Montserrat    text-xl">
-                <span className="font-header underline font-semibold">
-                  Home Equity:
-                </span>{" "}
-                Homeowners may want to know the value of their homes to
-                calculate their home equity. This information can be important
-                for borrowing against the home{"'"}s equity or for financial
-                planning.
-              </li>
-              <li className="w-full justify-start font-Montserrat    text-xl">
-                <span className="font-header underline font-semibold">
-                  Insurance Coverage:
-                </span>{" "}
-                Homeowners may want to ensure that their insurance coverage is
-                adequate based on the current value of their property. In case
-                of damage or loss, they want to be adequately compensated.
-              </li>
-              <li className="w-full justify-start font-Montserrat    text-xl">
-                <span className="font-header underline font-semibold">
-                  Estate Planning:
-                </span>{" "}
-                When planning their estate, individuals may need to know the
-                value of their property to distribute assets among beneficiaries
-                or make other financial decisions.
-              </li>
-              <li className="w-full justify-start font-Montserrat    text-xl">
-                <span className="font-header underline font-semibold">
-                  Market Research:
-                </span>{" "}
-                Prospective homebuyers may want to research property values in
-                an area they are considering moving to, helping them make
-                informed decisions.
-              </li>
-              <li className="w-full justify-start font-Montserrat    text-xl">
-                <span className="font-header underline font-semibold">
-                  Planning for Retirement:
-                </span>{" "}
-                Homeowners approaching retirement may assess their home{"'"}s
-                value as part of their retirement planning to determine if
-                downsizing or using home equity is a viable option.
-              </li>
-            </ul>
-          </div> */}
-          <div className="w-full h-full md:h-[32vh] py-5 md:px-12 px-3 my-10">
-            <div className="w-full justify-center md:justify-start font-header md:text-4xl text-2xl px-3 mb-5">
-              Blogs
-            </div>
-            <div className="flex flex-col justify-center items-center sm:flex-row sm:justify-start sm:items-center sm:flex-wrap gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <Link
                 href={"/valueHome"}
-                className="w-[300px] h-[280px] sm:w-84 sm:h-60 flex flex-col items-center gap-8 shadow-lg rounded-md shadow-custom-light-yellow p-8 max-w-[320px] hover:scale-105 transition-all duration-1000 ease-linear"
+                className="shadow-md shadow-custom-light-yellow rounded-lg bg-white"
               >
-                {/* <Image
-                alt="..."
-                width={120}
-                height={120}
-                // fill
-                quality={100}
-                src={"/value.svg"}
-                className="object-cover object-center"
-              /> */}
-                <p className="hover:underline md:text-lg">
+                <div className="h-[500px] w-full relative">
+                  <Image
+                    alt="..."
+                    fill
+                    quality={100}
+                    src={"/VH.jpg"}
+                    className="object-cover object-bottom rounded-t-md"
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCABxAHEDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAwQAAQUCBv/EACMQAQACAgMAAwACAwAAAAAAAAABAgMRBCExBRJBIlETYXH/xAAaAQADAQEBAQAAAAAAAAAAAAABAgMABAUG/8QAHREBAQEBAAMBAQEAAAAAAAAAAAECEQMSIRMxQf/aAAwDAQACEQMRAD8A9Wp0p8/Yq5kOwkhXlx7nKfLiznarWcfYZDUeotQKWHoEn0K7WpbpkIpzd24uFgwvkAsNkAtKXOU6kVtBZrItHdcouJ8L5Z0Yv4Tz2c28dUyDe7iLhZMgcZOyzHwaepY3jlm4r7k7isOcf6xqHTisu1plOqDuJIVx9TQvkLWkxkkreS3x9N1No52hfyrdbqLR33KIOTxn8m3p/NPUsnlW9TmOqT+Es2TUgxm79B5WXW+ydeRu3o/hQ63MGTbRw3YfGy701ePfwfy43WnSehYkvisNEl9Rq5CyT0JMgZJH1aF8slbyPlkpex5hur+yB/ZB9A69OqVpKtiZXkT1LF5lvWxyZ6lh86epHGT2vP8AyWeab17LKpmvW297M/JW3n1/RN6ePHJlK6eg4Gb71iW7xrePLfFX/P6l6Tiz1Dk8vj5TytfFPRis9FMM9Gaz05Lk/XVpAySLaQMktMt0rlkneezOaSeSe1s5DqbRxtDeodevVPi1T4SwpLk+Sw+d5Lc5P6xeZG4lTxwbXkvkI1yN/wCijS+SxT9vtDO09TH3MR6f+Lj+U/8AXpeL5DA+Nx/WHoONHUOTz/abFaeHwzWSuIzVx2KddWkvkka0gZAkHpTMTyem8pS/q2YW0NEQ/A69iqfHTmfEKxPkfrI5Vd7bGePWZya+ny1ee5mH7bZ0cf8An43c+Peyv+Lt153yOfU+r4mL6xDW48eE8FNNDDCO71XPw5iHqDjGhCqJYDIPYDI0AplK3g3kK3hSFtD0jrSGDr1yp8WqfEacpmZ2ePWlmZ+YY1ZuaoH07N5YB12pKnXWKpzFBbHBvEW0YZoLAdBIIZVgbjWBuMYtkLXgzkL2PCVxpFoIPVqnxESqpXMQzIjRqRyg/qIonRcZvGiFowzQSEQplSDdEGNS2QvZEPCVyiIIP//Z"
+                  />
+                </div>
+                <div className="text-center md:text-left p-8 space-y-3">
+                  <h3 className="w-full text-custom-yellow text-2xl font-header hover:underline hover:decoration-4 hover:decoration-custom-light-yellow">
                   Why people search for the value of their homes
-                </p>
+                  </h3>
+                  {/* <p className="font-Montserrat break-words w-full md:w-[75%] mx-auto md:mx-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
+                  </p> */}
+                </div>
               </Link>
               <Link
                 href={"/saleHome"}
-                className="w-[300px] h-[280px] sm:w-84 sm:h-60 flex flex-col items-center gap-8 shadow-lg rounded-md shadow-custom-light-yellow p-8 max-w-[320px] hover:scale-105 transition-all duration-1000 ease-linear"
-              >
-                {/* <Image
-                alt="..."
-                width={95}
-                height={95}
-                // fill
-                quality={100}
-                src={"/sell.svg"}
-                className="object-cover object-center"
-              /> */}
-                <p className="hover:underline md:text-lg">
+                className="shadow-md shadow-custom-light-yellow rounded-lg bg-white"
+              > 
+                <div className="h-[500px] w-full relative">
+                  <Image
+                    alt="..."
+                    fill
+                    quality={100}
+                    src={"/SH.png"}
+                    className="object-cover object-center rounded-t-md"
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCABxAHEDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAwQAAQUCBv/EACMQAQACAgMAAwACAwAAAAAAAAABAgMRBCExBRJBIlETYXH/xAAaAQADAQEBAQAAAAAAAAAAAAABAgMABAUG/8QAHREBAQEBAAMBAQEAAAAAAAAAAAECEQMSIRMxQf/aAAwDAQACEQMRAD8A9Wp0p8/Yq5kOwkhXlx7nKfLiznarWcfYZDUeotQKWHoEn0K7WpbpkIpzd24uFgwvkAsNkAtKXOU6kVtBZrItHdcouJ8L5Z0Yv4Tz2c28dUyDe7iLhZMgcZOyzHwaepY3jlm4r7k7isOcf6xqHTisu1plOqDuJIVx9TQvkLWkxkkreS3x9N1No52hfyrdbqLR33KIOTxn8m3p/NPUsnlW9TmOqT+Es2TUgxm79B5WXW+ydeRu3o/hQ63MGTbRw3YfGy701ePfwfy43WnSehYkvisNEl9Rq5CyT0JMgZJH1aF8slbyPlkpex5hur+yB/ZB9A69OqVpKtiZXkT1LF5lvWxyZ6lh86epHGT2vP8AyWeab17LKpmvW297M/JW3n1/RN6ePHJlK6eg4Gb71iW7xrePLfFX/P6l6Tiz1Dk8vj5TytfFPRis9FMM9Gaz05Lk/XVpAySLaQMktMt0rlkneezOaSeSe1s5DqbRxtDeodevVPi1T4SwpLk+Sw+d5Lc5P6xeZG4lTxwbXkvkI1yN/wCijS+SxT9vtDO09TH3MR6f+Lj+U/8AXpeL5DA+Nx/WHoONHUOTz/abFaeHwzWSuIzVx2KddWkvkka0gZAkHpTMTyem8pS/q2YW0NEQ/A69iqfHTmfEKxPkfrI5Vd7bGePWZya+ny1ee5mH7bZ0cf8An43c+Peyv+Lt153yOfU+r4mL6xDW48eE8FNNDDCO71XPw5iHqDjGhCqJYDIPYDI0AplK3g3kK3hSFtD0jrSGDr1yp8WqfEacpmZ2ePWlmZ+YY1ZuaoH07N5YB12pKnXWKpzFBbHBvEW0YZoLAdBIIZVgbjWBuMYtkLXgzkL2PCVxpFoIPVqnxESqpXMQzIjRqRyg/qIonRcZvGiFowzQSEQplSDdEGNS2QvZEPCVyiIIP//Z"
+                  />
+                </div>
+                <div className="text-center md:text-left p-8 space-y-3">
+                  <h3 className="w-full text-custom-yellow text-2xl font-header hover:underline hover:decoration-4 hover:decoration-custom-light-yellow">
                   Why people decide to sell their homes
-                </p>
+                  </h3>
+                  {/* <p className="font-Montserrat break-words w-full md:w-[75%] mx-auto md:mx-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
+                  </p> */}
+                </div>
               </Link>
             </div>
           </div>
@@ -394,7 +250,6 @@ function LandingPage() {
             </div>
           </div>
         </div>
-      )}
     </>
   );
 }
