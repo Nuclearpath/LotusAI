@@ -8,6 +8,7 @@ import {
   TableRow,
   TableCell,
 } from "@nextui-org/react";
+import Link from "next/link";
 
 function Userlist() {
   return (
@@ -54,42 +55,22 @@ function Userlist() {
               </TableColumn>
             </TableHeader>
             <TableBody>
-              <TableRow key="1">
-                <TableCell>Jaclyn</TableCell>
-                <TableCell>Brewington</TableCell>
-                <TableCell>20 S Huntington</TableCell>
-                <TableCell>876 829 30929</TableCell>
-                <TableCell> gm@gmail.com</TableCell>
-                <TableCell> 134,5456$</TableCell>
-                <TableCell> View</TableCell>
-              </TableRow>
-              <TableRow key="2">
-                <TableCell>Jaclyn</TableCell>
-                <TableCell>Brewington</TableCell>
-                <TableCell>20 S Huntington</TableCell>
-                <TableCell>876 829 30929</TableCell>
-                <TableCell> gm@gmail.com</TableCell>
-                <TableCell> 134,5456$</TableCell>
-                <TableCell> View</TableCell>
-              </TableRow>
-              <TableRow key="3">
-                <TableCell>Jaclyn</TableCell>
-                <TableCell>Brewington</TableCell>
-                <TableCell>20 S Huntington</TableCell>
-                <TableCell>876 829 30929</TableCell>
-                <TableCell> gm@gmail.com</TableCell>
-                <TableCell> 134,5456$</TableCell>
-                <TableCell> View</TableCell>
-              </TableRow>
-              <TableRow key="4">
-                <TableCell>Jaclyn</TableCell>
-                <TableCell>Brewington</TableCell>
-                <TableCell>20 S Huntington</TableCell>
-                <TableCell>876 829 30929</TableCell>
-                <TableCell> gm@gmail.com</TableCell>
-                <TableCell> 134,5456$</TableCell>
-                <TableCell> View</TableCell>
-              </TableRow>
+            {Array(6)
+                .fill()
+                .map((item, idx) => (
+                  <TableRow key={idx}>
+                    <TableCell>Jaclyn</TableCell>
+                    <TableCell>Brewington</TableCell>
+                    <TableCell>20 S Huntington</TableCell>
+                    <TableCell>876 829 30929</TableCell>
+                    <TableCell> gm@gmail.com</TableCell>
+                    <TableCell> 134,5456$</TableCell>
+                    <TableCell>
+                      <Link href={"/dashboard"} style={{textDecoration:"underline", color:"blue"}}>View</Link>{" "}
+                    </TableCell>
+                  </TableRow>
+                ))}
+  
             </TableBody>
           </Table>
         </div>

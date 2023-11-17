@@ -12,6 +12,7 @@ import NotLoggedIn from "../components/NotLoggedIn";
 
 function Dashboard() {
   const { data: session } = useSession();
+  console.log("auth",session?.user?.role)
 
   const data = {
     house: "20 S Huntington Ave",
@@ -68,7 +69,7 @@ function Dashboard() {
         <div className="sm:pt-24 pt-3 flex justify-start sm:text-3xl text-2xl font-header w-full">
           DashBoard
         </div>
-        <DashboardContent {...data}></DashboardContent>
+        <DashboardContent {...data} role={session?.user?.role}></DashboardContent>
         {session && (
           <>
             <div className="sm:pt-24  pt-10 flex justify-start sm:text-3xl text-2xl font-header w-full">
@@ -96,13 +97,14 @@ function Dashboard() {
           <>
             <div className="w-full flex justify-center items-center py-5">
               <button className="bg-custom-yellow hover:underline hover:bg-opacity-80 text-white p-4 rounded-md my-5">
-                <Link
+           <Link
                   href="/comparableproperties"
                   className="text-white font-medium hover:underline text-base md:text-lg "
                 >
                   View comparable properties
                 </Link>
               </button>
+
             </div>
             <div className="sm:pt-24 pt-10 flex justify-center sm:text-3xl text-2xl font-header w-full">
               House Value Trend

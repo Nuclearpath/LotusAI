@@ -90,6 +90,7 @@ function Comparableproperties() {
             <div className="w-full h-full bg-custom-light-yellow p-6 text-xl ">
               <p>Don{"'"}t see a comparable of your interest?</p>
               <button
+              disabled={session?.user?.role === "mod"}
                 className={` ${
                   isOpen ? "bg-red-600" : "bg-custom-yellow"
                 } hover:underline hover:bg-opacity-80 text-white p-2 rounded-md my-2 mb-5`}
@@ -97,6 +98,7 @@ function Comparableproperties() {
               >
                 {isOpen ? "Close" : "Add Your Own"}
               </button>
+              {session?.user?.role=== "mod"?<div className="text-red-500">You cant edit as a moderator</div>:null}
 
               {isOpen ? (
                 <div>

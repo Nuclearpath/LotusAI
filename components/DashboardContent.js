@@ -13,6 +13,7 @@ function DashboardContent(props) {
     estimate,
     avergae,
     sales,
+    role,
   } = {
     ...props,
   };
@@ -30,12 +31,28 @@ function DashboardContent(props) {
         <div className="w-full flex justify-start ">{location}</div>
         <div className="w-full flex justify-start ">{houseNo}</div>
         <button
-          className="bg-custom-yellow hover:underline hover:bg-opacity-80 text-white p-2 rounded-md my-2 mb-5"
+          className={
+            "bg-custom-yellow hover:underline hover:bg-opacity-80 text-white p-2 rounded-md my-2 mb-5" +
+            `${role === "mod" ? "border-red" : ""}`
+          }
         >
-          <Link className="text-white font-medium hover:underline" href="/editfacts">
-            Edit facts
-          </Link>
+          {role === "mod" ? (
+            <div className="text-white font-medium hover:underline">
+              {" "}
+              Edit facts
+            </div>
+          ) : (
+            <Link
+              className="text-white font-medium hover:underline"
+              href="/editfacts"
+            >
+              Edit facts
+            </Link>
+          )}
         </button>
+        {role === "mod" ? (
+          <label className="text-red-500">You cant edit as a moderator</label>
+        ) : null}
       </div>
       <div className="sm:pt-24 pt-3 grid gap-10 sm:grid-cols-3 grid-cols-1">
         <div className="w-full shadow flex justify-center flex-col items-center py-10 space-y-5">
