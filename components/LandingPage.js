@@ -25,11 +25,13 @@ desc:`
 
 Deciding whether to rent or sell your real estate property is a significant financial decision that depends on various factors and circumstances. Both options offer distinct advantages and disadvantages, and the optimal choice hinges on your individual goals and preferences
 `},
-  {ref:"/" , title : "Additional Resources",src : "/ROI.jpg",desc:`
-  Explore a variety of helpful resources to gain a comprehensive understanding of real estate. Learn about market trends, property valuation, financing options, and investment strategies. Enhance your knowledge and make informed decisions.
+  {ref:"/salebyowner" , title : "For Sale By Owner",src : "/FSBO pricing.png",desc:`
+  Selling your home without the help of a real estate agent can be a cost-effective way to maximize your profit. However, it's important to be aware of the challenges and responsibilities that come with FSBO.
   `}
 ]
-
+const additionalresources= {ref:"/" , title : "Additional Resources",src : "/ROI.jpg",desc:`
+Explore a variety of helpful resources to gain a comprehensive understanding of real estate. Learn about market trends, property valuation, financing options, and investment strategies. Enhance your knowledge and make informed decisions.
+`}
 function LandingPage() {
   /*Form value */
   const [location, setLoaction] = useState("");
@@ -108,6 +110,24 @@ function LandingPage() {
                   <FiSearch className="text-lg md:text-2xl text-white font-bold" />
                 </button>
               </form>
+                      {/* Content section */}
+          <section className="h-full md:h-[45vh] w-full md:px-12 px-3 py-12">
+            <div className="flex flex-col justify-center items-center gap-6 rounded-lg shadow-lg shadow-custom-light-yellow py-11 px-[8.333%] md:px-6  h-full w-full">
+              <h3 className="w-full text-center font-header md:text-4xl text-2xl">
+                What makes a Lotuss estimate different ?{" "}
+              </h3>
+              <p className="font-Montserrat text-center w-full md:w-[80%]">
+                Unlike other online home valuation sites, Lotuss uses the
+                information only real estate agents and appraisers use: real
+                time market data, accurate comps, off-market sales, and even
+                lets you select and remove comparable listings, resulting in the
+                most accurate home value available to the public. Whether you
+                are ready to sell or just curious about the true value of your
+                home in today’s market, Lotuss provides the most accurate idea
+                of what your pad is worth.
+              </p>
+            </div>
+          </section>
               <div className="border-2 relative rounded-lg border-custom-yellow h-32 md:h-40 lg:h-48 shadow-md w-[95%] sm:w-[80%] ml-3 sm:ml-11 lg:ml-24">
                 <div className=" w-full space-y-3 bg-custom-light-yellow absolute h-auto md:h-40 lg:h-48 right-4 top-4 rounded-lg py-5 px-4 shadow-sm shadow-custom-light-yellow">
                   <p className="text-custom-yellow md:text-[22px] text-base flex justify-end  font-header text-right px-3">
@@ -130,32 +150,16 @@ function LandingPage() {
           {/* Video section */}
           {/* <Videosection/> */}
 
-          {/* Content section */}
-          <section className="h-full md:h-[45vh] w-full md:px-12 px-3 py-12">
-            <div className="flex flex-col justify-center items-center gap-6 rounded-lg shadow-lg shadow-custom-light-yellow py-11 px-[8.333%] md:px-6  h-full w-full">
-              <h3 className="w-full text-center font-header md:text-4xl text-2xl">
-                What makes a Lotuss estimate different ?{" "}
-              </h3>
-              <p className="font-Montserrat text-center w-full md:w-[80%]">
-                Unlike other online home valuation sites, Lotuss uses the
-                information only real estate agents and appraisers use: real
-                time market data, accurate comps, off-market sales, and even
-                lets you select and remove comparable listings, resulting in the
-                most accurate home value available to the public. Whether you
-                are ready to sell or just curious about the true value of your
-                home in today’s market, Lotuss provides the most accurate idea
-                of what your pad is worth.
-              </p>
-            </div>
-          </section>
+  
 
           {/* More resources section */}
+          
           <div className="w-full relative px-3 h-full py-12">
             {/* <div className="w-full absolute bottom-10 h-32 bg-custom-yellow -z-50 -mx-10 md:block hidden"></div>
             <div className="w-full absolute top-52 h-24 bg-custom-light-yellow -z-50 mx-10 md:block hidden"></div> */}
-            <div className="w-full text-center font-header md:text-4xl text-2xl my-8">
+            {/* <div className="w-full text-center font-header md:text-4xl text-2xl my-8">
               More Resources
-            </div>
+            </div> */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {moreResourceData.map((data,idx) => (
               <Link
@@ -187,7 +191,37 @@ function LandingPage() {
               ))}
             </div>
           </div>
+{/* Additional REsources */}
+<div className="h-full  flex justify-center items-center sm:px-16 px-3 py-12 w-full text-center">
+            <div className="w-full md:w-[70%] h-full space-y-10 md:space-y-7">
+           
+<Link
+                href={additionalresources.ref}
+                className="shadow-md shadow-custom-light-yellow rounded-lg bg-white "
+              >
+                <div className="text-center  p-8 space-y-3">
+                  <h3 className="w-full text-custom-yellow text-2xl font-header hover:underline hover:decoration-4 hover:decoration-custom-light-yellow">
 
+                    {additionalresources.title}
+                  </h3>
+                  <p className="font-Montserrat break-words md w-full mx-auto md:mx-0">
+                {additionalresources.desc}
+                  </p>
+                </div>
+                <div className="h-[500px] w-full relative">
+                  <Image
+                    alt="..."
+                    fill
+                    quality={100}
+                    src={additionalresources.src}
+                    className="object-cover object-bottom rounded-b-md"
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCABxAHEDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAwQAAQUCBv/EACMQAQACAgMAAwACAwAAAAAAAAABAgMRBCExBRJBIlETYXH/xAAaAQADAQEBAQAAAAAAAAAAAAABAgMABAUG/8QAHREBAQEBAAMBAQEAAAAAAAAAAAECEQMSIRMxQf/aAAwDAQACEQMRAD8A9Wp0p8/Yq5kOwkhXlx7nKfLiznarWcfYZDUeotQKWHoEn0K7WpbpkIpzd24uFgwvkAsNkAtKXOU6kVtBZrItHdcouJ8L5Z0Yv4Tz2c28dUyDe7iLhZMgcZOyzHwaepY3jlm4r7k7isOcf6xqHTisu1plOqDuJIVx9TQvkLWkxkkreS3x9N1No52hfyrdbqLR33KIOTxn8m3p/NPUsnlW9TmOqT+Es2TUgxm79B5WXW+ydeRu3o/hQ63MGTbRw3YfGy701ePfwfy43WnSehYkvisNEl9Rq5CyT0JMgZJH1aF8slbyPlkpex5hur+yB/ZB9A69OqVpKtiZXkT1LF5lvWxyZ6lh86epHGT2vP8AyWeab17LKpmvW297M/JW3n1/RN6ePHJlK6eg4Gb71iW7xrePLfFX/P6l6Tiz1Dk8vj5TytfFPRis9FMM9Gaz05Lk/XVpAySLaQMktMt0rlkneezOaSeSe1s5DqbRxtDeodevVPi1T4SwpLk+Sw+d5Lc5P6xeZG4lTxwbXkvkI1yN/wCijS+SxT9vtDO09TH3MR6f+Lj+U/8AXpeL5DA+Nx/WHoONHUOTz/abFaeHwzWSuIzVx2KddWkvkka0gZAkHpTMTyem8pS/q2YW0NEQ/A69iqfHTmfEKxPkfrI5Vd7bGePWZya+ny1ee5mH7bZ0cf8An43c+Peyv+Lt153yOfU+r4mL6xDW48eE8FNNDDCO71XPw5iHqDjGhCqJYDIPYDI0AplK3g3kK3hSFtD0jrSGDr1yp8WqfEacpmZ2ePWlmZ+YY1ZuaoH07N5YB12pKnXWKpzFBbHBvEW0YZoLAdBIIZVgbjWBuMYtkLXgzkL2PCVxpFoIPVqnxESqpXMQzIjRqRyg/qIonRcZvGiFowzQSEQplSDdEGNS2QvZEPCVyiIIP//Z"
+                  />
+                </div>
+              </Link>
+              </div>
+              </div>
           {/* Blogs*/}
           <div className="w-full relative px-3 h-full ">
             <div className="w-full text-center font-header md:text-4xl text-2xl my-8">

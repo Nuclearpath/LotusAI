@@ -54,7 +54,7 @@ function DashboardContent(props) {
           <label className="text-red-500">You cant edit as a moderator</label>
         ) : null}
       </div>
-      <div className="sm:pt-24 pt-3 grid gap-10 sm:grid-cols-3 grid-cols-1">
+      {/* <div className="sm:pt-24 pt-3 grid gap-10 sm:grid-cols-3 grid-cols-1">
         <div className="w-full shadow flex justify-center flex-col items-center py-10 space-y-5">
           <div className="text-custom-yellow">Our Estimate</div>
           <div className="flex justify-center space-x-5 text-xl w-full font-semibold items-center">
@@ -76,7 +76,7 @@ function DashboardContent(props) {
             <div>${estimate}</div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

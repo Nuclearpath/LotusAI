@@ -213,9 +213,9 @@ function Roi() {
             </button>
           </div> */}
         </div>
-        <div className="sm:pt-6 pt-3 flex justify-start sm:text-2xl text-2xl font-header w-full">
+        {/* <div className="sm:pt-6 pt-3 flex justify-start sm:text-2xl text-2xl font-header w-full">
           Top 10 home features in the U.S. that add value
-        </div>
+        </div> */}
         <div className="grid md:grid-cols-2 grid-cols-1 pt-3">
           {data &&
             data.map((e, i) => {

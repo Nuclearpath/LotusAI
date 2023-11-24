@@ -70,7 +70,7 @@ function Dashboard() {
           DashBoard
         </div>
         <DashboardContent {...data} role={session?.user?.role}></DashboardContent>
-        {session && (
+        {/* {session && (
           <>
             <div className="sm:pt-24  pt-10 flex justify-start sm:text-3xl text-2xl font-header w-full">
               Comparable Properties
@@ -92,7 +92,7 @@ function Dashboard() {
               return <div key={i}>{e && <House data={e}></House>}</div>;
             })}
           </div>
-        )}
+        )} */}
         {session && (
           <>
             <div className="w-full flex justify-center items-center py-5">
