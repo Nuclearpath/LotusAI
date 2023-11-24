@@ -15,11 +15,11 @@ import Image from "next/image";
 
 const SBOData = [
   {ref: "/salebyowner/preparationandstaging",title: "Preparation and Staging", para: "Staging is the icing on the cake that gives your home a professional touch. With a few props and the following tips,your home will show like a model.", img: "/ROI.jpg"},
-  {ref: "/salebyowner/fsbomarketingchecklist",title: "FSBO Marketing Checklist", para: "Successfully marketing your home means much more than putting a for sale sign in your front yard.", img: "/marketing checlist.png"},
+  {ref: "/salebyowner/fsbomarketingchecklist",title: "Marketing Checklist", para: "Successfully marketing your home means much more than putting a for sale sign in your front yard.", img: "/marketing checlist.png"},
   {ref: "/salebyowner/pricing",title: "Pricing", para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", img: "/FSBO pricing.png"},
   {ref: "/salebyowner/safeshowingchecklist",title: "Safe Showing Checklist", para: "Staging is the icing on the cake that gives your home a professional touch. With a few props and the following tips,your home will show like a model.", img: "/safe showing.png"},
-  {ref: "/salebyowner/qualifyingthebuyer",title: "Qualifying the buyer", para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.", img: "/qualifying the buyer for fsbp.png"},
-  {ref: "/salebyowner/testquiz",title: "Test Your Real Estate IQ Quiz", para: "Do you have what it takes to go it alone ? Test your real estate knowledge.", img: "/FSBO IQ.png"}
+  {ref: "/salebyowner/qualifyingthebuyer",title: "Qualifying the Buyer", para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.", img: "/qualifying the buyer for fsbp.png"},
+  {ref: "/salebyowner/testquiz",title: "Quiz: Test Your Real Estate IQ", para: "Do you have what it takes to go it alone ? Test your real estate knowledge.", img: "/FSBO IQ.png"}
 ]
 
 function Salebyowner() {

@@ -33,7 +33,7 @@ function MainHeader({page}) {
 
         <div className=" justify-between items-center space-x-8 font-header font-semibold text-base lg:flex hidden">
           {session && page !== "landing" && <Link href="/dashboard">My Pad</Link>}
-          {session && page !== "landing" && <Link href="/roi">ROI</Link>}
+          {session && page !== "landing" && <Link href="/roi">ROI Calculator</Link>}
           {session && page !== "landing" && <Link href="timingthemarket?db=main&val=12">Timing the Market</Link>}
           {session && page !== "landing" && <Link href="/rentvssale">Rent Vs Sell</Link>}
           {session && page !== "landing" && <DropdownBtn />}

@@ -23,7 +23,7 @@ import { useSession } from "next-auth/react";
        <div className="w-full h-[85-vh] grid sm:grid-cols-2 grid-cols-1">
        <div className="flex flex-col items-center px-3">
         <div className="my-5 py-2 bg-custom-light-yellow rounded-lg sm:text-3xl text-2xl justify-center items-center w-full flex font-header">
-        FSBO Marketing Checklist
+        Marketing Checklist
         </div>
          <div className="sm:h-[75vh] h-[50vh]">
            <Image src="/prep.jpg" fill placeholder="blur"

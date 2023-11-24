@@ -32,7 +32,7 @@ export default function DropdownBtn() {
             href="/salebyowner/fsbomarketingchecklist"
             className="text-base"
           >
-            FSBO Marketing Checklist
+         Marketing Checklist
           </Link>
         </DropdownItem>
         <DropdownItem className="hover:!bg-custom-yellow">
@@ -47,12 +47,12 @@ export default function DropdownBtn() {
         </DropdownItem>
         <DropdownItem className="hover:!bg-custom-yellow">
           <Link href="/salebyowner/qualifyingthebuyer" className="text-base">
-            Qualifying the buyer
+            Qualifying the Buyer
           </Link>
         </DropdownItem>
         <DropdownItem className="hover:!bg-custom-yellow">
           <Link href="/salebyowner/testquiz" className="text-base">
-            Test Your Real Estate IQ Quiz
+          Quiz: Test Your Real Estate IQ
           </Link>
         </DropdownItem>
       </DropdownMenu>
