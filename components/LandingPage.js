@@ -13,10 +13,21 @@ import Videosection from "./Videosection";
 import { data } from "autoprefixer";
 
 const moreResourceData = [
-  {ref:"/roi" , title : "ROI Calculator", src : "/ROI.jpg"},
-  {ref:"/timingthemarket?db=main&val=12" , title : "Timing the Market",src : "/TTM.jpg"},
-  {ref:"/rentvssale" , title : "Rent vs Sell",src : "/RVS.jpg"},
-  {ref:"/" , title : "Additional Resources",src : "/ROI.jpg"}
+  {ref:"/roi" , title : "ROI Calculator", src : "/ROI.jpg",desc:`
+  ROI can be used to compare the profitability of different investments. For example, if you invest $1,000 in a stock that goes up 20% in value, your ROI would be 20%. If you invest $1,000 in a bond that pays 5% interest, your ROI would be 5%
+  `},
+  {ref:"/timingthemarket?db=main&val=12" , title : "Timing the Market",src : "/TTM.jpg",desc:`
+  If you are a long-term investor, the best thing you can do is to invest in property in a desirable location and hold on to it for the long term. This will help you to ride out the ups and downs of the market and maximize your chances of success.
+`},
+  {ref:"/rentvssale" , title : "Rent vs Sell",src : "/RVS.jpg",
+
+desc:`
+
+Deciding whether to rent or sell your real estate property is a significant financial decision that depends on various factors and circumstances. Both options offer distinct advantages and disadvantages, and the optimal choice hinges on your individual goals and preferences
+`},
+  {ref:"/" , title : "Additional Resources",src : "/ROI.jpg",desc:`
+  Explore a variety of helpful resources to gain a comprehensive understanding of real estate. Learn about market trends, property valuation, financing options, and investment strategies. Enhance your knowledge and make informed decisions.
+  `}
 ]
 
 function LandingPage() {
@@ -41,10 +52,21 @@ function LandingPage() {
     <>
         <div className="w-full flex h-full  flex-col">
           <MainHeader page={"landing"}></MainHeader>
+          <div className="w-full flex justify-center flex-col items-center  px-3 sm:px-16">
 
+          <div className="text-2xl md:text-5xl  text-center font-header font-normal   leading-tight md:leading-normal">
+                Find Out What Your Home Is
+                <span className="text-custom-yellow mx-3">Really</span>
+                Worth
+              </div>
+              <div className="font-header text-sm md:text-xl mt-2 text-center tracking-wider font-semibold w-full  ">
+                The Most Accurate Home Valuation Tool Available To The Public
+              </div>
+              </div>
           {/* Property Image section */}
-          <div className="w-full h-[50vh] md:h-[75vh] flex justify-center items-center mb-12 pt-16 px-3 sm:px-16">
-            <div className="w-full md:w-[70%] relative h-[50vh] md:h-[75vh]">
+          <div className="w-full h-[50vh] md:h-[75vh] flex justify-center items-center mb-12  px-3 sm:px-4">
+      
+            <div className="w-full md:w-[70%] relative h-[50vh] md:h-[65vh]">
               <Image
                 alt="..."
                 fill
@@ -60,14 +82,14 @@ function LandingPage() {
           {/* Location section */}
           <div className="h-full  flex justify-center items-center sm:px-16 px-3 py-12 w-full text-center">
             <div className="w-full md:w-[70%] h-full space-y-10 md:space-y-7">
-              <div className="md:text-5xl text-[40px] font-header font-normal   leading-tight md:leading-normal">
-                Find Out What Your Is
+              {/* <div className="md:text-5xl text-[40px] font-header font-normal   leading-tight md:leading-normal">
+                Find Out What Your Home Is
                 <span className="text-custom-yellow mx-3">Really</span>
                 Worth
               </div>
               <div className="font-header text-sm md:text-xl tracking-wider font-semibold w-full  ">
                 The Most Accurate Home Valuation Tool Available To The Public
-              </div>
+              </div> */}
               <form
                 className=" md:pt-5 relative"
                 onSubmit={(e) => handleSubmit(e)}
@@ -97,7 +119,7 @@ function LandingPage() {
                       href=""
                       className="flex justify-between items-center font-header font-semibold space-x-5 md:pr-3 pr-1 border-2 rounded-full border-gray-900 py-2 px-5 text-sm"
                     >
-                      <Link href="/dashboard"> Discover More</Link>{" "}
+                      <button onClick={()=>   router.push("/dashboard")}> Discover More</button>{" "}
                       <AiOutlineArrowRight></AiOutlineArrowRight>
                     </Link>
                   </div>
@@ -147,9 +169,7 @@ function LandingPage() {
                     {data.title}
                   </h3>
                   <p className="font-Montserrat break-words md w-full md:w-[75%] mx-auto md:mx-0">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
+                {data.desc}
                   </p>
                 </div>
                 <div className="h-[500px] w-full relative">
@@ -235,13 +255,13 @@ function LandingPage() {
           {/* Footer section */}
           <div className="mt-24 w-full border-t-2 border-custom-yellow py-5">
             <div className="flex w-full justify-center space-x-5">
-              <Link href="">
+              <Link href="https://www.instagram.com/" target="blank">
                 <BsInstagram className="text-3xl text-custom-yellow"></BsInstagram>
               </Link>
-              <Link href="">
+              <Link href="https://twitter.com/" target="blank">
                 <AiFillTwitterCircle className="text-3xl text-custom-yellow"></AiFillTwitterCircle>
               </Link>
-              <Link href="/chatlist">
+              <Link href="https://www.facebook.com/" target="blank">
                 <BiLogoFacebook className="text-3xl text-custom-yellow"></BiLogoFacebook>
               </Link>
             </div>
