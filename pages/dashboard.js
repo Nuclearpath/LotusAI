@@ -106,24 +106,29 @@ function Dashboard() {
               </button>
 
             </div>
-            <div className="sm:pt-24 pt-10 flex justify-center sm:text-3xl text-2xl font-header w-full">
-              House Value Trend
+            <div 
+            className="grid grid-cols-1 md:grid-cols-2 min-h-[500px]"
+            >
+            <div className="sm:pt-24 py-10 flex justify-center sm:text-3xl text-2xl font-header items-center">
+              Pad&apos;s Value Trend
             </div>
-            <div className="w-full justify-center flex">
-              <div className="sm:w-8/12  w-full">
+            <div className="w-full justify-center flex h-full ">
+              <div className="sm:w-8/12   w-3/4">
                 <ValueTrendsChart></ValueTrendsChart>
               </div>
             </div>
-            <div className="sm:pt-24 pt-10 flex justify-center sm:text-3xl text-2xl font-header w-full">
-              Market Trend for your location - 02667
-            </div>
+       
             <div className="w-full justify-center flex">
               <div className="sm:w-8/12  w-full">
                 <MarketTrend></MarketTrend>
               </div>
             </div>
+            <div className="sm:pt-24 pt-10 flex justify-center sm:text-3xl text-2xl font-header w-full items-center">
+           02667 value trend
+            </div>
+            </div>
             <div className="sm:pt-24  pt-10 flex justify-start sm:text-3xl text-2xl font-header w-full">
-              Recently Sold
+              Recently Sold Comparable&apos;s
             </div>
 
             <div className="flex space-x-16 py-5 overflow-x-auto   ">

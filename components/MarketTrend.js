@@ -3,14 +3,12 @@ import { Line } from "react-chartjs-2";
 function MarketTrend() {
   return (
     <div>
-      <div className="shadow">
+      <div className="shadow h-full">
         <div className="w-full flex sm:space-x-8 space-x-4 py-10">
           <button className="sm:text-2xl font-Montserrat font-semibold text-xl">
-            Average Sale Price
+            Average Sale Price Of Homes Sold
           </button>
-          <button className="sm:text-2xl font-Montserrat font-semibold text-xl">
-            Homes Sold
-          </button>
+      
         </div>
         <Line
           datasetIdKey="id"

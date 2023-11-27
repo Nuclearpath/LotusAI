@@ -3,7 +3,7 @@ import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 function ValueTrendsChart(props) {
   return (
-    <div className="shadow">
+    <div className="shadow h-full">
       <Line
         datasetIdKey="id"
         data={{

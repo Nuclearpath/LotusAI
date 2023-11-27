@@ -20,9 +20,9 @@ function DashboardContent(props) {
   return (
     <>
       <div className="w-full shadow flex flex-col items-start sm:px-5 sm:py-5 px-1 py-2 my-4 rounded-md font-Montserrat">
-        <div className="w-full sm:flex sm:flex-row  justify-start font-semibold items-center flex-col">
+        <div className="w-full sm:flex sm:flex-row  justify-start font-semibold items-center flex-col text-3xl mb-4">
           Estimated Value for {house}{" "}
-          <span className="text-custom-yellow sm:text-xl text-base sm:pl-5 pl-0 font-Montserrat sm:block flex">
+          <span className="text-custom-yellow text-xl md:text-4xl sm:pl-5 pl-0 font-Montserrat sm:block flex">
             $ {value}
           </span>
         </div>
