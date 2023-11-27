@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Image from "next/image";
+import { Checkbox } from "@nextui-org/react";
 // import Chatbot from "../../components/Chatbot";
 function Safeshowingchecklist() {
   const { data: session, status } = useSession();
@@ -39,66 +40,79 @@ function Safeshowingchecklist() {
         </div>
         <div className="sm:px-12 px-3 h-[85vh] sm:overflow-y-scroll overflow-y-visible no-scrollbar">
           <div className="py-6 w-full font-Montserrat">
-            <div className="font-header w-full justify-center sm:text-xl text-lg ">
+            <div className="font-header w-full justify-center sm:text-xl text-lg py-6">
               To securely show your house for sale, it{"'"}s essential to
               protect your property, personal belongings, and ensure the safety
               of potential buyers. Here are some tips for safe secure showings:
             </div>
-            <ol className="list-decimal list-inside">
-              <li>
+            <ol className="list-none list-inside space-y-4 leading-5 text-sm">
+               <li className="w-full flex items-start  space-x-4">
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                 Pre-screen potential buyers to ensure they are genuinely
                 interested and financially qualified to purchase your home.
               </li>
-              <li>
+               <li className="w-full flex items-start  space-x-4">
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                 Ask potential buyers to provide identification before scheduling
                 a showing to create a record of who enters your property.{" "}
               </li>
-              <li>
+               <li className="w-full flex items-start  space-x-4">
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                 Limit access: Allow showings only during specific hours and
                 avoid late-night or unscheduled visits.{" "}
               </li>
-              <li>
+               <li className="w-full flex items-start  space-x-4">
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                 If possible, accompany potential buyers during the showing,
                 especially buyers without agents.
               </li>
-              <li>
+               <li className="w-full flex items-start  space-x-4">
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                 {" "}
                 Keep your valuable items, such as jewelry, cash, and important
                 documents, locked away or taken with you during showings.{" "}
               </li>
-              <li>
+               <li className="w-full flex items-start  space-x-4">
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                 Take any prescription medications out of medicine cabinets or
                 drawers to prevent theft.{" "}
               </li>
-              <li>
+               <li className="w-full flex items-start  space-x-4">
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                 {" "}
                 Protect sensitive personal information such as bills, mail, or
                 any documents containing personal details.{" "}
               </li>
-              <li>
+               <li className="w-full flex items-start  space-x-4">
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                 Consider installing a security system with cameras to monitor
                 the property during showings and deter any potential theft.{" "}
               </li>
-              <li>
+               <li className="w-full flex items-start  space-x-4">
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                 Ensure all doors and windows are securely locked after the
                 showing to prevent unauthorized access.
               </li>
-              <li>
+               <li className="w-full flex items-start  space-x-4">
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                 If you have smart home devices like cameras or voice assistants,
                 ensure they are properly configured to protect your privacy
                 during showings.{" "}
               </li>
-              <li>
+               <li className="w-full flex items-start  space-x-4">
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                 Don{"'"}t indavertently hamper your negotiating position by
                 disclosing the reason you are selling or the terms or price you
                 will accept.{" "}
               </li>
-              <li>
+               <li className="w-full flex items-start  space-x-4">
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                 {" "}
                 After each showing, follow up with the buyer or buyer{"'"}s
                 agent to get feedback, answer questions, and encourage offers.
               </li>
-              <li>
+               <li className="w-full flex items-start  space-x-4">
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                 {" "}
                 Make sure you have adequate insurance coverage for your
                 property, including liability coverage for potential accidents
@@ -108,11 +122,13 @@ function Safeshowingchecklist() {
                 interests while showcasing your home to potential buyers.
               </li>
               {/* <li> Add a fresh doormat.</li>
-             <li>
+              <li className="w-full flex items-start  space-x-4">
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                Add a pot or two of flowers at the front of the house and remove
                any dead plants or empty planters{" "}
              </li> */}
-              <li>
+               <li className="w-full flex items-start  space-x-4">
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                 Pro tip: Remove any other items from the front yard— storage
                 items, lawn care products should be removed.toys,
               </li>

@@ -13,7 +13,7 @@ import Videosection from "./Videosection";
 import { data } from "autoprefixer";
 
 const moreResourceData = [
-  {ref:"/roi" , title : "ROI Calculator", src : "/ROI.jpg",desc:`
+  {ref:"/roi" , title : "ROI Calculator", src : "/ROImain.jpg",desc:`
   ROI can be used to compare the profitability of different investments. For example, if you invest $1,000 in a stock that goes up 20% in value, your ROI would be 20%. If you invest $1,000 in a bond that pays 5% interest, your ROI would be 5%
   `},
   {ref:"/timingthemarket?db=main&val=12" , title : "Timing the Market",src : "/TTM.jpg",desc:`
@@ -25,11 +25,11 @@ desc:`
 
 Deciding whether to rent or sell your real estate property is a significant financial decision that depends on various factors and circumstances. Both options offer distinct advantages and disadvantages, and the optimal choice hinges on your individual goals and preferences
 `},
-  {ref:"/salebyowner" , title : "For Sale By Owner",src : "/FSBO pricing.png",desc:`
+  {ref:"/salebyowner" , title : "For Sale By Owner",src : "/FSBOmainpricing.jpg",desc:`
   Selling your home without the help of a real estate agent can be a cost-effective way to maximize your profit. However, it's important to be aware of the challenges and responsibilities that come with FSBO.
   `}
 ]
-const additionalresources= {ref:"/" , title : "Additional Resources",src : "/ROI.jpg",desc:`
+const additionalresources= {ref:"/" , title : "Additional Resources",src : "/AdditonalResources.jpg",desc:`
 Explore a variety of helpful resources to gain a comprehensive understanding of real estate. Learn about market trends, property valuation, financing options, and investment strategies. Enhance your knowledge and make informed decisions.
 `}
 function LandingPage() {
@@ -227,8 +227,16 @@ function LandingPage() {
             <div className="w-full text-center font-header md:text-4xl text-2xl my-8">
             Blogs
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <Link
+            <div 
+            
+            // className="grid grid-cols-1 
+            // md:grid-cols-2 
+            // gap-5"
+            
+            className="grid grid-cols-1 
+            gap-5 max-w-2xl mx-auto"
+            >
+              {/* <Link
                 href={"/valueHome"}
                 className="shadow-md shadow-custom-light-yellow rounded-lg bg-white"
               >
@@ -247,13 +255,9 @@ function LandingPage() {
                   <h3 className="w-full text-custom-yellow text-2xl font-header hover:underline hover:decoration-4 hover:decoration-custom-light-yellow">
                   Why people search for the value of their homes
                   </h3>
-                  {/* <p className="font-Montserrat break-words w-full md:w-[75%] mx-auto md:mx-0">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p> */}
+              
                 </div>
-              </Link>
+              </Link> */}
               <Link
                 href={"/saleHome"}
                 className="shadow-md shadow-custom-light-yellow rounded-lg bg-white"
@@ -270,7 +274,7 @@ function LandingPage() {
                   />
                 </div>
                 <div className="text-center md:text-left p-8 space-y-3">
-                  <h3 className="w-full text-custom-yellow text-2xl font-header hover:underline hover:decoration-4 hover:decoration-custom-light-yellow">
+                  <h3 className="w-full text-custom-yellow text-2xl font-header hover:underline hover:decoration-4 hover:decoration-custom-light-yellow text-center ">
                   Why people decide to sell their homes
                   </h3>
                   {/* <p className="font-Montserrat break-words w-full md:w-[75%] mx-auto md:mx-0">

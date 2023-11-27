@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { useEffect } from "react";
 import { BsCheck2 } from "react-icons/bs";
+import { Checkbox } from "@nextui-org/react";
 // import Chatbot from "../../components/Chatbot";
 function Preparationandstaging() {
   const { data: session, status } = useSession();
@@ -36,18 +37,18 @@ function Preparationandstaging() {
         </div>
         </div>
         <div className="sm:px-12 px-3 h-[85vh] sm:overflow-y-scroll overflow-y-visible no-scrollbar">
-          <div className="font-header w-full justify-center py-6 text-center sm:text-xl text-lg tracking-wider">
+          <div className="font-header w-full justify-center py-6 text-left sm:text-xl text-lg tracking-wider">
             Staging is the icing on the cake that gives your home a professional
             touch. With a few props and the following tips, your home will show
             like a model.
           </div>
           <div className="py-6 w-full font-Montserrat">
-            <div className="font-semibold font-header">
+            <div className="font-semibold font-header mb-4">
               The front of your home:
             </div>
-            <ol className=" list-outside">
-              <li className="w-full flex items-center space-x-4">
-              <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+            <ol className=" list-outside leading-5 text-sm py-2">
+              <li className="w-full flex items-start space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
               <div>
                 Clear any debris, remove cobwebs, clean your front door, door
                 bell or door knocker, polish the storm door, replace rusted or
@@ -55,20 +56,20 @@ function Preparationandstaging() {
                 </div>
               </li>
               <li className="w-full flex items-center space-x-4">
-              <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
               <div>
                 Add a fresh doormat.
                 </div>
               </li>
               <li className="w-full flex items-center space-x-4">
-              <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
               <div>
                 Add a pot or two of flowers at the front of the house and remove
                 any dead plants or empty planters{" "}
                 </div>
               </li>
               <li className="w-full flex items-center space-x-4">
-              <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
               <div>
                 Pro tip: Remove any other items from the front yard— storage
                 items, lawn care products should be removed.toys,
@@ -77,13 +78,13 @@ function Preparationandstaging() {
             </ol>
           </div>
           <div className="py-6 w-full font-Montserrat">
-            <div className="font-semibold font-header">Interior rooms:</div>
+            <div className="font-semibold font-header mb-4">Interior rooms:</div>
             <ol
               className="
-         list-outside"
+         list-outside leading-5 text-sm py-2"
             >
-              <li className="w-full flex items-center space-x-4">
-              <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+              <li className="w-full flex items-start space-x-4 ">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
               <div>
                 Box up everything you can live without during your marketing
                 period. Clear all surfaces of every counter, dresser, and table.
@@ -94,26 +95,26 @@ function Preparationandstaging() {
                 </div>
               </li>
               <li className="w-full flex items-center space-x-4">
-              <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0 mb-2"></BsCheck2>
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
               <div>
                 Remove any collections.
                 </div>
               </li>
               <li className="w-full flex items-center space-x-4">
-              <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0 mb-2"></BsCheck2>
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
               <div>
                 Replace cleared items with one or two decorative items - be sure
                 to add an item of greenery.
                 </div>
               </li>
               <li className="w-full flex items-center space-x-4">
-              <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
               <div>
                 Pictures should be hung at eye level.
                 </div>
               </li>
               <li className="w-full flex items-center space-x-4">
-              <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
               <div>
                 Limit personal photos to a small display on an end table, on the
                 stairway walls or in a hallway— never display personal photos in
@@ -121,14 +122,14 @@ function Preparationandstaging() {
                 </div>
               </li>
               <li className="w-full flex items-center space-x-4">
-              <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
               <div>
                 Boxes are OK in garages, unfinished basements, or designated
                 storage areas only.
                 </div>
               </li>
               <li className="w-full flex items-center space-x-4">
-              <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
               <div>
                 Pro tip: Weather permitting, open the windows and air out your
                 rooms prior to the first day of showings.
@@ -137,42 +138,42 @@ function Preparationandstaging() {
             </ol>
           </div>
           <div className="py-6 w-full font-Montserrat">
-            <div className="font-semibold font-header">Kitchen:</div>
-            <ol className=" list-outside">
-            <li className="w-full flex items-center space-x-4">
-              <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0 mb-2"></BsCheck2>
+            <div className="font-semibold font-header mb-4">Kitchen:</div>
+            <ol className=" list-outside leading-5 text-sm py-4">
+            <li className="w-full flex items-start space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
               <div>
                 Clear all counters and tables of all small items and appliances.
                 </div>
               </li>
               <li className="w-full flex items-center space-x-4">
-              <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0 "></BsCheck2>
+              <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
               <div>
                 Clear refrigerator of magnets and other items, clear tops of the
                 fridge and cabinets.
                 </div>
               </li>
               <li className="w-full flex items-center space-x-4">
-              <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
               <div>
                 Polish your sink and floors, re-caulk around sink if needed. Add
                 new hardware to cabinets if needed.
                 </div>
               </li>
-              <li className="w-full flex items-center space-x-4">
-              <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0 mb-2"></BsCheck2>
+              <li className="w-full flex items-center space-x-4 mb-2">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
               <div>
                 Remove 1/3 of items in your pantry.
                 </div>
               </li>
               <li className="w-full flex items-center space-x-4">
-              <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
               <div>
                 Pro tip: Empty all trashcans and scrub clean.
                 </div>
               </li>
               <li className="w-full flex items-center space-x-4">
-              <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
               <div>
                 Replace binsin inconspicuous places and place one
                 fabric-softenersheet in the bottom of each bin for a subtly

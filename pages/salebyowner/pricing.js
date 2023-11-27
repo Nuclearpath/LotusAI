@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
  import { useRouter } from "next/router";
  import { useEffect } from "react";
  import Image from "next/image";
+import { Checkbox } from "@nextui-org/react";
 //  import { motion } from "framer-motion";
  // import Chatbot from "../../components/Chatbot";
  function Pricing() {
@@ -42,47 +43,70 @@ import { useSession } from "next-auth/react";
          >
            <div className="m:px-12 px-3 h-[85vh] sm:overflow-y-scroll overflow-y-visible no-scrollbar">
              <div className="py-6 w-full font-header">
-               <div className="font-semibold">BUYERS IN YOUR MARKET</div>
-               <ul className="list-disc list-inside font-Montserrat">
-                 <li>
+               <div className="font-semibold mb-2">BUYERS IN YOUR MARKET</div>
+               <ul className="list-none list-inside space-y-4 leading-5 text-sm">
+                 <li className="w-full flex items-start  space-x-4">
+                    <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+                 <div>
                    Buyers are more educated, enlightened, and experienced than
                    ever before. Many have made offers on homes and have looked
                    extensively for properties.
+             </div>
                  </li>
-                 <li>
+                 <li className="w-full flex items-start  space-x-4">
+                    <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+                 <div>
                    {" "}
                    Buyers are saavy about pricing — They know when a home is
                    priced improperly.
+             </div>
                  </li>
-                 <li>
+                 <li className="w-full flex items-start  space-x-4">
+                    <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+                 <div>
                    {" "}
                    Buyers expect a top-notch product that shows perfectly.
+             </div>
                  </li>
-                 <li>
+                 <li className="w-full flex items-start  space-x-4">
+                    <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+                 <div>
                    {" "}
                    Homes needed to be made to show perfectly for the debut day
                    on the market.
+             </div>
                  </li>
                </ul>
              </div>
              <div className="py-6 w-full font-Montserrat">
-               <div className="font-semibold font-header">
+               <div className="font-semibold font-header mb-2">
                  IF YOU OVERPRICE YOUR HOME:
                </div>
-               <ol className="list-disc list-inside">
-                 <li>
+               <ol className="list-none list-inside space-y-4 leading-5 text-sm">
+                 <li className="w-full flex items-start  space-x-4">
+                    <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+                 <div>
                    It makes other homes more attractive and can actually help
                    sell the competition
+             </div>
                  </li>
-                 <li> It will be shown to fewer prospective buyers</li>
-                 <li> Fewer prospects will respond to the advertising</li>
-                 <li> You may lose buyers who are willing to negotiate</li>
+                 <li className="w-full flex items-start  space-x-4">
+                    <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+                 <div> It will be shown to fewer prospective buyers </div></li>
+                 <li className="w-full flex items-start  space-x-4">
+                    <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+                 <div> Fewer prospects will respond to the advertising</div></li>
+                 <li className="w-full flex items-start  space-x-4">
+                    <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+                 <div> You may lose buyers who are willing to negotiate</div></li>
                </ol>
              </div>
              <div className="py-6 w-full font-Montserrat">
-               <div className="font-semibold">
+               <div className="font-semibold mb-2">
                  PRICING YOUR HOME PROPERLY TO ATTRACT BUYERS:
                </div>
+               <li className="w-full flex items-start  space-x-4">
+                    <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                <p>
                  A Competitive Market Analysis (CMA) is essential to determine
                  the value of residential property. Location and characteristics
@@ -100,86 +124,123 @@ import { useSession } from "next-auth/react";
                  offers. Naturally, if you want to sell quickly your asking
                  price should be very near the value.
                </p>
+               </li>
                <div className=" flex flex-col justify-between"> </div>
              </div>
              <div className="py-6 w-full font-Montserrat">
-               <div className="font-semibold font-header">PRICING TO SELL</div>
-               <div className="">
+               <div className="font-semibold font-header mb-2">PRICING TO SELL</div>
+               <div className="mb-2">
                  The following are a few things to keep in mind about pricing:
                </div>
-               <ol className="list-disc list-inside">
-                 <li>
+               <ol className="list-none list-inside space-y-4 leading-5 text-sm">
+                 <li className="w-full flex items-start  space-x-4">
+                    <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+                 <div>
                    Realistic pricing will achieve a maximum price in a
                    reasonable amount of time,
+             </div>
                  </li>
-                 <li>
+                 <li className="w-full flex items-start  space-x-4">
+                    <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+                 <div>
                    Your cost or profit desire is irrelevant. The market
                    determines the price.
+             </div>
                  </li>
-                 <li>
+                 <li className="w-full flex items-start  space-x-4">
+                    <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+                 <div>
                    The costs of improvements are almost always more than the
                    added value.
+             </div>
                  </li>
-                 <li>
+                 <li className="w-full flex items-start  space-x-4">
+                    <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+                 <div>
                    Houses that remain on the market for a long time tend to not
                    be shown.
+             </div>
                  </li>
-                 <li>
+                 <li className="w-full flex items-start  space-x-4">
+                    <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+                 <div>
                    A house that is priced right from the beginning achieves the
                    highest proceeds
+             </div>
                  </li>
                </ol>
              </div>
              <div className="py-6 w-full font-Montserrat">
-               <div className="font-semibold font-header">
+               <div className="font-semibold font-header mb-2">
                  FOR SALE BY OWNER?
                </div>
-               <div className="">
+               <div className="mb-2">
                  Consider the following statistics and information:
                </div>
 
-               <ol className="list-disc list-inside">
-                 <li>
+               <ol className="list-none list-inside space-y-4 leading-5 text-sm">
+                 <li className="w-full flex items-start  space-x-4">
+                    <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+                 <div>
                    The average Realtor-assisted home sale realizes a 16% higher
                    sale price than does a FSBO. Is that 6% commission worth it?
                    You do the math.
+             </div>
                  </li>
-                 <li>
+                 <li className="w-full flex items-start  space-x-4">
+                    <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+                 <div>
                    {" "}
                    87% of all home sales are a direct result of Realtor contacts
                    and marketing.“FSBOs often end up showing a home to such a
                    small universe of buyers that they don’t realize how much
+             </div>
                  </li>
-                 <li>
+                 <li className="w-full flex items-start  space-x-4">
+                    <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+                 <div>
                    {" "}
                    more they could get if they exposed the property to all the
                    interested buyers out there.”
+             </div>
                  </li>
-                 <li>
+                 <li className="w-full flex items-start  space-x-4">
+                    <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+                 <div>
                    {" "}
                    Buyers are more market-savvy than ever before - they expect a
                    FSBO house to be priced at least 3-6% below the comparable
                    sales, since they know you plan to keep the commission amount
                    you would be building into the price had you chosen listing
                    representation.
+             </div>
                  </li>
-                 <li>
+                 <li className="w-full flex items-start  space-x-4">
+                    <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+                 <div>
                    {" "}
                    Improper pricing is currently the number one problem
                    encountered by FSBO’s. Just knowing what homes in your
                    neighborhood are selling for is not enough.
+             </div>
                  </li>
-                 <li>
+                 <li className="w-full flex items-start  space-x-4">
+                    <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+                 <div>
                    {" "}
                    Getting a contract on your house is the easy part - keeping
                    track of and completing the inspections, contingencies, and
                    deadlines that come after the contract ensures your home sale
                    makes it to the settlement table.
+             </div>
                  </li>
-                 <li>
+                 <li className="w-full flex items-start  space-x-4">
+                    <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+                 <div>
                    “Unrepresented sellers have a median household income of only
                    11% less than that of sellers who use an agent from the
                    get-go, but FSBO’s homes sell for 25% less.”
+             </div>
                  </li>
                </ol>
              </div>

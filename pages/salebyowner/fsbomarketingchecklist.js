@@ -1,5 +1,6 @@
 import React from "react";
 import MainHeader from "../../components/MainHeader";
+import {Checkbox} from "@nextui-org/react";
 import { BsCheck2 } from "react-icons/bs";
 import { useSession } from "next-auth/react";
  import { useRouter } from "next/router";
@@ -31,16 +32,16 @@ import { useSession } from "next-auth/react";
          </div>
          </div>
          <div className="sm:px-12 px-3 h-[85vh] sm:overflow-y-scroll overflow-y-visible no-scrollbar">
-           <div className="font-header w-full justify-center py-6 text-center text-xl tracking-wider">
+           <div className="font-header w-full justify-center py-6 text-left text-lg tracking-wider">
              Successfully marketing your home means much more than putting a for
              sale sign in your front yard. here are some pro tips for marketing
              to attract the most buyers
            </div>
            <div className="py-6 w-full font-Montserrat">
-             <div className="font-semibold font-header">Signage: </div>
-             <ul className="list-none list-inside space-y-4">
-               <li className="w-full flex items-center space-x-4">
-                 <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+             <div className="font-semibold font-header mb-4">Signage: </div>
+             <ul className="list-none list-inside space-y-4 leading-5 text-sm">
+               <li className="w-full flex items-start  space-x-4">
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                  <div>
                    Place signs at major intersections leading buyers to your
                    home (be sure to research local sign placement laws and
@@ -48,13 +49,13 @@ import { useSession } from "next-auth/react";
                  </div>
                </li>
                <li className="w-full flex items-center space-x-4">
-                 <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                  <div>
                    Place a large, prominent sign in your home’s front yard
                  </div>
                </li>
                <li className="w-full flex items-center space-x-4">
-                 <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                  <div>
                    Use signs that are bright, large, and durable. Information
                    should be neatly printed and large enough to be read from a
@@ -62,16 +63,16 @@ import { useSession } from "next-auth/react";
                  </div>
                </li>
                <li className="w-full flex items-center space-x-4">
-                 <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                  <div>Consider having your signs professionally produced</div>
                </li>
              </ul>
            </div>
            <div className="py-6 w-full font-Montserrat space-y-4">
              <div className="font-semibold font-header">At the house :</div>
-             <ol className="list-decimal list-inside space-y-4">
-               <li className="w-full flex items-center space-x-4">
-                 <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+             <ol className="list-decimal list-inside space-y-4 leading-5 text-sm">
+               <li className="w-full flex items-start space-x-4">
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                  <div>
                    Create a brochure featuring an attractive photo of your home
                    taken on a sunny day as well as the features your home has to
@@ -81,21 +82,21 @@ import { useSession } from "next-auth/react";
                </li>
 
                <li className="w-full flex items-center space-x-4">
-                 <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                  <div>
                    Create a fact sheet listing recent updates and improvements
                  </div>
                </li>
 
                <li className="w-full flex items-center space-x-4">
-                 <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                  <div>
                    Be sure to leave your appropriate property disclosure
                    information for buyers along with your brochures
                  </div>
                </li>
                <li className="w-full flex items-center space-x-4">
-                 <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                  <div>
                    Tell the story of why you love the house including the
                    features you like best and benefits of living in the
@@ -103,30 +104,30 @@ import { useSession } from "next-auth/react";
                  </div>
                </li>
                <li className="w-full flex items-center space-x-4">
-                 <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                  <div>Include photos of area amenities</div>
                </li>
              </ol>
            </div>
            <div className="py-6 w-full font-Montserrat">
-             <div className="font-semibold font-header">Print Ads :</div>
-             <ol className="list-decimal list-inside space-y-4">
-               <li className="w-full flex items-center space-x-4">
-                 <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+             <div className="font-semibold font-header mb-4">Print Ads :</div>
+             <ol className="list-decimal list-inside space-y-4 leading-5 text-sm">
+               <li className="w-full flex items-start space-x-4">
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                  <div>
                    Place ads in your local neighborhood, community, or city
                    newspapers
                  </div>
                </li>
                <li className="w-full flex items-center space-x-4">
-                 <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                  <div>
                    Place ads in local community flyers or bulletins & at your
                    local schools, places of worship and shopping venues
                  </div>
                </li>
                <li className="w-full flex items-center space-x-4">
-                 <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                  <div>
                    Create and mail postcards featuring your home and its
                    features to your neighbors - with an invitation to your open
@@ -136,17 +137,17 @@ import { useSession } from "next-auth/react";
              </ol>
            </div>
            <div className="py-6 w-full font-Montserrat">
-             <div className="font-semibold font-header">Online :</div>
-             <ol className="list-decimal list-inside space-y-4">
-               <li className="w-full flex items-center space-x-4">
-                 <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+             <div className="font-semibold font-header mb-4">Online :</div>
+             <ol className="list-decimal list-inside space-y-4 leading-5 text-sm">
+               <li className="w-full flex items-start space-x-4">
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                  <div>
                    Advertise daily on as many websites and social media
                    platforms as you can
                  </div>
                </li>
                <li className="w-full flex items-center space-x-4">
-                 <BsCheck2 className="w-8 h-8 flex border-2 border-custom-yellow text-custom-yellow shrink-0"></BsCheck2>
+                 <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
                  <div>
                    Create a website for your home. Include the website address
                    and a QR code on all of your print advertising
