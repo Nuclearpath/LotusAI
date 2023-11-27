@@ -110,13 +110,17 @@ function Editfacts() {
         </div>
       </div>
       <div className="w-full flex flex-col sm:py-6 py-3 sm:px-12 px-3">
+        <p className="text-md">
+
+        Have you completed a recent major improvement or renovation, our ROI page will tell you how much your recent improvment increases your homes value
+        </p>
         <button
           className="w-full flex  text-2xl font-Montserrat sm:py-6 py-3 items-center"
           href=""
           onClick={onOpen}
         >
           <AiOutlinePlusCircle className="text-custom-yellow mr-5"></AiOutlinePlusCircle>{" "}
-          Add New Renovation
+          Other
         </button>
         <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
           <ModalContent>
@@ -125,7 +129,7 @@ function Editfacts() {
                 {/* <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader> */}
                 <ModalBody className="sm:px-12 px-3 py-5 flex flex-col space-y-3">
                   <div className="w-full flex font-Montserrat font-semibold text-xl">
-                    Add Renovation
+                    Other
                   </div>
                   <form className="w-full flex flex-col space-y-6 text-xl">
                     <div className="w-full flex flex-col space-y-3">
@@ -163,7 +167,7 @@ function Editfacts() {
                         Clear
                       </button>
                       <button className="w-full border-2 border-custom-yellow text-custom-yellow py-2">
-                        Add Renovation
+                      Other
                       </button>
                     </div>
                   </form>

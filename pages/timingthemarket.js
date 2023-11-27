@@ -40,7 +40,7 @@ function Timingthemarket() {
     list:false,
     sold:false,
     market:false,
-    living:false,
+      living:false,
     bedroom:false,
     bath:false,
     bank:false
@@ -1032,6 +1032,9 @@ function Timingthemarket() {
             <div className="text-2xl font-header font-medium">
               Timing the Market
             </div>
+            <p>
+            What&apos;s the best time to sell your home? Use this information to get insight into market fluctuations and trends.
+            </p>
             <div className="flex sm:w-10/12 w-full py-6 justify-between sm:flex-row flex-col">
               <select
                 onChange={async (e) =>await  handleSourceChange(e)}

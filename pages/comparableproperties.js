@@ -3,7 +3,7 @@ import React from "react";
 import MainHeader from "../components/MainHeader";
 import CompCard from "../components/CompCard";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { BiLogoTelegram } from "react-icons/bi";
@@ -18,7 +18,6 @@ function Comparableproperties() {
   const [values, setValues] = useState([]);
   const [propertyValue, setPropertyValue] = useState("");
   const [editId, setEditId] = useState(0);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -48,7 +47,7 @@ function Comparableproperties() {
 
     setPropertyValue("");
   };
-
+const [select, setSelect]=useState("")
   const editValue = (id) => {
     const editOne = values.find((value) => value.id === id);
     setPropertyValue(editOne.property);
@@ -83,12 +82,47 @@ function Comparableproperties() {
         </div>
         <div className="w-full">
           <div className="w-full flex font-font-header sm:text-2xl text-xl sm:p-5 p-3 font-semibold">
-            Take a look at some comparable properties
+          Lotuss&apos;s list of comparable properties
           </div>
-          {/* Form section */}
-          <div className="p-4">
+       
+          <div className="grid md:grid-cols-2 grid-cols-1 sm:gap-8 gap-4 p-4">
+            <CompCard
+              image={"/house1.png"}
+              price={"2,662,90"}
+              area="360 Huntington Ave, Boston"
+              setSelect={setSelect}
+              select={select}
+            ></CompCard>
+            <CompCard
+              image={"/house1.png"}
+              price={"2,662,90"}
+              area="360 Huntington Ave, Boston"
+              setSelect={setSelect}
+              select={select}
+              id={"1"}
+            ></CompCard>
+            <CompCard
+              image={"/house1.png"}
+              price={"2,662,90"}
+              area="360 Huntington Ave, Boston"
+              setSelect={setSelect}
+              select={select}
+              id={"2"}
+            ></CompCard>
+            <CompCard
+              image={"/house1.png"}
+              price={"2,662,90"}
+              area="360 Huntington Ave, Boston"
+              setSelect={setSelect}
+              select={select}
+              id={"3"}
+            ></CompCard>
+          </div>
+
+             {/* Form section */}
+             <div className="p-4">
             <div className="w-full h-full bg-custom-light-yellow p-6 text-xl ">
-              <p>Don{"'"}t see a comparable of your interest?</p>
+              <p>Missing a comparable property</p>
               <button
               disabled={session?.user?.role === "mod"}
                 className={` ${
@@ -96,7 +130,7 @@ function Comparableproperties() {
                 } hover:underline hover:bg-opacity-80 text-white p-2 rounded-md my-2 mb-5`}
                 onClick={() => setIsOpen((o) => !o)}
               >
-                {isOpen ? "Close" : "Add Your Own"}
+                {isOpen ? "Close" : "Add a Property"}
               </button>
               {session?.user?.role=== "mod"?<div className="text-red-500">You cant edit as a moderator</div>:null}
 
@@ -148,6 +182,12 @@ function Comparableproperties() {
                             >
                               <RiDeleteBin2Fill />
                             </button>
+                            <button
+                              className="p-1.5 bg-custom-yellow text-white rounded-md"
+                              onClick={() => router.push("/dashboard")}
+                            >
+                              Update
+                            </button>
                           </div>
                         </li>
                       ))}
@@ -182,28 +222,6 @@ function Comparableproperties() {
                 <div></div>
               )}
             </div>
-          </div>
-          <div className="grid md:grid-cols-2 grid-cols-1 sm:gap-8 gap-4 p-4">
-            <CompCard
-              image={"/house1.png"}
-              price={"2,662,90"}
-              area="360 Huntington Ave, Boston"
-            ></CompCard>
-            <CompCard
-              image={"/house1.png"}
-              price={"2,662,90"}
-              area="360 Huntington Ave, Boston"
-            ></CompCard>
-            <CompCard
-              image={"/house1.png"}
-              price={"2,662,90"}
-              area="360 Huntington Ave, Boston"
-            ></CompCard>
-            <CompCard
-              image={"/house1.png"}
-              price={"2,662,90"}
-              area="360 Huntington Ave, Boston"
-            ></CompCard>
           </div>
         </div>
       </div>
