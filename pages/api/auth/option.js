@@ -83,7 +83,7 @@ export const options = {
               const newUser = await GoogleUser.create({
                 email: profile.email,
                 name: profile.name,
-                role: "mod",
+                role: "user",
               });
               profile.role = newUser.role;
 
