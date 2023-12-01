@@ -51,8 +51,8 @@ function LandingPage() {
   };
 
   return (
-    <>
-        <div className="w-full flex h-full  flex-col">
+    <div>
+        <div className="w-full flex h-full  flex-col relative">
           <MainHeader page={"landing"}></MainHeader>
           <div className="w-full flex justify-center flex-col items-center  px-3 sm:px-16">
 
@@ -308,7 +308,7 @@ function LandingPage() {
             </div>
           </div>
         </div>
-    </>
+    </div>
   );
 }
 

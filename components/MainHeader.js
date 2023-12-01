@@ -19,7 +19,7 @@ function MainHeader({page}) {
   //    console.log(session.user);
   //  }
   return (
-    <div className="z-10">
+    <div className="z-50 sticky top-0  w-full  bg-white  shadow-xl">
       <div className="w-full flex justify-between  px-6 shadow items-center lg:py-0 py-5 ">
         <Link href="/" className="flex lg:w-56 w-32 lg:px-6 px-1 py-1 lg:py-4 ">
           <Image
@@ -32,11 +32,11 @@ function MainHeader({page}) {
         </Link>
 
         <div className=" justify-between items-center space-x-8 font-header font-semibold text-base lg:flex hidden">
-          {session && page !== "landing" && <Link href="/dashboard">My Pad</Link>}
-          {session && page !== "landing" && <Link href="/roi">ROI Calculator</Link>}
-          {session && page !== "landing" && <Link href="timingthemarket?db=main&val=12">Timing the Market</Link>}
-          {session && page !== "landing" && <Link href="/rentvssale">Rent Vs Sell</Link>}
-          {session && page !== "landing" && <DropdownBtn />}
+          {session  && <Link href="/dashboard">My Pad</Link>}
+          {session  && <Link href="/roi">ROI Calculator</Link>}
+          {session  && <Link href="timingthemarket?db=main&val=12">Timing the Market</Link>}
+          {session  && <Link href="/rentvssale">Rent Vs Sell</Link>}
+          {session  && <DropdownBtn />}
         </div>
         <div className="flex  lg:hidden space-x-3">
           <div className="w-10 h-10">
