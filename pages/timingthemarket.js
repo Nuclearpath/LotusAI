@@ -17,6 +17,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {useSearchParams} from "next/navigation";
+import CenterMode from "../components/CenterSlider";
 
 function Timingthemarket() {
   const { data: session, status } = useSession();
@@ -2985,7 +2986,8 @@ function Timingthemarket() {
             <div className="w-full text-center font-header md:text-4xl text-2xl my-8">
             Blogs
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <CenterMode/>
+            {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <Link
                 href={"/valueHome"}
                 className="shadow-md shadow-custom-light-yellow rounded-lg bg-white"
@@ -3009,7 +3011,7 @@ function Timingthemarket() {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua.
-                  </p> */}
+                  </p> 
                 </div>
               </Link>
               <Link
@@ -3031,14 +3033,10 @@ function Timingthemarket() {
                   <h3 className="w-full text-custom-yellow text-2xl font-header hover:underline hover:decoration-4 hover:decoration-custom-light-yellow">
                   Why people decide to sell their homes
                   </h3>
-                  {/* <p className="font-Montserrat break-words w-full md:w-[75%] mx-auto md:mx-0">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p> */}
+            
                 </div>
               </Link>
-            </div>
+            </div> */}
           </div>
      </div>
      </div>

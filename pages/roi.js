@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import CategoryDropdown from "../components/Categorydropdown";
 import FeatureTable from "../components/Featuretable";
 import { FeatureChart } from "../components/FeatureChart";
+import CenterMode from "../components/CenterSlider";
 
 // import Chatbot from "../components/Chatbot";
 function Roi() {
@@ -246,6 +247,7 @@ function Roi() {
             })}
         </div>
       </div>
+      <CenterMode/>
     </div>
   );
 }

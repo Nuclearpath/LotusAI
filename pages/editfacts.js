@@ -114,6 +114,9 @@ function Editfacts() {
 
         Have you completed a recent major improvement or renovation, our ROI page will tell you how much your recent improvment increases your homes value
         </p>
+        <button className="mt-2 max-w-max border-2 bg-custom-yellow text-white py-2 px-4" onClick={()=>router.push("/roi")}>
+                      ROI page
+                      </button>
         <button
           className="w-full flex  text-2xl font-Montserrat sm:py-6 py-3 items-center"
           href=""
@@ -137,6 +140,29 @@ function Editfacts() {
                       <select className="  z-10  flex-col  text-black border-2 w-full flex  rounded  px-4 py-2">
                         <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
                           Main Activity
+                        </option>
+                      </select>
+                    </div>
+                    <div className="w-full flex flex-col space-y-3">
+                      <div>Exterior features</div>  
+                      <select className="  z-10  flex-col  text-black border-2 w-full flex  rounded  px-4 py-2">
+                        <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                        Deck
+                        </option>
+                        <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                        Porch
+                        </option>
+                        <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                        Patio
+                        </option>
+                        <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                        Water view
+                        </option>
+                        <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                        Backs to park land
+                        </option>
+                        <option className="  flex justify-between bg-gray-100 text-black px-4 py-2 items-center  font-Montserrat rounded w-64">
+                        Water front
                         </option>
                       </select>
                     </div>
@@ -167,7 +193,7 @@ function Editfacts() {
                         Clear
                       </button>
                       <button className="w-full border-2 border-custom-yellow text-custom-yellow py-2">
-                      Other
+                      Add new renovation
                       </button>
                     </div>
                   </form>

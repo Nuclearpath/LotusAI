@@ -117,16 +117,21 @@ function Dashboard() {
                 <ValueTrendsChart></ValueTrendsChart>
               </div>
             </div>
-       
+            <div className="sm:pt-24 pt-10 flex justify-center sm:text-3xl text-2xl font-header w-full items-center">
+           02667 value trend
+            </div>
             <div className="w-full justify-center flex">
               <div className="sm:w-8/12  w-full">
                 <MarketTrend></MarketTrend>
               </div>
             </div>
-            <div className="sm:pt-24 pt-10 flex justify-center sm:text-3xl text-2xl font-header w-full items-center">
-           02667 value trend
+         
+        
             </div>
-            </div>
+            <h3 className="sm:pt-24 pt-3 flex justify-center text-2xl md:text-3xl font-header w-full">
+            Whats the best time to sell your house, &nbsp;  <Link href={"/timingthemarket?db=main&val=12"} className="underline text-custom-yellow">click to find out.</Link>
+
+            </h3>
             <div className="sm:pt-24  pt-10 flex justify-start sm:text-3xl text-2xl font-header w-full">
               Recently Sold Comparable&apos;s
             </div>

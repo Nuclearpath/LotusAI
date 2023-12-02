@@ -4,6 +4,7 @@ import RentVsSellCalculator from "../components/RentVsSellCalculator";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import CenterMode from "../components/CenterSlider";
 // import Chatbot from "../components/Chatbot";
 function Rentvssale() {
   const { data: session, status } = useSession();
@@ -27,6 +28,7 @@ function Rentvssale() {
         </div>
         <RentVsSellCalculator></RentVsSellCalculator>
       </div>
+      <CenterMode/>
     </div>
   );
 }
