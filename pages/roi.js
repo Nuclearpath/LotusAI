@@ -53,7 +53,7 @@ const listData=[
   { value: "Interior features", label: "Interior features",featured:[
     { value: "Replace lighting throughout", label: "Replace lighting throughout" },
     { value: "Replace hardware throughout", label: "Replace hardware throughout" },
-    { value: "Replace electric throughoutt", label: "Replace electric throughoutt" },
+    { value: "Replace electric throughout", label: "Replace electric throughout" },
     { value: "Created home office space", label: "Created home office space" }
   ] },
   { value: "Kitchen", label: "Kitchen",featured:[
