@@ -182,6 +182,329 @@ function Preparationandstaging() {
               </li>
             </ol>
           </div>
+          <div className="py-6 w-full font-Montserrat">
+            <div className="font-semibold font-header mb-4">Bathroom:</div>
+            <ol className=" list-outside leading-5 text-sm py-4">
+            <li className="w-full flex items-start space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Clear all counters, tubs and toilets of any personal or
+cosmetic items, remove all cleaning products.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+              <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Repair and refresh damaged grout and caulk.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Polish your sinks, tub and shower hardware. Wipe down
+sinks and shower after each use. Remove trash bins.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4 mb-2">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Be sure each bathroom has one full roll of toilet paper,
+keep toilet lids down.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+                PHanging towels should be fresh, neat, and clean.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Add a small, neutral decorative floral or scenic print.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Place a low item of greenery on the toilet tank and a taller item of greenery on the counter or sink.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Pro tip: Place wine glasses, unburned candles, and greenery on the edge of your master
+bathroom tub. Roll towels and place in a basket beside the tub or on the ledge, add a basket of
+spa-like, unopened toiletries, remove any toys.
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div className="py-6 w-full font-Montserrat">
+            <div className="font-semibold font-header mb-4">Dining Room:</div>
+            <ol className=" list-outside leading-5 text-sm py-4">
+            <li className="w-full flex items-start space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Present the bare wood table—remove tablecloths.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+              <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Add a greenery item somewhere in the room.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Keep the table centerpiece clean and simply elegant.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4 mb-2">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Polish any displayed items of silver.
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div className="py-6 w-full font-Montserrat">
+            <div className="font-semibold font-header mb-4">Primary bedroom:</div>
+            <ol className=" list-outside leading-5 text-sm py-4">
+            <li className="w-full flex items-start space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              The most important item is the bed—bedding should be
+fresh, clean, and fluffed. Colors must coordinate.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+              <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Organize the clothes in your closet. Be sure shelves,
+bins, and shoes are neat. Remove 1/2 of all items.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Store dirty laundry neatly in covered baskets or bins.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4 mb-2">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Pro tip: Add an item of greenery, eliminate personal
+photos.
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div className="py-6 w-full font-Montserrat">
+            <div className="font-semibold font-header mb-4">Kids&apos; Rooms & Playrooms:</div>
+            <ol className=" list-outside leading-5 text-sm py-4">
+            <li className="w-full flex items-start space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Organize closets, and reduce the number of toys by 2/3.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+              <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Store other toys neatly in baskets or plastic containers.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Remove anything other than furniture from floors.
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div className="py-6 w-full font-Montserrat">
+            <div className="font-semibold font-header mb-4">Closets:</div>
+            <ol className=" list-outside leading-5 text-sm py-4">
+            <li className="w-full flex items-start space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Remove any items you can live without.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+              <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Remove all but seasonally appropriate coats.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Hang all coats the same direction.
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div className="py-6 w-full font-Montserrat">
+            <div className="font-semibold font-header mb-4">Home office/exercise room:</div>
+            <ol className=" list-outside leading-5 text-sm py-4">
+            <li className="w-full flex items-start space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Gather all exposed cords and tie with wire tie or rubber band.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+              <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Add an item of greenery.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Keep the access path to closets clear.
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div className="py-6 w-full font-Montserrat">
+            <div className="font-semibold font-header mb-4">Laundry room:</div>
+            <ol className=" list-outside leading-5 text-sm py-4">
+            <li className="w-full flex items-start space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Remove all hangers and clothes not currently in the
+washer or dryer.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+              <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Clean the washer and dryer inside and out, clean the lint
+screen.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Store laundry supplies neatly in a basket or bin.
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div className="py-6 w-full font-Montserrat">
+            <div className="font-semibold font-header mb-4">Garage and storage areas:</div>
+            <ol className=" list-outside leading-5 text-sm py-4">
+            <li className="w-full flex items-start space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Sweep the floors.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+              <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Give away or throw away all unneeded items. Store the rest inneatly in stacked boxes.
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div className="py-6 w-full font-Montserrat">
+            <div className="font-semibold font-header mb-4">More Tips:</div>
+            <ol className=" list-outside leading-5 text-sm py-4">
+            <li className="w-full flex items-start space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              The most important rooms in the house: Kitchen, master
+bedroom and bath, family room.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+              <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Most important closets: entry and master bedroom; least
+important: linen and pantry.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+              <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              5 most distasteful issues: religious items, excessive alcohol,
+taxidermy, gun racks, nudity in art.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+              <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Most appealing wall colors to buyers: grey and neutrals.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+              <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Most appealing fragrance: vanilla; least appealing: cigarette smoke, pet odors, strong cooking odors.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+              <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              What to do with pets: Pets as well as all evidence of pets should be removed from the house during
+showings.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+              <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Other helpful hints: Keep the path to the fireplace mantle open, prop a large decorative print on an
+empty wall behind a mantle, paint moldings and ceilings crisp white.
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div className="py-6 w-full font-Montserrat">
+            <div className="font-semibold font-header mb-4">What Staging Will do for You:</div>
+            <ol className=" list-outside leading-5 text-sm py-4">
+            <li className="w-full flex items-start space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Provides what buyers are looking for, and allows buyers to
+project themselves living in your home.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+              <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Turns a buyer’s initial impression into love at first sight.
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+              <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Decreases market time and increases sale price.
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div className="py-6 w-full font-Montserrat">
+            <div className="font-semibold font-header mb-4">Statistics:</div>
+            <ol className=" list-outside leading-5 text-sm py-4">
+            <li className="w-full flex items-start space-x-4">
+               <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Average Number of Days on the Market: Staged homes: 7.6 Non-Staged homes: 36
+                </div>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+              <Checkbox  color="warning" size="lg" radius="none" ></Checkbox>
+              <div>
+              Average Difference in Sale over List Price: Stage homes: 22% Non-Staged homes: 1.6%
+                </div>
+              </li>
+            </ol>
+          </div>
         </div>
       </div>
     </div>

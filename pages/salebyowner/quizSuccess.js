@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
  import { useRouter } from "next/router";
  import { useEffect } from "react";
+
  function QuizSuccess() {
    const [value, setValue] = useState(0);
    const { data: session, status } = useSession();
@@ -16,6 +17,11 @@ import { useSession } from "next-auth/react";
        router.push("/");
      }
    }, [status]);
+
+  useEffect(()=>{
+    setValue(Number(router?.query.result) * 10)
+
+  },[router?.query.result])
    return (
      <div>
        <MainHeader page={""}></MainHeader>
@@ -40,7 +46,7 @@ import { useSession } from "next-auth/react";
                showValueLabel={true}
              />
            </div>
-           <div className="w-full flex justify-center py-5 text-4xl  font-Montserrat items-center">
+          {router?.query.result>=8 ? <div className="w-full flex justify-center py-5 text-4xl  font-Montserrat items-center">
              <div>Great-Job!</div>
              <svg
                width="36"
@@ -54,7 +60,18 @@ import { useSession } from "next-auth/react";
                  fill="#FDD835"
                />
              </svg>
+             <p>
+
+            Congratulations! You may be ready to sell your own
+
+home.
+             </p>
+           </div>:
+           <div>
+You got {Number(router?.query.result) * 10}%
+
            </div>
+           }
            <div className="w-full flex justify-center py-5 text-xl  font-Montserrat">
              You’re almost there, talk to our{" "}
              <Link

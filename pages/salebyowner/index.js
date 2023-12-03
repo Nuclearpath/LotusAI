@@ -16,7 +16,8 @@ import Image from "next/image";
 const SBOData = [
   {ref: "/salebyowner/preparationandstaging",title: "Preparation and Staging", para: "Staging is the icing on the cake that gives your home a professional touch. With a few props and the following tips,your home will show like a model.", img: "/ROI.jpg"},
   {ref: "/salebyowner/fsbomarketingchecklist",title: "Marketing Checklist", para: "Successfully marketing your home means much more than putting a for sale sign in your front yard.", img: "/marketing checlist.png"},
-  {ref: "/salebyowner/pricing",title: "Pricing", para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", img: "/FSBO pricing.png"},
+  {ref: "/salebyowner/pricing",title: "Pricing", para: `The average Realtor-assisted home sale realizes a 16% higher sale price than does a FSBO. Is that 6%
+  commission worth it? You do the math.`, img: "/FSBO pricing.png"},
   {ref: "/salebyowner/safeshowingchecklist",title: "Safe Showing Checklist", para: "Staging is the icing on the cake that gives your home a professional touch. With a few props and the following tips,your home will show like a model.", img: "/safe showing.png"},
   {ref: "/salebyowner/qualifyingthebuyer",title: "Qualifying the Buyer", para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.", img: "/qualifying the buyer for fsbp.png"},
   {ref: "/salebyowner/testquiz",title: "Quiz: Test Your Real Estate IQ", para: "Do you have what it takes to go it alone ? Test your real estate knowledge.", img: "/FSBO IQ.png"}
@@ -38,6 +39,10 @@ function Salebyowner() {
       <div className="px-3 sm:py-12 py-3">
         <div className="text-center sm:text-3xl text-2xl  font-header font-medium pb-8">
           For Sale By Owner
+        </div>
+        <div className="flex w-full justify-center font md:text-2xl  md:font-header text-center">
+
+        Want to get on the lotuss FSBO list?&nbsp;  <Link href={"/salebyowner/fsbolisting"} className="text-custom-yellow"> Click here</Link> , and we&apos;ll help you create engagement for your FSBO listing
         </div>
         {/* <div className=" flex flex-col space-y-10 sm:pt-0 pt-5">
            <div className="flex flex-col space-y-2 sm:px-12 px-3 sm:py-3 py-3 border-2 border-l-0 border-custom-yellow rounded relative">

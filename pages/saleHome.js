@@ -16,12 +16,12 @@ function SaleHome() {
     <div>
       <MainHeader page={""}></MainHeader>
       <div className="sm:py-12 py-8 sm:flex  flex-col w-full space-y-7 relative sm:px-12 px-3 sm:overflow-hidden">
-        <div className="w-full justify-start font-header sm:text-4xl text-2xl">
+        <div className="w-full justify-center font-header sm:text-4xl text-2xl">
           Why people decide to sell their homes
         </div>
         <ul className="list-decimal">
           <li className="w-full justify-start font-Montserrat    text-xl">
-            <span className="font-header underline font-semibold">
+            <span className="font-header underline font-semibold text-custom-yellow text-2xl">
               Relocation:
             </span>{" "}
             Job transfers, changes in family circumstances, or a desire to move
@@ -29,7 +29,7 @@ function SaleHome() {
             their houses.
           </li>
           <li className="w-full justify-start font-Montserrat    text-xl">
-            <span className="font-header underline font-semibold">
+            <span className="font-header underline font-semibold text-custom-yellow text-2xl">
               Upsizing or Downsizing:
             </span>{" "}
             Growing families may need more space, while empty nesters or
@@ -37,7 +37,7 @@ function SaleHome() {
             smaller home.
           </li>
           <li className="w-full justify-start font-Montserrat    text-xl">
-            <span className="font-header underline font-semibold">
+            <span className="font-header underline font-semibold text-custom-yellow text-2xl">
               Financial Reasons:
             </span>{" "}
             Homeowners may choose to sell their house due to financial
@@ -45,7 +45,7 @@ function SaleHome() {
             reducing mortgage expenses, or addressing financial challenges.
           </li>
           <li className="w-full justify-start font-Montserrat    text-xl">
-            <span className="font-header underline font-semibold">
+            <span className="font-header underline font-semibold text-custom-yellow text-2xl">
               Lifestyle Changes:
             </span>{" "}
             Changes in lifestyle preferences, such as wanting to live closer to
@@ -56,7 +56,7 @@ function SaleHome() {
             distress, and relocation)
           </li>
           <li className="w-full justify-start font-Montserrat    text-xl">
-            <span className="font-header underline font-semibold">
+            <span className="font-header underline font-semibold text-custom-yellow text-2xl">
               Repairs and Maintenance:
             </span>{" "}
             Some homeowners decide it{"'"}s time to sell when they no longer
@@ -64,7 +64,7 @@ function SaleHome() {
             associated with their current property.
           </li>
           <li className="w-full justify-start font-Montserrat    text-xl">
-            <span className="font-header underline font-semibold">
+            <span className="font-header underline font-semibold text-custom-yellow text-2xl">
               Investment Opportunities:
             </span>{" "}
             Selling a property can provide capital for other investment
@@ -72,7 +72,7 @@ function SaleHome() {
             or investing in different ventures.
           </li>
           <li className="w-full justify-start font-Montserrat    text-xl">
-            <span className="font-header underline font-semibold">
+            <span className="font-header underline font-semibold text-custom-yellow text-2xl">
               Retirement Planning:
             </span>{" "}
             Homeowners approaching retirement may choose to sell their house as
@@ -80,7 +80,7 @@ function SaleHome() {
             relocate to a more desirable retirement destination.
           </li>
           <li className="w-full justify-start font-Montserrat    text-xl">
-            <span className="font-header underline font-semibold">
+            <span className="font-header underline font-semibold text-custom-yellow text-2xl">
               Divorce or Separation:
             </span>{" "}
             Divorce or Separation: During divorce or separation proceedings,
@@ -88,7 +88,7 @@ function SaleHome() {
             logistical reasons.
           </li>
           <li className="w-full justify-start font-Montserrat    text-xl">
-            <span className="font-header underline font-semibold">
+            <span className="font-header underline font-semibold text-custom-yellow text-2xl">
               Market Conditions:
             </span>{" "}
             Favorable market conditions, such as high demand and low inventory
@@ -96,7 +96,7 @@ function SaleHome() {
             potentially higher sale prices.
           </li>
           <li className="w-full justify-start font-Montserrat    text-xl">
-            <span className="font-header underline font-semibold">
+            <span className="font-header underline font-semibold text-custom-yellow text-2xl">
               Estate Planning:
             </span>{" "}
             When planning their estate, individuals may need to know the value
@@ -104,7 +104,7 @@ function SaleHome() {
             other financial decisions.
           </li>
           <li className="w-full justify-start font-Montserrat    text-xl">
-            <span className="font-header underline font-semibold">
+            <span className="font-header underline font-semibold text-custom-yellow text-2xl">
               Personal Preferences:
             </span>{" "}
             Sometimes homeowners simply desire a change of scenery and want a

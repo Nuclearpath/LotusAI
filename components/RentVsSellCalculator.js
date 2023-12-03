@@ -88,13 +88,13 @@ function RentVsSellCalculator() {
     <>
       {" "}
       {result ? (
-        <div className="w-full flex flex-col items-center justify-center">
+        <div className="w-full flex flex-col items-center justify-center px-16">
             <button
               onClick={() => {
                 setResult(false);
                 setVal(0);
               }}
-              className="text-xl font-normal px-2 py-3 my-2 text-white mx-2 rounded-md bg-custom-yellow"
+              className="my-8 text-xl font-normal px-2 py-3  text-white mx-2 rounded-md bg-custom-yellow"
             >
               Calculate again
             </button>
@@ -105,6 +105,7 @@ function RentVsSellCalculator() {
             {sFormValue.yearstohold} years verses{" "}
             {calc > 0 ? "selling" : "renting"} your property today.
           </div>
+      
           <Line
             datasetIdKey="id"
             data={{
@@ -138,7 +139,7 @@ function RentVsSellCalculator() {
               plugins: {},
             }}
           />
-        </div>
+          </div>
       ) : (
         <div className="py-6">
           {val === 0 && (
