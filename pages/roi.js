@@ -36,30 +36,63 @@ function Roi() {
       propties: ["Office", "Fireplace", "Deck", "Family Room", "View"],
     },
   ];
+const listData=[
+  { value: "Floorings", label: "Floorings",featured:[
+    { value: "New Carpet", label: "New Carpet" },
+    { value: "New Hardwood", label: "New Hardwood" },
+    { value: "New Vinyl", label: "New Vinyl" },
+  ] },
+  { value: "Exterior features", label: "Exterior features",featured:[
+    { value: "HVAC replacement", label: "HVAC replacement" },
+    { value: "Deck replacement", label: "Deck replacement" },
+    { value: "Window replacement", label: "Window replacement" },
+    { value: "Roof replacement", label: "Roof replacement" },
+    { value: "New exterior siding and trim", label: "New exterior siding and trim" }
 
-  const categoryData = [
-    { value: "Miscellaneous", label: "Miscellaneous" },
-    { value: "Interior Features", label: "Interior Features" },
-    { value: "Home Styles", label: "Home Styles" },
-    { value: "Flooring", label: "Flooring" },
-    { value: "Exterior Features", label: "Exterior Features" },
-  ];
+  ] },
+  { value: "Interior features", label: "Interior features",featured:[
+    { value: "Replace lighting throughout", label: "Replace lighting throughout" },
+    { value: "Replace hardware throughout", label: "Replace hardware throughout" },
+    { value: "Replace electric throughoutt", label: "Replace electric throughoutt" },
+    { value: "Created home office space", label: "Created home office space" }
+  ] },
+  { value: "Kitchen", label: "Kitchen",featured:[
+    { value: "Complete remodel", label: "Complete remodel" },
+    { value: "Light renovations", label: "Light renovations" },
+    { value: "Minor fixes", label: "Minor fixes" },
+  ] }
 
-  const featureData = [
-    { value: "Beach Access", label: "Beach Access" },
-    { value: "Club House", label: "Club House" },
-    { value: "Community Pool", label: "Community Pool" },
-    { value: "Storage Area", label: "Storage Area" },
-    { value: "Hot Hub", label: "Hot Hub" },
-  ];
+]
+
+const rows = [
+  {
+    key: "1",
+    feature: "Hot Tub",
+    withAddedImprovements: "$1,834,230",
+    rate: "+78K",
+  },
+  {
+    key: "2",
+    feature: "Storage Unit",
+    withAddedImprovements: "$1,834,230",
+    rate: "+64.5k",
+  },
+];
+
   // const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { data: session, status } = useSession();
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState(new Set([]));
+  const [feature, setFeature] = useState(new Set([]));
+
+
   const [isOpen, setIsOpen] = useState(false);
   const [estimate, setEstimate] = useState([]);
   const [property, setProperty] = useState("");
   const [value, setValue] = useState("");
+  const [table, setTable] = useState(rows);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -119,22 +152,12 @@ function Roi() {
               </span>
             </div>
             <div className="mt-3">{houseData.decription}</div>
-            {/* <button
-              className=" underline sm:text-xl text-base py-3"
-              onClick={() => setOpen(!open)}
-            >
-              Get Revised Estimate
-            </button> */}
-            <button
-              className="font-header bg-custom-yellow hover:bg-opacity-80 font-semibold  rounded-full  py-2 px-5 sm:text-xl text-base mt-3 text-white hover:underline"
-              onClick={() => setOpen(!open)}
-            >
-              Upgrade
-            </button>
           </div>
 
-          {open ? (
+ 
             <div className="w-full p-0 md:p-6 text-base rounded-md mb-3">
+          <p>Add your recent renovations here</p>
+
               <form
                 onSubmit={handleSubmit}
                 className="flex flex-col sm:flex-row justify-center items-center gap-8 mb-5"
@@ -163,56 +186,49 @@ function Roi() {
                   onChange={(e) => setValue(e.target.value)}
                 />
                 </div> */}
+
                 <CategoryDropdown
-                  categories={categoryData}
+                  categories={listData}
                   title={"Category"}
+                  selected={selected}
+                  setSelected={setSelected}
                 />
-                <CategoryDropdown categories={featureData} title={"Feature"} />
+                <CategoryDropdown categories={listData} title={"Feature"} list={selected}
+                feature={feature}
+                setFeature={setFeature}
+                
+                />
                 <button
                   type="submit"
                   className="bg-custom-yellow hover:bg-opacity-80 px-10 py-3 sm:py-3 sm:px-12 rounded-md text-white text-lg "
-                  onClick={() => setIsOpen(!isOpen)}
+                  onClick={() =>{ setTable(
+                    (item)=>([
+
+                    
+...item,
+                    {
+                      key: item.length + 1,
+                      feature: feature?.anchorKey,
+                      withAddedImprovements: "$1,834,230",
+                      rate: "+78K",
+                    }
+                  ]
+                  ))
+                  setFeature(new Set([]))
+                  setSelected(new Set([]))
+                }
+                }
                 >
                   ADD
                 </button>
               </form>
-              {/* {estimate.length ? (
-                <ul className="p-5 overflow-auto max-h-[200px]">
-                  {estimate.map((val,idx) => (
-                    <li
-                      // className="flex justify-between items-center w-1/2 p-2"
-                      key={idx}
-                    >
-                      <div className="flex justify-evenly items-center">
-                      <p>{val.property}</p>
-                      <p>{val.value}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <div></div>
-              )} */}
-              {isOpen ? (
                 <div className="py-5">
-                  <FeatureTable />
+                  <FeatureTable table={table} setTable={setTable}/>
                   <FeatureChart />
                 </div>
-              ) : (
-                <div></div>
-              )}
+             
             </div>
-          ) : (
-            <div></div>
-          )}
-          {/* <div className="py-3">
-            <button
-              className="font-header bg-custom-yellow hover:bg-opacity-80 font-semibold  rounded-full  py-2 px-5 "
-              onClick={onOpen}
-            >
-              Upgrade
-            </button>
-          </div> */}
+      
         </div>
         {/* <div className="sm:pt-6 pt-3 flex justify-start sm:text-2xl text-2xl font-header w-full">
           Top 10 home features in the U.S. that add value

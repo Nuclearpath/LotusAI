@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Table,
   TableHeader,
@@ -10,20 +10,7 @@ import {
 } from "@nextui-org/react";
 import { RiDeleteBin2Fill } from "react-icons/ri";
 
-const rows = [
-  {
-    key: "1",
-    feature: "Hot Tub",
-    withAddedImprovements: "$1,834,230",
-    rate: "+78K",
-  },
-  {
-    key: "2",
-    feature: "Storage Unit",
-    withAddedImprovements: "$1,834,230",
-    rate: "+64.5k",
-  },
-];
+
 
 const columns = [
   {
@@ -40,13 +27,13 @@ const columns = [
   },
 ];
 
-export default function App() {
+export default function App({table,setTable}) {
   return (
     <Table aria-label="Example table with dynamic content">
       <TableHeader columns={columns}>
         {(column) => <TableColumn key={column.key} className="bg-custom-light-yellow">{column.label}</TableColumn>}
       </TableHeader>
-      <TableBody items={rows} className="flex justify-between items-center">
+      <TableBody items={table} className="flex justify-between items-center">
         {(item) => (
           <TableRow key={item.key}>
             <TableCell className="w-[60%]">{item.feature}</TableCell>
@@ -60,6 +47,7 @@ export default function App() {
               <Button
                 color="danger"
                 className="text-white text-lg cursor-pointer hover:opacity-70 focus:!outline-none"
+                onClick={()=>setTable((element)=>element.filter((a)=>a.key !== item.key))}
               >
                 <RiDeleteBin2Fill size={20} />
               </Button>
