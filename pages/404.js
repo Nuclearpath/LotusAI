@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import Unauth from "../components/Unauth";
+
 import Loader from "../components/Loader";
 
 export default function Custom404() {

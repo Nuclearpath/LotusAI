@@ -7,9 +7,7 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 import { BiLogoFacebook } from "react-icons/bi";
 import Link from "next/link";
 import Image from "next/image";
-import Testimonials from "./Testimonials";
 import MainHeader from "./MainHeader";
-import Videosection from "./Videosection";
 import { data } from "autoprefixer";
 import CenterMode from "./CenterSlider";
 

@@ -5,10 +5,8 @@ import House from "../components/House";
 import Link from "next/link";
 import ValueTrendsChart from "../components/ValueTrendsChart";
 import MarketTrend from "../components/MarketTrend";
-import Chatbot from "../components/Chatbot";
 
 import { useSession } from "next-auth/react";
-import NotLoggedIn from "../components/NotLoggedIn";
 
 function Dashboard() {
   const { data: session } = useSession();

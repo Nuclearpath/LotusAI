@@ -1,34 +1,303 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Front End Documentation
 
-## Getting Started
+## Project name: LotusAI
+Version: 0.1.0
 
-First, run the development server:
+## Github : [https://github.com/zzpritzz/LotusAI](https://github.com/zzpritzz/LotusAI)
 
+## Introduction:
+
+This document provides an overview of the front end development for Lotus AI,, a NextJS application designed for [insert brief project description]. It details the project's architecture, technologies used, and how to contribute to the codebase.
+
+## Technologies:
+
+- Next JS [pages directory]
+- ReactJS
+- Javascript
+- Tailwind CSS
+
+ ### Important Libraries
+
+- Zustand [state management]
+- Next-auth [user session management]
+- Next-UI [UI component library]
+- React icons
+- Slick Carousal [Sliders]
+- React ChartJS 2
+
+## Project Structure
+
+The project contains mainly 5 folders and configuration files in the root directory
+
+ ### Component folder:
+ This folder contains the code for the layout sections that are used in the pages
+
+ ### Lib folder: 
+ This folder contains the Models and controller code to connect with database and scraper for the smartcharts.
+
+ ### Pages folder:
+ This folder has all the pages that are part of the website. The flow starts from \_app.js for the project
+
+ ### Public folder:
+ This folder has all the assets that we use in the pages
+
+ ### Styles folder:
+ This folder only has globalstyles that need to be added since we use tailwind classes at the Html level for styling
+
+## Installation
 ```bash
-npm run dev
-# or
-yarn dev
+npm install # install all the dependencies in the package.json
+npm run dev # start the development server
+```
+## Deployment
+
+Can be hosted in Vercel connecting to the Github repo for Continuous deployment.
+
+Environment variable needs to be add to Vercel while deployment given as per **env.example**
+
+## Code Style
+
+1) Add Provider or wrappers need for the entire project in \_app.js
+
+```
+ import "../styles/globals.css";
+
+import { NextUIProvider } from "@nextui-org/react";
+
+import { SessionProvider } from "next-auth/react";
+
+import Script from "next/script";
+
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+
+return (
+
+<SessionProvider session={session}\>
+
+<Script
+
+id="zsiqchat"
+
+defer
+
+src="/salesiq.js"
+
+\>
+
+<NextUIProvider\>
+
+…
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2) Pages in the file name act as routes
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+ Roi.js in the page folder can be accessed by http:urlname/roi
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+3) Add the sections for each page as components
+```
+…
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+return (
 
-## Learn More
+<div className=" flex w-full flex-col"\>
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<MainHeader page={""}\>\</MainHeader\>
 
-## Deploy on Vercel
+<div className="w-full flex flex-col sm:px-12 px-3"\>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<div className="sm:pt-24 pt-3 flex justify-start sm:text-3xl text-2xl font-header w-full"\>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+DashBoard
+
+</div\>
+
+<DashboardContent {...data}\>\</DashboardContent\>
+
+….
+```
+4) For creating Apis use the api folder
+
+Files can be accessed via the route /api/signup
+```
+ .import connectDatabase from "../../lib/connectDatabase";
+
+import CredUser from "../../lib/models/CredUser";
+
+export default async function handler(req, res) {
+
+if (req.method !== "POST") {
+
+res.status(405).send({ message: "Only POST requests allowed" });
+
+return;
+
+}
+
+try {
+
+….
+
+}
+
+catch{
+
+….
+
+}
+```
+5) Style using tailwind classnames in the js files
+```
+…
+
+<div className="w-full sm:px-12 px-3 sm:py-9 py-3"\>
+
+<div className="py-5 flex flex-col px-5 shadow-xl rounded-lg"\>
+
+<div className="w-full flex flex-col justify-center gap-3 md:flex-row md:justify-between items-center"\>
+
+<div\>
+
+<div className="font-Montserrat font-semibold text-custom-yellow text-xl "\>
+
+Users
+
+</div\>
+
+…
+```
+6) Custom variables for colors ,fonts, assets can be added to the tailwind config to use globally as classnames
+
+tailwindconfig.js
+```
+ theme: {
+
+extend: {
+
+fontFamily: {
+
+Montserrat: ["Lato", "sans-serif"],
+
+threeline: ["Bungee Outline", "cursive"],
+
+header: ["Lato", "sans-serif"],
+
+head: ["Lato", "sans-serif"],
+
+},
+
+backgroundImage: {
+
+"hero-pattern": "url('/Rect.png')",
+
+},
+
+spacing: {
+
+84: "20rem",
+
+},
+
+colors: {
+
+"custom-yellow": "#FFA921",
+
+….
+```
+
+7) Create reusable components in Component folder to used as \<Component/\> in the layout
+```
+ import React from "react";
+
+import Image from "next/image";
+
+function CompCard({ image, price, area }) {
+
+return (
+
+<div className="w-full flex flex-col shadow-lg "\>
+
+<div className="w-full h-[30vh]"\>
+
+<Image fill src={image} className="!relative"\>\</Image\>
+
+</div\>
+
+<div className="w-full font-Montserrat font-medium pt-2 text-xl px-2"\>
+
+Sold Price Sold ${price}
+
+</div\>
+
+<div className="w-full font-Montserrat font-normal pt-2 px-2"\>{area}\</div\>
+
+<div className="w-full flex justify-end py-4 px-2"\>
+
+<button className="bg-custom-yellow text-white px-5 text-xl py-2 rounded-md"\>
+
+select
+
+</button\>
+
+</div\>
+
+</div\>
+
+);
+
+}
+
+export default CompCard;
+```
+8) Create nested routes by using Subfolders in the page folder
+
+Example nested route **/salebyowner/pricing**
+
+## Components:
+
+### UI components-
+
+**CenterSlider** - full screen carousal
+
+**Dropdown**- used in navbar for FSBO
+
+**Category dropdown**- used in ROI for selecting lists
+
+**Mainheader** - navbar for all the pages
+
+**CompCard** - Comparable properties house cards
+
+**House**- Dashboard house
+
+**Loader**- lotus svg animation
+
+**MarketTrend** - Graph 1
+
+**ValueTrend**- Graph 2
+
+### Section components
+
+**DashboardContent** - Layout we show irrespective of user login
+
+**RentvsSell Calculator**- Component to show the inputs and calculate the rent vs sell values
+
+**FeatureTable** - table in roi
+
+**FeatureChart**- Graph 3
+
+**AdminHeader**- navbar for admin, moderator pages
+
+## Resources
+
+[https://nextjs.org/](https://nextjs.org/)
+
+[https://next-auth.js.org/](https://next-auth.js.org/)
+
+[https://react-slick.neostack.com/](https://react-slick.neostack.com/)
+
+[https://nextui.org/](https://nextui.org/)
+
+[https://tailwindcss.com/docs](https://tailwindcss.com/docs)
+
+[https://react-chartjs-2.js.org/](https://react-chartjs-2.js.org/)
