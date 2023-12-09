@@ -51,9 +51,16 @@ npm run dev # start the development server
 ```
 ## Deployment
 
-Can be hosted in Vercel connecting to the Github repo for Continuous deployment.
+The repo can be hosted in Vercel or other deplyment tools connecting to the Github repo for Continuous deployment.
 
 Environment variable needs to be add to Vercel while deployment given as per **env.example**
+
+### Env variables:
+
+For Postgres database use a remote database for Smart Charts scrapper using **Render** or alternative for production.
+
+Refer this on how to add Google and next auth credentials 
+[https://next-auth.js.org/providers/google](https://next-auth.js.org/providers/google)
 
 ## Code Style
 
