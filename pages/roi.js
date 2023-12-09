@@ -8,7 +8,7 @@ import FeatureTable from "../components/Featuretable";
 import { FeatureChart } from "../components/FeatureChart";
 import CenterMode from "../components/CenterSlider";
 
-// import Chatbot from "../components/Chatbot";
+// 
 function Roi() {
   const houseData = {
     house: "20 S Huntington Ave",

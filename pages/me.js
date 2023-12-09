@@ -10,7 +10,7 @@ function Me() {
   const router = useRouter();
   useEffect(() => {
     if (session) {
-      //console.log(session);
+      //// console.log(session);
       getAuth(session);
     }
     if (status === "unauthenticated") {

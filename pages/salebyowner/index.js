@@ -42,7 +42,7 @@ function Salebyowner() {
         </div>
         <div className="flex w-full justify-center font md:text-2xl  md:font-header text-center">
 
-        Want to get on the lotuss FSBO list?&nbsp;  <Link href={"/salebyowner/fsbolisting"} className="text-custom-yellow"> Click here</Link> , and we&apos;ll help you create engagement for your FSBO listing
+        Want to get on the lotuss FSBO list?&nbsp;  <Link href={"/salebyowner/qualifyingthebuyer"} className="text-custom-yellow"> Click here</Link> , and we&apos;ll help you create engagement for your FSBO listing
         </div>
         {/* <div className=" flex flex-col space-y-10 sm:pt-0 pt-5">
            <div className="flex flex-col space-y-2 sm:px-12 px-3 sm:py-3 py-3 border-2 border-l-0 border-custom-yellow rounded relative">

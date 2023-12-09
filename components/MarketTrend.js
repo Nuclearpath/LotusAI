@@ -4,8 +4,8 @@ function MarketTrend() {
   return (
     <div>
       <div className="shadow h-full">
-        <div className="w-full flex sm:space-x-8 space-x-4 py-10">
-          <button className="sm:text-2xl font-Montserrat font-semibold text-xl">
+        <div className="w-full flex sm:space-x-8 space-x-4 mt-2 justify-center">
+          <button className=" font-Montserrat font-semibold text-md">
             Average Sale Price Of Homes Sold
           </button>
       

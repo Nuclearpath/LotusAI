@@ -39,14 +39,14 @@ function DashboardContent(props) {
           {role === "mod" ? (
             <div className="text-white font-medium hover:underline">
               {" "}
-              Edit facts
+              Edit Home facts
             </div>
           ) : (
             <Link
               className="text-white font-medium hover:underline"
               href="/editfacts"
             >
-              Edit facts
+              Edit Home facts
             </Link>
           )}
         </button>

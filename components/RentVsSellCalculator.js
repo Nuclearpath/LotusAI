@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
+import { Checkbox } from "@nextui-org/react";
 function RentVsSellCalculator() {
   const [val, setVal] = useState(0);
   const [formValue, setFormValue] = useState({
@@ -23,7 +24,7 @@ function RentVsSellCalculator() {
     yearstohold: 5,
   });
 
-  // console.log(val);
+  // // console.log(val);
   const handleSubmit = (e) => {
     e.preventDefault();
     setResult(true);
@@ -64,7 +65,7 @@ function RentVsSellCalculator() {
       v.push(
         Number(Number(homeVal) - Number(mortageBalance) + Number(ri)).toFixed(2)
       );
-      // console.log(ri);
+      // // console.log(ri);
       let rentIncome = Number(
         Number(homeVal) - Number(mortageBalance) + Number(ri)
       ).toFixed(2);
@@ -78,12 +79,16 @@ function RentVsSellCalculator() {
       homeVal = homeVal + homeVal * (aRate / 100);
       mortageBalance = mortageBalance - mortageExpense * 12;
     }
-    console.log(ans);
+    // console.log(ans);
     setGval([...ans]);
     setCalc(Number(ans[years - 1][8]).toFixed(0));
     // setVal(Math.floor((val+1)%2));
-    // console.log(formValue);
+    // // console.log(formValue);
   };
+  const [isSelected, setIsSelected] = React.useState(false);
+  const [isSelected2, setIsSelected2] = React.useState(false);
+  const [isSelected3, setIsSelected3] = React.useState(false);
+  const [show,setShow]=useState(false)
   return (
     <>
       {" "}
@@ -93,11 +98,44 @@ function RentVsSellCalculator() {
               onClick={() => {
                 setResult(false);
                 setVal(0);
+                setShow(false)
+                setIsSelected(false)
+                setIsSelected2(false)
+                setIsSelected3(false)
               }}
               className="my-8 text-xl font-normal px-2 py-3  text-white mx-2 rounded-md bg-custom-yellow"
             >
               Calculate again
             </button>
+
+         {! show &&   <ol className="mt-8 flex flex-col items-center justify-center">
+        <li className="w-full flex items-center space-x-4">
+         
+
+              <div>
+              Do you plan to ever come back to your home?
+                </div>
+                {/* isSelected={isSelected} onValueChange={setIsSelected} */}
+                    <Checkbox  color="warning" size="md" radius="none" isSelected={isSelected} onValueChange={()=>setIsSelected(o=>!o)}></Checkbox>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+              <div>
+              Do you ever plan to gift your home to a family member?
+                </div>
+                <Checkbox  color="warning" size="md" radius="none" isSelected={isSelected2} onValueChange={()=>setIsSelected2(o=>!o)}></Checkbox>
+              </li>
+              <li className="w-full flex items-center space-x-4">
+              <div>
+              Have you ever been a landlord?
+                </div>
+                <Checkbox  color="warning" size="md" radius="none" isSelected={isSelected3} onValueChange={()=>setIsSelected3(o=>!o)}></Checkbox>
+              </li>
+              <button onClick={()=>setShow(isSelected || isSelected2 || isSelected3)}
+              className="bg-custom-yellow  text-white px-6 py-1 mt-4  max-w-max"
+              >Submit</button>
+        </ol>}
+        {  show?
+        <>
           <div className="sm:text-2xl text-lg px-2 font-normal  sm:font-semibold">
           
             if you {calc > 0 ? "RENT OUT" : "SELL OUT"} your property you{"'"}ll
@@ -139,6 +177,7 @@ function RentVsSellCalculator() {
               plugins: {},
             }}
           />
+          </>:null}
           </div>
       ) : (
         <div className="py-6">

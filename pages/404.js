@@ -1,8 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import Loader from "../components/Loader";
-
 export default function Custom404() {
   return (
     <div>

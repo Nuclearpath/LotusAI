@@ -16,7 +16,7 @@ function MainHeader({page}) {
   const [showSidebar, setShowSidebar] = useState(false);
   const { data: session } = useSession();
   //  if (session) {
-  //    console.log(session.user);
+  //    // console.log(session.user);
   //  }
   return (
     <div className="z-50 sticky top-0  w-full  bg-white  shadow-xl">

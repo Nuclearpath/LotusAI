@@ -20,12 +20,12 @@ export const options = {
       async authorize(credentials, req) {
         // await connectDatabase();
         await CredUser.sync();
-        //  console.log(credentials.email);
+        //  // console.log(credentials.email);
         const user = await CredUser.findOne({
           where: { email: credentials.email },
         });
 
-        // console.log(user);
+        // // console.log(user);
 
         if (user) {
           const isMatched = await user.validPassword(credentials?.password);
@@ -46,9 +46,9 @@ export const options = {
 
   callbacks: {
     async session({ session, token }) {
-      //  console.log(token);
+      //  // console.log(token);
       session.user.role = token.role;
-      //console.log(token);
+      //// console.log(token);
       return session;
     },
     async jwt({ token, account, profile, user }) {
@@ -66,7 +66,7 @@ export const options = {
       if (account.provider === "google") {
         if (profile.email_verified && profile.email.endsWith("@gmail.com")) {
           try {
-            //console.log(profile);
+            //// console.log(profile);
             // await connectDatabase();
             await GoogleUser.sync();
             const user = await GoogleUser.findOne({
@@ -74,10 +74,10 @@ export const options = {
                 email: profile.email,
               },
             });
-            //console.log(user);
+            //// console.log(user);
             if (user) {
               profile.role = user.role;
-              //console.log(profile);
+              //// console.log(profile);
               return user;
             } else {
               const newUser = await GoogleUser.create({

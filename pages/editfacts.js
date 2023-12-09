@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import MainHeader from "../components/MainHeader";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 // import Link from "next/link";
-// import Chatbot from "../components/Chatbot";
+// 
 import { useRouter } from "next/router";
 import {
   Modal,
@@ -15,7 +15,7 @@ import {
 } from "@nextui-org/react";
 
 import { useSession } from "next-auth/react";
-import NotLoggedIn from "../components/NotLoggedIn";
+
 function Editfacts() {
   const { data: session, status } = useSession();
 

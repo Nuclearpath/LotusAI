@@ -27,7 +27,7 @@ const columns = [
   },
 ];
 
-export default function App({table,setTable}) {
+export default function FeatureTable({table,setTable}) {
   return (
     <Table aria-label="Example table with dynamic content">
       <TableHeader columns={columns}>

@@ -35,13 +35,13 @@ switch(db)
   
 
 }
-// console.log(data);
+// // console.log(data);
     
     return res.status(200).json({ success: true,
        data
        });
   } catch (err) {
-    console.log(err);
+    // console.log(err);
     throw new Error(err.message);
   }
 }

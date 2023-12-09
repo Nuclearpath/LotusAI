@@ -11,7 +11,7 @@ function Login() {
   });
   const { data: session } = useSession();
 
-  // console.log("sesion deets", session);
+  // // console.log("sesion deets", session);
   const router = useRouter();
   useEffect(() => {
     if (session) {
@@ -31,7 +31,7 @@ function Login() {
       password: form.password,
     });
 
-    // console.log(form);
+    // // console.log(form);
   };
   return (
     <div className="w-full h-screen flex flex-col items-center justify-center">

@@ -26,8 +26,8 @@ function Timingthemarket() {
   const db=searchParams.get("db");
   const val=searchParams.get("val");
   
-  //console.log(router.query);
-  //  console.log(db);
+  //// console.log(router.query);
+  //  // console.log(db);
   const [label, setLabel] = useState(12);
   const [homeType, setHomeType] = useState({
     all:true,
@@ -202,11 +202,11 @@ function Timingthemarket() {
   const fil = (a) => {
     return a.replace(/\D/g, "");
   };
-  // console.log(source);
-  // MainActivity && console.log(source);
+  // // console.log(source);
+  // MainActivity && // console.log(source);
   const handleSourceChange = async (e) => {
     e.preventDefault();
-     console.log(e.target.value);
+     // console.log(e.target.value);
     switch (e.target.value) {
       
       case "MainActivity":
@@ -231,7 +231,7 @@ function Timingthemarket() {
 
         break;
       case "$ Per Sqft":
-       // console.log("tp");
+       // // console.log("tp");
       router.push(`/timingthemarket?db=ps&val=${val}`);
 
         break;
@@ -1010,7 +1010,7 @@ function Timingthemarket() {
   }
 
   const clearData=()=>{
-   // console.log("t");
+   // // console.log("t");
     setLvl({home:false,
     list:false,
     sold:false,

@@ -6,11 +6,13 @@ import Link from "next/link";
 import ValueTrendsChart from "../components/ValueTrendsChart";
 import MarketTrend from "../components/MarketTrend";
 
+
 import { useSession } from "next-auth/react";
+
 
 function Dashboard() {
   const { data: session } = useSession();
-  console.log("auth",session?.user?.role)
+  // console.log("auth",session?.user?.role)
 
   const data = {
     house: "20 S Huntington Ave",
@@ -105,23 +107,23 @@ function Dashboard() {
 
             </div>
             <div 
-            className="grid grid-cols-1 md:grid-cols-2 min-h-[500px]"
+            className="grid grid-cols-1 md:grid-cols-2 min-h-[400px]"
             >
+              <div>
             <div className="sm:pt-24 py-10 flex justify-center sm:text-3xl text-2xl font-header items-center">
               Pad&apos;s Value Trend
             </div>
-            <div className="w-full justify-center flex h-full ">
-              <div className="sm:w-8/12   w-3/4">
+            <div className="">
                 <ValueTrendsChart></ValueTrendsChart>
-              </div>
             </div>
+            </div>
+            <div>
             <div className="sm:pt-24 pt-10 flex justify-center sm:text-3xl text-2xl font-header w-full items-center">
            02667 value trend
             </div>
-            <div className="w-full justify-center flex">
-              <div className="sm:w-8/12  w-full">
+            <div className="">
                 <MarketTrend></MarketTrend>
-              </div>
+            </div>
             </div>
          
         

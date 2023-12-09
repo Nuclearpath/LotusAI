@@ -3,7 +3,7 @@ import { useState } from "react";
 // import {commonColors} from "@nextui-org/theme";
 
 export default function CategoryDropdown({categories,title,selected,setSelected,list,setFeature,feature}) {
-  console.log("select state",
+  // console.log("select state",
   selected?.anchorKey,
   list
   )

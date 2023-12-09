@@ -47,7 +47,7 @@ function Comparableproperties() {
 
     setPropertyValue("");
   };
-const [select, setSelect]=useState("")
+const [select, setSelect]=useState([])
   const editValue = (id) => {
     const editOne = values.find((value) => value.id === id);
     setPropertyValue(editOne.property);
@@ -64,6 +64,34 @@ const [select, setSelect]=useState("")
       router.push("/");
     }
   }, [status, router]);
+const places=[
+  {
+  id:"0",
+  image:"/house1.png",
+  price:"2,662,90",
+  area:"360 Huntington Ave, Boston"
+},
+{
+  id:"1",
+  image:"/house1.png",
+  price:"2,662,90",
+  area:"361 Huntington Ave, Boston"
+},
+{
+  id:"2",
+  image:"/house1.png",
+  price:"2,662,90",
+  area:"362 Huntington Ave, Boston"
+},
+{
+  id:"3",
+  image:"/house1.png",
+  price:"2,662,90",
+  area:"363 Huntington Ave, Boston"
+},
+
+]
+//  show the data of the select area on maps with a pin
 
   return (
     <div>
@@ -86,37 +114,18 @@ const [select, setSelect]=useState("")
           </div>
        
           <div className="grid md:grid-cols-2 grid-cols-1 sm:gap-8 gap-4 p-4">
-            <CompCard
-              image={"/house1.png"}
-              price={"2,662,90"}
-              area="360 Huntington Ave, Boston"
-              setSelect={setSelect}
-              select={select}
-            ></CompCard>
-            <CompCard
-              image={"/house1.png"}
-              price={"2,662,90"}
-              area="360 Huntington Ave, Boston"
-              setSelect={setSelect}
-              select={select}
-              id={"1"}
-            ></CompCard>
-            <CompCard
-              image={"/house1.png"}
-              price={"2,662,90"}
-              area="360 Huntington Ave, Boston"
-              setSelect={setSelect}
-              select={select}
-              id={"2"}
-            ></CompCard>
-            <CompCard
-              image={"/house1.png"}
-              price={"2,662,90"}
-              area="360 Huntington Ave, Boston"
-              setSelect={setSelect}
-              select={select}
-              id={"3"}
-            ></CompCard>
+            {places.map((place)=>(
+   <CompCard
+   image={place.image}
+   price={place.price}
+   area={place.area}
+   setSelect={setSelect}
+   select={select}
+   id={place.id}
+   key={place.id}
+ ></CompCard>
+
+            ))}
           </div>
 
              {/* Form section */}
