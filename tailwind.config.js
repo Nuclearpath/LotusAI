@@ -33,6 +33,7 @@ module.exports = {
         "custom-yellow": "#FFA921",
         "custom-light-yellow": "#FFEAC9",
         "custom-verylight-yellow": "#FFFAF3",
+        "custom-rose": "#F77C92",
         // "custom-yellow": "#000080",
         // "custom-light-yellow": "#24248f",
         // "custom-verylight-yellow": "#4141fa",

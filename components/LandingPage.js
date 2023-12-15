@@ -57,7 +57,7 @@ function LandingPage() {
 
           <div className="text-2xl md:text-5xl  text-center font-header font-normal   leading-tight md:leading-normal">
                 Find Out What Your Home Is
-                <span className="text-custom-yellow mx-3">Really</span>
+                <span className="text-custom-rose mx-3">Really</span>
                 Worth
               </div>
               <div className="font-header text-sm md:text-xl mt-2 text-center tracking-wider font-semibold w-full  ">
