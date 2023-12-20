@@ -3,10 +3,6 @@ import { useState } from "react";
 // import {commonColors} from "@nextui-org/theme";
 
 export default function CategoryDropdown({categories,title,selected,setSelected,list,setFeature,feature}) {
-  // console.log("select state",
-  selected?.anchorKey,
-  list
-  )
   return (
     <div className="flex justify-center items-center w-full flex-wrap md:flex-nowrap gap-10 ">
     { title=== "Feature"?   <Select 
