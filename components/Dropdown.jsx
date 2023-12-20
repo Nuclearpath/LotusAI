@@ -11,17 +11,22 @@ import { SlArrowDown } from "react-icons/sl";
 
 export default function DropdownBtn() {
   return (
-    <Dropdown>
+    <Dropdown >
       <DropdownTrigger>
         <Button
           variant="light "
           className="sm:flex justify-between items-center font-header font-semibold text-base hidden"
         >
-          <Link href="/salebyowner">For Sale By Owner</Link>
+            For Sale By Owner
           <SlArrowDown size={10} />
         </Button>
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
+      <DropdownItem className="hover:!bg-custom-yellow">
+          <Link href="/salebyowner" className="text-base">
+          For Sale By Owner
+          </Link>
+        </DropdownItem>
         <DropdownItem className="hover:!bg-custom-yellow">
           <Link href="/salebyowner/preparationandstaging" className="text-base">
             Preparation and Staging
